@@ -126,12 +126,15 @@ function getCungDaiVanHienTai(daiVanArr, tuoiHienTai) {
     return -1; // Không tìm thấy
 }
 function renderDaivanSection() {
-  
-    // Hoặc bạn có thể truyền window.menhIdx, window.cucSo, window.amduong, window.tuoiAm...
-    const menhIdx =  window.menhIdx || 0;
-    const cucSo =  window.cucSo || 2; // 2,3,4,5,6
-    const amduong = window.amduong || "Dương Nam";
-    const tuoiAm = window.tuoiAm || 32; // tuổi hiện tại
+  // Đầu file luangiai.js (trước khi render luận giải)
+let lasoData = {};
+try {
+    lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
+} catch(e) { lasoData = {}; }
+    const menhIdx =lasoData.IDCungMenh;
+    const cucSo = lasoData.cucSo;
+    const amduong = lasoData.amduong 
+    const tuoiAm = lasoData.tuoiAm;
     // Tên cung
     const CUNG_CELLS = window.CUNG_CELLS || [
         { chi: "Dần" },{ chi: "Mão" },{ chi: "Thìn" },{ chi: "Tỵ" },{ chi: "Ngọ" },{ chi: "Mùi" },
@@ -148,18 +151,33 @@ function renderDaivanSection() {
     const idxDaiVan = getCungDaiVanHienTai(lsDaiVan, tuoiAm);
 
     // Render
-    let html = '';
-    for (let i = 0; i < 12; ++i) {
-        const startAge = lsDaiVan[i];
-        const endAge = (i < 11 ? lsDaiVan[i+1]-1 : startAge+9);
-        const cungTen = TEN_CUNG_FULL[i];
-        const isCurrent = (i === idxDaiVan);
-        html += `
-        <div class="daivan-item${isCurrent ? ' daivan-current' : ''}">           
-            <b>Đại Vận Cung:</b> ${cungTen} <br>
-            <b>Tuổi:</b> ${startAge} - ${endAge}
-        </div>
-        `;
-    }
-    document.getElementById('daivan-content').innerHTML = html;
+    let arr = [];
+for (let i = 0; i < 12; ++i) {
+    // idx là vị trí cung đại vận theo vòng từ cung Mệnh
+    const idx = (menhIdx + i) % 12;
+    const startAge = lsDaiVan[idx];
+    const endAge = startAge + 9;
+    const cungTen = TEN_CUNG_FULL[i];
+    arr.push({
+        cungTen,
+        startAge,
+        endAge
+    });
+}
+
+// Sắp xếp theo tuổi bắt đầu tăng dần
+arr.sort((a, b) => a.startAge - b.startAge);
+
+// Render ra HTML
+let html = '';
+arr.forEach(item => {
+    html += `
+    <div class="daivan-item">
+        <b>Cung:</b> ${item.cungTen} <br>
+        <b>Tuổi:</b> ${item.startAge} - ${item.endAge}
+    </div>
+    `;
+});
+
+document.getElementById('daivan-content').innerHTML = html;
 }

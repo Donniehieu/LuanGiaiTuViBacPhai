@@ -221,6 +221,17 @@ document.getElementById('form_tuvi').addEventListener('submit', function (e) {
     phamgio_da_de = checkGioDaDe(am.thang, chiGio);
     phamgio_tuong_quan = checkGioTuongQuan(am.thang, chiGio);
     phamgio_kim_xa_thiet_toa = checkGioKimXaThietToa(chiNam, am.thang, am.ngay, chiGio, gioitinh);
+
+    // Tạo object lưu thông tin cần thiết
+const lasoData = {
+    IDCungMenh,
+    cucSo,
+    amduong,
+    tuoiAm,
+    // có thể bổ sung các thông tin khác nếu muốn
+};
+// Lưu vào localStorage
+localStorage.setItem('laso_data', JSON.stringify(lasoData));
    
     document.getElementById('cungGop').innerHTML = `
                                                                                                         <div><b>Người xem hạn:</b> ${hoten} </div>
