@@ -43,7 +43,7 @@ function setLasoData() {
     const cung = getCungData();
 
     const advice = getAdviceData();
-    console.log(advice);
+  
 
     const anhBanLaSo = localStorage.getItem('anhBanLaSo');
     document.getElementById('svg-holder').innerHTML = anhBanLaSo
@@ -113,7 +113,7 @@ function loadComboExcel(file, cb) {
  * @param {string} idClass - id div để hiển thị
  */
 function TraSao(comboData, file, idClass) {
-    console.log("Bắt đầu tra cứu bộ sao...");
+    
 
     if (!comboData.length) {
         loadComboExcel(file, (arr) => {
@@ -122,12 +122,12 @@ function TraSao(comboData, file, idClass) {
             if (file === 'ComboDemo2') comboData2 = arr;
             const ynghia = traCuuNhieuBoSao(['Sát Phá Lang', 'Tử Vi'], arr);
             hienThiKetQuaNhieuBoSao(ynghia, idClass);
-            console.log(ynghia);
+         
         });
     } else {
         const ynghia = traCuuNhieuBoSao(['Sát Phá Lang', 'Tử Vi'], comboData);
         hienThiKetQuaNhieuBoSao(ynghia, idClass);
-        console.log(ynghia);
+        
     }
 }
 
@@ -172,5 +172,79 @@ function hienThiKetQuaNhieuBoSao(results, targetDivId = 'result') {
                 console.log(r.key + ": Không tìm thấy");
             }
         });
+    }
+}
+
+// Giả sử đã có: loadComboExcel, traCuuNhieuBoSao, renderLines...
+
+// B1: Map tên file Excel cho từng cung (có thể dùng 1 file chung hoặc từng file riêng)
+const cungExcelFileMap = {
+    'Mệnh': 'ComboDemo1',
+    'Thân': 'ComboDemo1',
+    'Phụ Mẫu': 'ComboDemo2',
+    'Phúc Đức': 'ComboDemo2',
+    'Điền Trạch': 'ComboDemo1',
+    'Quan Lộc': 'ComboDemo1',
+    'Nô Bộc': 'ComboDemo2',
+    'Thiên Di': 'ComboDemo2',
+    'Tật Ách': 'ComboDemo1',
+    'Tài Bạch': 'ComboDemo1',
+    'Tử Tức': 'ComboDemo2',
+    'Phu Thê': 'ComboDemo2',
+    'Huynh Đệ': 'ComboDemo2',
+    // ... thêm các cung khác, hoặc mặc định dùng 1 file
+};
+const defaultFileExcel = 'ComboDemo1';
+
+// B2: Bộ nhớ cache dữ liệu Excel của từng file để không load lại nhiều lần
+const excelDataCache = {};
+
+// B3: Hàm hiển thị từng cung, mỗi cung tra cứu từ Excel
+function renderCungKiemTraSao() {
+    const cungArr = getCungData();
+    // Render khung từng cung và placeholder tra cứu Excel
+    document.getElementById('cung-content').innerHTML =
+        cungArr.map(item =>
+            `<div class="cung-item" id="cung-${item.tenCung.replace(/\s/g,'').toLowerCase()}">
+                <b>${item.tenCung}:</b><br>
+                <span>${renderLines(item.luandai)}</span>
+                <div class="bo-sao-excel"><em>Đang tra cứu bộ sao...</em></div>
+            </div>`
+        ).join('');
+
+    // Sau khi render, tra cứu từng cung
+    cungArr.forEach(item => {
+        const tenFile = cungExcelFileMap[item.tenCung] || defaultFileExcel;
+        console.log(tenFile);
+        // Đã có cache thì dùng luôn
+        if (excelDataCache[tenFile]) {
+            traCuuVaHienThiChoCung(item, excelDataCache[tenFile], ['Sát Phá Lang', 'Tử Vi']);
+        } else {
+            // Chưa có thì load file
+            loadComboExcel(tenFile, function(comboData) {
+                excelDataCache[tenFile] = comboData;
+                traCuuVaHienThiChoCung(item, comboData, ['Sát Phá Lang', 'Tử Vi']);
+            });
+        }
+    });
+}
+// Hàm tra cứu và hiển thị cho từng cung
+function traCuuVaHienThiChoCung(item, comboData, keyArr) {
+    // keyArr là mảng bộ sao cần tra, ví dụ ['Sát Phá Lang','Tử Vi',...]
+    const results = traCuuNhieuBoSao(keyArr, comboData);
+    console.log(`Kết quả tra cứu cho cung ${item.tenCung}:`, results);
+    const divId = `cung-${item.tenCung.replace(/\s/g, '').toLowerCase()}`;
+    const excelDiv = document.querySelector(`#${divId} .bo-sao-excel`);
+    // Lọc tất cả bộ sao tra được
+    const foundResults = results.filter(r => r.found && r.values.length > 0);
+    if (foundResults.length > 0) {
+        excelDiv.innerHTML = foundResults.map(r =>
+            `<div class="bo-sao-group">
+                <b>${r.key}:</b>
+                ${r.values.map(v => `<div>• ${v}</div>`).join('')}
+            </div>`
+        ).join('<hr>');
+    } else {
+        excelDiv.innerHTML = `<em>Không có thông tin tra cứu từ Excel</em>`;
     }
 }
