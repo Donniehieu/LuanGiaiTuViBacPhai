@@ -125,3 +125,41 @@ function getCungDaiVanHienTai(daiVanArr, tuoiHienTai) {
     }
     return -1; // Không tìm thấy
 }
+function renderDaivanSection() {
+  
+    // Hoặc bạn có thể truyền window.menhIdx, window.cucSo, window.amduong, window.tuoiAm...
+    const menhIdx =  window.menhIdx || 0;
+    const cucSo =  window.cucSo || 2; // 2,3,4,5,6
+    const amduong = window.amduong || "Dương Nam";
+    const tuoiAm = window.tuoiAm || 32; // tuổi hiện tại
+    // Tên cung
+    const CUNG_CELLS = window.CUNG_CELLS || [
+        { chi: "Dần" },{ chi: "Mão" },{ chi: "Thìn" },{ chi: "Tỵ" },{ chi: "Ngọ" },{ chi: "Mùi" },
+        { chi: "Thân" },{ chi: "Dậu" },{ chi: "Tuất" },{ chi: "Hợi" },{ chi: "Tý" },{ chi: "Sửu" }
+    ];
+    const TEN_CUNG_FULL = window.TEN_CUNG_FULL || [
+        "Mệnh", "Phụ Mẫu", "Phúc Đức", "Điền Trạch",
+        "Quan Lộc", "Nô Bộc", "Thiên Di", "Tật Ách",
+        "Tài Bạch", "Tử Tức", "Phu Thê", "Huynh Đệ"
+    ];
+    // Tính đại vận
+    const lsDaiVan = tinhdaivan(menhIdx, cucSo, amduong); // mảng 12 số bắt đầu đại vận
+    // Xác định đại vận hiện tại dựa vào tuổi âm
+    const idxDaiVan = getCungDaiVanHienTai(lsDaiVan, tuoiAm);
+
+    // Render
+    let html = '';
+    for (let i = 0; i < 12; ++i) {
+        const startAge = lsDaiVan[i];
+        const endAge = (i < 11 ? lsDaiVan[i+1]-1 : startAge+9);
+        const cungTen = TEN_CUNG_FULL[i];
+        const isCurrent = (i === idxDaiVan);
+        html += `
+        <div class="daivan-item${isCurrent ? ' daivan-current' : ''}">           
+            <b>Đại Vận Cung:</b> ${cungTen} <br>
+            <b>Tuổi:</b> ${startAge} - ${endAge}
+        </div>
+        `;
+    }
+    document.getElementById('daivan-content').innerHTML = html;
+}

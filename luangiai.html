@@ -178,9 +178,14 @@
             <!-- SVG hoặc hình ảnh lá số sẽ được hiển thị tại đây -->
             <em>Đang tải lá số...</em>
         </div>
+        
         <div class="section" id="general">
             <h2>Luận giải tổng quan</h2>
             <div id="general-content">Đang tải...</div>
+        </div>
+         <div class="section" id="daivan">
+            <h2>Luận giải đại vận</h2>
+            <div id="daivan-content">Đang tải...</div>
         </div>
         <div class="section" id="cung">
             <h2>Luận giải từng cung</h2>
@@ -194,6 +199,7 @@
         </div>
     </div>
     <script src="thongtinchung.js"></script>
+     <script src="tinhdaitieuvan.js"></script>
     <script src="cungdata.js"></script>
     <script src="advice.js"></script>
     <script src="luangiai.js"></script>
@@ -206,6 +212,7 @@
         TraSao(comboData1,'ComboDemo1','general-content');
         TraSao(comboData2,'ComboDemo2','advice-content');
         renderCungKiemTraSao();
+        renderDaivanSection();
 
     </script>
 
