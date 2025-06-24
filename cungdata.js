@@ -1,7 +1,7 @@
 ﻿function getCungData() {
     return [
         { tenCung: 'Mệnh', luandai: 'Đây là cung chủ đạo, thể hiện tính cách mạnh mẽ, nghị lực cao.' },
-        { tenCung: 'Thân', luandai: 'Có khả năng thích nghi tốt, linh hoạt trong nhiều hoàn cảnh.' },
+        
         { tenCung: 'Phụ Mẫu', luandai: 'Nhận được sự yêu thương, hỗ trợ từ cha mẹ.' },
         { tenCung: 'Phúc Đức', luandai: 'Gia đình có truyền thống tốt, hậu thuẫn mạnh mẽ.' },
         { tenCung: 'Điền Trạch', luandai: 'Có thể sở hữu nhà cửa, đất đai vững chắc.' },

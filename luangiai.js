@@ -47,7 +47,7 @@ function setLasoData() {
 
     const anhBanLaSo = localStorage.getItem('anhBanLaSo');
     document.getElementById('svg-holder').innerHTML = anhBanLaSo
-        ? `<img src="${anhBanLaSo}" alt="Ảnh bàn lá số" style="max-width:600px;width:100%;border-radius:12px;border:1.5px solid #bce3dd;">`
+        ? `<img src="${anhBanLaSo}" alt="Ảnh bàn lá số" style="max-width:700 px;width:100%;border-radius:12px;border:1.5px solid #bce3dd;">`
         : "<em>Không tìm thấy ảnh bàn lá số!</em>";
 
     // Tổng quan
@@ -180,7 +180,6 @@ function hienThiKetQuaNhieuBoSao(results, targetDivId = 'result') {
 // B1: Map tên file Excel cho từng cung (có thể dùng 1 file chung hoặc từng file riêng)
 const cungExcelFileMap = {
     'Mệnh': 'ComboDemo1',
-    'Thân': 'ComboDemo1',
     'Phụ Mẫu': 'ComboDemo2',
     'Phúc Đức': 'ComboDemo2',
     'Điền Trạch': 'ComboDemo1',
