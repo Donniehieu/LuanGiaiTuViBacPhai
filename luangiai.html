@@ -163,6 +163,7 @@
             }
         }
     </style>
+      <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -196,10 +197,14 @@
     <script src="cungdata.js"></script>
     <script src="advice.js"></script>
     <script src="luangiai.js"></script>
-
+<!-- Nhúng SheetJS CDN ở <head> hoặc trước JS của bạn -->
+   
     <script>
 
         setTimeout(setLasoData(), 200);
+
+        TraSao(comboData1,'ComboDemo1','general-content');
+        TraSao(comboData2,'ComboDemo2','advice-content');
 
     </script>
 
