@@ -54,7 +54,7 @@ function setLasoData() {
 
     // Tổng quan
     document.getElementById('general-content').innerHTML =
-        general && (Array.isArray(general) ? renderLines(general) : renderLines([general])) || '<em>Chưa có dữ liệu</em>';
+        general && (Array.isArray(general) ? renderLines(general) : renderLines([general])) 
 
     // Nhận xét từng cung
     if (Array.isArray(cung) && cung.length > 0) {
@@ -65,13 +65,11 @@ function setLasoData() {
                     <span>${renderLines(item.luandai)}</span>
                 </div>`
             ).join('');
-    } else {
-        document.getElementById('cung-content').innerHTML = '<em>Chưa có dữ liệu</em>';
-    }
+    } 
 
     // Lời khuyên
     document.getElementById('advice-content').innerHTML =
-        advice && (Array.isArray(advice) ? renderLines(advice) : renderLines([advice])) || '<em>Chưa có dữ liệu</em>';
+        advice && (Array.isArray(advice) ? renderLines(advice) : renderLines([advice])) 
 }
 
 function renderLines(lines) {
@@ -172,7 +170,7 @@ const defaultFileExcel = 'ComboDemo1';
 const excelDataCache = {};
 
 // Hiển thị sao của từng cung
-function renderCungKiemTraSao() {
+function renderCungKiemTraSao(keyArr) {
     const cungArr = getCungData();
     // Render khung từng cung và placeholder tra cứu Excel
     document.getElementById('cung-content').innerHTML =
@@ -190,12 +188,12 @@ function renderCungKiemTraSao() {
         console.log(tenFile);
         // Đã có cache thì dùng luôn
         if (excelDataCache[tenFile]) {
-            traCuuVaHienThiChoCung(item, excelDataCache[tenFile], ['Sát Phá Lang', 'Tử Vi']);
+            traCuuVaHienThiChoCung(item, excelDataCache[tenFile], keyArr);
         } else {
             // Chưa có thì load file
             loadComboExcel(tenFile, function(comboData) {
                 excelDataCache[tenFile] = comboData;
-                traCuuVaHienThiChoCung(item, comboData, ['Sát Phá Lang', 'Tử Vi']);
+                traCuuVaHienThiChoCung(item, comboData, keyArr);
             });
         }
     });
