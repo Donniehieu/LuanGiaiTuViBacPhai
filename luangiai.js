@@ -4,7 +4,36 @@
 
 let lasoOb = [];
 
+let luanGiaiChung = [];
+let luanGiaiCungMenh = [];
+let luanGiaiCungPhuMau = [];
+let luanGiaiCungPhucDuc = [];
+let luanGiaiCungDienTrach = [];
+let luanGiaiCungQuanLoc = [];
+let luanGiaiCungNoBoc = [];
+let luanGiaiCungThienDi = [];
+let luanGiaiCungTatAch = [];
+let luanGiaiCungTaiBach = [];
+let luanGiaiCungTuTuc = [];
+let luanGiaiCungPhuThe = [];
+let luanGiaiCungHuynhDe = [];
+let luanGiaiDaiVanCungMenh = [];
+let luanGiaiDaiVanCungPhuMau = [];
+let luanGiaiDaiVanCungPhucDuc = [];
+let luanGiaiDaiVanCungDienTrach = [];
+let luanGiaiDaiVanCungQuanLoc = [];
+let luanGiaiDaiVanCungNoBoc = [];
+let luanGiaiDaiVanCungThienDi = [];
+let luanGiaiDaiVanCungTatAch = [];
+let luanGiaiDaiVanCungTaiBach = [];
+let luanGiaiDaiVanCungTuTuc = [];
+let luanGiaiDaiVanCungPhuThe = [];
+let luanGiaiDaiVanCungHuynhDe = [];
+let luanGiaiLoiKhuyen = [];
+
+
 let VoChinhDieu = "Vô Chính Diệu";
+
 
 let comboLaso = [];
 function getAllStarsInCells() {
