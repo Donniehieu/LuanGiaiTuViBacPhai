@@ -55,17 +55,14 @@
 
 
     <script>
-        const IDclassDaivan = ["Mệnh", "Phụ Mẫu", "Phúc Đức", "Điền Trạch",
-            "Quan Lộc", "Nô Bộc", "Thiên Di", "Tật Ách",
-            "Tài Bạch", "Tử Tức", "Phu Thê", "Huynh Đệ"]
+    
         setTimeout(setLasoData(), 200);
 
         TraSao(comboData1, 'ComboDemo1', 'general-content', ['Sát Phá Lang']);  // Tổng quan
         TraSao(comboData2, 'ComboDemo2', 'advice-content', ['Sát Phá Lang']);   // Lời khuyên
         for (var i = 0; i < IDclassDaivan.length; i++) {
-            console.log(IDclassDaivan[i]);
-            TraSao(comboData2, 'ComboDemo2', IDclassDaivan[i], ['Sát Phá Lang']);
-        }
+     TraSao(comboData2, 'ComboDemo2', IDclassDaivan[i], ['Sát Phá Lang']);
+ }
 
         renderCungKiemTraSao();                                              // Từng cung
         renderDaivanSection();

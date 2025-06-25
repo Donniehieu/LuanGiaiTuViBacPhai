@@ -1,4 +1,6 @@
-﻿
+﻿const IDclassDaivan = ["Mệnh", "Phụ Mẫu", "Phúc Đức", "Điền Trạch",
+    "Quan Lộc", "Nô Bộc", "Thiên Di", "Tật Ách",
+    "Tài Bạch", "Tử Tức", "Phu Thê", "Huynh Đệ"]
 function getAllStarsInCells() {
     // Các class selector chứa sao (mỗi selector nên lấy đúng các sao bạn đã an)
     const saoSelectors = [

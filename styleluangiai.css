@@ -6,7 +6,7 @@ body {
 }
 
 .container {
-    max-width: 900px;
+    max-width: 1000px;
     margin: 38px auto;
     background: #fafdff;
     border-radius: 18px;
@@ -26,29 +26,29 @@ body {
     border-radius: 12px 12px 0 0;
 }
 
-    .header .icon {
-        font-size: 2.3rem;
-        color: #00b894;
-        background: #e4fceb;
-        border-radius: 50%;
-        padding: 13px 16px;
-        box-shadow: 0 2px 10px rgba(0,184,148,0.08);
-    }
+.header .icon {
+    font-size: 2.3rem;
+    color: #3b82f6;
+    background: #e4fceb;
+    border-radius: 50%;
+    padding: 13px 16px;
+    box-shadow: 0 2px 10px rgba(0,184,148,0.08);
+}
 
-    .header h1 {
-        margin: 0;
-        color: #3b82f6;
-        font-weight: 700;
-        font-size: 2.1rem;
-        letter-spacing: 1px;
-    }
+.header h1 {
+    margin: 0;
+    color: #3b82f6;
+    font-weight: 700;
+    font-size: 3rem;
+    letter-spacing: 1px;
+}
 
 .back-btn {
     display: inline-flex;
     align-items: center;
     gap: 8px;
     background: linear-gradient(90deg, #a8edea 0%, #fed6e3 100%);
-    color: #21897e;
+    color: #3b82f6;
     font-size: 1.02em;
     font-weight: 600;
     padding: 10px 22px;
@@ -63,25 +63,27 @@ body {
     outline: none;
 }
 
-    .back-btn:hover, .back-btn:focus {
-        background: linear-gradient(90deg, #fed6e3 0%, #a8edea 100%);
-        color: #00b894;
-    }
+.back-btn:hover,
+.back-btn:focus {
+    background: linear-gradient(90deg, #fed6e3 0%, #a8edea 100%);
+    color: #00b894;
+}
 
 .svg-holder {
     text-align: center;
     margin-bottom: 32px;
 }
 
-    .svg-holder img, .svg-holder svg {
-        width: 400px;
-        max-width: 100%;
-        border-radius: 12px;
-        background: #f2fcfb;
-        padding: 8px;
-        border: 1.5px solid #bce3dd;
-        box-shadow: 0 2px 10px rgba(0,184,148,0.07);
-    }
+.svg-holder img,
+.svg-holder svg {
+    width: 400px;
+    max-width: 100%;
+    border-radius: 12px;
+    background: #f2fcfb;
+    padding: 8px;
+    border: 1.5px solid #bce3dd;
+    box-shadow: 0 2px 10px rgba(0,184,148,0.07);
+}
 
 .section {
     margin-bottom: 30px;
@@ -89,15 +91,58 @@ body {
     border-radius: 12px;
     padding: 22px 20px;
     box-shadow: 0 1px 4px rgba(98,168,230,0.06);
-    border-left: 6px solid #00b894;
+    border-left: 6px solid #3b82f6;
     transition: background 0.3s;
 }
 
-    .section h2, .section h3 {
-        color: #00b894;
-        margin-top: 0;
-        margin-bottom: 12px;
-    }
+.section h2,
+.section h3 {
+    color: #3b82f6;
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+/* --- Cố định tiêu đề cung, đại vận, luận chung, lời khuyên --- */
+/* 
+  Cần đặt các tiêu đề này (ví dụ: tên cung, h2 luận chung, h2 đại vận, h2 lời khuyên)
+  vào trong 1 div wrapper riêng (class .section-head hoặc .cung-title v.v.) 
+  và phần nội dung cuộn nằm dưới (class .section-body, .cung-content, v.v.)
+  Ví dụ HTML:
+  <div class="cung-item">
+    <div class="cung-title">Mệnh</div>
+    <div class="cung-content"> ... (scroll) ... </div>
+  </div>
+*/
+/* Dùng position: sticky cho tiêu đề các vùng */
+.cung-title,
+.luan-chung-title,
+.daivan-title,
+.loi-khuyen-title,
+.section .section-head {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: #fff;
+    background: inherit; /* Nếu muốn dính màu vùng cha */
+    /* Hiệu ứng nổi nhẹ */
+    box-shadow: 0 1px 6px 0 rgba(98,168,230,0.07);
+    border-radius: 7px 7px 0 0;
+    padding-bottom: 4px;
+    /* Nếu muốn thêm border dưới cho rõ */
+    /* border-bottom: 1px solid #e4f1fb; */
+}
+
+/* Các vùng nội dung cuộn - chỉ cuộn phần nội dung, không cuộn tiêu đề */
+.cung-content,
+.luan-chung-body,
+.daivan-body,
+.loi-khuyen-body,
+.section .section-body {
+    max-height: 290px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-top: 4px;
+}
 
 .cung-list {
     display: grid;
@@ -108,25 +153,113 @@ body {
 .cung-item {
     background: #fff;
     border-radius: 7px;
-    box-shadow: 0 1px 4px rgba(98,168,230,0.04);
+    box-shadow:
+        0 1px 4px rgba(98,168,230,0.08),
+        0 0 0 1.5px rgba(98,168,230,0.08);
     padding: 13px 12px 12px 12px;
-    border-left: 4px solid #3b82f6;
     margin-bottom: 0;
 }
 
-    .cung-item b {
-        color: #3b82f6;
-        font-size: 1.08em;
-    }
+/* Tên cung: Đỏ, rất lớn, nổi bật */
+.cung-item .cung-ten,
+.cung-item > b,
+.cung-title {
+    color: #e53935 !important;
+    font-size: 2.2em;
+    font-weight: 800;
+    margin-bottom: 1px;
+    display: block;
+    line-height: 1.1;
+    letter-spacing: 1px;
+    background: inherit;
+}
 
+/* Bộ sao tìm được: Đen, nhỏ hơn nhiều so với tên cung, đồng đều giữa mọi cung */
+.cung-item .bo-sao-list,
+.cung-item .bo-sao-list div,
+.cung-item .bo-sao-list span,
+.cung-item > .bo-sao,
+.cung-item > .bo-sao-tim,
+.cung-item > .bo-sao-excel,
+.cung-item > .bo-sao-group {
+    color: #222 !important;
+    font-size: 1em;
+    font-weight: 500;
+    line-height: 1.5;
+    margin-left: 0;
+    margin-bottom: 1px;
+    display: block;
+}
+
+/* Nếu muốn nhỏ hơn nữa, dùng font-size: 0.95em hoặc 0.9em */
+
+/* Tùy chọn: làm mờ phần không phải tên cung và bộ sao */
+.cung-item *:not(.cung-ten):not(.bo-sao-list):not(.bo-sao):not(.bo-sao-tim):not(.bo-sao-excel):not(.bo-sao-group) {
+    color: inherit;
+    font-size: 1em;
+}
+
+/* Advice */
 .advice {
     background: linear-gradient(90deg, #eafff7 0%, #e0f7fa 100%);
     border-left: 10px solid #3b82f6;
-    padding: 20px 18px;
+    padding: 10px 18px;
     border-radius: 12px;
-    font-size: 1.11em;
-    color: #21897e;
+    font-size: 1.1em;
+    color: #222;
     box-shadow: 0 2px 10px rgba(98,168,230,0.06);
+}
+
+/* Khu vực luận chung, đại vận, từng cung, lời khuyên: chiều cao 320px, scroll dọc, relative */
+.luan-chung,
+.daivan,
+.cung,
+.loi-khuyen {
+    height: 320px;
+    max-height: 320px;
+    position: relative;
+    /* overflow-y: auto; */ /* Bỏ auto ở class cha, chỉ để ở .body */
+    overflow-x: hidden;
+    box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: #3b82f6 #f3f8fd;
+}
+
+/* Nếu bạn có id, thêm selector dưới đây (chỉ cần nếu dùng id, còn không thì bỏ) */
+#luanChung,
+#daivan,
+#loiKhuyen {
+    height: 320px;
+    max-height: 320px;
+    position: relative;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: #3b82f6 #f3f8fd;
+}
+
+/* Custom scrollbar style cho Chrome, Edge, Safari */
+.luan-chung-body::-webkit-scrollbar,
+.daivan-body::-webkit-scrollbar,
+.cung-content::-webkit-scrollbar,
+.loi-khuyen-body::-webkit-scrollbar,
+.section-body::-webkit-scrollbar,
+#luanChung .section-body::-webkit-scrollbar,
+#daivan .section-body::-webkit-scrollbar,
+#loiKhuyen .section-body::-webkit-scrollbar {
+    width: 7px;
+    background: #f3f8fd;
+}
+.luan-chung-body::-webkit-scrollbar-thumb,
+.daivan-body::-webkit-scrollbar-thumb,
+.cung-content::-webkit-scrollbar-thumb,
+.loi-khuyen-body::-webkit-scrollbar-thumb,
+.section-body::-webkit-scrollbar-thumb,
+#luanChung .section-body::-webkit-scrollbar-thumb,
+#daivan .section-body::-webkit-scrollbar-thumb,
+#loiKhuyen .section-body::-webkit-scrollbar-thumb {
+    background: #3b82f6;
+    border-radius: 8px;
 }
 
 @media (max-width: 700px) {
@@ -134,20 +267,31 @@ body {
         padding: 10px 2vw;
     }
 
-    .svg-holder img, .svg-holder svg {
+    .svg-holder img,
+    .svg-holder svg {
         width: 98vw;
     }
 
     .section {
-        padding: 12px 4px;
+        padding: 5px 1px;
     }
 
     .advice {
-        padding: 12px 4px;
+        padding: 5px 1px;
     }
 
     .back-btn {
         width: 100%;
         justify-content: center;
+    }
+
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .cung-item .cung-ten,
+    .cung-item > b,
+    .cung-title {
+        font-size: 1.2em;
     }
 }
