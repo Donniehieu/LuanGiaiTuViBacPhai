@@ -62,9 +62,15 @@
 
         TraSao(comboData1, 'ComboDemo1', 'general-content', ['Sát Phá Lang']);  // Tổng quan
         TraSao(comboData2, 'ComboDemo2', 'advice-content', ['Sát Phá Lang']);   // Lời khuyên
+        for (var i = 0; i < IDclassDaivan.length; i++) {
+            console.log(IDclassDaivan[i]);
+            TraSao(comboData2, 'ComboDemo2', IDclassDaivan[i], ['Sát Phá Lang']);
+        }
+
         renderCungKiemTraSao();                                              // Từng cung
         renderDaivanSection();
-        TraSaoNhieuDaiVan(comboData1, 'ComboDemo1', IDclassDaivan, ['Sát Phá Lang']);// Đại vận
+       
+        
 
     </script>
 

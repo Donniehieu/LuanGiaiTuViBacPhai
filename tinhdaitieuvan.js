@@ -171,12 +171,10 @@ arr.sort((a, b) => a.startAge - b.startAge);
 // Render ra HTML
 let html = '';
 arr.forEach(item => {
-    html += `
-    <div class="daivan-item ${item.cungTen} ">
-        <b>Cung:</b> ${item.cungTen} <br>
-        <b>Tuổi:</b> ${item.startAge} - ${item.endAge}
-    </div>
-    `;
+    html += `<div class="daivan-item ${item.cungTen}" id="${item.cungTen}">
+    <b>Cung:</b> ${item.cungTen} <br>
+    <b>Tuổi:</b> ${item.startAge} - ${item.endAge}
+</div>`;
 });
 
 document.getElementById('daivan-content').innerHTML = html;

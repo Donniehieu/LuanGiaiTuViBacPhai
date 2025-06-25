@@ -218,23 +218,37 @@ function traCuuVaHienThiChoCung(item, comboData, keyArr) {
         excelDiv.innerHTML = `<em>Không có thông tin tra cứu từ Excel</em>`;
     }
 }
-
+/**
+ * Hiển thị bộ sao cho nhiều cung/đại vận, mỗi cung một vùng riêng.
+ * Luôn hiển thị đầy đủ các bộ sao, không lặp/trùng, không ghi đè kết quả cũ nếu chưa clear.
+ * 
+ * idClassArr:  mảng id/class các vùng cung cần hiển thị
+ * keyArrArr:   mảng mảng bộ sao của từng cung (mỗi phần tử là 1 mảng cho 1 cung)
+ * comboData:   dữ liệu bộ sao đã load (mỗi item: {keyNorm, values})
+ * file:        tên file để load nếu comboData chưa có
+ */
 function TraSaoNhieuDaiVan(comboData, file, idClassArr, keyArrArr) {
     function process(data) {
+        console.log(idClassArr);
         for (let i = 0; i < idClassArr.length; ++i) {
             let keys = keyArrArr[i];
             const id = idClassArr[i];
+            
             if (!keys || !id) continue;
             if (!Array.isArray(keys)) keys = [keys];
+            // Loại bỏ key trùng nhau trong cùng 1 cung
+            keys = Array.from(new Set(keys.map(k => k.trim())));
+
+            // tra cứu
             const ynghia = traCuuNhieuBoSao(keys, data);
+
+            // HIỆN ĐẦY ĐỦ BỘ SAO (dù found hay không)
             hienThiKetQuaNhieuBoSao(ynghia, id);
         }
     }
 
     if (!comboData || !comboData.length) {
         loadComboExcel(file, (arr) => {
-            if (file === 'ComboDemo1') comboData1 = arr;
-            if (file === 'ComboDemo2') comboData2 = arr;
             process(arr);
         });
     } else {
@@ -258,23 +272,11 @@ function traCuuNhieuBoSao(keysToFind, comboData) {
     });
 }
 
-// SỬA CHỖ NÀY: dùng append thay vì ghi đè
 function hienThiKetQuaNhieuBoSao(results, targetDivId = 'result') {
-    let html = results.map(r => {
-        if (r.found) {
-            return `<div>
-                <b>${r.key}:</b><br>
-                ${r.values.map(v => `<div>• ${v}</div>`).join('')}
-            </div>`;
-        } else {
-            return `<div><b>${r.key}:</b> <em>Không tìm thấy bộ sao này!</em></div>`;
-        }
-    }).join('<hr>');
     let el = document.getElementById(targetDivId);
+    console.log(el);
     if (!el) el = document.querySelector('.' + targetDivId);
-    if (el) {
-        el.innerHTML += html; // ĐỔI chỗ này: append thay vì ghi đè
-    } else {
+    if (!el) {
         results.forEach(r => {
             if (r.found) {
                 console.log(r.key + ":");
@@ -283,5 +285,26 @@ function hienThiKetQuaNhieuBoSao(results, targetDivId = 'result') {
                 console.log(r.key + ": Không tìm thấy");
             }
         });
+        return;
     }
+
+    // Hiển thị tất cả kết quả, không filter found
+    let html = results.map(r => {
+        if (r.found) {
+            return `<div data-bo-sao-key="${r.key}">
+                <b>${r.key}:</b><br>
+                ${r.values.map(v => `<div>• ${v}</div>`).join('')}
+            </div>`;
+        } else {
+            return `<div data-bo-sao-key="${r.key}"><b>${r.key}:</b> <em>Không tìm thấy bộ sao này!</em></div>`;
+        }
+    }).join('<hr>');
+    if (html) el.insertAdjacentHTML('beforeend', html) ;
+}
+
+function clearAllSaoResults(idClassArr) {
+    idClassArr.forEach(id => {
+        let el = document.getElementById(id) || document.querySelector('.' + id);
+        if (el) el.innerHTML = '';
+    });
 }
