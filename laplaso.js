@@ -199,13 +199,13 @@ document.getElementById('form_tuvi').addEventListener('submit', function (e) {
 
     const vitriDV_Thiên_Mã = viTriThienMaDaiVan(tenCungDaiVan, CUNG_CELLS);
 
-    const danhSachSao = getAllStarsInCells();
-    console.log("Danh sách sao trong các ô:", danhSachSao);
-
+    let danhSachSao = getAllStarsInCells();
+    
     hienThiThienMaDaiVan(vitriDV_Thiên_Mã, CUNG_CELLS);
 
     hienThiTuHoaDaiVan(canCung, danhSachSao);
     // Gọi sau khi an sao xong:
+    danhSachSao = getAllStarsInCells();
     groupAndArrangeStars();
     arrangeGoodBadStarsInCells();
     const hanhMenh = layNguHanhMenh60(menh);

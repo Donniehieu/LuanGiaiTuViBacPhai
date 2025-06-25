@@ -38,6 +38,7 @@ function groupAndArrangeStars() {
             if (!group) {
                 group = document.createElement('div');
                 group.className = 'chinh-tinh-group';
+                group.classList.add('chinh-tinh');
                 cell.insertBefore(group, cell.firstChild);
             } else {
                 group.innerHTML = '';
@@ -57,6 +58,8 @@ function groupAndArrangeStars() {
             if (!group) {
                 group = document.createElement('div');
                 group.className = 'phu-tinh-group';
+                group.classList.add('phu-tinh');
+                
                 cell.appendChild(group);
             } else {
                 group.innerHTML = '';

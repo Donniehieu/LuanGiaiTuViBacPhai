@@ -290,7 +290,7 @@ function anSaoThienKhoc(chiNam) {
 
     if (cell) {
         cell.insertAdjacentHTML('beforeend',
-            `<div class="sao-thien-khoc hanh-thuy sao-xau">
+            `<div class="sao-thien-khoc hanh-thuy sao-xau phu-tinh">
                                                                                 Thiên Khốc
                                                                             </div>`);
     }
@@ -687,7 +687,7 @@ function anSaoTuHoa(canNam, saoChinhPos) {
             const cell = document.querySelector('.cell' + CUNG_CELLS[idxCung].cell);
             if (cell) {
                 cell.insertAdjacentHTML('beforeend',
-                    `<div class="tu-hoa ${rule.hanh} ${rule.loai}">
+                    `<div class="tu-hoa ${rule.hanh} ${rule.loai} phu-tinh">
                                                                                              ${rule.hoa}
                                                                                         </div>`);
             }
@@ -947,7 +947,7 @@ function hienThiSaoCoDinh(menhIdx) {
             if (cell) {
                 let hanhClass = HANH_MAU_CODINH[sao.hanh] || "";
                 cell.insertAdjacentHTML('beforeend',
-                    `<div class="sao-codinh-label sao-xau ${hanhClass}  ">
+                    `<div class="sao-codinh-label sao-xau ${hanhClass} phu-tinh">
                                                                                             ${sao.ten}
                                                                                         </div>`);
             }

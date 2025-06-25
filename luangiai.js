@@ -346,7 +346,10 @@ function clearAllSaoResults(idClassArr) {
 }
 function locChinhTinh(saoList) {
     // Lọc ra những sao có class chứa 'chinh-tinh'
-    return saoList.filter(sao => sao.class && sao.class.includes('chinh-tinh') );
+     return saoList.filter(sao =>
+  typeof sao.class === 'string' &&
+  sao.class.split(/\s+/).includes('chinh-tinh')
+);
 }
 // Luận chính tinh
 function getDanhSachChinhTinhTungCung() {
@@ -364,6 +367,32 @@ function getDanhSachChinhTinhTungCung() {
         tenCung: cung.tenCung,
         chi: cung.chi,
         chinhTinh: locChinhTinh(cung.sao).map(sao => sao.ten)
+    }));
+}
+
+function locPhuTinh(saoList) {
+    // Lọc ra những sao có class chứa 'chinh-tinh'
+    return saoList.filter(sao =>
+  typeof sao.class === 'string' &&
+  sao.class.split(/\s+/).includes('phu-tinh')
+);
+}
+// Luận chính tinh
+function getDanhSachPhuTinhTungCung() {
+    let lasoData = {};
+    try {
+        lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
+    } catch (e) { lasoData = {}; }
+
+    let dsCung = lasoData.lasoOb;
+    // Nếu dsCung chưa có, trả về mảng rỗng
+    if (!Array.isArray(dsCung)) return [];
+
+    // Lọc chính tinh cho từng cung, chỉ lấy tên
+    return dsCung.map(cung => ({
+        tenCung: cung.tenCung,
+        chi: cung.chi,
+        phuTinh: locPhuTinh(cung.sao).map(sao => sao.ten)
     }));
 }
 
@@ -392,6 +421,7 @@ function LuanGiaiLaso(){
     LuanGiaiDaiVan(['Sát Phá Lang']);
     renderCungKiemTraSao(['Sát Phá Lang']);              // Từng cung                                
     renderDaivanSection();
+    getDanhSachChinhTinhTungCung();
 
 }
 

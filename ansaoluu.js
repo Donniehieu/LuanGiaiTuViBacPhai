@@ -23,7 +23,7 @@
         const cell = document.querySelector('.cell' + CUNG_CELLS[idxLuuThaiTue].cell);
         if (cell) {
             cell.insertAdjacentHTML('beforeend', `
-                                                                                        <div class="sao-luu-thai-tue sao-xau hanh-hoa">
+                                                                                        <div class="sao-luu-thai-tue sao-xau hanh-hoa phu-tinh">
                                                                                             L. Thái Tuế
                                                                                         </div>
                                                                                     `);
@@ -38,7 +38,7 @@
         const cell = document.querySelector('.cell' + CUNG_CELLS[idxBachHo].cell);
         if (cell) {
             cell.insertAdjacentHTML('beforeend', `
-                                                                                        <div class="sao-luu-bach-ho sao-xau hanh-kim" >
+                                                                                        <div class="sao-luu-bach-ho sao-xau hanh-kim phu-tinh"  >
                                                                                             L. Bạch Hổ
                                                                                         </div>
                                                                                     `);
@@ -53,7 +53,7 @@
         const cell = document.querySelector('.cell' + CUNG_CELLS[idxTangMon].cell);
         if (cell) {
             cell.insertAdjacentHTML('beforeend', `
-                                                                                        <div class="sao-luu-tang-mon sao-xau hanh-moc" >
+                                                                                        <div class="sao-luu-tang-mon sao-xau hanh-moc phu-tinh" >
                                                                                             L. Tang Môn
                                                                                         </div>
                                                                                     `);
@@ -68,7 +68,7 @@
         const cell = document.querySelector('.cell' + CUNG_CELLS[idxThienHu].cell);
         if (cell) {
             cell.insertAdjacentHTML('beforeend', `
-                                                                                        <div class="sao-luu-thien-hu sao-xau hanh-thuy">
+                                                                                        <div class="sao-luu-thien-hu sao-xau hanh-thuy phu-tinh">
                                                                                             L. Thiên Hư
                                                                                         </div>
                                                                                     `);
@@ -82,7 +82,7 @@
         const cell = document.querySelector('.cell' + CUNG_CELLS[idxThienKhoc].cell);
         if (cell) {
             cell.insertAdjacentHTML('beforeend', `
-                                                                                        <div class="sao-luu-thien-khoc sao-xau hanh-kim">
+                                                                                        <div class="sao-luu-thien-khoc sao-xau hanh-kim phu-tinh">
                                                                                             L. Thiên Khốc
                                                                                         </div>
                                                                                     `);
@@ -105,7 +105,7 @@
             const cell = document.querySelector('.cell' + CUNG_CELLS[idx].cell);
             if (cell) {
                 cell.insertAdjacentHTML('beforeend', `
-                                                                                            <div class="sao-luu-thien-ma sao-tot hanh-hoa">
+                                                                                            <div class="sao-luu-thien-ma sao-tot hanh-hoa phu-tinh">
                                                                                                 L. Thiên Mã
                                                                                             </div>
                                                                                         `);
@@ -139,7 +139,7 @@ function anLuuLocTon(canNamXem) {
         const cell = document.querySelector('.cell' + CUNG_CELLS[idx].cell);
         if (cell) {
             cell.insertAdjacentHTML('beforeend',
-                `<div class="sao-luu-loc-ton sao-tot hanh-tho">
+                `<div class="sao-luu-loc-ton sao-tot hanh-tho phu-tinh">
                                                                                         L. Lộc Tồn
                                                                                     </div>`);
         }
@@ -283,7 +283,7 @@ function anSaoLuuTuHoa(canNamXem, cuCungSao) {
             const cell = document.querySelector('.cell' + CUNG_CELLS[idxCung].cell);
             if (cell) {
                 cell.insertAdjacentHTML('beforeend',
-                    `<div class="tu-hoa ${rule.hanh} ${rule.loai}">
+                    `<div class="tu-hoa ${rule.hanh} ${rule.loai} phu-tinh">
                                                                                             L. ${rule.hoa}
                                                                                         </div>`);
             }
