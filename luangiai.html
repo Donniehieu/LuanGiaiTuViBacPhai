@@ -50,25 +50,12 @@
     <script src="tinhdaitieuvan.js"></script>
     <script src="cungdata.js"></script>
     <script src="advice.js"></script>
-  
+    <script src="tencung.js"></script>
     <script src="luangiai.js"></script>
 
 
     <script>
-    
-        setTimeout(setLasoData(), 200);
-
-        TraSao(comboData1, 'ComboDemo1', 'general-content', ['Sát Phá Lang']);  // Tổng quan
-        TraSao(comboData2, 'ComboDemo2', 'advice-content', ['Sát Phá Lang']);   // Lời khuyên
-        for (var i = 0; i < IDclassDaivan.length; i++) {
-        TraSao(comboData2, 'ComboDemo2', IDclassDaivan[i], ['Sát Phá Lang']);  //luận đại vận
-           }
-
-        renderCungKiemTraSao(['Sát Phá Lang']);              // Từng cung                                
-        renderDaivanSection();
-       
-        
-
+        LuanGiaiLaso();
     </script>
 
 </body>

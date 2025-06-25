@@ -1,6 +1,12 @@
 ﻿const IDclassDaivan = ["Mệnh", "Phụ Mẫu", "Phúc Đức", "Điền Trạch",
     "Quan Lộc", "Nô Bộc", "Thiên Di", "Tật Ách",
     "Tài Bạch", "Tử Tức", "Phu Thê", "Huynh Đệ"]
+
+let lasoOb = [];
+
+let VoChinhDieu = "Vô Chính Diệu";
+
+let comboLaso = [];
 function getAllStarsInCells() {
     // Các class selector chứa sao (mỗi selector nên lấy đúng các sao bạn đã an)
     const saoSelectors = [
@@ -11,9 +17,9 @@ function getAllStarsInCells() {
         // ... bổ sung nếu bạn có thêm class cho các loại sao khác
     ];
 
-    let result = [];
+  
     for (let i = 0; i < 12; ++i) {
-        const cellNum = CUNG_CELLS[i].cell;
+        const cellNum = CUNG_CELLS[(i +IDCungMenh)%12].cell;
         const cell = document.querySelector('.cell' + cellNum);
         if (!cell) continue;
         let saoList = [];
@@ -28,18 +34,19 @@ function getAllStarsInCells() {
                 }
             });
         });
-        result.push({
-            chi: CUNG_CELLS[i].chi,
-            cellNum: cellNum,
+        lasoOb.push({
+            tenCung: TEN_CUNG_FULL[i],
+            chi: CUNG_CELLS[(i + IDCungMenh) % 12].chi,
             sao: saoList
         });
     }
-    return result;
+    return lasoOb;
 }
 
 // Hàm này nhận dữ liệu từ JS khác để hiển thị lên giao diện
 function setLasoData() {
 
+    
     const general = GetThongTinChung();
    
     const cung = getCungData();
@@ -308,3 +315,54 @@ function clearAllSaoResults(idClassArr) {
         if (el) el.innerHTML = '';
     });
 }
+function locChinhTinh(saoList) {
+    // Lọc ra những sao có class chứa 'chinh-tinh'
+    return saoList.filter(sao => sao.class && sao.class.includes('chinh-tinh') );
+}
+// Luận chính tinh
+function getDanhSachChinhTinhTungCung() {
+    let lasoData = {};
+    try {
+        lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
+    } catch (e) { lasoData = {}; }
+
+    let dsCung = lasoData.lasoOb;
+    // Nếu dsCung chưa có, trả về mảng rỗng
+    if (!Array.isArray(dsCung)) return [];
+
+    // Lọc chính tinh cho từng cung, chỉ lấy tên
+    return dsCung.map(cung => ({
+        tenCung: cung.tenCung,
+        chi: cung.chi,
+        chinhTinh: locChinhTinh(cung.sao).map(sao => sao.ten)
+    }));
+}
+
+function isToaThu(idFromCungMenhtoHuynhDe) {
+    if (getDanhSachChinhTinhTungCung()[idFromCungMenhtoHuynhDe].chinhTinh.length == 1) return true; else return false;
+}
+function isVoChinhDieu(idFromCungMenhtoHuynhDe) {
+    if (getDanhSachChinhTinhTungCung()[idFromCungMenhtoHuynhDe].chinhTinh.length == 0) return true; else return false;
+}
+function isVoDongCung(idFromCungMenhtoHuynhDe) {
+    if (getDanhSachChinhTinhTungCung()[idFromCungMenhtoHuynhDe].chinhTinh.length == 2) return true; else return false;
+}
+function isMenhVoChinhDieu() {
+    return isVoChinhDieu(0);
+}
+function LuanGiaiDaiVan(keyArr) {
+    for (var i = 0; i < IDclassDaivan.length; i++) {
+        TraSao(comboData2, 'ComboDemo2', IDclassDaivan[i], keyArr);  //luận đại vận
+    }
+
+}
+function LuanGiaiLaso(){
+    setTimeout(setLasoData(), 200);
+    TraSao(comboData1, 'ComboDemo1', 'general-content', ['Sát Phá Lang']);  // Tổng quan
+    TraSao(comboData2, 'ComboDemo2', 'advice-content', ['Sát Phá Lang']);   // Lời khuyên
+    LuanGiaiDaiVan(['Sát Phá Lang']);
+    renderCungKiemTraSao(['Sát Phá Lang']);              // Từng cung                                
+    renderDaivanSection();
+
+}
+

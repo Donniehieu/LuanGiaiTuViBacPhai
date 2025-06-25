@@ -125,12 +125,13 @@ function getCungDaiVanHienTai(daiVanArr, tuoiHienTai) {
     }
     return -1; // Không tìm thấy
 }
+
 function renderDaivanSection() {
   // Đầu file luangiai.js (trước khi render luận giải)
-let lasoData = {};
-try {
-    lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
-} catch(e) { lasoData = {}; }
+    let lasoData = {};
+    try {
+        lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
+    } catch (e) { lasoData = {}; }
     const menhIdx =lasoData.IDCungMenh;
     const cucSo = lasoData.cucSo;
     const amduong = lasoData.amduong 

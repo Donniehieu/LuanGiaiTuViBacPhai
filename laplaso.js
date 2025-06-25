@@ -200,7 +200,7 @@ document.getElementById('form_tuvi').addEventListener('submit', function (e) {
     const vitriDV_Thiên_Mã = viTriThienMaDaiVan(tenCungDaiVan, CUNG_CELLS);
 
     const danhSachSao = getAllStarsInCells();
-
+    console.log("Danh sách sao trong các ô:", danhSachSao);
 
     hienThiThienMaDaiVan(vitriDV_Thiên_Mã, CUNG_CELLS);
 
@@ -228,6 +228,7 @@ const lasoData = {
     cucSo,
     amduong,
     tuoiAm,
+    lasoOb
     // có thể bổ sung các thông tin khác nếu muốn
 };
 // Lưu vào localStorage
