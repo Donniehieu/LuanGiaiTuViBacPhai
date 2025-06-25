@@ -183,7 +183,7 @@ document.getElementById('form_tuvi').addEventListener('submit', function (e) {
     let tenCungDaiVan = "";
     if (idxCungDaiVan == 0) {
         tenCungDaiVan = CUNG_CELLS[IDCungMenh].chi;
-    } else if (idxCungDaiVan > 0 && idxCungDaiVan<=12){
+    } else if (idxCungDaiVan > 0 && idxCungDaiVan <= 12) {
         tenCungDaiVan = CUNG_CELLS[idxCungDaiVan].chi;
     }
     console.log("Tên cung đại vận hiện tại:", tenCungDaiVan);
@@ -200,7 +200,7 @@ document.getElementById('form_tuvi').addEventListener('submit', function (e) {
     const vitriDV_Thiên_Mã = viTriThienMaDaiVan(tenCungDaiVan, CUNG_CELLS);
 
     let danhSachSao = getAllStarsInCells();
-    
+
     hienThiThienMaDaiVan(vitriDV_Thiên_Mã, CUNG_CELLS);
 
     hienThiTuHoaDaiVan(canCung, danhSachSao);
@@ -223,17 +223,19 @@ document.getElementById('form_tuvi').addEventListener('submit', function (e) {
     phamgio_kim_xa_thiet_toa = checkGioKimXaThietToa(chiNam, am.thang, am.ngay, chiGio, gioitinh);
 
     // Tạo object lưu thông tin cần thiết
-const lasoData = {
-    IDCungMenh,
-    cucSo,
-    amduong,
-    tuoiAm,
-    lasoOb
-    // có thể bổ sung các thông tin khác nếu muốn
-};
-// Lưu vào localStorage
-localStorage.setItem('laso_data', JSON.stringify(lasoData));
-   
+    const lasoData = {
+        canNam,
+        chiNam,
+        IDCungMenh,
+        cucSo,
+        amduong,
+        tuoiAm,
+        lasoOb
+        // có thể bổ sung các thông tin khác nếu muốn
+    };
+    // Lưu vào localStorage
+    localStorage.setItem('laso_data', JSON.stringify(lasoData));
+
     document.getElementById('cungGop').innerHTML = `
                                                                                                         <div><b>Người xem hạn:</b> ${hoten} </div>
                                                                                                         <div><b>Giới tính :</b> ${gioitinh} </div>
@@ -267,5 +269,5 @@ localStorage.setItem('laso_data', JSON.stringify(lasoData));
         drawTamHopByMenhIdx(IDCungMenh);
         chupVaShowBanLaSo();
     }, 20);
-    
+
 });

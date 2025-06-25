@@ -2,6 +2,8 @@
     "Quan Lộc", "Nô Bộc", "Thiên Di", "Tật Ách",
     "Tài Bạch", "Tử Tức", "Phu Thê", "Huynh Đệ"]
 
+let classluangiaiChung = "general-content";
+let fileLuangiaiChung = "LuangiaiChung";
 let lasoOb = [];
 
 let luanGiaiChung = [];
@@ -117,7 +119,7 @@ function renderLines(lines) {
 
 let comboData1 = [];
 let comboData2 = [];
-
+let comboLuanChungData = [];
 /**
  * Load một file Excel, trả về arr qua callback
  */
@@ -151,6 +153,7 @@ function TraSao(comboData, file, idClass, keyArr) {
             // Lưu lại cho lần sau không cần load nữa
             if (file === 'ComboDemo1') comboData1 = arr;
             if (file === 'ComboDemo2') comboData2 = arr;
+             if (file === fileLuangiaiChung) comboLuanChungData = arr;
             const ynghia = traCuuNhieuBoSao(keyArr, arr);
             hienThiKetQuaNhieuBoSao(ynghia, idClass);
          
@@ -167,7 +170,7 @@ function TraSao(comboData, file, idClass, keyArr) {
  */
 function traCuuNhieuBoSao(keysToFind, comboData) {
     return keysToFind.map(rawKey => {
-        const key = rawKey.trim();
+        const key = (typeof rawKey === 'string') ? rawKey.trim() : String(rawKey).trim();
         const found = comboData.find(item => item.keyNorm.trim() === key);
         return {
             key,
@@ -298,7 +301,7 @@ function traCuuNhieuBoSao(keysToFind, comboData) {
         else return [];
     }
     return keysToFind.map(rawKey => {
-        const key = rawKey.trim();
+        const key = (typeof rawKey === 'string') ? rawKey.trim() : String(rawKey).trim();
         const found = comboData.find(item => item.keyNorm.trim() === key);
         return {
             key,
@@ -416,12 +419,13 @@ function LuanGiaiDaiVan(keyArr) {
 }
 function LuanGiaiLaso(){
     setTimeout(setLasoData(), 200);
-    TraSao(comboData1, 'ComboDemo1', 'general-content', ['Sát Phá Lang']);  // Tổng quan
+    TraSao(comboLuanChungData, fileLuangiaiChung, classluangiaiChung, luanGiaiChung);  // Tổng quan
     TraSao(comboData2, 'ComboDemo2', 'advice-content', ['Sát Phá Lang']);   // Lời khuyên
     LuanGiaiDaiVan(['Sát Phá Lang']);
     renderCungKiemTraSao(['Sát Phá Lang']);              // Từng cung                                
     renderDaivanSection();
     getDanhSachChinhTinhTungCung();
+    LuanGiaiChung();
 
 }
 

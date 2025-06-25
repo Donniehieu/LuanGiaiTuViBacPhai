@@ -23,6 +23,14 @@ const NGU_HANH_KHAC = {
     "Hỏa": "Kim",
     "Kim": "Mộc"
 };
+const NGU_HANH_BINH_HOA = {
+    "Mộc": "Mộc",
+    "Thổ": "Thổ",
+    "Thủy": "Thủy",
+    "Hỏa": "Hỏa",
+    "Kim": "Kim"
+};
+
 
 /**
  * Hàm xét 4 hướng sinh khắc giữa mệnh và cục
@@ -151,3 +159,59 @@ const HANH_CHI = {
     "Tuất": "hanh-tho",
     "Hợi": "hanh-thuy"
 };
+
+const HANH_CAN = {
+    "G.": "hanh-moc",   // Giáp
+    "Ấ.": "hanh-moc",   // Ất
+    "B.": "hanh-hoa",   // Bính
+    "Đ.": "hanh-hoa",   // Đinh
+    "M.": "hanh-tho",   // Mậu
+    "K.": "hanh-tho",   // Kỷ
+    "C.": "hanh-kim",   // Canh
+    "T.": "hanh-kim",   // Tân
+    "N.": "hanh-thuy",  // Nhâm
+    "Q.": "hanh-thuy"   // Quý
+};
+const HANH_LABEL = {
+    "hanh-moc": "Mộc",
+    "hanh-hoa": "Hỏa",
+    "hanh-tho": "Thổ",
+    "hanh-kim": "Kim",
+    "hanh-thuy": "Thủy"
+};
+
+// Hàm xét sinh khắc giữa Can và Chi (dựa vào ngũ hành Can/Chi)
+function xetSinhKhacNguHanhCanChi(can, chi) {
+    const hanhCanCss = HANH_CAN[can];
+    const hanhChiCss = HANH_CHI[chi];
+    if (!hanhCanCss || !hanhChiCss) return {};
+    const hanhCan = HANH_LABEL[hanhCanCss];
+    const hanhChi = HANH_LABEL[hanhChiCss];
+    return {
+        can_sinh_chi: (NGU_HANH_SINH[hanhCan] === hanhChi) ? "Có" : "Không",
+        can_khac_chi: (NGU_HANH_KHAC[hanhCan] === hanhChi) ? "Có" : "Không",
+        chi_sinh_can: (NGU_HANH_SINH[hanhChi] === hanhCan) ? "Có" : "Không",
+        chi_khac_can: (NGU_HANH_KHAC[hanhChi] === hanhCan) ? "Có" : "Không",
+        binh_hoa: (NGU_HANH_BINH_HOA[hanhChi] === hanhCan) ? "Có" : "Không",
+     
+      
+    };
+}
+
+/**
+ * Chỉ trả về các hướng sinh khắc "Có" giữa can và chi
+ * @param {object} result - object trả về từ xetSinhKhacNguHanhCanChi
+ * @returns {array} - mảng các hướng có sinh khắc
+ */
+function hienHuongCoCanChi(result) {
+    const mapping = {
+        can_sinh_chi: "Can sinh Chi",
+        can_khac_chi: "Can khắc Chi",
+        chi_sinh_can: "Chi sinh Can",
+        chi_khac_can: "Chi khắc Can",
+        binh_hoa:     "Chi Can Bình Hòa"
+    };
+    return Object.entries(result)
+        .filter(([key, value]) => mapping[key] && value === "Có")
+        .map(([key]) => mapping[key]);
+}
