@@ -144,31 +144,7 @@ function traCuuNhieuBoSao(keysToFind, comboData) {
 /**
  * Hiển thị kết quả ra một div có id (mặc định "result")
  */
-function hienThiKetQuaNhieuBoSao(results, targetDivId = 'result') {
-    let html = results.map(r => {
-        if (r.found) {
-            return `<div>
-                <b>${r.key}:</b><br>
-                ${r.values.map(v => `<div>• ${v}</div>`).join('')}
-            </div>`;
-        } else {
-            return `<div><b>${r.key}:</b> <em>Không tìm thấy bộ sao này!</em></div>`;
-        }
-    }).join('<hr>');
-    if (document.getElementById(targetDivId)) {
-        document.getElementById(targetDivId).innerHTML = html;
-    } else {
-        // Nếu không có div, log ra console
-        results.forEach(r => {
-            if (r.found) {
-                console.log(r.key + ":");
-                r.values.forEach(v => console.log("  - " + v));
-            } else {
-                console.log(r.key + ": Không tìm thấy");
-            }
-        });
-    }
-}
+
 
 // Giả sử đã có: loadComboExcel, traCuuNhieuBoSao, renderLines...
 
@@ -240,5 +216,72 @@ function traCuuVaHienThiChoCung(item, comboData, keyArr) {
         ).join('<hr>');
     } else {
         excelDiv.innerHTML = `<em>Không có thông tin tra cứu từ Excel</em>`;
+    }
+}
+
+function TraSaoNhieuDaiVan(comboData, file, idClassArr, keyArrArr) {
+    function process(data) {
+        for (let i = 0; i < idClassArr.length; ++i) {
+            let keys = keyArrArr[i];
+            const id = idClassArr[i];
+            if (!keys || !id) continue;
+            if (!Array.isArray(keys)) keys = [keys];
+            const ynghia = traCuuNhieuBoSao(keys, data);
+            hienThiKetQuaNhieuBoSao(ynghia, id);
+        }
+    }
+
+    if (!comboData || !comboData.length) {
+        loadComboExcel(file, (arr) => {
+            if (file === 'ComboDemo1') comboData1 = arr;
+            if (file === 'ComboDemo2') comboData2 = arr;
+            process(arr);
+        });
+    } else {
+        process(comboData);
+    }
+}
+
+function traCuuNhieuBoSao(keysToFind, comboData) {
+    if (!Array.isArray(keysToFind)) {
+        if (typeof keysToFind === 'string') keysToFind = [keysToFind];
+        else return [];
+    }
+    return keysToFind.map(rawKey => {
+        const key = rawKey.trim();
+        const found = comboData.find(item => item.keyNorm.trim() === key);
+        return {
+            key,
+            found: !!found,
+            values: found ? found.values : []
+        }
+    });
+}
+
+// SỬA CHỖ NÀY: dùng append thay vì ghi đè
+function hienThiKetQuaNhieuBoSao(results, targetDivId = 'result') {
+    let html = results.map(r => {
+        if (r.found) {
+            return `<div>
+                <b>${r.key}:</b><br>
+                ${r.values.map(v => `<div>• ${v}</div>`).join('')}
+            </div>`;
+        } else {
+            return `<div><b>${r.key}:</b> <em>Không tìm thấy bộ sao này!</em></div>`;
+        }
+    }).join('<hr>');
+    let el = document.getElementById(targetDivId);
+    if (!el) el = document.querySelector('.' + targetDivId);
+    if (el) {
+        el.innerHTML += html; // ĐỔI chỗ này: append thay vì ghi đè
+    } else {
+        results.forEach(r => {
+            if (r.found) {
+                console.log(r.key + ":");
+                r.values.forEach(v => console.log("  - " + v));
+            } else {
+                console.log(r.key + ": Không tìm thấy");
+            }
+        });
     }
 }

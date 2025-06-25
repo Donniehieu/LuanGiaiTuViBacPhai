@@ -172,7 +172,7 @@ arr.sort((a, b) => a.startAge - b.startAge);
 let html = '';
 arr.forEach(item => {
     html += `
-    <div class="daivan-item">
+    <div class="daivan-item ${item.cungTen} ">
         <b>Cung:</b> ${item.cungTen} <br>
         <b>Tuổi:</b> ${item.startAge} - ${item.endAge}
     </div>

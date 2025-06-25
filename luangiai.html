@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=Quicksand:500,700&display=swap" rel="stylesheet">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="./styleluangiai.css">
+    <link rel="stylesheet" href="styleluangiai.css">
     <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
 </head>
 <body>
@@ -24,12 +24,12 @@
             <!-- SVG hoặc hình ảnh lá số sẽ được hiển thị tại đây -->
             <em>Đang tải lá số...</em>
         </div>
-        
+
         <div class="section" id="general">
             <h2>Luận giải tổng quan</h2>
             <div id="general-content">Đang tải...</div>
         </div>
-         <div class="section" id="daivan">
+        <div class="section" id="daivan">
             <h2>Luận giải đại vận</h2>
             <div id="daivan-content">Đang tải...</div>
         </div>
@@ -46,21 +46,25 @@
     </div>
     <script src="thongtinchung.js"></script>
     <script src="ansao.js"></script>
-    <script src="laplaso.js"></script>
+
     <script src="tinhdaitieuvan.js"></script>
     <script src="cungdata.js"></script>
     <script src="advice.js"></script>
+  
     <script src="luangiai.js"></script>
-<!-- Nhúng SheetJS CDN ở <head> hoặc trước JS của bạn -->
-   
-    <script>
 
+
+    <script>
+        const IDclassDaivan = ["Mệnh", "Phụ Mẫu", "Phúc Đức", "Điền Trạch",
+            "Quan Lộc", "Nô Bộc", "Thiên Di", "Tật Ách",
+            "Tài Bạch", "Tử Tức", "Phu Thê", "Huynh Đệ"]
         setTimeout(setLasoData(), 200);
 
-        TraSao(comboData1,'ComboDemo1','general-content',['Sát Phá Lang']);
-        TraSao(comboData2,'ComboDemo2','advice-content',['Sát Phá Lang']);
-        renderCungKiemTraSao();
+        TraSao(comboData1, 'ComboDemo1', 'general-content', ['Sát Phá Lang']);  // Tổng quan
+        TraSao(comboData2, 'ComboDemo2', 'advice-content', ['Sát Phá Lang']);   // Lời khuyên
+        renderCungKiemTraSao();                                              // Từng cung
         renderDaivanSection();
+        TraSaoNhieuDaiVan(comboData1, 'ComboDemo1', IDclassDaivan, ['Sát Phá Lang']);// Đại vận
 
     </script>
 
