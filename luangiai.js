@@ -106,13 +106,8 @@ function loadComboExcel(file, cb) {
         });
 }
 
-/**
- * Hàm tra cứu, truyền đúng dữ liệu comboData cho từng file
- * @param {Array} comboData - dữ liệu đã load của file Excel tương ứng
- * @param {string} file - tên file (nếu cần load nếu chưa có dữ liệu)
- * @param {string} idClass - id div để hiển thị
- */
-function TraSao(comboData, file, idClass) {
+// Hiển thị sao của tổng quan và lời khuyên
+function TraSao(comboData, file, idClass, keyArr) {
     
 
     if (!comboData.length) {
@@ -120,12 +115,12 @@ function TraSao(comboData, file, idClass) {
             // Lưu lại cho lần sau không cần load nữa
             if (file === 'ComboDemo1') comboData1 = arr;
             if (file === 'ComboDemo2') comboData2 = arr;
-            const ynghia = traCuuNhieuBoSao(['Sát Phá Lang', 'Tử Vi'], arr);
+            const ynghia = traCuuNhieuBoSao(keyArr, arr);
             hienThiKetQuaNhieuBoSao(ynghia, idClass);
          
         });
     } else {
-        const ynghia = traCuuNhieuBoSao(['Sát Phá Lang', 'Tử Vi'], comboData);
+        const ynghia = traCuuNhieuBoSao(keyArr, comboData);
         hienThiKetQuaNhieuBoSao(ynghia, idClass);
         
     }
@@ -198,7 +193,7 @@ const defaultFileExcel = 'ComboDemo1';
 // B2: Bộ nhớ cache dữ liệu Excel của từng file để không load lại nhiều lần
 const excelDataCache = {};
 
-// B3: Hàm hiển thị từng cung, mỗi cung tra cứu từ Excel
+// Hiển thị sao của từng cung
 function renderCungKiemTraSao() {
     const cungArr = getCungData();
     // Render khung từng cung và placeholder tra cứu Excel
