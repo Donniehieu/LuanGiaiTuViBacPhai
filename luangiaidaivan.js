@@ -64,5 +64,6 @@ function Luantamhopdaivan(chiTuoi, chiDaiVan) {
     if (!hanhTuoi || !hanhDaiVan) return "Không xác định được tam hợp hoặc ngũ hành.";
     // Luận sinh khắc
     const sinhKhac = xetSinhKhacTamHop(hanhTuoi, hanhDaiVan);
+    console.log(hienHuongCoTamHop(sinhKhac));
     return hienHuongCoTamHop(sinhKhac);
 }

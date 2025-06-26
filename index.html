@@ -114,9 +114,17 @@
         </div>
     </div>
 
-
-    <script src="ansao.js"></script>
+   
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var zoom = Math.round((window.outerWidth / window.innerWidth) * 100);
+            if (zoom !== 100) {
+                alert('Trình duyệt của bạn đang để zoom khác 100%. Vui lòng bấm Ctrl+0 để xem ứng dụng đúng chuẩn!');
+            }
+        });</script>
     <script src="kiemtragiosinh.js"></script>
+    <script src="ansao.js"></script>
+  
     <script src="veduongtamhop.js"></script>
     <script src="chuplaso.js"></script>
     <script src="nguhanhcucmenh.js"></script>
@@ -128,20 +136,13 @@
     <script src="ansaophutinh.js"></script>
     <script src="ansaoluu.js"></script>
     <script src="ansaodaivan.js"></script>
-
+    <script src="laplaso.js"></script>
     <script src="cungdata.js"></script>
     <script src="advice.js"></script>
 
     <script src="thongtinchung.js"></script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var zoom = Math.round((window.outerWidth / window.innerWidth) * 100);
-            if (zoom !== 100) {
-                alert('Trình duyệt của bạn đang để zoom khác 100%. Vui lòng bấm Ctrl+0 để xem ứng dụng đúng chuẩn!');
-            }
-        });</script>
-    <script src="laplaso.js"></script>
+    
     <script src="luangiai.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
