@@ -1,4 +1,4 @@
-﻿﻿function tinhdaivan(menhIdx, cucSo, amduong) {
+﻿﻿﻿function tinhdaivan(menhIdx, cucSo, amduong) {
     let daiVanArr = Array(12).fill(0);
     let isThuan = (amduong === "Dương Nam" || amduong === "Âm Nữ");
     let idx = menhIdx;
@@ -164,7 +164,37 @@ function getTangTueDieuGroups(lasoOb) {
     return result;
 }
 
-// ==== Hàm render đại vận có hiển thị Tuế Hổ Phù và vòng Tang Tuế Điếu ====
+// === Hàm xác định các nhóm tam hợp Âm Long Trực (có Thiếu Âm) ===
+function getAmLongTrucGroups(lasoOb) {
+    const TAM_HOP_CHI = [
+        ["Dần", "Ngọ", "Tuất"],
+        ["Thân", "Tý", "Thìn"],
+        ["Tỵ", "Dậu", "Sửu"],
+        ["Hợi", "Mão", "Mùi"]
+    ];
+    let cungLaSo = lasoOb.slice(0, 12);
+    let result = [];
+    TAM_HOP_CHI.forEach(group => {
+        let cungTrongTamHop = cungLaSo.filter(cung => group.includes(cung.chi));
+        let hasThieuAm = cungTrongTamHop.some(cung =>
+            Array.isArray(cung.sao) &&
+            cung.sao.some(
+                sao =>
+                    (sao.ten && sao.ten.replace(/\s+/g, "").toLowerCase() === "thiếuâm") ||
+                    (sao.name && sao.name.replace(/\s+/g, "").toLowerCase() === "thiếuâm")
+            )
+        );
+        if (hasThieuAm && cungTrongTamHop.length === 3) {
+            result.push({
+                tamHop: group.join('-'),
+                cacChi: group
+            });
+        }
+    });
+    return result;
+}
+
+// ==== Hàm render đại vận có hiển thị Tuế Hổ Phù, Tang Tuế Điếu, Âm Long Trực ====
 function renderDaivanSection() {
     let lasoData = {};
     try {
@@ -191,6 +221,8 @@ function renderDaivanSection() {
     const tamHopGroups = getTamHopTueHoPhuGroups(lasoOb);
     // Lấy nhóm vòng Tang Tuế Điếu
     const tangTueDieuGroups = getTangTueDieuGroups(lasoOb);
+    // Lấy nhóm tam hợp Âm Long Trực
+    const amLongTrucGroups = getAmLongTrucGroups(lasoOb);
 
     let arr = [];
     for (let i = 0; i < 12; ++i) {
@@ -225,7 +257,14 @@ function renderDaivanSection() {
                 <b>Cung này thuộc vòng Tang-Tuế-Điếu (bộ: ${groupTTD.tamHop})</b>
             </div>`;
         }
-        html += `<div class="daivan-item${(group || groupTTD) ? ' thuoc-tam-hop-tue-ho-phu' : ''} ${item.cungTen}" id="${item.cungTen}">
+        // Âm Long Trực
+        let groupALT = amLongTrucGroups.find(g => g.cacChi.includes(item.chi));
+        if (groupALT) {
+            tamHopNote += `<div class="am-long-truc-note" style="color: #009688; margin-bottom: 0.5em;">
+                <b>Cung này thuộc tam hợp Âm Long Trực: ${groupALT.tamHop}</b>
+            </div>`;
+        }
+        html += `<div class="daivan-item${(group || groupTTD || groupALT) ? ' thuoc-tam-hop-tue-ho-phu' : ''} ${item.cungTen}" id="${item.cungTen}">
             <b><br>Đại Vận:</b> ${item.startAge} tuổi - ${item.endAge} tuổi tại cung ${item.cungTen} (${item.chi})
             ${tamHopNote}
         </div>`;
