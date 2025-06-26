@@ -44,6 +44,7 @@ function xetSinhKhacNguHanh(hanhMenh, hanhCuc) {
         menh_khac_cuc: (NGU_HANH_KHAC[hanhMenh] === hanhCuc) ? "Có" : "Không",
         cuc_sinh_menh: (NGU_HANH_SINH[hanhCuc] === hanhMenh) ? "Có" : "Không",
         cuc_khac_menh: (NGU_HANH_KHAC[hanhCuc] === hanhMenh) ? "Có" : "Không",
+        cuc_binh_hoa_menh: (NGU_HANH_KHAC[hanhCuc] === hanhMenh) ? "Có" : "Không",
     };
 }
 
@@ -255,5 +256,34 @@ function hienHuongCoTamHop(result) {
     };
     return Object.entries(result)
         .filter(([key, value]) => value === "Có")
+        .map(([key]) => mapping[key]);
+}
+
+function layNguHanhChi(chi) {
+    const hanhClass = HANH_CHI[chi];
+    if (!hanhClass) return "";
+    return HANH_LABEL[hanhClass] || "";
+}
+
+function xetSinhKhacBinhHoaMenhVaChiDaiVan(nguhanhMenh, chiDaiVan) {
+    const nguhanhChi = layNguHanhChi(chiDaiVan);
+    if (!nguhanhMenh || !nguhanhChi) return {};
+    // Đã có xetSinhKhacNguHanh trong nguhanhcucmenh.js
+    // Kết quả gồm: menh_sinh_cuc, menh_khac_cuc, cuc_sinh_menh, cuc_khac_menh
+    // Ở đây: mệnh là "mệnh", chi đại vận là "cục"
+    return xetSinhKhacNguHanh(nguhanhMenh, nguhanhChi);
+}
+
+// Chỉ hiện các hướng có ý nghĩa
+function hienHuongCoMenhChiDaiVan(result) {
+    const mapping = {
+        menh_sinh_cuc: "Ngũ hành bản Mệnh sinh Ngũ hành Chi đại vận",
+        menh_khac_cuc: "Ngũ hành bản Mệnh khắc Ngũ hành Chi đại vận",
+        cuc_sinh_menh: "Ngũ hành Chi đại vận sinh Ngũ hành bản Mệnh",
+        cuc_khac_menh: "Ngũ hành Chi đại vận khắc Ngũ hành bản Mệnh",
+        cuc_binh_hoa_menh: "Ngũ hành Chi đại vận đồng hành với Ngũ hành bản Mệnh"
+    };
+    return Object.entries(result)
+        .filter(([_, value]) => value === "Có")
         .map(([key]) => mapping[key]);
 }

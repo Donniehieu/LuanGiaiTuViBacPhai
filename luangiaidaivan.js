@@ -24,26 +24,55 @@ function Luantamhopdaivan(chiTuoi, chiDaiVan) {
     return hienHuongCoTamHop(sinhKhac);
 }
 
+function LuanNguhanhMenhvaDaivan(lasoData, chiDaiVan){
+   
+
+    const hanhMenh = lasoData.hanhMenh;
+    const hanhDaiVan = layNguHanhChi(chiDaiVan);
+
+    if (!hanhMenh || !hanhDaiVan) return "Không xác định được ngũ hành của tuổi hoặc đại vận.";
+
+    // Luận sinh khắc
+    const sinhKhac = xetSinhKhacBinhHoaMenhVaChiDaiVan(hanhMenh, hanhDaiVan);
+
+    return hienHuongCoMenhChiDaiVan(sinhKhac);
+}
 function Luangiaidaivan() {
     let lasoData = {};
     try {
         lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
     } catch (e) { lasoData = {}; }
+    // const chiDaiVanCungMenh = lasoData.lasoOb[0].chi;
+    // const chiDaiVanCungPhuMau = lasoData.lasoOb[1].chi;
+    // const chiDaiVanCungPhucDuc = lasoData.lasoOb[2].chi;
+    // const chiDaiVanCungDienTrach = lasoData.lasoOb[3].chi;
+    // const chiDaiVanCungQuanLoc = lasoData.lasoOb[4].chi;
+    // const chiDaiVanCungNoBoc = lasoData.lasoOb[5].chi;
+    // const chiDaiVanCungThienDi = lasoData.lasoOb[6].chi;
+    // const chiDaiVanCungTatAch = lasoData.lasoOb[7].chi;
+    // const chiDaiVanCungTaiBach = lasoData.lasoOb[8].chi;
+    // const chiDaiVanCungTuTuc = lasoData.lasoOb[9].chi;
+    // const chiDaiVanCungPhuThe = lasoData.lasoOb[10].chi;
+    // const chiDaiVanCungHuynhDe = lasoData.lasoOb[11].chi;
+    // const hanhMenh = lasoData.hanhMenh;
+    const chiNam= lasoData.chiNam;
+
+    luanGiaiDaiVanTaiMenh.push(Luantamhopdaivan(chiNam, lasoData.lasoOb[0].chi));
+    luanGiaiDaiVanTaiPhuMau.push(Luantamhopdaivan(chiNam, lasoData.lasoOb[1].chi));
+    luanGiaiDaiVanTaiPhucDuc.push(Luantamhopdaivan(chiNam, lasoData.lasoOb[2].chi));
+    luanGiaiDaiVanTaiDienTrach.push(Luantamhopdaivan(chiNam, lasoData.lasoOb[3].chi));
+    luanGiaiDaiVanTaiQuanLoc.push(Luantamhopdaivan(chiNam, lasoData.lasoOb[4].chi));
+    luanGiaiDaiVanTaiNoBoc.push(Luantamhopdaivan(chiNam, lasoData.lasoOb[5].chi));
+    luanGiaiDaiVanTaiThienDi.push(Luantamhopdaivan(chiNam, lasoData.lasoOb[6].chi));
+    luanGiaiDaiVanTaiTatAch.push(Luantamhopdaivan(chiNam, lasoData.lasoOb[7].chi));
+    luanGiaiDaiVanTaiTaiBach.push(Luantamhopdaivan(chiNam, lasoData.lasoOb[8].chi));
+    luanGiaiDaiVanTaiTuTuc.push(Luantamhopdaivan(chiNam, lasoData.lasoOb[9].chi));
+    luanGiaiDaiVanTaiPhuThe.push(Luantamhopdaivan(chiNam, lasoData.lasoOb[10].chi));
+    luanGiaiDaiVanTaiHuynhDe.push(Luantamhopdaivan(chiNam, lasoData.lasoOb[11].chi));
 
 
-    luanGiaiDaiVanTaiMenh.push(Luantamhopdaivan(lasoData.chiNam, lasoData.lasoOb[0].chi));
-    luanGiaiDaiVanTaiPhuMau.push(Luantamhopdaivan(lasoData.chiNam, lasoData.lasoOb[1].chi));
-    luanGiaiDaiVanTaiPhucDuc.push(Luantamhopdaivan(lasoData.chiNam, lasoData.lasoOb[2].chi));
-    luanGiaiDaiVanTaiDienTrach.push(Luantamhopdaivan(lasoData.chiNam, lasoData.lasoOb[3].chi));
-    luanGiaiDaiVanTaiQuanLoc.push(Luantamhopdaivan(lasoData.chiNam, lasoData.lasoOb[4].chi));
-    luanGiaiDaiVanTaiNoBoc.push(Luantamhopdaivan(lasoData.chiNam, lasoData.lasoOb[5].chi));
-    luanGiaiDaiVanTaiThienDi.push(Luantamhopdaivan(lasoData.chiNam, lasoData.lasoOb[6].chi));
-    luanGiaiDaiVanTaiTatAch.push(Luantamhopdaivan(lasoData.chiNam, lasoData.lasoOb[7].chi));
-    luanGiaiDaiVanTaiTaiBach.push(Luantamhopdaivan(lasoData.chiNam, lasoData.lasoOb[8].chi));
-    luanGiaiDaiVanTaiTuTuc.push(Luantamhopdaivan(lasoData.chiNam, lasoData.lasoOb[9].chi));
-    luanGiaiDaiVanTaiPhuThe.push(Luantamhopdaivan(lasoData.chiNam, lasoData.lasoOb[10].chi));
-    luanGiaiDaiVanTaiHuynhDe.push(Luantamhopdaivan(lasoData.chiNam, lasoData.lasoOb[11].chi));
 
+  
     TraSao(comboLuanDaiVanData, fileLuangiaiDaiVan, classDaiVanMenh, luanGiaiDaiVanTaiMenh);
     TraSao(comboLuanDaiVanData, fileLuangiaiDaiVan, classDaiVanPhuMau, luanGiaiDaiVanTaiPhuMau);
     TraSao(comboLuanDaiVanData, fileLuangiaiDaiVan, classDaiVanPhucDuc, luanGiaiDaiVanTaiPhucDuc);

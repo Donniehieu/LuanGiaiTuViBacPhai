@@ -224,6 +224,7 @@ document.getElementById('form_tuvi').addEventListener('submit', function (e) {
 
     // Tạo object lưu thông tin cần thiết
     const lasoData = {
+        hanhMenh,
         canNam,
         chiNam,
         IDCungMenh,
