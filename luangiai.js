@@ -339,10 +339,8 @@ function hienThiKetQuaNhieuBoSao(results, targetDivId = 'result') {
                 <b>${r.key}:</b><br>
                 ${r.values.map(v => `<div>• ${v}</div>`).join('')}
             </div>`;
-        } else {
-            return `<div data-bo-sao-key="${r.key}"><b>${r.key}:</b> <em>Không tìm thấy bộ sao này!</em></div>`;
-        }
-    }).join('<hr>');
+        } 
+    }).join('<br>');
     if (html) el.insertAdjacentHTML('beforeend', html) ;
 }
 
