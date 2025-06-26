@@ -3,7 +3,21 @@
     "Tài Bạch", "Tử Tức", "Phu Thê", "Huynh Đệ"]
 
 let classluangiaiChung = "general-content";
+let classDaiVanMenh = "Mệnh";
+let classDaiVanPhuMau = "Phụ Mẫu";
+let classDaiVanPhucDuc = "Phúc Đức";
+let classDaiVanDienTrach = "Điền Trạch";
+let classDaiVanQuanLoc = "Quan Lộc";
+let classDaiVanNoBoc = "Nô Bộc";
+let classDaiVanThienDi = "Thiên Di";
+let classDaiVanTatAch = "Tật Ách";
+let classDaiVanTaiBach = "Tài Bạch";
+let classDaiVanTuTuc = "Tử Tức";
+let classDaiVanPhuThe = "Phu Thê";
+let classDaiVanHuyenDe = "Huynh Đệ";
+
 let fileLuangiaiChung = "LuangiaiChung";
+let fileLuangiaiDaiVan = "Luandaivan";
 let lasoOb = [];
 
 let luanGiaiChung = [];
@@ -109,6 +123,7 @@ function renderLines(lines) {
 let comboData1 = [];
 let comboData2 = [];
 let comboLuanChungData = [];
+let comboLuanDaiVanData=[];
 /**
  * Load một file Excel, trả về arr qua callback
  */
@@ -142,7 +157,8 @@ function TraSao(comboData, file, idClass, keyArr) {
             // Lưu lại cho lần sau không cần load nữa
             if (file === 'ComboDemo1') comboData1 = arr;
             if (file === 'ComboDemo2') comboData2 = arr;
-             if (file === fileLuangiaiChung) comboLuanChungData = arr;
+            if (file === fileLuangiaiChung) comboLuanChungData = arr;
+            if (file === fileLuangiaiDaiVan) comboLuanDaiVanData = arr;
             const ynghia = traCuuNhieuBoSao(keyArr, arr);
             hienThiKetQuaNhieuBoSao(ynghia, idClass);
          
@@ -400,27 +416,19 @@ function isVoDongCung(idFromCungMenhtoHuynhDe) {
 function isMenhVoChinhDieu() {
     return isVoChinhDieu(0);
 }
-function LuanGiaiDaiVan(keyArr) {
-    for (var i = 0; i < IDclassDaivan.length; i++) {
-        TraSao(comboData2, 'ComboDemo2', IDclassDaivan[i], keyArr);  //luận đại vận
-    }
 
-}
 function LuanGiaiLaso(){
     setTimeout(setLasoData(), 200);
     TraSao(comboLuanChungData, fileLuangiaiChung, classluangiaiChung, luanGiaiChung);  // Tổng quan
     TraSao(comboData2, 'ComboDemo2', 'advice-content', ['Sát Phá Lang']);   // Lời khuyên
-    LuanGiaiDaiVan(['Sát Phá Lang']);
+    
     renderCungKiemTraSao(['Sát Phá Lang']);              // Từng cung                                
     renderDaivanSection();
     getDanhSachChinhTinhTungCung();
     LuanGiaiChung();
-    let lasoData = {};
-    try {
-        lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
-    } catch (e) { lasoData = {}; }
-    console.log(lasoData.chiNam, lasoData.lasoOb[0].chi);
-    Luantamhopdaivan(lasoData.chiNam, lasoData.lasoOb[0].chi); // Luận tam hợp đại vận
+    Luangiaidaivan();
+    console.log(luanGiaiDaiVanTaiMenh);
+    
 
 }
 

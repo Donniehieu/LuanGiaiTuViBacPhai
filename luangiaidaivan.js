@@ -1,69 +1,60 @@
 
-let luanGiaiDaiVan_01 = [];
-let luanGiaiDaiVan_02 = [];
-let luanGiaiDaiVan_03 = [];
-let luanGiaiDaiVan_04 = [];
-let luanGiaiDaiVan_05 = [];
-let luanGiaiDaiVan_06 = [];
-let luanGiaiDaiVan_07 = [];
-let luanGiaiDaiVan_08 = [];
-let luanGiaiDaiVan_09 = [];
-let luanGiaiDaiVan_10 = [];
-let luanGiaiDaiVan_11 = [];
-let luanGiaiDaiVan_12 = [];
-let quanhetamhop_daivan_01;
-let quanhetamhop_daivan_02;
-let quanhetamhop_daivan_03;
-let quanhetamhop_daivan_04;
-let quanhetamhop_daivan_05;
-let quanhetamhop_daivan_06;
-let quanhetamhop_daivan_07;
-let quanhetamhop_daivan_08;
-let quanhetamhop_daivan_09;
-let quanhetamhop_daivan_10;
-let quanhetamhop_daivan_11;
-let quanhetamhop_daivan_12;
-let tamhoptuoi;
-let tamhopdaivan_01;
-let tamhopdaivan_02;
-let tamhopdaivan_03;
-let tamhopdaivan_04;
-let tamhopdaivan_05;
-let tamhopdaivan_06;
-let tamhopdaivan_07;
-let tamhopdaivan_08;
-let tamhopdaivan_09;
-let tamhopdaivan_10;
-let tamhopdaivan_11;
-let tamhopdaivan_12;
+let luanGiaiDaiVanTaiMenh = [];
+let luanGiaiDaiVanTaiPhuMau = [];
+let luanGiaiDaiVanTaiPhucDuc = [];
+let luanGiaiDaiVanTaiDienTrach = [];
+let luanGiaiDaiVanTaiQuanLoc = [];
+let luanGiaiDaiVanTaiNoBoc = [];
+let luanGiaiDaiVanTaiThienDi = [];
+let luanGiaiDaiVanTaiTatAch = [];
+let luanGiaiDaiVanTaiTaiBach = [];
+let luanGiaiDaiVanTaiTuTuc = [];
+let luanGiaiDaiVanTaiPhuThe = [];
+let luanGiaiDaiVanTaiHuynhDe = [];
 
-let nguhanhdaivan_01;
-let nguhanhdaivan_02;
-let nguhanhdaivan_03;
-let nguhanhdaivan_04;
-let nguhanhdaivan_05;
-let nguhanhdaivan_06;
-let nguhanhdaivan_07;
-let nguhanhdaivan_08;
-let nguhanhdaivan_09;
-let nguhanhdaivan_10;
-let nguhanhdaivan_11;
-let nguhanhdaivan_12;
 function Luantamhopdaivan(chiTuoi, chiDaiVan) {
-    // Xác định ngũ hành tam hợp của tuổi và của đại vận
-    function getNguHanhTamHopByChi(chi) {
-        if (["Dần", "Ngọ", "Tuất"].includes(chi)) return "Hỏa";
-        if (["Thân", "Tý", "Thìn"].includes(chi)) return "Thủy";
-        if (["Tỵ", "Dậu", "Sửu"].includes(chi)) return "Kim";
-        if (["Hợi", "Mão", "Mùi"].includes(chi)) return "Mộc";
-        return "";
-    }
+
     const hanhTuoi = getNguHanhTamHopByChi(chiTuoi);
     const hanhDaiVan = getNguHanhTamHopByChi(chiDaiVan);
     console.log(`Ngũ hành tuổi: ${hanhTuoi}, Ngũ hành đại vận: ${hanhDaiVan}`);
     if (!hanhTuoi || !hanhDaiVan) return "Không xác định được tam hợp hoặc ngũ hành.";
     // Luận sinh khắc
     const sinhKhac = xetSinhKhacTamHop(hanhTuoi, hanhDaiVan);
-    console.log(hienHuongCoTamHop(sinhKhac));
+
     return hienHuongCoTamHop(sinhKhac);
+}
+
+function Luangiaidaivan() {
+    let lasoData = {};
+    try {
+        lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
+    } catch (e) { lasoData = {}; }
+
+
+    luanGiaiDaiVanTaiMenh.push(Luantamhopdaivan(lasoData.chiNam, lasoData.lasoOb[0].chi));
+    luanGiaiDaiVanTaiPhuMau.push(Luantamhopdaivan(lasoData.chiNam, lasoData.lasoOb[1].chi));
+    luanGiaiDaiVanTaiPhucDuc.push(Luantamhopdaivan(lasoData.chiNam, lasoData.lasoOb[2].chi));
+    luanGiaiDaiVanTaiDienTrach.push(Luantamhopdaivan(lasoData.chiNam, lasoData.lasoOb[3].chi));
+    luanGiaiDaiVanTaiQuanLoc.push(Luantamhopdaivan(lasoData.chiNam, lasoData.lasoOb[4].chi));
+    luanGiaiDaiVanTaiNoBoc.push(Luantamhopdaivan(lasoData.chiNam, lasoData.lasoOb[5].chi));
+    luanGiaiDaiVanTaiThienDi.push(Luantamhopdaivan(lasoData.chiNam, lasoData.lasoOb[6].chi));
+    luanGiaiDaiVanTaiTatAch.push(Luantamhopdaivan(lasoData.chiNam, lasoData.lasoOb[7].chi));
+    luanGiaiDaiVanTaiTaiBach.push(Luantamhopdaivan(lasoData.chiNam, lasoData.lasoOb[8].chi));
+    luanGiaiDaiVanTaiTuTuc.push(Luantamhopdaivan(lasoData.chiNam, lasoData.lasoOb[9].chi));
+    luanGiaiDaiVanTaiPhuThe.push(Luantamhopdaivan(lasoData.chiNam, lasoData.lasoOb[10].chi));
+    luanGiaiDaiVanTaiHuynhDe.push(Luantamhopdaivan(lasoData.chiNam, lasoData.lasoOb[11].chi));
+
+    TraSao(comboLuanDaiVanData, fileLuangiaiDaiVan, classDaiVanMenh, luanGiaiDaiVanTaiMenh);
+    TraSao(comboLuanDaiVanData, fileLuangiaiDaiVan, classDaiVanPhuMau, luanGiaiDaiVanTaiPhuMau);
+    TraSao(comboLuanDaiVanData, fileLuangiaiDaiVan, classDaiVanPhucDuc, luanGiaiDaiVanTaiPhucDuc);
+    TraSao(comboLuanDaiVanData, fileLuangiaiDaiVan, classDaiVanDienTrach, luanGiaiDaiVanTaiDienTrach);
+    TraSao(comboLuanDaiVanData, fileLuangiaiDaiVan, classDaiVanQuanLoc, luanGiaiDaiVanTaiQuanLoc);
+    TraSao(comboLuanDaiVanData, fileLuangiaiDaiVan, classDaiVanNoBoc, luanGiaiDaiVanTaiNoBoc);
+    TraSao(comboLuanDaiVanData, fileLuangiaiDaiVan, classDaiVanThienDi, luanGiaiDaiVanTaiThienDi);
+    TraSao(comboLuanDaiVanData, fileLuangiaiDaiVan, classDaiVanTatAch, luanGiaiDaiVanTaiTatAch);
+    TraSao(comboLuanDaiVanData, fileLuangiaiDaiVan, classDaiVanTaiBach, luanGiaiDaiVanTaiTaiBach);
+    TraSao(comboLuanDaiVanData, fileLuangiaiDaiVan, classDaiVanTuTuc, luanGiaiDaiVanTaiTuTuc);
+    TraSao(comboLuanDaiVanData, fileLuangiaiDaiVan, classDaiVanPhuThe, luanGiaiDaiVanTaiPhuThe);
+    TraSao(comboLuanDaiVanData, fileLuangiaiDaiVan, classDaiVanHuyenDe, luanGiaiDaiVanTaiHuynhDe);
+
 }
