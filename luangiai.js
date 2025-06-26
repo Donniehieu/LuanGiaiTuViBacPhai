@@ -59,7 +59,8 @@ function getAllStarsInCells() {
         lasoOb.push({
             tenCung: TEN_CUNG_FULL[i],
             chi: CUNG_CELLS[(i + IDCungMenh) % 12].chi,
-            sao: saoList
+            sao: saoList,
+            cell: cellNum
         });
     }
     return lasoOb;
