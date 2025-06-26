@@ -1,4 +1,4 @@
-﻿﻿﻿function tinhdaivan(menhIdx, cucSo, amduong) {
+﻿function tinhdaivan(menhIdx, cucSo, amduong) {
     let daiVanArr = Array(12).fill(0);
     let isThuan = (amduong === "Dương Nam" || amduong === "Âm Nữ");
     let idx = menhIdx;
@@ -7,6 +7,13 @@
         idx = (idx + (isThuan ? 1 : -1) + 12) % 12;
     }
     return daiVanArr;
+}
+function getTenCungByChiArr(chiArr, arrCung) {
+    // arrCung: mảng 12 object {cungTen, chi, ...}
+    return chiArr.map(chi => {
+        let found = arrCung.find(c => c.chi === chi);
+        return found ? found.cungTen : chi;
+    });
 }
 function tinhTieuvan(chiNamSinh, chiNam, gioitinh) {
     const CHI12 = ["Tý", "Sửu", "Dần", "Mão", "Thìn", "Tỵ", "Ngọ", "Mùi", "Thân", "Dậu", "Tuất", "Hợi"];
@@ -194,7 +201,37 @@ function getAmLongTrucGroups(lasoOb) {
     return result;
 }
 
-// ==== Hàm render đại vận có hiển thị Tuế Hổ Phù, Tang Tuế Điếu, Âm Long Trực ====
+// === Hàm xác định các nhóm tam hợp Dương Tử Phúc (có Thiếu Dương) ===
+function getDuongTuPhucGroups(lasoOb) {
+    const TAM_HOP_CHI = [
+        ["Dần", "Ngọ", "Tuất"],
+        ["Thân", "Tý", "Thìn"],
+        ["Tỵ", "Dậu", "Sửu"],
+        ["Hợi", "Mão", "Mùi"]
+    ];
+    let cungLaSo = lasoOb.slice(0, 12);
+    let result = [];
+    TAM_HOP_CHI.forEach(group => {
+        let cungTrongTamHop = cungLaSo.filter(cung => group.includes(cung.chi));
+        let hasThieuDuong = cungTrongTamHop.some(cung =>
+            Array.isArray(cung.sao) &&
+            cung.sao.some(
+                sao =>
+                    (sao.ten && sao.ten.replace(/\s+/g, "").toLowerCase() === "thiếudương") ||
+                    (sao.name && sao.name.replace(/\s+/g, "").toLowerCase() === "thiếudương")
+            )
+        );
+        if (hasThieuDuong && cungTrongTamHop.length === 3) {
+            result.push({
+                tamHop: group.join('-'),
+                cacChi: group
+            });
+        }
+    });
+    return result;
+}
+
+// ==== Hàm render đại vận có hiển thị Tuế Hổ Phù, Tang Tuế Điếu, Âm Long Trực, Dương Tử Phúc ====
 function renderDaivanSection() {
     let lasoData = {};
     try {
@@ -223,6 +260,8 @@ function renderDaivanSection() {
     const tangTueDieuGroups = getTangTueDieuGroups(lasoOb);
     // Lấy nhóm tam hợp Âm Long Trực
     const amLongTrucGroups = getAmLongTrucGroups(lasoOb);
+    // Lấy nhóm tam hợp Dương Tử Phúc
+    const duongTuPhucGroups = getDuongTuPhucGroups(lasoOb);
 
     let arr = [];
     for (let i = 0; i < 12; ++i) {
@@ -241,34 +280,43 @@ function renderDaivanSection() {
     arr.sort((a, b) => a.startAge - b.startAge);
 
     let html = '';
-    arr.forEach(item => {
-        let tamHopNote = '';
-        // Tuế Hổ Phù
-        let group = tamHopGroups.find(g => g.cacChi.includes(item.chi));
-        if (group) {
-            tamHopNote += `<div class="tam-hop-note" style="color: #d17e00; margin-bottom: 0.5em;">
-                <b>Cung này thuộc tam hợp Tuế Hổ Phù: ${group.tamHop}</b>
-            </div>`;
-        }
-        // Tang Tuế Điếu
-        let groupTTD = tangTueDieuGroups.find(g => g.cacChi.includes(item.chi));
-        if (groupTTD) {
-            tamHopNote += `<div class="tang-tue-dieu-note" style="color: #a600b7; margin-bottom: 0.5em;">
-                <b>Cung này thuộc vòng Tang-Tuế-Điếu (bộ: ${groupTTD.tamHop})</b>
-            </div>`;
-        }
-        // Âm Long Trực
-        let groupALT = amLongTrucGroups.find(g => g.cacChi.includes(item.chi));
-        if (groupALT) {
-            tamHopNote += `<div class="am-long-truc-note" style="color: #009688; margin-bottom: 0.5em;">
-                <b>Cung này thuộc tam hợp Âm Long Trực: ${groupALT.tamHop}</b>
-            </div>`;
-        }
-        html += `<div class="daivan-item${(group || groupTTD || groupALT) ? ' thuoc-tam-hop-tue-ho-phu' : ''} ${item.cungTen}" id="${item.cungTen}">
-            <b><br>Đại Vận:</b> ${item.startAge} tuổi - ${item.endAge} tuổi tại cung ${item.cungTen} (${item.chi})
-            ${tamHopNote}
+   arr.forEach(item => {
+    let tamHopNote = '';
+
+    // Lấy lại tên cung của nhóm tam hợp này (nếu có)
+    let group = tamHopGroups.find(g => g.cacChi.includes(item.chi));
+    if (group) {
+        const tenCungGroup = getTenCungByChiArr(group.cacChi, arr).join('-');
+        tamHopNote += `<div class="tam-hop-note" style="color:rgb(209, 0, 0); margin-bottom: 0.5em;">
+            <b>Cung này thuộc tam hợp Tuế Hổ Phù tại: ${tenCungGroup}</b>
         </div>`;
-    });
+    }
+    let groupTTD = tangTueDieuGroups.find(g => g.cacChi.includes(item.chi));
+    if (groupTTD) {
+        const tenCungGroup = getTenCungByChiArr(groupTTD.cacChi, arr).join('-');
+        tamHopNote += `<div class="tang-tue-dieu-note" style="color: rgb(209, 0, 0); margin-bottom: 0.5em;">
+            <b>Cung này thuộc vòng Tang-Tuế-Điếu tại: ${tenCungGroup}</b>
+        </div>`;
+    }
+    let groupALT = amLongTrucGroups.find(g => g.cacChi.includes(item.chi));
+    if (groupALT) {
+        const tenCungGroup = getTenCungByChiArr(groupALT.cacChi, arr).join('-');
+        tamHopNote += `<div class="am-long-truc-note" style="color: rgb(209, 0, 0); margin-bottom: 0.5em;">
+            <b>Cung này thuộc tam hợp Âm Long Trực tại: ${tenCungGroup}</b>
+        </div>`;
+    }
+    let groupDTP = duongTuPhucGroups.find(g => g.cacChi.includes(item.chi));
+    if (groupDTP) {
+        const tenCungGroup = getTenCungByChiArr(groupDTP.cacChi, arr).join('-');
+        tamHopNote += `<div class="duong-tu-phuc-note" style="color: rgb(209, 0, 0); margin-bottom: 0.5em;">
+            <b>Cung này thuộc tam hợp Dương Tử Phúc tại: ${tenCungGroup}</b>
+        </div>`;
+    }
+    html += `<div class="daivan-item${(group || groupTTD || groupALT || groupDTP) ? ' thuoc-tam-hop-tue-ho-phu' : ''} ${item.cungTen}" id="${item.cungTen}" >
+        <b ><br > Đại Vận:</b > ${item.startAge} tuổi - ${item.endAge} tuổi tại cung ${item.cungTen} (${item.chi}) 
+        ${tamHopNote} 
+    </div>`;
+});
 
     document.getElementById('daivan-content').innerHTML = html;
 }
