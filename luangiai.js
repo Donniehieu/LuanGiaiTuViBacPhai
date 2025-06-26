@@ -3,18 +3,7 @@
     "Tài Bạch", "Tử Tức", "Phu Thê", "Huynh Đệ"]
 
 let classluangiaiChung = "general-content";
-let classDaiVanMenh = "Mệnh";
-let classDaiVanPhuMau = "Phụ Mẫu";
-let classDaiVanPhucDuc = "Phúc Đức";
-let classDaiVanDienTrach = "Điền Trạch";
-let classDaiVanQuanLoc = "Quan Lộc";
-let classDaiVanNoBoc = "Nô Bộc";
-let classDaiVanThienDi = "Thiên Di";
-let classDaiVanTatAch = "Tật Ách";
-let classDaiVanTaiBach = "Tài Bạch";
-let classDaiVanTuTuc = "Tử Tức";
-let classDaiVanPhuThe = "Phu Thê";
-let classDaiVanHuyenDe = "Huynh Đệ";
+
 
 let fileLuangiaiChung = "LuangiaiChung";
 let fileLuangiaiDaiVan = "Luandaivan";
@@ -33,7 +22,6 @@ let luanGiaiCungTaiBach = [];
 let luanGiaiCungTuTuc = [];
 let luanGiaiCungPhuThe = [];
 let luanGiaiCungHuynhDe = [];
-
 let luanGiaiLoiKhuyen = [];
 
 
@@ -229,7 +217,7 @@ function renderCungKiemTraSao(keyArr) {
     // Sau khi render, tra cứu từng cung
     cungArr.forEach(item => {
         const tenFile = cungExcelFileMap[item.tenCung] || defaultFileExcel;
-        console.log(tenFile);
+        
         // Đã có cache thì dùng luôn
         if (excelDataCache[tenFile]) {
             traCuuVaHienThiChoCung(item, excelDataCache[tenFile], keyArr);
@@ -257,7 +245,7 @@ function traCuuVaHienThiChoCung(item, comboData, keyArr) {
                 <b>${r.key}:</b>
                 ${r.values.map(v => `<div>• ${v}</div>`).join('')}
             </div>`
-        ).join('<hr>');
+        ).join('');
     } else {
         excelDiv.innerHTML = `<em>Không có thông tin tra cứu từ Excel</em>`;
     }
@@ -336,11 +324,11 @@ function hienThiKetQuaNhieuBoSao(results, targetDivId = 'result') {
     let html = results.map(r => {
         if (r.found) {
             return `<div data-bo-sao-key="${r.key}">
-                <b>${r.key}:</b><br>
+                <b>${r.key}:</b>
                 ${r.values.map(v => `<div>• ${v}</div>`).join('')}
             </div>`;
         } 
-    }).join('<br>');
+    }).join('');
     if (html) el.insertAdjacentHTML('beforeend', html) ;
 }
 
@@ -425,7 +413,7 @@ function LuanGiaiLaso(){
     getDanhSachChinhTinhTungCung();
     LuanGiaiChung();
     Luangiaidaivan();
-    console.log(luanGiaiDaiVanTaiMenh);
+    
     
 
 }

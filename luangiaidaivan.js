@@ -31,7 +31,7 @@ function Luantamhopdaivan(chiTuoi, chiDaiVan) {
 
     const hanhTuoi = getNguHanhTamHopByChi(chiTuoi);
     const hanhDaiVan = getNguHanhTamHopByChi(chiDaiVan);
-    console.log(`Ngũ hành tuổi: ${hanhTuoi}, Ngũ hành đại vận: ${hanhDaiVan}`);
+ 
     if (!hanhTuoi || !hanhDaiVan) return "Không xác định được tam hợp hoặc ngũ hành.";
     // Luận sinh khắc
     const sinhKhac = xetSinhKhacTamHop(hanhTuoi, hanhDaiVan);
@@ -40,17 +40,15 @@ function Luantamhopdaivan(chiTuoi, chiDaiVan) {
 }
 
 function LuanNguhanhMenhvaDaivan(lasoData, chiDaiVan) {
-
-
     const hanhMenh = lasoData.hanhMenh;
-    const hanhDaiVan = layNguHanhChi(chiDaiVan);
-
-    if (!hanhMenh || !hanhDaiVan) return "Không xác định được ngũ hành của tuổi hoặc đại vận.";
+    if (!hanhMenh) return "Không xác định được ngũ hành của tuổi hoặc đại vận.";
 
     // Luận sinh khắc
-    const sinhKhac = xetSinhKhacBinhHoaMenhVaChiDaiVan(hanhMenh, hanhDaiVan);
-
+    const sinhKhac = xetSinhKhacBinhHoaMenhVaChiDaiVan(hanhMenh, chiDaiVan);
+    console.log(sinhKhac);
+ 
     return hienHuongCoMenhChiDaiVan(sinhKhac);
+
 }
 function Luangiaidaivan() {
     let lasoData = {};
@@ -65,7 +63,9 @@ function Luangiaidaivan() {
         const chiCungDaiVan = lasoData.lasoOb[i].chi;
         arrLuanGiaiDaiVanTungCung[i].push(Luantamhopdaivan(chiNam, chiCungDaiVan));
         arrLuanGiaiDaiVanTungCung[i].push(LuanNguhanhMenhvaDaivan(lasoData, chiCungDaiVan));
+       
         TraSao(comboLuanDaiVanData, fileLuangiaiDaiVan, IDclassDaivan[i], arrLuanGiaiDaiVanTungCung[i]);
+
     }
     
 

@@ -178,15 +178,14 @@ document.getElementById('form_tuvi').addEventListener('submit', function (e) {
     let daiVanArr = [];
     for (let i = 0; i < 12; ++i) { daiVanArr.push(cucSo + i * 10); }
     let idxCungDaiVan = getCungDaiVanHienTai(daiVanArr, tuoiAm);
-    console.log("Cung Đại Vận hiện tại:", idxCungDaiVan, "tuổi âm:", tuoiAm, "cucSo:", cucSo, "đại vận ", daiVanArr);
-    console.log(IDCungMenh);
+ 
     let tenCungDaiVan = "";
     if (idxCungDaiVan == 0) {
         tenCungDaiVan = CUNG_CELLS[IDCungMenh].chi;
     } else if (idxCungDaiVan > 0 && idxCungDaiVan <= 12) {
         tenCungDaiVan = CUNG_CELLS[idxCungDaiVan].chi;
     }
-    console.log("Tên cung đại vận hiện tại:", tenCungDaiVan);
+   
 
 
     let canCung = getCanThang12Cung(ThienCanNamSinh)[idxCungDaiVan];

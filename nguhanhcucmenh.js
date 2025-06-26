@@ -44,7 +44,7 @@ function xetSinhKhacNguHanh(hanhMenh, hanhCuc) {
         menh_khac_cuc: (NGU_HANH_KHAC[hanhMenh] === hanhCuc) ? "Có" : "Không",
         cuc_sinh_menh: (NGU_HANH_SINH[hanhCuc] === hanhMenh) ? "Có" : "Không",
         cuc_khac_menh: (NGU_HANH_KHAC[hanhCuc] === hanhMenh) ? "Có" : "Không",
-        cuc_binh_hoa_menh: (NGU_HANH_KHAC[hanhCuc] === hanhMenh) ? "Có" : "Không",
+        cuc_binh_hoa_menh: (NGU_HANH_BINH_HOA[hanhCuc] === hanhMenh) ? "Có" : "Không",
     };
 }
 
@@ -54,7 +54,8 @@ function hienHuongCo(result) {
         menh_sinh_cuc: "Mệnh sinh Cục",
         menh_khac_cuc: "Mệnh khắc Cục",
         cuc_sinh_menh: "Cục sinh Mệnh",
-        cuc_khac_menh: "Cục khắc Mệnh"
+        cuc_khac_menh: "Cục khắc Mệnh",
+        cuc_binh_hoa_menh: "Cục Mệnh Bình Hòa"
     };
     return Object.entries(result)
         .filter(([_, value]) => value === "Có")
@@ -199,11 +200,7 @@ function xetSinhKhacNguHanhCanChi(can, chi) {
     };
 }
 
-/**
- * Chỉ trả về các hướng sinh khắc "Có" giữa can và chi
- * @param {object} result - object trả về từ xetSinhKhacNguHanhCanChi
- * @returns {array} - mảng các hướng có sinh khắc
- */
+
 function hienHuongCoCanChi(result) {
     const mapping = {
         can_sinh_chi: "Can sinh Chi",
@@ -271,17 +268,18 @@ function xetSinhKhacBinhHoaMenhVaChiDaiVan(nguhanhMenh, chiDaiVan) {
     // Đã có xetSinhKhacNguHanh trong nguhanhcucmenh.js
     // Kết quả gồm: menh_sinh_cuc, menh_khac_cuc, cuc_sinh_menh, cuc_khac_menh
     // Ở đây: mệnh là "mệnh", chi đại vận là "cục"
+  
     return xetSinhKhacNguHanh(nguhanhMenh, nguhanhChi);
 }
 
 // Chỉ hiện các hướng có ý nghĩa
 function hienHuongCoMenhChiDaiVan(result) {
     const mapping = {
-        menh_sinh_cuc: "Ngũ hành bản Mệnh sinh Ngũ hành Chi đại vận",
-        menh_khac_cuc: "Ngũ hành bản Mệnh khắc Ngũ hành Chi đại vận",
-        cuc_sinh_menh: "Ngũ hành Chi đại vận sinh Ngũ hành bản Mệnh",
-        cuc_khac_menh: "Ngũ hành Chi đại vận khắc Ngũ hành bản Mệnh",
-        cuc_binh_hoa_menh: "Ngũ hành Chi đại vận đồng hành với Ngũ hành bản Mệnh"
+        menh_sinh_cuc: "Ngũ hành bản Mệnh sinh Ngũ hành cung đại vận",
+        menh_khac_cuc: "Ngũ hành bản Mệnh khắc Ngũ hành cung đại vận",
+        cuc_sinh_menh: "Ngũ hành cung đại vận sinh Ngũ hành bản Mệnh",
+        cuc_khac_menh: "Ngũ hành cung đại vận khắc Ngũ hành bản Mệnh",
+        cuc_binh_hoa_menh: "Ngũ hành cung đại vận đồng hành với Ngũ hành bản Mệnh"
     };
     return Object.entries(result)
         .filter(([_, value]) => value === "Có")

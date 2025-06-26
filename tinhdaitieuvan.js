@@ -174,7 +174,7 @@ let html = '';
 arr.forEach(item => {
     html += `<div class="daivan-item ${item.cungTen}" id="${item.cungTen}">
   
-    <b>Đại Vận:</b> ${item.startAge} tuổi - ${item.endAge } tuổi tại cung ${item.cungTen}
+    <b><br>Đại Vận:</b> ${item.startAge} tuổi - ${item.endAge } tuổi tại cung ${item.cungTen}
 </div>`;
 });
 
