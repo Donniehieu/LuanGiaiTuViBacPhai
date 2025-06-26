@@ -10,6 +10,8 @@ function LuanGiaiChung() {
     const sinh_khac_nam_sinh = xetSinhKhacNguHanhCanChi(lasoData.canNam, lasoData.chiNam);
     const quan_he_namsinh = hienHuongCoCanChi(sinh_khac_nam_sinh);
     luanGiaiChung.push(quan_he_namsinh);
+    
+    luanGiaiChung.push(lasoData.am_duong_tinh_chat);
 
 
     

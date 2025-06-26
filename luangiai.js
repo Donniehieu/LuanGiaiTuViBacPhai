@@ -19,18 +19,7 @@ let luanGiaiCungTaiBach = [];
 let luanGiaiCungTuTuc = [];
 let luanGiaiCungPhuThe = [];
 let luanGiaiCungHuynhDe = [];
-let luanGiaiDaiVanCungMenh = [];
-let luanGiaiDaiVanCungPhuMau = [];
-let luanGiaiDaiVanCungPhucDuc = [];
-let luanGiaiDaiVanCungDienTrach = [];
-let luanGiaiDaiVanCungQuanLoc = [];
-let luanGiaiDaiVanCungNoBoc = [];
-let luanGiaiDaiVanCungThienDi = [];
-let luanGiaiDaiVanCungTatAch = [];
-let luanGiaiDaiVanCungTaiBach = [];
-let luanGiaiDaiVanCungTuTuc = [];
-let luanGiaiDaiVanCungPhuThe = [];
-let luanGiaiDaiVanCungHuynhDe = [];
+
 let luanGiaiLoiKhuyen = [];
 
 
@@ -426,6 +415,12 @@ function LuanGiaiLaso(){
     renderDaivanSection();
     getDanhSachChinhTinhTungCung();
     LuanGiaiChung();
+    let lasoData = {};
+    try {
+        lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
+    } catch (e) { lasoData = {}; }
+    console.log(lasoData.chiNam, lasoData.lasoOb[0].chi);
+    Luantamhopdaivan(lasoData.chiNam, lasoData.lasoOb[0].chi); // Luận tam hợp đại vận
 
 }
 

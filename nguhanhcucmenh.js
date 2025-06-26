@@ -69,9 +69,9 @@ function amDuongThuanNghichLy(namSinh, menhChi) {
     const laMenhDuong = cungDuong.includes(menhChi); // true: dương, false: âm
     // 3. Thuận/Nghịch lý
     if ((laTuoiAm && !laMenhDuong) || (!laTuoiAm && laMenhDuong)) {
-        return "Âm Dương Thuận lý";
+        return "Âm Dương Thuận Lý";
     } else {
-        return "Âm Dương Nghịch lý";
+        return "Âm Dương Nghịch Lý";
     }
 }
 function soCuoiNamSinh(namSinh) {
@@ -213,5 +213,47 @@ function hienHuongCoCanChi(result) {
     };
     return Object.entries(result)
         .filter(([key, value]) => mapping[key] && value === "Có")
+        .map(([key]) => mapping[key]);
+}
+// Bảng ngũ hành các nhóm tam hợp
+const NGU_HANH_TAM_HOP = {
+    "Dần-Ngọ-Tuất": "Hỏa",
+    "Thân-Tý-Thìn": "Thủy",
+    "Tỵ-Dậu-Sửu": "Kim",
+    "Hợi-Mão-Mùi": "Mộc"
+};
+
+// Hàm tra ngũ hành tam hợp từ 1 chi bất kỳ
+function getNguHanhTamHopByChi(chi) {
+    if (["Dần", "Ngọ", "Tuất"].includes(chi)) return "Hỏa";
+    if (["Thân", "Tý", "Thìn"].includes(chi)) return "Thủy";
+    if (["Tỵ", "Dậu", "Sửu"].includes(chi)) return "Kim";
+    if (["Hợi", "Mão", "Mùi"].includes(chi)) return "Mộc";
+    return "";
+}
+
+// Hàm xét sinh khắc hai ngũ hành (dùng quy tắc ngũ hành sinh khắc)
+function xetSinhKhacTamHop(hanhTuoi, hanhDaiVan) {
+  
+    return {
+        tuoi_sinh_daivan: (NGU_HANH_SINH[hanhTuoi] === hanhDaiVan) ? "Có" : "Không",
+        tuoi_khac_daivan: (NGU_HANH_KHAC[hanhTuoi] === hanhDaiVan) ? "Có" : "Không",
+        daivan_sinh_tuoi: (NGU_HANH_SINH[hanhDaiVan] === hanhTuoi) ? "Có" : "Không",
+        daivan_khac_tuoi: (NGU_HANH_KHAC[hanhDaiVan] === hanhTuoi) ? "Có" : "Không",
+        tuoi_binh_hoa_daivan: (NGU_HANH_BINH_HOA[hanhDaiVan] === hanhTuoi) ? "Có" : "Không"
+    };
+}
+
+// Hiện hướng có tác động
+function hienHuongCoTamHop(result) {
+    const mapping = {
+        tuoi_sinh_daivan: "Tam hợp tuổi sinh Tam hợp đại vận",
+        tuoi_khac_daivan: "Tam hợp tuổi khắc Tam hợp đại vận",
+        daivan_sinh_tuoi: "Tam hợp đại vận sinh Tam hợp tuổi",
+        daivan_khac_tuoi: "Tam hợp đại vận khắc Tam hợp tuổi",
+        tuoi_binh_hoa_daivan: "Tam hợp đại vận đồng hành với Tam hợp tuổi"
+    };
+    return Object.entries(result)
+        .filter(([key, value]) => value === "Có")
         .map(([key]) => mapping[key]);
 }
