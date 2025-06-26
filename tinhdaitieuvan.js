@@ -1,5 +1,4 @@
-﻿﻿
-function tinhdaivan(menhIdx, cucSo, amduong) {
+﻿﻿function tinhdaivan(menhIdx, cucSo, amduong) {
     let daiVanArr = Array(12).fill(0);
     let isThuan = (amduong === "Dương Nam" || amduong === "Âm Nữ");
     let idx = menhIdx;
@@ -106,7 +105,7 @@ function getCungDaiVanHienTai(daiVanArr, tuoiHienTai) {
     return -1;
 }
 
-// === Bổ sung: Hàm xác định các nhóm tam hợp Tuế Hổ Phù ===
+// === Hàm xác định các nhóm tam hợp Tuế Hổ Phù ===
 function getTamHopTueHoPhuGroups(lasoOb) {
     const TAM_HOP_CHI = [
         ["Dần", "Ngọ", "Tuất"],
@@ -114,17 +113,15 @@ function getTamHopTueHoPhuGroups(lasoOb) {
         ["Tỵ", "Dậu", "Sửu"],
         ["Hợi", "Mão", "Mùi"]
     ];
-    // Xử lý: chỉ lấy 12 cung đầu tiên (1 vòng lá số)
     let cungLaSo = lasoOb.slice(0, 12);
-
     let result = [];
     TAM_HOP_CHI.forEach(group => {
         let cungTrongTamHop = cungLaSo.filter(cung => group.includes(cung.chi));
         let hasThaiTue = cungTrongTamHop.some(cung =>
             Array.isArray(cung.sao) &&
             cung.sao.some(sao =>
-                (sao.ten && sao.ten.replace(/\s+/g, "") === "TháiTuế") ||
-                (sao.name && sao.name.replace(/\s+/g, "") === "TháiTuế")
+                (sao.ten && sao.ten.replace(/\s+/g, "").toLowerCase() === "tháituế") ||
+                (sao.name && sao.name.replace(/\s+/g, "").toLowerCase() === "tháituế")
             )
         );
         if (hasThaiTue && cungTrongTamHop.length === 3) {
@@ -137,7 +134,37 @@ function getTamHopTueHoPhuGroups(lasoOb) {
     return result;
 }
 
-// ==== SỬA renderDaivanSection để hiện thị Tuế Hổ Phù ====
+// === Hàm xác định các nhóm tam hợp có Tuế Phá (Vòng Tang Tuế Điếu) ===
+function getTangTueDieuGroups(lasoOb) {
+    const TAM_HOP_CHI = [
+        ["Dần", "Ngọ", "Tuất"],
+        ["Thân", "Tý", "Thìn"],
+        ["Tỵ", "Dậu", "Sửu"],
+        ["Hợi", "Mão", "Mùi"]
+    ];
+    let cungLaSo = lasoOb.slice(0, 12);
+    let result = [];
+    TAM_HOP_CHI.forEach(group => {
+        let cungTrongTamHop = cungLaSo.filter(cung => group.includes(cung.chi));
+        let hasTuePha = cungTrongTamHop.some(cung =>
+            Array.isArray(cung.sao) &&
+            cung.sao.some(
+                sao =>
+                    (sao.ten && sao.ten.replace(/\s+/g, "").toLowerCase() === "tuếphá") ||
+                    (sao.name && sao.name.replace(/\s+/g, "").toLowerCase() === "tuếphá")
+            )
+        );
+        if (hasTuePha && cungTrongTamHop.length === 3) {
+            result.push({
+                tamHop: group.join('-'),
+                cacChi: group
+            });
+        }
+    });
+    return result;
+}
+
+// ==== Hàm render đại vận có hiển thị Tuế Hổ Phù và vòng Tang Tuế Điếu ====
 function renderDaivanSection() {
     let lasoData = {};
     try {
@@ -162,6 +189,8 @@ function renderDaivanSection() {
 
     // Lấy nhóm tam hợp Tuế Hổ Phù
     const tamHopGroups = getTamHopTueHoPhuGroups(lasoOb);
+    // Lấy nhóm vòng Tang Tuế Điếu
+    const tangTueDieuGroups = getTangTueDieuGroups(lasoOb);
 
     let arr = [];
     for (let i = 0; i < 12; ++i) {
@@ -181,16 +210,22 @@ function renderDaivanSection() {
 
     let html = '';
     arr.forEach(item => {
-        // Kiểm tra chi này thuộc nhóm tam hợp Tuế Hổ Phù nào không
-        let group = tamHopGroups.find(g => g.cacChi.includes(item.chi));
-        console.log(`Cung ${item.cungTen} (${item.chi}) thuộc nhóm tam hợp:`, group ? group.tamHop : 'Không thuộc');
         let tamHopNote = '';
+        // Tuế Hổ Phù
+        let group = tamHopGroups.find(g => g.cacChi.includes(item.chi));
         if (group) {
-            tamHopNote = `<div class="tam-hop-note" style="color: #d17e00; margin-bottom: 0.5em;">
+            tamHopNote += `<div class="tam-hop-note" style="color: #d17e00; margin-bottom: 0.5em;">
                 <b>Cung này thuộc tam hợp Tuế Hổ Phù: ${group.tamHop}</b>
             </div>`;
         }
-        html += `<div class="daivan-item${group ? ' thuoc-tam-hop-tue-ho-phu' : ''} ${item.cungTen}" id="${item.cungTen}">
+        // Tang Tuế Điếu
+        let groupTTD = tangTueDieuGroups.find(g => g.cacChi.includes(item.chi));
+        if (groupTTD) {
+            tamHopNote += `<div class="tang-tue-dieu-note" style="color: #a600b7; margin-bottom: 0.5em;">
+                <b>Cung này thuộc vòng Tang-Tuế-Điếu (bộ: ${groupTTD.tamHop})</b>
+            </div>`;
+        }
+        html += `<div class="daivan-item${(group || groupTTD) ? ' thuoc-tam-hop-tue-ho-phu' : ''} ${item.cungTen}" id="${item.cungTen}">
             <b><br>Đại Vận:</b> ${item.startAge} tuổi - ${item.endAge} tuổi tại cung ${item.cungTen} (${item.chi})
             ${tamHopNote}
         </div>`;
