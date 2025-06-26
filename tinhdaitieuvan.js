@@ -288,7 +288,7 @@ function renderDaivanSection() {
     if (group) {
         const tenCungGroup = getTenCungByChiArr(group.cacChi, arr).join('-');
         tamHopNote += `<div class="tam-hop-note" style="color:rgb(209, 0, 0); margin-bottom: 0.5em;">
-            <b>Cung này thuộc tam hợp Tuế Hổ Phù tại: ${tenCungGroup}</b><br>
+            <b style= "margin-left:1em;">Cung này thuộc tam hợp Tuế Hổ Phù tại: ${tenCungGroup}</b><br>
             Đại vận này đắc thiên thời, ắt sẽ gặp nhiều thuận lợi, và có thể đạt được thành tựu dễ dàng. Cần cố gắng phát huy những điểm mạnh của bản thân để đạt hiệu quả cao nhất trong công việc và cuộc sống.
         </div>`;
     }
@@ -296,7 +296,7 @@ function renderDaivanSection() {
     if (groupTTD) {
         const tenCungGroup = getTenCungByChiArr(groupTTD.cacChi, arr).join('-');
         tamHopNote += `<div class="tang-tue-dieu-note" style="color: rgb(209, 0, 0); margin-bottom: 0.5em;">
-            <b>Cung này thuộc vòng Tang-Tuế-Điếu tại: ${tenCungGroup}</b><br>
+            <b style= "margin-left:1em;">Cung này thuộc vòng Tang-Tuế-Điếu tại: ${tenCungGroup}</b><br>
             Đại vận này bạn rất dễ rơi vào trạng thái lao đao, cuộc sống có nhiều biến động thay đổi lớn, lúc này rất cần sự bình tĩnh nhưng cũng phải hết sức năng động tích lũy kiến thức và kinh nghiệm để vượt qua những khó khăn thử thách. Cần chú ý đến sức khỏe, tránh những tai nạn bất ngờ.
         </div>`;
     }
@@ -304,7 +304,7 @@ function renderDaivanSection() {
     if (groupALT) {
         const tenCungGroup = getTenCungByChiArr(groupALT.cacChi, arr).join('-');
         tamHopNote += `<div class="am-long-truc-note" style="color: rgb(209, 0, 0); margin-bottom: 0.5em;">
-            <b>Cung này thuộc tam hợp Âm Long Trực tại: ${tenCungGroup}</b><br>
+            <b style= "margin-left:1em;">Cung này thuộc tam hợp Âm Long Trực tại: ${tenCungGroup}</b><br>
              Đây là một đại vận mà bạn cần bĩnh tĩnh chờ thời, luôn nhẫn nại học hỏi đúc rút kinh nghiệm và sống nhịn nhường tử tế thì ắt sẽ có lộc bất ngờ.
         </div>`;
     }
@@ -312,7 +312,7 @@ function renderDaivanSection() {
     if (groupDTP) {
         const tenCungGroup = getTenCungByChiArr(groupDTP.cacChi, arr).join('-');
         tamHopNote += `<div class="duong-tu-phuc-note" style="color: rgb(209, 0, 0); margin-bottom: 0.5em;">
-            <b>Cung này thuộc tam hợp Dương Tử Phúc tại: ${tenCungGroup}</b><br>
+            <b style= "margin-left:1em;">Cung này thuộc tam hợp Dương Tử Phúc tại: ${tenCungGroup}</b><br>
             Đại vận này bạn sẽ có nhiều cơ hội để phát triển bản thân, nhưng cũng cần hết sức cẩn thận, bình tĩnh, không nóng vội, sống dựa theo tứ đức, chân thành, yêu thương, tử tế thì mới tránh được thất bại, trắng tay trong sự nghiệp và thất bại cuộc sống.
         </div>`;
     }
