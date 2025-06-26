@@ -27,6 +27,7 @@ const arrLuanGiaiDaiVanTungCung = [
     luanGiaiDaiVanTaiHuynhDe
 ];
 
+
 function Luantamhopdaivan(chiTuoi, chiDaiVan) {
 
     const hanhTuoi = getNguHanhTamHopByChi(chiTuoi);

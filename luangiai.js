@@ -63,6 +63,7 @@ function getAllStarsInCells() {
             cell: cellNum
         });
     }
+    console.log(lasoOb);
     return lasoOb;
 }
 
