@@ -134,8 +134,8 @@ body {
     margin-bottom: 0;
     display: flex;
     flex-direction: column;
-    height: 270px;
-    max-height: 270px;
+    height: 450px;
+    max-height: 450px;
     overflow: hidden;
     position: relative;
     box-sizing: border-box;
@@ -163,16 +163,14 @@ body {
 }
 
 /* Nội dung từng cung scroll riêng, bị ẩn sát tiêu đề 3px */
-.cung-item .cung-content,
-.cung-item .bo-sao-list,
-.cung-item .bo-sao-excel,
-.cung-item .bo-sao-group {
+.cung-item .cung-content
+{
     flex: 1 1 auto;
     overflow-y: auto;
     overflow-x: hidden;
     padding: 1px 3px 3px 3px;
     margin-top: 0;
-    max-height: calc(270px - 52px); /* Trừ chiều cao tiêu đề, điều chỉnh nếu font size lớn hơn */
+    max-height: calc(450px - 52px); /* Trừ chiều cao tiêu đề, điều chỉnh nếu font size lớn hơn */
     box-sizing: border-box;
     scroll-padding-top: 3px;
 }
@@ -216,8 +214,8 @@ body {
 .daivan,
 .cung,
 .loi-khuyen {
-    height: 320px;
-    max-height: 320px;
+    height: 450px;
+    max-height: 450px;
     position: relative;
     overflow-x: hidden;
     box-sizing: border-box;
@@ -228,8 +226,8 @@ body {
 #luanChung,
 #daivan,
 #loiKhuyen {
-    height: 320px;
-    max-height: 320px;
+    height: 280px;
+    max-height: 280px;
     position: relative;
     overflow-x: hidden;
     box-sizing: border-box;
@@ -263,7 +261,7 @@ body {
 #loiKhuyen .section-body::-webkit-scrollbar-thumb,
 .cung-item .cung-content::-webkit-scrollbar-thumb,
 .cung-item .bo-sao-list::-webkit-scrollbar-thumb,
-.cung-item .bo-sao-excel::-webkit-scrollbar-thumb,
+
 .cung-item .bo-sao-group::-webkit-scrollbar-thumb {
     background: #3b82f6;
     border-radius: 8px;
@@ -301,14 +299,14 @@ body {
         padding: 6px 2px 4px 2px;
     }
     .cung-item {
-        height: 170px;
-        max-height: 170px;
+        height: 450px;
+        max-height: 450px;
     }
     .cung-item .cung-content,
     .cung-item .bo-sao-list,
     .cung-item .bo-sao-excel,
     .cung-item .bo-sao-group {
-        max-height: calc(170px - 36px);
+        max-height: calc(450px - 36px);
         padding: 1px 2px 2px 2px;
     }
 }

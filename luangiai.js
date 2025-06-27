@@ -609,11 +609,12 @@ function renderCungKiemTraSaoSongSong() {
             // Chính tinh
             if (chinhTinh.length === 0) {
                 contentHtml += `<div><i>Vô Chính Diệu</i></div>`;
-                luanGiaiCungMenh.push("Vô Chính Diệu");
+               
             } else if (chinhTinh.length === 1) {
                 contentHtml += `<div><b>${chinhTinh[0]}</b> tọa thủ tại ${item.tenCung}</div>`;
+               
             } else if (chinhTinh.length === 2) {
-                contentHtml += `<div><b>${chinhTinh.join(" và ")}</b> đồng cung tại ${item.tenCung}</div>`;
+                contentHtml += `<div><b>${chinhTinh.join(" và ")} đồng cung tại ${item.tenCung}</b></div>`;
             }
             // Phụ tinh
             if (phuTinh.length > 0) {
@@ -645,10 +646,22 @@ function renderCungKiemTraSaoSongSong() {
 
             keyArr.push("Mệnh Không Thân Kiếp");
         }
-        if (chinhTinh.length === 0) keyArr.push("Vô Chính Diệu");
-        else chinhTinh.forEach(ct => { if (ct) keyArr.push(ct); });
+        if (chinhTinh.length === 0) {
+            keyArr.push("Vô Chính Diệu");
+        } else if (chinhTinh.length === 1) {
+            console.log(chinhTinh[0]);  
+            keyArr.push(chinhTinh[0] + " tọa thủ tại " + item.chi);
+        } else if (chinhTinh.length === 2 ){    
+            keyArr.push(chinhTinh[0] + " và " + chinhTinh[1] + " đồng cung tại " + item.chi);
+        }
+        else chinhTinh.forEach(ct => { if (ct) 
+            console.log(ct);keyArr.push(ct); 
+            if(chinhTinh.length==2){
+                keyArr.push(chinhTinh[0]+" và "+chinhTinh[1]+" đồng cung tại "+item.chi);
+            }
+        });
         const phuTinh = dsPhu[i].phuTinh;
-        phuTinh.forEach(pt => { if (pt) keyArr.push(pt); });
+        phuTinh.forEach(pt => { if (pt) console.log(pt);keyArr.push(pt); });
         const cachCuc = findCachCuc(getStarsInTuChieu(i, dsChinh, dsPhu));
         cachCuc.forEach(cc => keyArr.push(cc));
         const keyArrUniq = Array.from(new Set(keyArr.filter(Boolean)));
