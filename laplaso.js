@@ -231,7 +231,8 @@ document.getElementById('form_tuvi').addEventListener('submit', function (e) {
         amduong,
         tuoiAm,
         lasoOb,
-        am_duong_tinh_chat
+        am_duong_tinh_chat,
+        cungCu
         // có thể bổ sung các thông tin khác nếu muốn
     };
     // Lưu vào localStorage

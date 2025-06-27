@@ -299,4 +299,5 @@ function hienHuongCoMenhChiDaiVan(result) {
 }
 function xetSinhKhacMenhVaThienMa(nguhanhMenh) {
     return hienHuongCoThienMaVaMenh(xetSinhKhacNguHanh(nguhanhMenh, "Hỏa"));
+    
 }

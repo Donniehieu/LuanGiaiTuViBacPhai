@@ -25,7 +25,19 @@ let luanGiaiCungTuTuc = [];
 let luanGiaiCungPhuThe = [];
 let luanGiaiCungHuynhDe = [];
 let luanGiaiLoiKhuyen = [];
-
+let idCungMenh = 0;
+let idCungPhuMau = 1;
+let idCungPhucDuc = 2;
+let idCungDienTrach = 3;
+let idCungQuanLoc = 4;
+let idCungNoBoc = 5;
+let idCungThienDi = 6;
+let idCungTatAch = 7;
+let idCungTaiBach = 8;
+let idCungTuTuc = 9;
+let idCungPhuThe = 10;
+let idCungHuynhDe = 11;
+let idCungThan = getCungData().findIndex(cung => cung.tenCung === JSON.parse(localStorage.getItem('laso_data')).cungCu);
 
 let VoChinhDieu = "Vô Chính Diệu";
 
@@ -41,9 +53,9 @@ function getAllStarsInCells() {
         // ... bổ sung nếu bạn có thêm class cho các loại sao khác
     ];
 
-  
+
     for (let i = 0; i < 12; ++i) {
-        const cellNum = CUNG_CELLS[(i +IDCungMenh)%12].cell;
+        const cellNum = CUNG_CELLS[(i + IDCungMenh) % 12].cell;
         const cell = document.querySelector('.cell' + cellNum);
         if (!cell) continue;
         let saoList = [];
@@ -119,13 +131,13 @@ function getSaoTuChieuForCung(i, dsChinh, dsPhu) {
 // Hàm này nhận dữ liệu từ JS khác để hiển thị lên giao diện
 function setLasoData() {
 
-    
+
     const general = GetThongTinChung();
-   
+
     const cung = getCungData();
 
     const advice = getAdviceData();
-  
+
 
     const anhBanLaSo = localStorage.getItem('anhBanLaSo');
     document.getElementById('svg-holder').innerHTML = anhBanLaSo
@@ -134,7 +146,7 @@ function setLasoData() {
 
     // Tổng quan
     document.getElementById('general-content').innerHTML =
-        general && (Array.isArray(general) ? renderLines(general) : renderLines([general])) 
+        general && (Array.isArray(general) ? renderLines(general) : renderLines([general]))
 
     // Nhận xét từng cung
     if (Array.isArray(cung) && cung.length > 0) {
@@ -145,11 +157,11 @@ function setLasoData() {
                     <span>${renderLines(item.luandai)}</span>
                 </div>`
             ).join('');
-    } 
+    }
 
     // Lời khuyên
     document.getElementById('advice-content').innerHTML =
-        advice && (Array.isArray(advice) ? renderLines(advice) : renderLines([advice])) 
+        advice && (Array.isArray(advice) ? renderLines(advice) : renderLines([advice]))
 }
 
 function renderLines(lines) {
@@ -162,7 +174,7 @@ function renderLines(lines) {
 let comboData1 = [];
 let comboData2 = [];
 let comboLuanChungData = [];
-let comboLuanDaiVanData=[];
+let comboLuanDaiVanData = [];
 let comboLoiKhuyenData = [];
 /**
  * Load một file Excel, trả về arr qua callback
@@ -171,9 +183,9 @@ function loadComboExcel(file, cb) {
     fetch(`${file}.xlsx`)
         .then(res => res.arrayBuffer())
         .then(data => {
-            const workbook = XLSX.read(data, {type:'array'});
+            const workbook = XLSX.read(data, { type: 'array' });
             const sheet = workbook.Sheets[workbook.SheetNames[0]];
-            const rows = XLSX.utils.sheet_to_json(sheet, {header:1});
+            const rows = XLSX.utils.sheet_to_json(sheet, { header: 1 });
             const arr = [];
             for (let i = 0; i < rows.length; ++i) {
                 const row = rows[i];
@@ -190,7 +202,7 @@ function loadComboExcel(file, cb) {
 
 // Hiển thị sao của tổng quan và lời khuyên
 function TraSao(comboData, file, idClass, keyArr) {
-    
+
 
     if (!comboData.length) {
         loadComboExcel(file, (arr) => {
@@ -202,12 +214,12 @@ function TraSao(comboData, file, idClass, keyArr) {
             if (file === fileLoiKhuyen) comboLuanDaiVanData = arr;
             const ynghia = traCuuNhieuBoSao(keyArr, arr);
             hienThiKetQuaNhieuBoSao(ynghia, idClass);
-         
+
         });
     } else {
         const ynghia = traCuuNhieuBoSao(keyArr, comboData);
         hienThiKetQuaNhieuBoSao(ynghia, idClass);
-        
+
     }
 }
 
@@ -298,9 +310,9 @@ function renderCungKiemTraSaoTheoBoSao() {
         if (excelDataCache[tenFile]) {
             traCuuVaHienThiChoCung(item, excelDataCache[tenFile], keyArrArr[idx]);
         } else {
-            loadComboExcel(tenFile, function(comboData) {
+            loadComboExcel(tenFile, function (comboData) {
                 excelDataCache[tenFile] = comboData;
-                
+
                 traCuuVaHienThiChoCung(item, comboData, keyArrArr[idx]);
             });
         }
@@ -342,7 +354,7 @@ function TraSaoNhieuDaiVan(comboData, file, idClassArr, keyArrArr) {
         for (let i = 0; i < idClassArr.length; ++i) {
             let keys = keyArrArr[i];
             const id = idClassArr[i];
-            
+
             if (!keys || !id) continue;
             if (!Array.isArray(keys)) keys = [keys];
             // Loại bỏ key trùng nhau trong cùng 1 cung
@@ -404,9 +416,9 @@ function hienThiKetQuaNhieuBoSao(results, targetDivId = 'result') {
                 <b>${r.key}:</b>
                 ${r.values.map(v => `<div>• ${v}</div>`).join('')}
             </div>`;
-        } 
+        }
     }).join('');
-    if (html) el.insertAdjacentHTML('beforeend', html) ;
+    if (html) el.insertAdjacentHTML('beforeend', html);
 }
 
 function clearAllSaoResults(idClassArr) {
@@ -417,10 +429,10 @@ function clearAllSaoResults(idClassArr) {
 }
 function locChinhTinh(saoList) {
     // Lọc ra những sao có class chứa 'chinh-tinh'
-     return saoList.filter(sao =>
-  typeof sao.class === 'string' &&
-  sao.class.split(/\s+/).includes('chinh-tinh')
-);
+    return saoList.filter(sao =>
+        typeof sao.class === 'string' &&
+        sao.class.split(/\s+/).includes('chinh-tinh')
+    );
 }
 // Luận chính tinh
 function getDanhSachChinhTinhTungCung() {
@@ -444,9 +456,9 @@ function getDanhSachChinhTinhTungCung() {
 function locPhuTinh(saoList) {
     // Lọc ra những sao có class chứa 'chinh-tinh'
     return saoList.filter(sao =>
-  typeof sao.class === 'string' &&
-  sao.class.split(/\s+/).includes('phu-tinh')
-);
+        typeof sao.class === 'string' &&
+        sao.class.split(/\s+/).includes('phu-tinh')
+    );
 }
 // Luận chính tinh
 function getDanhSachPhuTinhTungCung() {
@@ -589,77 +601,106 @@ function renderCungKiemTraSaoSongSong() {
     const dsPhu = getDanhSachPhuTinhTungCung();
     let cungArr = getCungData();
 
-   document.getElementById('cung-content').innerHTML =
-    cungArr.map((item, i) => {
-        const chinhTinh = dsChinh[i].chinhTinh;
-        const phuTinh = dsPhu[i].phuTinh;
-        let contentHtml = '';
-        // Chính tinh
-        if (chinhTinh.length === 0) {
-            contentHtml += `<div><i>Vô Chính Diệu</i></div>`;
-            luanGiaiCungMenh.push("Vô Chính Diệu");
-        } else if (chinhTinh.length === 1) {
-            contentHtml += `<div><b>${chinhTinh[0]}</b> tọa thủ tại ${item.tenCung}</div>`;
-        } else if (chinhTinh.length === 2) {
-            contentHtml += `<div><b>${chinhTinh.join(" và ")}</b> đồng cung tại ${item.tenCung}</div>`;
-        }
-        // Phụ tinh
-        if (phuTinh.length > 0) {
-            contentHtml += `<div>Phụ tinh: ${phuTinh.join(", ")}</div>`;
-        }
-        // Cách cục từ sao tứ chiếu
-        const saoTuChieu = getStarsInTuChieu(i, dsChinh, dsPhu);
-        const cachCuc = findCachCuc(saoTuChieu);
-        if (cachCuc.length > 0) {
-            contentHtml += `<div><b>Cách cục:</b> <span style="color: #d0021b">${cachCuc.join(", ")}</span></div>`;
-        }
-        // Nơi tra cứu Excel sẽ được bơm vào .bo-sao-excel bên dưới
-        contentHtml += `<div class="bo-sao-excel"><em>Đang tra cứu bộ sao...</em></div>`;
+    document.getElementById('cung-content').innerHTML =
+        cungArr.map((item, i) => {
+            const chinhTinh = dsChinh[i].chinhTinh;
+            const phuTinh = dsPhu[i].phuTinh;
+            let contentHtml = '';
+            // Chính tinh
+            if (chinhTinh.length === 0) {
+                contentHtml += `<div><i>Vô Chính Diệu</i></div>`;
+                luanGiaiCungMenh.push("Vô Chính Diệu");
+            } else if (chinhTinh.length === 1) {
+                contentHtml += `<div><b>${chinhTinh[0]}</b> tọa thủ tại ${item.tenCung}</div>`;
+            } else if (chinhTinh.length === 2) {
+                contentHtml += `<div><b>${chinhTinh.join(" và ")}</b> đồng cung tại ${item.tenCung}</div>`;
+            }
+            // Phụ tinh
+            if (phuTinh.length > 0) {
+                contentHtml += `<div>Phụ tinh: ${phuTinh.join(", ")}</div>`;
+            }
+            // Cách cục từ sao tứ chiếu
+            const saoTuChieu = getStarsInTuChieu(i, dsChinh, dsPhu);
+            const cachCuc = findCachCuc(saoTuChieu);
+            if (cachCuc.length > 0) {
+                contentHtml += `<div><b>Cách cục:</b> <span style="color: #d0021b">${cachCuc.join(", ")}</span></div>`;
+            }
+            // Nơi tra cứu Excel sẽ được bơm vào .bo-sao-excel bên dưới
+            contentHtml += `<div class="bo-sao-excel"><em>Đang tra cứu bộ sao...</em></div>`;
 
-        // CHUẨN sticky scroll: tên cung riêng .cung-title, toàn bộ còn lại .cung-content
-        return `<div class="cung-item" id="cung-${item.tenCung.replace(/\s/g, '').toLowerCase()}">
+            // CHUẨN sticky scroll: tên cung riêng .cung-title, toàn bộ còn lại .cung-content
+            return `<div class="cung-item" id="cung-${item.tenCung.replace(/\s/g, '').toLowerCase()}">
                     <div class="cung-title">${item.tenCung}</div>
                     <div class="cung-content">${contentHtml}</div>
                 </div>`;
-    }).join('');
+        }).join('');
 
-// Tra cứu song song như cũ (không đổi)
-cungArr.forEach((item, i) => {
-    const keyArr = [];
-    const chinhTinh = dsChinh[i].chinhTinh;
-    if (chinhTinh.length === 0) keyArr.push("Vô Chính Diệu");
-    else chinhTinh.forEach(ct => { if(ct) keyArr.push(ct); });
-    const phuTinh = dsPhu[i].phuTinh;
-    phuTinh.forEach(pt => { if(pt) keyArr.push(pt); });
-    const cachCuc = findCachCuc(getStarsInTuChieu(i, dsChinh, dsPhu));
-    cachCuc.forEach(cc => keyArr.push(cc));
-    const keyArrUniq = Array.from(new Set(keyArr.filter(Boolean)));
-    const tenFile = cungExcelFileMap[item.tenCung] || defaultFileExcel;
-    if (excelDataCache[tenFile]) {
-        traCuuVaHienThiChoCung(item, excelDataCache[tenFile], keyArrUniq);
-    } else {
-        loadComboExcel(tenFile, function(comboData) {
-            excelDataCache[tenFile] = comboData;
-            traCuuVaHienThiChoCung(item, comboData, keyArrUniq);
-        });
+   
+
+    cungArr.forEach((item, i) => {
+        const keyArr = [];
+        const chinhTinh = dsChinh[i].chinhTinh;
+        console.log(idCungMenh + " " + idCungThan);
+        if(showMenhKhongThanKiep(idCungMenh,idCungThan,dsChinh,dsPhu)){
+
+            keyArr.push("Mệnh Không Thân Kiếp");
+        }
+        if (chinhTinh.length === 0) keyArr.push("Vô Chính Diệu");
+        else chinhTinh.forEach(ct => { if (ct) keyArr.push(ct); });
+        const phuTinh = dsPhu[i].phuTinh;
+        phuTinh.forEach(pt => { if (pt) keyArr.push(pt); });
+        const cachCuc = findCachCuc(getStarsInTuChieu(i, dsChinh, dsPhu));
+        cachCuc.forEach(cc => keyArr.push(cc));
+        const keyArrUniq = Array.from(new Set(keyArr.filter(Boolean)));
+        const tenFile = cungExcelFileMap[item.tenCung] || defaultFileExcel;
+        if (excelDataCache[tenFile]) {
+            traCuuVaHienThiChoCung(item, excelDataCache[tenFile], keyArrUniq);
+        } else {
+            loadComboExcel(tenFile, function (comboData) {
+                excelDataCache[tenFile] = comboData;
+                traCuuVaHienThiChoCung(item, comboData, keyArrUniq);
+            });
+        }
+    });
+}
+function showMenhKhongThanKiep(idxCungMenh, idxCungThan, dsChinh, dsPhu) {
+
+    // Lấy các sao của cung Mệnh và cung Thân
+    const saoMenh = [].concat(
+        (dsChinh[idxCungMenh] && dsChinh[idxCungMenh].chinhTinh) || [],
+        (dsPhu[idxCungMenh] && dsPhu[idxCungMenh].phuTinh) || []
+    );
+    const saoThan = [].concat(
+        (dsChinh[idxCungThan] && dsChinh[idxCungThan].chinhTinh) || [],
+        (dsPhu[idxCungThan] && dsPhu[idxCungThan].phuTinh) || []
+    );
+
+    // Kiểm tra điều kiện
+    const menhKhong = saoMenh.includes("Địa Không");
+    const thanKiep = saoThan.includes("Địa Kiếp") || saoThan.includes("Địa Không");
+
+    // Nếu đủ điều kiện, hiển thị cách cục hoặc trả về true
+    if (menhKhong && thanKiep) {
+
+        return true;
     }
-});
+    return false;
 }
 
-
 // Hàm chính luận giải lá số
-function LuanGiaiLaso(){
+function LuanGiaiLaso() {
     setTimeout(setLasoData(), 200);
     TraSao(comboLuanChungData, fileLuangiaiChung, classluangiaiChung, luanGiaiChung);  // Tổng quan
     TraSao(comboLoiKhuyenData, fileLoiKhuyen, classLoiKhuyen, luanGiaiLoiKhuyen);   // Lời khuyên
-    
-                                  
+
+    console.log("IDCUNG THAN" + idCungThan);
     renderDaivanSection();
     getDanhSachChinhTinhTungCung();
+    console.log(showMenhKhongThanKiep(idCungMenh, idCungThan)); // Kiểm tra Mệnh Không Thân Kiếp
     LuanGiaiChung();
     Luangiaidaivan();
-    renderCungKiemTraSaoSongSong(); 
-    
-    
+    renderCungKiemTraSaoSongSong();
+
+
 
 }
