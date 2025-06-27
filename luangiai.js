@@ -696,7 +696,8 @@ function LuanGiaiLaso() {
     console.log("IDCUNG THAN" + idCungThan);
     renderDaivanSection();
     getDanhSachChinhTinhTungCung();
-    console.log(showMenhKhongThanKiep(idCungMenh, idCungThan)); // Kiểm tra Mệnh Không Thân Kiếp
+
+    console.log(showMenhKhongThanKiep(idCungMenh, idCungThan,  getDanhSachChinhTinhTungCung(),getDanhSachPhuTinhTungCung())); // Kiểm tra Mệnh Không Thân Kiếp
     LuanGiaiChung();
     Luangiaidaivan();
     renderCungKiemTraSaoSongSong();
