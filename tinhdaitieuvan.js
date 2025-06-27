@@ -137,6 +137,7 @@ function getTamHopTueHoPhuGroups(lasoOb) {
                 cacChi: group
             });
         }
+        if(result.includes(lasoOb.chiNam)) console.log("Tam hợp Tuế Hổ Phù trong tam hợp Mệnh Tài Quan");
     });
     return result;
 }
@@ -290,6 +291,7 @@ function renderDaivanSection() {
         tamHopNote += `<div class="tam-hop-note" style="color:rgb(209, 0, 0); margin-bottom: 0.5em;">
             <b style= "margin-left:1em;">Cung này thuộc tam hợp Tuế Hổ Phù tại: ${tenCungGroup}</b><br>
             Đại vận này đắc thiên thời, ắt sẽ gặp nhiều thuận lợi, và có thể đạt được thành tựu dễ dàng. Cần cố gắng phát huy những điểm mạnh của bản thân để đạt hiệu quả cao nhất trong công việc và cuộc sống.
+            Đại vận may mắn nhất cuộc đời, dễ xứng ý toại lòng, giác quan tâm linh sắc bén, và kèm theo đó cái tôi bản thân được đề cao.
         </div>`;
     }
     let groupTTD = tangTueDieuGroups.find(g => g.cacChi.includes(item.chi));
