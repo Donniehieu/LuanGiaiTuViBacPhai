@@ -235,7 +235,7 @@ function traCuuNhieuBoSao(keysToFind, comboData) {
 
 // B1: Map tên file Excel cho từng cung (có thể dùng 1 file chung hoặc từng file riêng)
 const cungExcelFileMap = {
-    'Mệnh': 'ComboDemo1',
+    'Mệnh': 'LuanMenh',
     'Phụ Mẫu': 'ComboDemo2',
     'Phúc Đức': 'ComboDemo2',
     'Điền Trạch': 'ComboDemo1',
@@ -504,21 +504,6 @@ function getTuChieuForCung(i, arrCung) {
     // Đảm bảo không null (có thể check tiếp)
     return [cungChinh, cungDoi, cungTamHop1, cungTamHop2].filter(Boolean);
 }
-function LuanGiaiLaso(){
-    setTimeout(setLasoData(), 200);
-    TraSao(comboLuanChungData, fileLuangiaiChung, classluangiaiChung, luanGiaiChung);  // Tổng quan
-    TraSao(comboLoiKhuyenData, fileLoiKhuyen, classLoiKhuyen, luanGiaiLoiKhuyen);   // Lời khuyên
-    
-            // Từng cung                                
-    renderDaivanSection();
-    getDanhSachChinhTinhTungCung();
-    LuanGiaiChung();
-    Luangiaidaivan();
-    renderCungKiemTraSaoSongSong(); 
-    
-    
-
-}
 
 
 
@@ -612,6 +597,7 @@ function renderCungKiemTraSaoSongSong() {
         // Chính tinh
         if (chinhTinh.length === 0) {
             contentHtml += `<div><i>Vô Chính Diệu</i></div>`;
+            luanGiaiCungMenh.push("Vô Chính Diệu");
         } else if (chinhTinh.length === 1) {
             contentHtml += `<div><b>${chinhTinh[0]}</b> tọa thủ tại ${item.tenCung}</div>`;
         } else if (chinhTinh.length === 2) {
@@ -641,7 +627,8 @@ function renderCungKiemTraSaoSongSong() {
 cungArr.forEach((item, i) => {
     const keyArr = [];
     const chinhTinh = dsChinh[i].chinhTinh;
-    chinhTinh.forEach(ct => { if(ct) keyArr.push(ct); });
+    if (chinhTinh.length === 0) keyArr.push("Vô Chính Diệu");
+    else chinhTinh.forEach(ct => { if(ct) keyArr.push(ct); });
     const phuTinh = dsPhu[i].phuTinh;
     phuTinh.forEach(pt => { if(pt) keyArr.push(pt); });
     const cachCuc = findCachCuc(getStarsInTuChieu(i, dsChinh, dsPhu));
@@ -660,3 +647,19 @@ cungArr.forEach((item, i) => {
 }
 
 
+// Hàm chính luận giải lá số
+function LuanGiaiLaso(){
+    setTimeout(setLasoData(), 200);
+    TraSao(comboLuanChungData, fileLuangiaiChung, classluangiaiChung, luanGiaiChung);  // Tổng quan
+    TraSao(comboLoiKhuyenData, fileLoiKhuyen, classLoiKhuyen, luanGiaiLoiKhuyen);   // Lời khuyên
+    
+                                  
+    renderDaivanSection();
+    getDanhSachChinhTinhTungCung();
+    LuanGiaiChung();
+    Luangiaidaivan();
+    renderCungKiemTraSaoSongSong(); 
+    
+    
+
+}
