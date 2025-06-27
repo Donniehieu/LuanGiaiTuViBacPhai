@@ -297,15 +297,17 @@ function renderDaivanSection() {
     let nhanXetTamHop = '';
     if (tamHopGroups.some(g => isSameGroup(g.cacChi, menhTamHop))){ nhanXetTamHop = "Tuế Hổ Phù";
         nhanXetTamHopMenh = `<div style="color:#d0021b;font-weight:bold;margin-bottom:1em;">
-            <i class="fa fa-star"></i> Tam hợp Tuế Hổ Phù ở đại vận Mệnh Tài Quan: Bạn sinh ra hợp thời cuộc, cuộc sống gắn liền phần nhiều đến tín ngưỡng và tôn giáo.
+            <i class="fa fa-star"></i> Tam hợp Tuế Hổ Phù ở đại vận Mệnh Tài Quan: Bạn sinh ra gặp rất nhiều sóng gió cuộc đời nhưng đến khi vào đại vận mà bạn đủ chín chắn, trưởng thành thì bạn sẽ được hưởng trọn vẹn thành quả của sự cố gắng, cuộc sống gắn liền phần nhiều đến tín ngưỡng và tôn giáo.
         </div>`;
     } else if (amLongTrucGroups.some(g => isSameGroup(g.cacChi, menhTamHop))) {nhanXetTamHop = "Âm Long Trực";
         nhanXetTamHopMenh = `<div style="color:#009688;font-weight:bold;margin-bottom:1em;">
             <i class="fa fa-star"></i> Tam hợp Âm Long Trực ở đại vận Mệnh Tài Quan: Bạn là người thông minh và biết cách ứng xử phù hợp với hoàn cảnh.
+            "Thuận thiên vô chiến tự nhiên thành" là châm ngôn lẽ sống của bạn.
         </div>`;
     } else if (duongTuPhucGroups.some(g => isSameGroup(g.cacChi, menhTamHop))) { nhanXetTamHop = "Dương Tử Phúc";
         nhanXetTamHopMenh = `<div style="color:#1976d2;font-weight:bold;margin-bottom:1em;">
-            <i class="fa fa-star"></i> Tam hợp Dương Tử Phúc ở đại vận Mệnh Tài Quan: Bạn là người thông minh, luôn muốn khẳng định bản thân và đề cao cái tôi của bản thân.
+            <i class="fa fa-star"></i> Tam hợp Dương Tử Phúc ở đại vận Mệnh Tài Quan: Bạn là người thông minh, trực giác nhanh nhạy, luôn có động thái đi trước đón đầu, khẳng định bản thân và đề cao cái tôi của bản thân.
+
         </div>`;
     } else if (tangTueDieuGroups.some(g => isSameGroup(g.cacChi, menhTamHop))) {nhanXetTamHop = "Tang-Tuế-Điếu";
         nhanXetTamHopMenh = `<div style="color:#a600b7;font-weight:bold;margin-bottom:1em;">
