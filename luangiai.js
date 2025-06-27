@@ -600,62 +600,59 @@ function renderCungKiemTraSaoSongSong() {
     const dsPhu = getDanhSachPhuTinhTungCung();
     let cungArr = getCungData();
 
-    document.getElementById('cung-content').innerHTML =
-        cungArr.map((item, i) => {
-            const chinhTinh = dsChinh[i].chinhTinh;
-            const phuTinh = dsPhu[i].phuTinh;
-            let html = `<b>${item.tenCung}:</b><br>`;
-            // Chính tinh
-            if (chinhTinh.length === 0) {
-                html += `<div><i>Vô Chính Diệu</i></div>`;
-            } else if (chinhTinh.length === 1) {
-                html += `<div><b>${chinhTinh[0]}</b> tọa thủ tại ${item.tenCung}</div>`;
-            } else if (chinhTinh.length === 2) {
-                html += `<div><b>${chinhTinh.join(" và ")}</b> đồng cung tại ${item.tenCung}</div>`;
-            }
-            // Phụ tinh
-            if (phuTinh.length > 0) {
-                html += `<div>Phụ tinh: ${phuTinh.join(", ")}</div>`;
-            }
-            // Cách cục từ sao tứ chiếu
-            const saoTuChieu = getStarsInTuChieu(i, dsChinh, dsPhu);
-            const cachCuc = findCachCuc(saoTuChieu);
-            if (cachCuc.length > 0) {
-                html += `<div><b>Cách cục:</b> <span style="color: #d0021b">${cachCuc.join(", ")}</span></div>`;
-            }
-            return `<div class="cung-item" id="cung-${item.tenCung.replace(/\s/g, '').toLowerCase()}">
-                        ${html}
-                        <div class="bo-sao-excel"><em>Đang tra cứu bộ sao...</em></div>
-                    </div>`;
-        }).join('');
-
-    // Sau khi render khung, tra cứu song song sao lẻ + cách cục
-    cungArr.forEach((item, i) => {
-        // Tạo keyArr gồm:
-        // 1. Chính tinh lẻ
-        const keyArr = [];
+   document.getElementById('cung-content').innerHTML =
+    cungArr.map((item, i) => {
         const chinhTinh = dsChinh[i].chinhTinh;
-        chinhTinh.forEach(ct => { if(ct) keyArr.push(ct); });
-        // 2. Phụ tinh lẻ
         const phuTinh = dsPhu[i].phuTinh;
-        phuTinh.forEach(pt => { if(pt) keyArr.push(pt); });
-        // 3. Các cách cục tổ hợp (nếu có)
-        const cachCuc = findCachCuc(getStarsInTuChieu(i, dsChinh, dsPhu));
-        cachCuc.forEach(cc => keyArr.push(cc));
-        // 4. Xoá trùng lặp
-        const keyArrUniq = Array.from(new Set(keyArr.filter(Boolean)));
-        // Tra cứu excel
-        const tenFile = cungExcelFileMap[item.tenCung] || defaultFileExcel;
-        console.log(tenFile);
-        if (excelDataCache[tenFile]) {
-            traCuuVaHienThiChoCung(item, excelDataCache[tenFile], keyArrUniq);
-        } else {
-            loadComboExcel(tenFile, function(comboData) {
-                excelDataCache[tenFile] = comboData;
-                traCuuVaHienThiChoCung(item, comboData, keyArrUniq);
-            });
+        let contentHtml = '';
+        // Chính tinh
+        if (chinhTinh.length === 0) {
+            contentHtml += `<div><i>Vô Chính Diệu</i></div>`;
+        } else if (chinhTinh.length === 1) {
+            contentHtml += `<div><b>${chinhTinh[0]}</b> tọa thủ tại ${item.tenCung}</div>`;
+        } else if (chinhTinh.length === 2) {
+            contentHtml += `<div><b>${chinhTinh.join(" và ")}</b> đồng cung tại ${item.tenCung}</div>`;
         }
-    });
+        // Phụ tinh
+        if (phuTinh.length > 0) {
+            contentHtml += `<div>Phụ tinh: ${phuTinh.join(", ")}</div>`;
+        }
+        // Cách cục từ sao tứ chiếu
+        const saoTuChieu = getStarsInTuChieu(i, dsChinh, dsPhu);
+        const cachCuc = findCachCuc(saoTuChieu);
+        if (cachCuc.length > 0) {
+            contentHtml += `<div><b>Cách cục:</b> <span style="color: #d0021b">${cachCuc.join(", ")}</span></div>`;
+        }
+        // Nơi tra cứu Excel sẽ được bơm vào .bo-sao-excel bên dưới
+        contentHtml += `<div class="bo-sao-excel"><em>Đang tra cứu bộ sao...</em></div>`;
+
+        // CHUẨN sticky scroll: tên cung riêng .cung-title, toàn bộ còn lại .cung-content
+        return `<div class="cung-item" id="cung-${item.tenCung.replace(/\s/g, '').toLowerCase()}">
+                    <div class="cung-title">${item.tenCung}</div>
+                    <div class="cung-content">${contentHtml}</div>
+                </div>`;
+    }).join('');
+
+// Tra cứu song song như cũ (không đổi)
+cungArr.forEach((item, i) => {
+    const keyArr = [];
+    const chinhTinh = dsChinh[i].chinhTinh;
+    chinhTinh.forEach(ct => { if(ct) keyArr.push(ct); });
+    const phuTinh = dsPhu[i].phuTinh;
+    phuTinh.forEach(pt => { if(pt) keyArr.push(pt); });
+    const cachCuc = findCachCuc(getStarsInTuChieu(i, dsChinh, dsPhu));
+    cachCuc.forEach(cc => keyArr.push(cc));
+    const keyArrUniq = Array.from(new Set(keyArr.filter(Boolean)));
+    const tenFile = cungExcelFileMap[item.tenCung] || defaultFileExcel;
+    if (excelDataCache[tenFile]) {
+        traCuuVaHienThiChoCung(item, excelDataCache[tenFile], keyArrUniq);
+    } else {
+        loadComboExcel(tenFile, function(comboData) {
+            excelDataCache[tenFile] = comboData;
+            traCuuVaHienThiChoCung(item, comboData, keyArrUniq);
+        });
+    }
+});
 }
 
 

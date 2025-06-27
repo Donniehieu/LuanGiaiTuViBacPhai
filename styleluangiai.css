@@ -103,17 +103,6 @@ body {
 }
 
 /* --- Cố định tiêu đề cung, đại vận, luận chung, lời khuyên --- */
-/* 
-  Cần đặt các tiêu đề này (ví dụ: tên cung, h2 luận chung, h2 đại vận, h2 lời khuyên)
-  vào trong 1 div wrapper riêng (class .section-head hoặc .cung-title v.v.) 
-  và phần nội dung cuộn nằm dưới (class .section-body, .cung-content, v.v.)
-  Ví dụ HTML:
-  <div class="cung-item">
-    <div class="cung-title">Mệnh</div>
-    <div class="cung-content"> ... (scroll) ... </div>
-  </div>
-*/
-/* Dùng position: sticky cho tiêu đề các vùng */
 .cung-title,
 .luan-chung-title,
 .daivan-title,
@@ -123,27 +112,13 @@ body {
     top: 0;
     z-index: 2;
     background: #fff;
-    background: inherit; /* Nếu muốn dính màu vùng cha */
-    /* Hiệu ứng nổi nhẹ */
+    background: inherit;
     box-shadow: 0 1px 6px 0 rgba(98,168,230,0.07);
     border-radius: 7px 7px 0 0;
     padding-bottom: 4px;
-    /* Nếu muốn thêm border dưới cho rõ */
-    /* border-bottom: 1px solid #e4f1fb; */
 }
 
-/* Các vùng nội dung cuộn - chỉ cuộn phần nội dung, không cuộn tiêu đề */
-.cung-content,
-.luan-chung-body,
-.daivan-body,
-.loi-khuyen-body,
-.section .section-body {
-    max-height: 290px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding-top: 4px;
-}
-
+/* --- Cấu trúc từng cung: tiêu đề sticky, nội dung scroll, ẩn sát tiêu đề 3px --- */
 .cung-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -156,14 +131,22 @@ body {
     box-shadow:
         0 1px 4px rgba(98,168,230,0.08),
         0 0 0 1.5px rgba(98,168,230,0.08);
-    padding: 13px 12px 12px 12px;
     margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    height: 270px;
+    max-height: 270px;
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+    padding: 0;
 }
 
-/* Tên cung: Đỏ, rất lớn, nổi bật */
-.cung-item .cung-ten,
-.cung-item > b,
-.cung-title {
+/* Tiêu đề sticky trong mỗi cung, chỉ tên cung, nổi bật */
+.cung-item .cung-title {
+    position: sticky;
+    top: 0;
+    z-index: 2;
     color: #e53935 !important;
     font-size: 2.2em;
     font-weight: 800;
@@ -171,7 +154,27 @@ body {
     display: block;
     line-height: 1.1;
     letter-spacing: 1px;
-    background: inherit;
+    background: #fff;
+    padding: 8px 4px 6px 4px;
+    border-radius: 7px 7px 0 0;
+    box-shadow: 0 1px 6px 0 rgba(98,168,230,0.07);
+    text-align: center;
+    /* Chỉ tên cung, không kèm nội dung khác */
+}
+
+/* Nội dung từng cung scroll riêng, bị ẩn sát tiêu đề 3px */
+.cung-item .cung-content,
+.cung-item .bo-sao-list,
+.cung-item .bo-sao-excel,
+.cung-item .bo-sao-group {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 4px 8px 8px 8px;
+    margin-top: 0;
+    max-height: calc(270px - 52px); /* Trừ chiều cao tiêu đề, điều chỉnh nếu font size lớn hơn */
+    box-sizing: border-box;
+    scroll-padding-top: 3px;
 }
 
 /* Bộ sao tìm được: Đen, nhỏ hơn nhiều so với tên cung, đồng đều giữa mọi cung */
@@ -191,10 +194,8 @@ body {
     display: block;
 }
 
-/* Nếu muốn nhỏ hơn nữa, dùng font-size: 0.95em hoặc 0.9em */
-
 /* Tùy chọn: làm mờ phần không phải tên cung và bộ sao */
-.cung-item *:not(.cung-ten):not(.bo-sao-list):not(.bo-sao):not(.bo-sao-tim):not(.bo-sao-excel):not(.bo-sao-group) {
+.cung-item *:not(.cung-title):not(.bo-sao-list):not(.bo-sao):not(.bo-sao-tim):not(.bo-sao-excel):not(.bo-sao-group) {
     color: inherit;
     font-size: 1em;
 }
@@ -218,14 +219,12 @@ body {
     height: 320px;
     max-height: 320px;
     position: relative;
-    /* overflow-y: auto; */ /* Bỏ auto ở class cha, chỉ để ở .body */
     overflow-x: hidden;
     box-sizing: border-box;
     scrollbar-width: thin;
     scrollbar-color: #3b82f6 #f3f8fd;
 }
 
-/* Nếu bạn có id, thêm selector dưới đây (chỉ cần nếu dùng id, còn không thì bỏ) */
 #luanChung,
 #daivan,
 #loiKhuyen {
@@ -246,7 +245,11 @@ body {
 .section-body::-webkit-scrollbar,
 #luanChung .section-body::-webkit-scrollbar,
 #daivan .section-body::-webkit-scrollbar,
-#loiKhuyen .section-body::-webkit-scrollbar {
+#loiKhuyen .section-body::-webkit-scrollbar,
+.cung-item .cung-content::-webkit-scrollbar,
+.cung-item .bo-sao-list::-webkit-scrollbar,
+.cung-item .bo-sao-excel::-webkit-scrollbar,
+.cung-item .bo-sao-group::-webkit-scrollbar {
     width: 7px;
     background: #f3f8fd;
 }
@@ -257,7 +260,11 @@ body {
 .section-body::-webkit-scrollbar-thumb,
 #luanChung .section-body::-webkit-scrollbar-thumb,
 #daivan .section-body::-webkit-scrollbar-thumb,
-#loiKhuyen .section-body::-webkit-scrollbar-thumb {
+#loiKhuyen .section-body::-webkit-scrollbar-thumb,
+.cung-item .cung-content::-webkit-scrollbar-thumb,
+.cung-item .bo-sao-list::-webkit-scrollbar-thumb,
+.cung-item .bo-sao-excel::-webkit-scrollbar-thumb,
+.cung-item .bo-sao-group::-webkit-scrollbar-thumb {
     background: #3b82f6;
     border-radius: 8px;
 }
@@ -289,9 +296,19 @@ body {
         font-size: 2rem;
     }
 
-    .cung-item .cung-ten,
-    .cung-item > b,
-    .cung-title {
+    .cung-item .cung-title {
         font-size: 1.2em;
+        padding: 6px 2px 4px 2px;
+    }
+    .cung-item {
+        height: 170px;
+        max-height: 170px;
+    }
+    .cung-item .cung-content,
+    .cung-item .bo-sao-list,
+    .cung-item .bo-sao-excel,
+    .cung-item .bo-sao-group {
+        max-height: calc(170px - 36px);
+        padding: 2px 5px 5px 5px;
     }
 }
