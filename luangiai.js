@@ -505,11 +505,12 @@ function LuanGiaiLaso(){
     TraSao(comboLuanChungData, fileLuangiaiChung, classluangiaiChung, luanGiaiChung);  // Tổng quan
     TraSao(comboData2, 'ComboDemo2', 'advice-content', ['Sát Phá Lang']);   // Lời khuyên
     
-   renderCungKiemTraSaoSongSong();            // Từng cung                                
+            // Từng cung                                
     renderDaivanSection();
     getDanhSachChinhTinhTungCung();
     LuanGiaiChung();
     Luangiaidaivan();
+    renderCungKiemTraSaoSongSong(); 
     
     
 
@@ -645,6 +646,7 @@ function renderCungKiemTraSaoSongSong() {
         const keyArrUniq = Array.from(new Set(keyArr.filter(Boolean)));
         // Tra cứu excel
         const tenFile = cungExcelFileMap[item.tenCung] || defaultFileExcel;
+        console.log(tenFile);
         if (excelDataCache[tenFile]) {
             traCuuVaHienThiChoCung(item, excelDataCache[tenFile], keyArrUniq);
         } else {
