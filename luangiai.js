@@ -3,9 +3,11 @@
     "Tài Bạch", "Tử Tức", "Phu Thê", "Huynh Đệ"]
 
 let classluangiaiChung = "general-content";
+let classLoiKhuyen = "advice-content";
 
 
 let fileLuangiaiChung = "LuangiaiChung";
+let fileLoiKhuyen = "LoiKhuyen";
 let fileLuangiaiDaiVan = "Luandaivan";
 let lasoOb = [];
 
@@ -161,6 +163,7 @@ let comboData1 = [];
 let comboData2 = [];
 let comboLuanChungData = [];
 let comboLuanDaiVanData=[];
+let comboLoiKhuyenData = [];
 /**
  * Load một file Excel, trả về arr qua callback
  */
@@ -196,6 +199,7 @@ function TraSao(comboData, file, idClass, keyArr) {
             if (file === 'ComboDemo2') comboData2 = arr;
             if (file === fileLuangiaiChung) comboLuanChungData = arr;
             if (file === fileLuangiaiDaiVan) comboLuanDaiVanData = arr;
+            if (file === fileLoiKhuyen) comboLuanDaiVanData = arr;
             const ynghia = traCuuNhieuBoSao(keyArr, arr);
             hienThiKetQuaNhieuBoSao(ynghia, idClass);
          
@@ -503,7 +507,7 @@ function getTuChieuForCung(i, arrCung) {
 function LuanGiaiLaso(){
     setTimeout(setLasoData(), 200);
     TraSao(comboLuanChungData, fileLuangiaiChung, classluangiaiChung, luanGiaiChung);  // Tổng quan
-    TraSao(comboData2, 'ComboDemo2', 'advice-content', ['Sát Phá Lang']);   // Lời khuyên
+    TraSao(comboLoiKhuyenData, fileLoiKhuyen, classLoiKhuyen, luanGiaiLoiKhuyen);   // Lời khuyên
     
             // Từng cung                                
     renderDaivanSection();

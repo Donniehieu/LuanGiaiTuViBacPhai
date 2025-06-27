@@ -61,6 +61,18 @@ function hienHuongCo(result) {
         .filter(([_, value]) => value === "Có")
         .map(([key]) => mapping[key]);
 }
+function hienHuongCoThienMaVaMenh(result) {
+    const mapping = {
+        menh_sinh_cuc: "Ngũ hành bản Mệnh sinh Ngũ hành Thiên Mã",
+        menh_khac_cuc: "Ngũ hành bản Mệnh khắc Ngũ hành Thiên Mã",
+        cuc_sinh_menh: "Ngũ hành Thiên Mã sinh Ngũ hành bản Mệnh",
+        cuc_khac_menh: "Ngũ hành Thiên Mã khắc Ngũ hành bản Mệnh",
+        cuc_binh_hoa_menh: "Ngũ hành Thiên Mã đồng hành cùng Ngũ hành bản Mệnh"
+    };
+    return Object.entries(result)
+        .filter(([_, value]) => value === "Có")
+        .map(([key]) => mapping[key]);
+}
 
 function amDuongThuanNghichLy(namSinh, menhChi) {
     // 1. Xác định tuổi âm/dương
@@ -284,4 +296,7 @@ function hienHuongCoMenhChiDaiVan(result) {
     return Object.entries(result)
         .filter(([_, value]) => value === "Có")
         .map(([key]) => mapping[key]);
+}
+function xetSinhKhacMenhVaThienMa(nguhanhMenh) {
+    return hienHuongCoThienMaVaMenh(xetSinhKhacNguHanh(nguhanhMenh, "Hỏa"));
 }

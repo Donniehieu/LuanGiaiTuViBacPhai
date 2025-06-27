@@ -294,24 +294,26 @@ function renderDaivanSection() {
     }
 
     let nhanXetTamHopMenh = '';
-    if (tamHopGroups.some(g => isSameGroup(g.cacChi, menhTamHop))) {
+    let nhanXetTamHop = '';
+    if (tamHopGroups.some(g => isSameGroup(g.cacChi, menhTamHop))){ nhanXetTamHop = "Tuế Hổ Phù";
         nhanXetTamHopMenh = `<div style="color:#d0021b;font-weight:bold;margin-bottom:1em;">
-            <i class="fa fa-star"></i> Người sinh ra hợp thời cuộc, cuộc sống gắn liền phần nhiều đến tín ngưỡng và tôn giáo.
+            <i class="fa fa-star"></i> Tam hợp Tuế Hổ Phù ở đại vận Mệnh Tài Quan: Bạn sinh ra hợp thời cuộc, cuộc sống gắn liền phần nhiều đến tín ngưỡng và tôn giáo.
         </div>`;
-    } else if (amLongTrucGroups.some(g => isSameGroup(g.cacChi, menhTamHop))) {
+    } else if (amLongTrucGroups.some(g => isSameGroup(g.cacChi, menhTamHop))) {nhanXetTamHop = "Âm Long Trực";
         nhanXetTamHopMenh = `<div style="color:#009688;font-weight:bold;margin-bottom:1em;">
-            <i class="fa fa-star"></i> Người thông minh và biết cách ứng xử phù hợp với hoàn cảnh.
+            <i class="fa fa-star"></i> Tam hợp Âm Long Trực ở đại vận Mệnh Tài Quan: Bạn là người thông minh và biết cách ứng xử phù hợp với hoàn cảnh.
         </div>`;
-    } else if (duongTuPhucGroups.some(g => isSameGroup(g.cacChi, menhTamHop))) {
+    } else if (duongTuPhucGroups.some(g => isSameGroup(g.cacChi, menhTamHop))) { nhanXetTamHop = "Dương Tử Phúc";
         nhanXetTamHopMenh = `<div style="color:#1976d2;font-weight:bold;margin-bottom:1em;">
-            <i class="fa fa-star"></i> Người thông minh, luôn muốn khẳng định bản thân và đề cao cái tôi của bản thân.
+            <i class="fa fa-star"></i> Tam hợp Dương Tử Phúc ở đại vận Mệnh Tài Quan: Bạn là người thông minh, luôn muốn khẳng định bản thân và đề cao cái tôi của bản thân.
         </div>`;
-    } else if (tangTueDieuGroups.some(g => isSameGroup(g.cacChi, menhTamHop))) {
+    } else if (tangTueDieuGroups.some(g => isSameGroup(g.cacChi, menhTamHop))) {nhanXetTamHop = "Tang-Tuế-Điếu";
         nhanXetTamHopMenh = `<div style="color:#a600b7;font-weight:bold;margin-bottom:1em;">
-            <i class="fa fa-star"></i> Người năng động, cuộc đời có rất nhiều thay đổi lớn.
+            <i class="fa fa-star"></i> Tam hợp Tang-Tuế-Điếu ở đại vận Mệnh Tài Quan: Bạn là người năng động, cuộc đời có rất nhiều thay đổi lớn.
         </div>`;
     }
-
+    luanGiaiLoiKhuyen.push(nhanXetTamHop);
+    
     let html = '';
     arr.forEach(item => {
         let tamHopNote = '';
