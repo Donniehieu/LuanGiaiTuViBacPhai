@@ -292,7 +292,7 @@ function renderDaivanSection() {
             cacChiGroup.length === 3 &&
             [...cacChiGroup].sort().join('-') === menhTamHop.join('-');
     }
-
+    // hiển thị phần note đầu tiên trong nhận xét đại vận
     let nhanXetTamHopMenh = '';
     let nhanXetTamHop = '';
     if (tamHopGroups.some(g => isSameGroup(g.cacChi, menhTamHop))){ nhanXetTamHop = "Tuế Hổ Phù";
@@ -326,7 +326,7 @@ function renderDaivanSection() {
             const tenCungGroup = getTenCungByChiArr(group.cacChi, arr).join('-');
             tamHopNote += `<div class="tam-hop-note" style="color:rgb(209, 0, 0); margin-bottom: 0.5em;">
                 <b style= "margin-left:1em;">Cung này thuộc tam hợp Tuế Hổ Phù tại: ${tenCungGroup}</b><br>
-                Đại vận này đắc thiên thời, ắt sẽ gặp nhiều thuận lợi, và có thể đạt được thành tựu dễ dàng. Cần cố gắng phát huy những điểm mạnh của bản thân để đạt hiệu quả cao nhất trong công việc và cuộc sống.
+                Đại vận lúc thiếu thời chịu nhiều sóng gió, ngã rẽ cuộc đời vì vậy đến khi vào đại vận trung niên sẽ đắc thiên thời, ắt sẽ gặp nhiều thuận lợi, và có thể đạt được thành tựu do đã tích lũy trước đó. Đến khi về già sẽ có phúc được hưởng trọn vẹn thành quả mình tạo ra.
                 Đại vận may mắn nhất cuộc đời, dễ xứng ý toại lòng, giác quan tâm linh sắc bén, và kèm theo đó cái tôi bản thân được đề cao.
             </div>`;
         }
@@ -335,7 +335,8 @@ function renderDaivanSection() {
             const tenCungGroup = getTenCungByChiArr(groupTTD.cacChi, arr).join('-');
             tamHopNote += `<div class="tang-tue-dieu-note" style="color: rgb(209, 0, 0); margin-bottom: 0.5em;">
                 <b style= "margin-left:1em;">Cung này thuộc vòng Tang-Tuế-Điếu tại: ${tenCungGroup}</b><br>
-                Đại vận này bạn rất dễ rơi vào trạng thái lao đao, cuộc sống có nhiều biến động thay đổi lớn, lúc này rất cần sự bình tĩnh nhưng cũng phải hết sức năng động tích lũy kiến thức và kinh nghiệm để vượt qua những khó khăn thử thách. Cần chú ý đến sức khỏe, tránh những tai nạn bất ngờ.
+                Đại vận này bạn rất dễ rơi vào trạng thái lao đao, cuộc sống có nhiều biến động thay đổi lớn, dễ xảy ra tai nạn, đổ vỡ để rèn luyện bản thân trở nên mạnh mẽ, và có nhiều kinh nghiệm.
+                Tích cực và năng động sẽ giúp bạn gặt hái được nhiều kinh nghiệm và thành công.
             </div>`;
         }
         let groupALT = amLongTrucGroups.find(g => g.cacChi.includes(item.chi));
@@ -343,7 +344,7 @@ function renderDaivanSection() {
             const tenCungGroup = getTenCungByChiArr(groupALT.cacChi, arr).join('-');
             tamHopNote += `<div class="am-long-truc-note" style="color: rgb(209, 0, 0); margin-bottom: 0.5em;">
                 <b style= "margin-left:1em;">Cung này thuộc tam hợp Âm Long Trực tại: ${tenCungGroup}</b><br>
-                 Đây là một đại vận mà bạn cần bĩnh tĩnh chờ thời, luôn nhẫn nại học hỏi đúc rút kinh nghiệm và sống nhịn nhường tử tế thì ắt sẽ có lộc bất ngờ.
+                 Đây là một đại vận trì trệ, nhiều điều xảy ra không như ý muốn, dù có tranh đấu cũng khó xứng ý toại lòng.
             </div>`;
         }
         let groupDTP = duongTuPhucGroups.find(g => g.cacChi.includes(item.chi));
@@ -351,7 +352,7 @@ function renderDaivanSection() {
             const tenCungGroup = getTenCungByChiArr(groupDTP.cacChi, arr).join('-');
             tamHopNote += `<div class="duong-tu-phuc-note" style="color: rgb(209, 0, 0); margin-bottom: 0.5em;">
                 <b style= "margin-left:1em;">Cung này thuộc tam hợp Dương Tử Phúc tại: ${tenCungGroup}</b><br>
-                Đại vận này bạn sẽ có nhiều cơ hội để phát triển bản thân, nhưng cũng cần hết sức cẩn thận, bình tĩnh, không nóng vội, sống dựa theo tứ đức, chân thành, yêu thương, tử tế thì mới tránh được thất bại, trắng tay trong sự nghiệp và thất bại cuộc sống.
+                Đại vận này bạn sẽ có nhiều cơ hội để phát triển bản thân, cũng có nhiều cám dỗ sẽ đến với bạn khiến bạn sa ngã và mất tất cả.
             </div>`;
         }
         html += `<div class="daivan-item${(group || groupTTD || groupALT || groupDTP) ? ' thuoc-tam-hop-tue-ho-phu' : ''} ${item.cungTen}" id="${item.cungTen}" >
