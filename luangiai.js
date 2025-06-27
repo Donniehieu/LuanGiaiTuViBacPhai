@@ -66,7 +66,54 @@ function getAllStarsInCells() {
     console.log(lasoOb);
     return lasoOb;
 }
+function getSaoCuaCung(cung, dsChinh, dsPhu) {
+    // Lấy tất cả sao của 1 cung: chính tinh + phụ tinh
+    let idx = dsChinh.findIndex(c => c.tenCung === cung.tenCung);
+    if (idx === -1) return [];
+    return [].concat(dsChinh[idx].chinhTinh, dsPhu[idx].phuTinh).filter(Boolean);
+}
 
+// Hàm lấy bộ sao của tam cung tứ chiếu cho từng cung (Mệnh, đối cung, 2 cung tam hợp)
+function getSaoTuChieuForCung(i, dsChinh, dsPhu) {
+    // i: index cung chính, dsChinh/dsPhu: mảng chính/phụ tinh 12 cung
+    const arrCung = dsChinh.map((c, idx) => ({
+        tenCung: c.tenCung,
+        chi: c.chi,
+        idx
+    }));
+
+    const cungChinh = arrCung[i];
+    const idxDoi = (i + 6) % 12;
+    const cungDoi = arrCung[idxDoi];
+
+    // Tam hợp
+    const TAM_HOP_CHI = [
+        ["Dần", "Ngọ", "Tuất"],
+        ["Thân", "Tý", "Thìn"],
+        ["Tỵ", "Dậu", "Sửu"],
+        ["Hợi", "Mão", "Mùi"]
+    ];
+    let group = TAM_HOP_CHI.find(gr => gr.includes(cungChinh.chi));
+    let cungTamHop1 = null, cungTamHop2 = null;
+    if (group) {
+        const chi1 = group.find(chi => chi !== cungChinh.chi);
+        const chi2 = group.find(chi => chi !== cungChinh.chi && chi !== chi1);
+        cungTamHop1 = arrCung.find(c => c.chi === chi1);
+        cungTamHop2 = arrCung.find(c => c.chi === chi2);
+    }
+    // Lấy sao của 4 cung
+    let saoCungChinh = getSaoCuaCung(cungChinh, dsChinh, dsPhu);
+    let saoCungDoi = getSaoCuaCung(cungDoi, dsChinh, dsPhu);
+    let saoTamHop1 = cungTamHop1 ? getSaoCuaCung(cungTamHop1, dsChinh, dsPhu) : [];
+    let saoTamHop2 = cungTamHop2 ? getSaoCuaCung(cungTamHop2, dsChinh, dsPhu) : [];
+    // Trả về mảng bộ sao (chuẩn tứ chiếu)
+    return [
+        { loai: "cungChinh", sao: saoCungChinh },
+        { loai: "doiCung", sao: saoCungDoi },
+        { loai: "tamHop1", sao: saoTamHop1 },
+        { loai: "tamHop2", sao: saoTamHop2 }
+    ];
+}
 // Hàm này nhận dữ liệu từ JS khác để hiển thị lên giao diện
 function setLasoData() {
 
@@ -203,33 +250,57 @@ const defaultFileExcel = 'ComboDemo1';
 // B2: Bộ nhớ cache dữ liệu Excel của từng file để không load lại nhiều lần
 const excelDataCache = {};
 
-// Hiển thị sao của từng cung
-function renderCungKiemTraSao(keyArr) {
-    const cungArr = getCungData();
-    // Render khung từng cung và placeholder tra cứu Excel
+// Hàm hiển thị luận giải từng cung với đúng bộ sao tứ chiếu
+function renderCungKiemTraSaoTheoBoSao() {
+    const dsChinh = getDanhSachChinhTinhTungCung(); // [{tenCung, chi, chinhTinh}]
+    const dsPhu = getDanhSachPhuTinhTungCung(); // [{tenCung, chi, phuTinh}]
+    let cungArr = getCungData();
+
     document.getElementById('cung-content').innerHTML =
         cungArr.map(item =>
-            `<div class="cung-item" id="cung-${item.tenCung.replace(/\s/g,'').toLowerCase()}">
+            `<div class="cung-item" id="cung-${item.tenCung.replace(/\s/g, '').toLowerCase()}">
                 <b>${item.tenCung}:</b><br>
                 <span>${renderLines(item.luandai)}</span>
                 <div class="bo-sao-excel"><em>Đang tra cứu bộ sao...</em></div>
             </div>`
         ).join('');
 
-    // Sau khi render, tra cứu từng cung
-    cungArr.forEach(item => {
+    let keyArrArr = [];
+
+    for (let i = 0; i < 12; ++i) {
+        let keys = [];
+
+        // 1. Chính tinh + phụ tinh cung chính
+        let boSaoChinh = [].concat(dsChinh[i].chinhTinh, dsPhu[i].phuTinh).filter(Boolean);
+        if (boSaoChinh.length > 0) keys.push(boSaoChinh.join(' '));
+
+        // 2. Bộ sao tứ chiếu (cung chính, đối cung, 2 cung tam hợp)
+        let tuChieu = getSaoTuChieuForCung(i, dsChinh, dsPhu);
+        // Tạo 1 key gồm tất cả sao của bộ tứ chiếu nếu đủ
+        let boSaoTuChieu = tuChieu.flatMap(gr => gr.sao).filter(Boolean);
+        if (boSaoTuChieu.length > 0) keys.push(boSaoTuChieu.join(' '));
+
+        // (Có thể thêm các tổ hợp khác tùy bạn)
+
+        // Xóa trùng lặp
+        keys = Array.from(new Set(keys.filter(k => k && k.trim())));
+        keyArrArr.push(keys);
+    }
+
+    // Gọi tra cứu cho từng cung
+    const cungArrData = getCungData();
+    cungArrData.forEach((item, idx) => {
         const tenFile = cungExcelFileMap[item.tenCung] || defaultFileExcel;
-        
-        // Đã có cache thì dùng luôn
         if (excelDataCache[tenFile]) {
-            traCuuVaHienThiChoCung(item, excelDataCache[tenFile], keyArr);
+            traCuuVaHienThiChoCung(item, excelDataCache[tenFile], keyArrArr[idx]);
         } else {
-            // Chưa có thì load file
             loadComboExcel(tenFile, function(comboData) {
                 excelDataCache[tenFile] = comboData;
-                traCuuVaHienThiChoCung(item, comboData, keyArr);
+                
+                traCuuVaHienThiChoCung(item, comboData, keyArrArr[idx]);
             });
         }
+        console.log(keyArrArr);
     });
 }
 // Hàm tra cứu và hiển thị cho từng cung
@@ -404,13 +475,37 @@ function isVoDongCung(idFromCungMenhtoHuynhDe) {
 function isMenhVoChinhDieu() {
     return isVoChinhDieu(0);
 }
+function getTuChieuForCung(i, arrCung) {
+    // i: index cung chính trong mảng 12 cung (arrCung)
+    // arrCung: [{tenCung, chi, ...}]
+    const cungChinh = arrCung[i];
+    const idxDoi = (i + 6) % 12;
+    const cungDoi = arrCung[idxDoi];
 
+    // Xác định tam hợp chứa chi của cung chính
+    const TAM_HOP_CHI = [
+        ["Dần", "Ngọ", "Tuất"],
+        ["Thân", "Tý", "Thìn"],
+        ["Tỵ", "Dậu", "Sửu"],
+        ["Hợi", "Mão", "Mùi"]
+    ];
+    let group = TAM_HOP_CHI.find(gr => gr.includes(cungChinh.chi));
+    let cungTamHop1 = null, cungTamHop2 = null;
+    if (group) {
+        const chi1 = group.find(chi => chi !== cungChinh.chi);
+        const chi2 = group.find(chi => chi !== cungChinh.chi && chi !== chi1);
+        cungTamHop1 = arrCung.find(c => c.chi === chi1);
+        cungTamHop2 = arrCung.find(c => c.chi === chi2);
+    }
+    // Đảm bảo không null (có thể check tiếp)
+    return [cungChinh, cungDoi, cungTamHop1, cungTamHop2].filter(Boolean);
+}
 function LuanGiaiLaso(){
     setTimeout(setLasoData(), 200);
     TraSao(comboLuanChungData, fileLuangiaiChung, classluangiaiChung, luanGiaiChung);  // Tổng quan
     TraSao(comboData2, 'ComboDemo2', 'advice-content', ['Sát Phá Lang']);   // Lời khuyên
     
-    renderCungKiemTraSao(['Sát Phá Lang']);              // Từng cung                                
+   renderCungKiemTraSaoSongSong();            // Từng cung                                
     renderDaivanSection();
     getDanhSachChinhTinhTungCung();
     LuanGiaiChung();
@@ -419,4 +514,146 @@ function LuanGiaiLaso(){
     
 
 }
+
+
+
+// Cách cục định nghĩa
+const DS_CACH_CUC = [
+    { key: "Sát Phá Tham", need: ["Thất Sát", "Phá Quân", "Tham Lang"] },
+    { key: "Tử Phủ Vũ Tướng", need: ["Tử Vi", "Thiên Phủ", "Vũ Khúc", "Thiên Tướng"] },
+    { key: "Cơ Nguyệt Đồng Lương", need: ["Thiên Cơ", "Thiên Lương", "Thiên Đồng", "Thái Âm"] },
+    { key: "Cự Nhật", need: ["Thái Dương", "Cự Môn"] },
+    { key: "Kình Đà", need: ["Kình Dương", "Đà La"] },
+    { key: "Xương Khúc", need: ["Văn Xương", "Văn Khúc"] },
+    { key: "Hoả Linh", need: ["Hỏa Tinh", "Linh Tinh"] },
+    { key: "Không Kiếp", need: ["Địa Không", "Địa Kiếp"] },
+    { key: "Quang Quý", need: ["Ân Quang", "Thiên Quý"] },
+    { key: "Tả Hữu", need: ["Tả Phù", "Hữu Bật"] },
+    { key: "Song Hao", need: ["Đại Hao", "Tiểu Hao"] },
+    { key: "Tang Hổ", need: ["Tang Môn", "Bạch Hổ"] },
+    { key: "Khốc Hư", need: ["Thiên Khốc", "Thiên Hư"] },
+    { key: "Hình Riêu", need: ["Thiên Hình", "Thiên Riêu"] },
+    { key: "Thai Toạ", need: ["Tam Thai", "Bát Toạ"] },
+    { key: "Đào Hồng", need: ["Đào Hoa", "Hồng Loan"] },
+    { key: "Ấn Phù", need: ["Quốc Ấn", "Đường Phù"] },
+    { key: "Song Hao Quyền Lộc Kiếp Hoả", need: ["Đại Hao", "Tiểu Hao", "Hóa Quyền", "Hóa Lộc", "Địa Kiếp", "Hỏa Tinh"] },
+    { key: "Tử Phủ Vũ Tướng Xương Khúc Khôi Việt Tả Hữu Khoa Quyền Lộc Long", need: ["Tử Vi", "Thiên Phủ", "Vũ Khúc", "Thiên Tướng", "Văn Xương", "Văn Khúc", "Thiên Khôi", "Thiên Việt", "Tả Phù", "Hữu Bật", "Hóa Khoa", "Hóa Quyền", "Hóa Lộc", "Long Trì", "Phượng Các"] },
+    { key: "Tử Khúc Phá Dương Đà", need: ["Tử Vi", "Vũ Khúc", "Phá Quân", "Kình Dương", "Đà La"] }
+];
+
+// Helper tứ chiếu
+function getStarsInTuChieu(i, dsChinh, dsPhu) {
+    const arrCung = dsChinh.map((c, idx) => ({
+        tenCung: c.tenCung,
+        chi: c.chi,
+        idx
+    }));
+    const cungChinh = arrCung[i];
+    const idxDoi = (i + 6) % 12;
+    const cungDoi = arrCung[idxDoi];
+
+    // Tam hợp
+    const TAM_HOP_CHI = [
+        ["Dần", "Ngọ", "Tuất"],
+        ["Thân", "Tý", "Thìn"],
+        ["Tỵ", "Dậu", "Sửu"],
+        ["Hợi", "Mão", "Mùi"]
+    ];
+    let group = TAM_HOP_CHI.find(gr => gr.includes(cungChinh.chi));
+    let cungTamHop1 = null, cungTamHop2 = null;
+    if (group) {
+        const chi1 = group.find(chi => chi !== cungChinh.chi);
+        const chi2 = group.find(chi => chi !== cungChinh.chi && chi !== chi1);
+        cungTamHop1 = arrCung.find(c => c.chi === chi1);
+        cungTamHop2 = arrCung.find(c => c.chi === chi2);
+    }
+    let idxs = [i, idxDoi];
+    if (cungTamHop1) idxs.push(cungTamHop1.idx);
+    if (cungTamHop2) idxs.push(cungTamHop2.idx);
+
+    // Lấy tên sao từng cung
+    let saoTuchieu = [];
+    idxs.forEach(idx => {
+        saoTuchieu = saoTuchieu.concat(dsChinh[idx].chinhTinh, dsPhu[idx].phuTinh);
+    });
+    // Loại bỏ trùng lặp
+    return Array.from(new Set(saoTuchieu.filter(Boolean)));
+}
+
+// Tìm toàn bộ cách cục xuất hiện trong bộ sao tứ chiếu
+function findCachCuc(saoArr) {
+    let cachCucFound = [];
+    DS_CACH_CUC.forEach(cach => {
+        // Nếu tất cả required sao đều có trong bộ sao tứ chiếu
+        if (cach.need.every(sao => saoArr.includes(sao))) {
+            cachCucFound.push(cach.key);
+        }
+    });
+    return cachCucFound;
+}
+
+// ======= TÍCH HỢP HIỆN THỊ SONG SONG SAO LẺ + CÁCH CỤC + TRA CỨU EXCEL =======
+
+function renderCungKiemTraSaoSongSong() {
+    const dsChinh = getDanhSachChinhTinhTungCung();
+    const dsPhu = getDanhSachPhuTinhTungCung();
+    let cungArr = getCungData();
+
+    document.getElementById('cung-content').innerHTML =
+        cungArr.map((item, i) => {
+            const chinhTinh = dsChinh[i].chinhTinh;
+            const phuTinh = dsPhu[i].phuTinh;
+            let html = `<b>${item.tenCung}:</b><br>`;
+            // Chính tinh
+            if (chinhTinh.length === 0) {
+                html += `<div><i>Vô Chính Diệu</i></div>`;
+            } else if (chinhTinh.length === 1) {
+                html += `<div><b>${chinhTinh[0]}</b> tọa thủ tại ${item.tenCung}</div>`;
+            } else if (chinhTinh.length === 2) {
+                html += `<div><b>${chinhTinh.join(" và ")}</b> đồng cung tại ${item.tenCung}</div>`;
+            }
+            // Phụ tinh
+            if (phuTinh.length > 0) {
+                html += `<div>Phụ tinh: ${phuTinh.join(", ")}</div>`;
+            }
+            // Cách cục từ sao tứ chiếu
+            const saoTuChieu = getStarsInTuChieu(i, dsChinh, dsPhu);
+            const cachCuc = findCachCuc(saoTuChieu);
+            if (cachCuc.length > 0) {
+                html += `<div><b>Cách cục:</b> <span style="color: #d0021b">${cachCuc.join(", ")}</span></div>`;
+            }
+            return `<div class="cung-item" id="cung-${item.tenCung.replace(/\s/g, '').toLowerCase()}">
+                        ${html}
+                        <div class="bo-sao-excel"><em>Đang tra cứu bộ sao...</em></div>
+                    </div>`;
+        }).join('');
+
+    // Sau khi render khung, tra cứu song song sao lẻ + cách cục
+    cungArr.forEach((item, i) => {
+        // Tạo keyArr gồm:
+        // 1. Chính tinh lẻ
+        const keyArr = [];
+        const chinhTinh = dsChinh[i].chinhTinh;
+        chinhTinh.forEach(ct => { if(ct) keyArr.push(ct); });
+        // 2. Phụ tinh lẻ
+        const phuTinh = dsPhu[i].phuTinh;
+        phuTinh.forEach(pt => { if(pt) keyArr.push(pt); });
+        // 3. Các cách cục tổ hợp (nếu có)
+        const cachCuc = findCachCuc(getStarsInTuChieu(i, dsChinh, dsPhu));
+        cachCuc.forEach(cc => keyArr.push(cc));
+        // 4. Xoá trùng lặp
+        const keyArrUniq = Array.from(new Set(keyArr.filter(Boolean)));
+        // Tra cứu excel
+        const tenFile = cungExcelFileMap[item.tenCung] || defaultFileExcel;
+        if (excelDataCache[tenFile]) {
+            traCuuVaHienThiChoCung(item, excelDataCache[tenFile], keyArrUniq);
+        } else {
+            loadComboExcel(tenFile, function(comboData) {
+                excelDataCache[tenFile] = comboData;
+                traCuuVaHienThiChoCung(item, comboData, keyArrUniq);
+            });
+        }
+    });
+}
+
 
