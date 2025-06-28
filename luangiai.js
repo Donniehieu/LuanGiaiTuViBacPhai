@@ -4,13 +4,10 @@
 
 let classluangiaiChung = "general-content";
 let classLoiKhuyen = "advice-content";
-
-
 let fileLuangiaiChung = "LuangiaiChung";
 let fileLoiKhuyen = "LoiKhuyen";
 let fileLuangiaiDaiVan = "Luandaivan";
 let lasoOb = [];
-
 let luanGiaiChung = [];
 let luanGiaiCungMenh = [];
 let luanGiaiCungPhuMau = [];
@@ -38,22 +35,17 @@ let idCungTuTuc = 9;
 let idCungPhuThe = 10;
 let idCungHuynhDe = 11;
 let idCungThan = getCungData().findIndex(cung => cung.tenCung === JSON.parse(localStorage.getItem('laso_data')).cungCu);
-
 let VoChinhDieu = "Vô Chính Diệu";
-
-
 let comboLaso = [];
+// Lấy danh sách  các sao
 function getAllStarsInCells() {
     // Các class selector chứa sao (mỗi selector nên lấy đúng các sao bạn đã an)
     const saoSelectors = [
-
         '.sao-tot',
         '.sao-xau',
         '.chinh-tinh'
         // ... bổ sung nếu bạn có thêm class cho các loại sao khác
     ];
-
-
     for (let i = 0; i < 12; ++i) {
         const cellNum = CUNG_CELLS[(i + IDCungMenh) % 12].cell;
         const cell = document.querySelector('.cell' + cellNum);
@@ -80,6 +72,7 @@ function getAllStarsInCells() {
     console.log(lasoOb);
     return lasoOb;
 }
+// lấy các sao chính tinh phụ tinh của từng cung
 function getSaoCuaCung(cung, dsChinh, dsPhu) {
     // Lấy tất cả sao của 1 cung: chính tinh + phụ tinh
     let idx = dsChinh.findIndex(c => c.tenCung === cung.tenCung);
@@ -128,17 +121,12 @@ function getSaoTuChieuForCung(i, dsChinh, dsPhu) {
         { loai: "tamHop2", sao: saoTamHop2 }
     ];
 }
-// Hàm này nhận dữ liệu từ JS khác để hiển thị lên giao diện
+// Hàm này nhận dữ liệu từ JS khác để hiển thị lên giao diện 
+// UI chính của luận giải lá số
 function setLasoData() {
-
-
     const general = GetThongTinChung();
-
     const cung = getCungData();
-
     const advice = getAdviceData();
-
-
     const anhBanLaSo = localStorage.getItem('anhBanLaSo');
     document.getElementById('svg-holder').innerHTML = anhBanLaSo
         ? `<img src="${anhBanLaSo}" alt="Ảnh bàn lá số" style="max-width:700 px;width:100%;border-radius:12px;border:1.5px solid #bce3dd;">`
@@ -163,7 +151,7 @@ function setLasoData() {
     document.getElementById('advice-content').innerHTML =
         advice && (Array.isArray(advice) ? renderLines(advice) : renderLines([advice]))
 }
-
+// render từng cung
 function renderLines(lines) {
     if (Array.isArray(lines)) {
         return lines.map(line => `<div>${line}</div>`).join('');
@@ -171,8 +159,7 @@ function renderLines(lines) {
     return lines ? `<div>${lines}</div>` : '';
 }
 
-let comboData1 = [];
-let comboData2 = [];
+// Danh sách các combo sao lấy trong file excel
 let comboLuanChungData = [];
 let comboLuanDaiVanData = [];
 let comboLoiKhuyenData = [];
@@ -200,15 +187,12 @@ function loadComboExcel(file, cb) {
         });
 }
 
-// Hiển thị sao của tổng quan và lời khuyên
+// Hiển thị sao của tổng quan và lời khuyên qua việc so sánh sao trong cung so với sao trong file excel
 function TraSao(comboData, file, idClass, keyArr) {
-
-
     if (!comboData.length) {
         loadComboExcel(file, (arr) => {
             // Lưu lại cho lần sau không cần load nữa
-            if (file === 'ComboDemo1') comboData1 = arr;
-            if (file === 'ComboDemo2') comboData2 = arr;
+           
             if (file === fileLuangiaiChung) comboLuanChungData = arr;
             if (file === fileLuangiaiDaiVan) comboLuanDaiVanData = arr;
             if (file === fileLoiKhuyen) comboLuanDaiVanData = arr;
@@ -237,14 +221,6 @@ function traCuuNhieuBoSao(keysToFind, comboData) {
         }
     });
 }
-
-/**
- * Hiển thị kết quả ra một div có id (mặc định "result")
- */
-
-
-// Giả sử đã có: loadComboExcel, traCuuNhieuBoSao, renderLines...
-
 // B1: Map tên file Excel cho từng cung (có thể dùng 1 file chung hoặc từng file riêng)
 const cungExcelFileMap = {
     'Mệnh': 'LuanMenh',
@@ -266,59 +242,6 @@ const defaultFileExcel = 'ComboDemo';
 // B2: Bộ nhớ cache dữ liệu Excel của từng file để không load lại nhiều lần
 const excelDataCache = {};
 
-// Hàm hiển thị luận giải từng cung với đúng bộ sao tứ chiếu
-function renderCungKiemTraSaoTheoBoSao() {
-    const dsChinh = getDanhSachChinhTinhTungCung(); // [{tenCung, chi, chinhTinh}]
-    const dsPhu = getDanhSachPhuTinhTungCung(); // [{tenCung, chi, phuTinh}]
-    let cungArr = getCungData();
-
-    document.getElementById('cung-content').innerHTML =
-        cungArr.map(item =>
-            `<div class="cung-item" id="cung-${item.tenCung.replace(/\s/g, '').toLowerCase()}">
-                <b>${item.tenCung}:</b><br>
-                <span>${renderLines(item.luandai)}</span>
-                <div class="bo-sao-excel"><em>Đang tra cứu bộ sao...</em></div>
-            </div>`
-        ).join('');
-
-    let keyArrArr = [];
-
-    for (let i = 0; i < 12; ++i) {
-        let keys = [];
-
-        // 1. Chính tinh + phụ tinh cung chính
-        let boSaoChinh = [].concat(dsChinh[i].chinhTinh, dsPhu[i].phuTinh).filter(Boolean);
-        if (boSaoChinh.length > 0) keys.push(boSaoChinh.join(' '));
-
-        // 2. Bộ sao tứ chiếu (cung chính, đối cung, 2 cung tam hợp)
-        let tuChieu = getSaoTuChieuForCung(i, dsChinh, dsPhu);
-        // Tạo 1 key gồm tất cả sao của bộ tứ chiếu nếu đủ
-        let boSaoTuChieu = tuChieu.flatMap(gr => gr.sao).filter(Boolean);
-        if (boSaoTuChieu.length > 0) keys.push(boSaoTuChieu.join(' '));
-
-        // (Có thể thêm các tổ hợp khác tùy bạn)
-
-        // Xóa trùng lặp
-        keys = Array.from(new Set(keys.filter(k => k && k.trim())));
-        keyArrArr.push(keys);
-    }
-
-    // Gọi tra cứu cho từng cung
-    const cungArrData = getCungData();
-    cungArrData.forEach((item, idx) => {
-        const tenFile = cungExcelFileMap[item.tenCung] || defaultFileExcel;
-        if (excelDataCache[tenFile]) {
-            traCuuVaHienThiChoCung(item, excelDataCache[tenFile], keyArrArr[idx]);
-        } else {
-            loadComboExcel(tenFile, function (comboData) {
-                excelDataCache[tenFile] = comboData;
-
-                traCuuVaHienThiChoCung(item, comboData, keyArrArr[idx]);
-            });
-        }
-        console.log(keyArrArr);
-    });
-}
 // Hàm tra cứu và hiển thị cho từng cung
 function traCuuVaHienThiChoCung(item, comboData, keyArr) {
     // keyArr là mảng bộ sao cần tra, ví dụ ['Sát Phá Lang','Tử Vi',...]
@@ -338,59 +261,6 @@ function traCuuVaHienThiChoCung(item, comboData, keyArr) {
     } else {
         excelDiv.innerHTML = `<em>Không có thông tin tra cứu từ Excel</em>`;
     }
-}
-/**
- * Hiển thị bộ sao cho nhiều cung/đại vận, mỗi cung một vùng riêng.
- * Luôn hiển thị đầy đủ các bộ sao, không lặp/trùng, không ghi đè kết quả cũ nếu chưa clear.
- * 
- * idClassArr:  mảng id/class các vùng cung cần hiển thị
- * keyArrArr:   mảng mảng bộ sao của từng cung (mỗi phần tử là 1 mảng cho 1 cung)
- * comboData:   dữ liệu bộ sao đã load (mỗi item: {keyNorm, values})
- * file:        tên file để load nếu comboData chưa có
- */
-function TraSaoNhieuDaiVan(comboData, file, idClassArr, keyArrArr) {
-    function process(data) {
-        console.log(idClassArr);
-        for (let i = 0; i < idClassArr.length; ++i) {
-            let keys = keyArrArr[i];
-            const id = idClassArr[i];
-
-            if (!keys || !id) continue;
-            if (!Array.isArray(keys)) keys = [keys];
-            // Loại bỏ key trùng nhau trong cùng 1 cung
-            keys = Array.from(new Set(keys.map(k => k.trim())));
-
-            // tra cứu
-            const ynghia = traCuuNhieuBoSao(keys, data);
-
-            // HIỆN ĐẦY ĐỦ BỘ SAO (dù found hay không)
-            hienThiKetQuaNhieuBoSao(ynghia, id);
-        }
-    }
-
-    if (!comboData || !comboData.length) {
-        loadComboExcel(file, (arr) => {
-            process(arr);
-        });
-    } else {
-        process(comboData);
-    }
-}
-
-function traCuuNhieuBoSao(keysToFind, comboData) {
-    if (!Array.isArray(keysToFind)) {
-        if (typeof keysToFind === 'string') keysToFind = [keysToFind];
-        else return [];
-    }
-    return keysToFind.map(rawKey => {
-        const key = (typeof rawKey === 'string') ? rawKey.trim() : String(rawKey).trim();
-        const found = comboData.find(item => item.keyNorm.trim() === key);
-        return {
-            key,
-            found: !!found,
-            values: found ? found.values : []
-        }
-    });
 }
 
 function hienThiKetQuaNhieuBoSao(results, targetDivId = 'result') {
@@ -479,18 +349,7 @@ function getDanhSachPhuTinhTungCung() {
     }));
 }
 
-function isToaThu(idFromCungMenhtoHuynhDe) {
-    if (getDanhSachChinhTinhTungCung()[idFromCungMenhtoHuynhDe].chinhTinh.length == 1) return true; else return false;
-}
-function isVoChinhDieu(idFromCungMenhtoHuynhDe) {
-    if (getDanhSachChinhTinhTungCung()[idFromCungMenhtoHuynhDe].chinhTinh.length == 0) return true; else return false;
-}
-function isVoDongCung(idFromCungMenhtoHuynhDe) {
-    if (getDanhSachChinhTinhTungCung()[idFromCungMenhtoHuynhDe].chinhTinh.length == 2) return true; else return false;
-}
-function isMenhVoChinhDieu() {
-    return isVoChinhDieu(0);
-}
+
 function getTuChieuForCung(i, arrCung) {
     // i: index cung chính trong mảng 12 cung (arrCung)
     // arrCung: [{tenCung, chi, ...}]
@@ -876,8 +735,6 @@ function isSaoToaThuTaiChi(tenSao, chiKiemTra) {
             cung.sao.some(sao => normalize(sao.ten) === normalize(tenSao))
     );
 }
-
-
 // Hàm chính luận giải lá số
 function LuanGiaiLaso() {
     setTimeout(setLasoData(), 200);
@@ -892,7 +749,4 @@ function LuanGiaiLaso() {
     LuanGiaiChung();
     Luangiaidaivan();
     renderCungKiemTraSaoSongSong();
-
-
-
 }
