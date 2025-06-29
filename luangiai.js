@@ -480,6 +480,9 @@ function LuanGiaiCacCungVaHienThi() {
             } else if (chinhTinh.length === 2) {
                 contentHtml += `<div><b>${chinhTinh.join(" và ")} đồng cung tại ${item.tenCung}</b></div>`;
             }
+
+
+
             // Phụ tinh
             if (phuTinh.length > 0) {
                 contentHtml += `<div>Phụ tinh: ${phuTinh.join(", ")}</div>`;
@@ -525,7 +528,7 @@ function LuanGiaiCacCungVaHienThi() {
                 keyArr.push(chinhTinh[0] + " và " + chinhTinh[1] + " đồng cung tại " + item.chi);
             }
         });
-
+        
         
         // Xét các phụ tinh
         const phuTinh = dsPhu[i].phuTinh;
@@ -533,13 +536,12 @@ function LuanGiaiCacCungVaHienThi() {
 
         //Xét các sao trong tứ chiếu
         const cachCuc = findCachCuc(getStarsInTuChieu(i, dsChinh, dsPhu));
-        LuanCungMenh(keyArr); // Luận cung Mệnh
+     
         // Kiểm tra nếu cung Mệnh và cung Thân có sao Địa Không và Địa Kiếp
-        if (showMenhKhongThanKiep(idCungMenh, idCungThan, dsChinh, dsPhu)) {
-
-            keyArr.push("Mệnh Không Thân Kiếp");
-        }
-
+        MenhKhongThanKiep(idCungMenh, idCungThan, dsChinh, dsPhu, keyArr);
+        ThanMenhDongCungVoChinhDieu(keyArr); // Kiểm tra Thân mệnh đồng cung Vô Chính Diệu
+        LuanCungMenh(keyArr); // Luận cung Mệnh
+        
         // Kiểm tra xem Mênh tại Tý Ngọ có Thiên Khốc Thiên Hư đồng cung
         if (isHaiSaoDongCungTaiCungChi("Mệnh", "Tý", "Thiên Khốc", "Thiên Hư") || isHaiSaoDongCungTaiCungChi("Mệnh", "Ngọ", "Thiên Khốc", "Thiên Hư")) {
             keyArr.push("Mệnh Tý Ngọ có Thiên Khốc Thiên Hư đồng cung");
@@ -578,6 +580,9 @@ function LuanGiaiCacCungVaHienThi() {
         }
     });
 }
+
+// Thân mệnh đồng cung mệnh vô chính diệu
+
 // Hàm chính luận giải lá số
 function LuanGiaiLaso() {
     setTimeout(setLasoData(), 200);

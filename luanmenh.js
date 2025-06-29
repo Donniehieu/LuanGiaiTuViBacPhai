@@ -289,4 +289,35 @@ function LuanCachCucSaoLiemTrinh(keyArr) {
 
     }
 
+function ThanMenhDongCungVoChinhDieu(keyArr){
+    if(idCungThan === idCungMenh && getDanhSachChinhTinhTungCung()[idCungMenh].chinhTinh.length === 0){
+        keyArr.push("Thân và Mệnh đồng cung Vô Chính Diệu");
+        console.log("Thân và Mệnh đồng cung Vô Chính Diệu");
+        return true;
+    }
+}
 
+
+function MenhKhongThanKiep(idxCungMenh, idxCungThan, dsChinh, dsPhu, keyArr) {
+
+    // Lấy các sao của cung Mệnh và cung Thân
+    const saoMenh = [].concat(
+        (dsChinh[idxCungMenh] && dsChinh[idxCungMenh].chinhTinh) || [],
+        (dsPhu[idxCungMenh] && dsPhu[idxCungMenh].phuTinh) || []
+    );
+    const saoThan = [].concat(
+        (dsChinh[idxCungThan] && dsChinh[idxCungThan].chinhTinh) || [],
+        (dsPhu[idxCungThan] && dsPhu[idxCungThan].phuTinh) || []
+    );
+
+    // Kiểm tra điều kiện
+    const menhKhong = saoMenh.includes("Địa Không");
+    const thanKiep = saoThan.includes("Địa Kiếp") || saoThan.includes("Địa Không");
+
+    // Nếu đủ điều kiện, hiển thị cách cục hoặc trả về true
+    if (menhKhong && thanKiep) {
+        keyArr.push("Mệnh Không Thân Kiếp");
+        return true;
+    }
+    return false;
+}
