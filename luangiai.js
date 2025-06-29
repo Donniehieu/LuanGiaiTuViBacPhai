@@ -38,40 +38,7 @@ let idCungThan = getCungData().findIndex(cung => cung.tenCung === JSON.parse(loc
 let VoChinhDieu = "Vô Chính Diệu";
 let comboLaso = [];
 // Lấy danh sách  các sao
-function getAllStarsInCells() {
-    // Các class selector chứa sao (mỗi selector nên lấy đúng các sao bạn đã an)
-    const saoSelectors = [
-        '.sao-tot',
-        '.sao-xau',
-        '.chinh-tinh'
-        // ... bổ sung nếu bạn có thêm class cho các loại sao khác
-    ];
-    for (let i = 0; i < 12; ++i) {
-        const cellNum = CUNG_CELLS[(i + IDCungMenh) % 12].cell;
-        const cell = document.querySelector('.cell' + cellNum);
-        if (!cell) continue;
-        let saoList = [];
-        saoSelectors.forEach(sel => {
-            cell.querySelectorAll(sel).forEach(e => {
-                let ten = e.innerText.trim();
-                let cls = e.className.trim();
-                if (ten) {
-                    // Tránh lặp lại cùng tên - class (nếu cần)
-                    if (!saoList.some(obj => obj.ten === ten && obj.class === cls))
-                        saoList.push({ ten: ten, class: cls });
-                }
-            });
-        });
-        lasoOb.push({
-            tenCung: TEN_CUNG_FULL[i],
-            chi: CUNG_CELLS[(i + IDCungMenh) % 12].chi,
-            sao: saoList,
-            cell: cellNum
-        });
-    }
-    
-    return lasoOb;
-}
+
 // lấy các sao chính tinh phụ tinh của từng cung
 function getSaoCuaCung(cung, dsChinh, dsPhu) {
     // Lấy tất cả sao của 1 cung: chính tinh + phụ tinh
@@ -458,7 +425,7 @@ function findCachCuc(saoArr) {
 
 // ======= TÍCH HỢP HIỆN THỊ SONG SONG SAO LẺ + CÁCH CỤC + TRA CỨU EXCEL =======
 
-function renderCungKiemTraSaoSongSong() {
+function LuanGiaiCacCungVaHienThi() {
     const dsChinh = getDanhSachChinhTinhTungCung();
     const dsPhu = getDanhSachPhuTinhTungCung();
     let cungArr = getCungData();
@@ -581,8 +548,8 @@ function LuanGiaiLaso() {
     setTimeout(setLasoData(), 200);
     TraSao(comboLuanChungData, fileLuangiaiChung, classluangiaiChung, luanGiaiChung);  // Tổng quan
     TraSao(comboLoiKhuyenData, fileLoiKhuyen, classLoiKhuyen, luanGiaiLoiKhuyen);   // Lời khuyên
-    renderDaivanSection();
+    HienThiNhanXetDaiVan();
     LuanGiaiChung();
-    Luangiaidaivan();
-    renderCungKiemTraSaoSongSong();
+    LuanGiaiDaiVan();
+    LuanGiaiCacCungVaHienThi();
 }

@@ -232,7 +232,7 @@ function getDuongTuPhucGroups(lasoOb) {
 }
 
 // ==== Hàm render đại vận có hiển thị Tuế Hổ Phù, Tang Tuế Điếu, Âm Long Trực, Dương Tử Phúc ====
-function renderDaivanSection() {
+function HienThiNhanXetDaiVan() {
     let lasoData = {};
     try {
         lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};

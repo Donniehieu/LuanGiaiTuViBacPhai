@@ -51,7 +51,7 @@ function LuanNguhanhMenhvaDaivan(lasoData, chiDaiVan) {
     return hienHuongCoMenhChiDaiVan(sinhKhac);
 
 }
-function Luangiaidaivan() {
+function LuanGiaiDaiVan() {
     let lasoData = {};
     try {
         lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
