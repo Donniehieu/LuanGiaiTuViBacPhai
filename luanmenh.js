@@ -103,6 +103,18 @@ function LuanCachCucSaoTuViTaiMenh(keyArr) {
         if( isSaoToaThuTaiCungVaChi("Mệnh", "Hợi", "Tử Vi") ){
             keyArr.push("Tử Vi tọa thủ cung Mệnh ở Hợi");
         }
+        if( isSaoToaThuTaiCungVaChi("Mệnh", "Hợi", "Tử Vi") && lasoData.gioitinh === "Nam" && lasoData.chiCan === "N." ){
+            keyArr.push("Nam mệnh sinh năm Nhâm có Tử Vi tọa thủ cung Mệnh ở Hợi");
+        }
+          if( isSaoToaThuTaiCungVaChi("Mệnh", "Hợi", "Tử Vi") && lasoData.gioitinh === "Nam" && lasoData.chiCan === "G." ){
+            keyArr.push("Nam mệnh sinh năm Giáp có Tử Vi tọa thủ cung Mệnh ở Hợi");
+        }
+               if( isSaoToaThuTaiCungVaChi("Mệnh", "Hợi", "Tử Vi") && lasoData.gioitinh === "Nữ" && lasoData.chiCan === "N." ){
+            keyArr.push("Nữ mệnh sinh năm Nhâm có Tử Vi tọa thủ cung Mệnh ở Hợi");
+        }
+          if( isSaoToaThuTaiCungVaChi("Mệnh", "Hợi", "Tử Vi") && lasoData.gioitinh === "Nữ" && lasoData.chiCan === "G." ){
+            keyArr.push("Nữ mệnh sinh năm Giáp có Tử Vi tọa thủ cung Mệnh ở Hợi");
+        }
         if ( isSaoToaThuTaiCungVaChi("Mệnh", "Mão", "Tử Vi") ){
             keyArr.push("Tử Vi tọa thủ cung Mệnh ở Mão");
         }
@@ -148,9 +160,16 @@ function LuanCachCucSaoTuViTaiMenh(keyArr) {
         if(isHaiSaoDongCungTaiCungChi("Mệnh","Dậu","Tử Vi","Tham Lang")){
             keyArr.push("Tử Vi đồng cung Tham Lang tại Dậu");
         }
-        i
-
-
+        if(isSaoToaThuTaiCungVaChi("Mệnh","Ngọ","Tử Vi") && kiemTraCachCuc("Tử Vi",["Thiên Hình", "Kình Dương", "Đà La"])===null && lasoData.chiCan ==="G.") {
+            keyArr.push("Sinh năm Giáp có Tử Vi tọa thủ cung Mệnh ở Ngọ và không gặp Thiên Hình, Kình Dương, Đà La");
+        }
+        if(isSaoToaThuTaiCungVaChi("Mệnh","Ngọ","Tử Vi") && kiemTraCachCuc("Tử Vi",["Thiên Hình", "Kình Dương", "Đà La"])===null && lasoData.chiCan ==="Đ.") {
+            keyArr.push("Sinh năm Đinh có Tử Vi tọa thủ cung Mệnh ở Ngọ và không gặp Thiên Hình, Kình Dương, Đà La");
+        }
+        if(isSaoToaThuTaiCungVaChi("Mệnh","Ngọ","Tử Vi") && kiemTraCachCuc("Tử Vi",["Thiên Hình", "Kình Dương", "Đà La"])===null && lasoData.chiCan ==="K.") {
+            keyArr.push("Sinh năm Kỷ có Tử Vi tọa thủ cung Mệnh ở Ngọ và không gặp Thiên Hình, Kình Dương, Đà La");
+        }
+        
 
 
     }
