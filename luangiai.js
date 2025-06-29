@@ -69,15 +69,17 @@ function getAllStarsInCells() {
             cell: cellNum
         });
     }
-    console.log(lasoOb);
+    
     return lasoOb;
 }
 // lấy các sao chính tinh phụ tinh của từng cung
 function getSaoCuaCung(cung, dsChinh, dsPhu) {
     // Lấy tất cả sao của 1 cung: chính tinh + phụ tinh
     let idx = dsChinh.findIndex(c => c.tenCung === cung.tenCung);
+   
     if (idx === -1) return [];
     return [].concat(dsChinh[idx].chinhTinh, dsPhu[idx].phuTinh).filter(Boolean);
+    
 }
 
 // Hàm lấy bộ sao của tam cung tứ chiếu cho từng cung (Mệnh, đối cung, 2 cung tam hợp)
@@ -246,7 +248,7 @@ const excelDataCache = {};
 function traCuuVaHienThiChoCung(item, comboData, keyArr) {
     // keyArr là mảng bộ sao cần tra, ví dụ ['Sát Phá Lang','Tử Vi',...]
     const results = traCuuNhieuBoSao(keyArr, comboData);
-    console.log(`Kết quả tra cứu cho cung ${item.tenCung}:`, results);
+   
     const divId = `cung-${item.tenCung.replace(/\s/g, '').toLowerCase()}`;
     const excelDiv = document.querySelector(`#${divId} .bo-sao-excel`);
     // Lọc tất cả bộ sao tra được
@@ -265,7 +267,7 @@ function traCuuVaHienThiChoCung(item, comboData, keyArr) {
 
 function hienThiKetQuaNhieuBoSao(results, targetDivId = 'result') {
     let el = document.getElementById(targetDivId);
-    console.log(el);
+    
     if (!el) el = document.querySelector('.' + targetDivId);
     if (!el) {
         results.forEach(r => {
@@ -400,6 +402,7 @@ const DS_CACH_CUC = [
     { key: "Song Hao Quyền Lộc Kiếp Hoả", need: ["Đại Hao", "Tiểu Hao", "Hóa Quyền", "Hóa Lộc", "Địa Kiếp", "Hỏa Tinh"] },
     { key: "Tử Phủ Vũ Tướng Xương Khúc Khôi Việt Tả Hữu Khoa Quyền Lộc Long", need: ["Tử Vi", "Thiên Phủ", "Vũ Khúc", "Thiên Tướng", "Văn Xương", "Văn Khúc", "Thiên Khôi", "Thiên Việt", "Tả Phù", "Hữu Bật", "Hóa Khoa", "Hóa Quyền", "Hóa Lộc", "Long Trì", "Phượng Các"] },
     { key: "Tử Khúc Phá Dương Đà", need: ["Tử Vi", "Vũ Khúc", "Phá Quân", "Kình Dương", "Đà La"] }
+    
 ];
 
 // Helper tứ chiếu
@@ -483,7 +486,7 @@ function renderCungKiemTraSaoSongSong() {
             const saoTuChieu = getStarsInTuChieu(i, dsChinh, dsPhu);
             const cachCuc = findCachCuc(saoTuChieu);
             if (cachCuc.length > 0) {
-                contentHtml += `<div><b>Cách cục:</b> <span style="color: #d0021b">${cachCuc.join(", ")}</span></div>`;
+                contentHtml += `<div><b>Cách cục:</b> <span style="color: #d0021b">${cachCuc.join(", ") } </span></div>`;
             }
             // Nơi tra cứu Excel sẽ được bơm vào .bo-sao-excel bên dưới
             contentHtml += `<div class="bo-sao-excel"><em>Đang tra cứu bộ sao...</em></div>`;
@@ -498,15 +501,43 @@ function renderCungKiemTraSaoSongSong() {
 
     // B3: Lặp qua từng cung và tra cứu sao
     // Add sao từng cung vào mảng key
+
     cungArr.forEach((item, i) => {
         const keyArr = [];
+        //xét các chính tinh
         const chinhTinh = dsChinh[i].chinhTinh;
-        console.log(idCungMenh + " " + idCungThan);
+
+        
+        if (chinhTinh.length === 0) {
+            keyArr.push("Vô Chính Diệu");
+        } else if (chinhTinh.length === 1) {
+        
+            keyArr.push(chinhTinh[0] + " tọa thủ tại " + item.chi);
+        } else if (chinhTinh.length === 2) {
+            keyArr.push(chinhTinh[0] + " và " + chinhTinh[1] + " đồng cung tại " + item.chi);
+        }
+        else chinhTinh.forEach(ct => {
+            if (ct)
+               
+            if (chinhTinh.length == 2) {
+                keyArr.push(chinhTinh[0] + " và " + chinhTinh[1] + " đồng cung tại " + item.chi);
+            }
+        });
+
+        
+        // Xét các phụ tinh
+        const phuTinh = dsPhu[i].phuTinh;
+        phuTinh.forEach(pt => { if (pt)  keyArr.push(pt + " tọa thủ tại " + item.tenCung); });
+
+        //Xét các sao trong tứ chiếu
+        const cachCuc = findCachCuc(getStarsInTuChieu(i, dsChinh, dsPhu));
+         LuanCachCucSaoTuViTaiMenh(keyArr);
         // Kiểm tra nếu cung Mệnh và cung Thân có sao Địa Không và Địa Kiếp
         if (showMenhKhongThanKiep(idCungMenh, idCungThan, dsChinh, dsPhu)) {
 
             keyArr.push("Mệnh Không Thân Kiếp");
         }
+
         // Kiểm tra xem Mênh tại Tý Ngọ có Thiên Khốc Thiên Hư đồng cung
         if (isHaiSaoDongCungTaiCungChi("Mệnh", "Tý", "Thiên Khốc", "Thiên Hư") || isHaiSaoDongCungTaiCungChi("Mệnh", "Ngọ", "Thiên Khốc", "Thiên Hư")) {
             keyArr.push("Mệnh Tý Ngọ có Thiên Khốc Thiên Hư đồng cung");
@@ -530,25 +561,7 @@ function renderCungKiemTraSaoSongSong() {
         if (isHaiSaoDongCungTaiCung("Quan Lộc", "Tham Lang", "Tử Vi")) {
             keyArr.push("Quan Lộc có Tham Lang Tử Vi đồng cung");
         }
-        if (chinhTinh.length === 0) {
-            keyArr.push("Vô Chính Diệu");
-        } else if (chinhTinh.length === 1) {
-            console.log(chinhTinh[0]);
-            keyArr.push(chinhTinh[0] + " tọa thủ tại " + item.chi);
-        } else if (chinhTinh.length === 2) {
-            keyArr.push(chinhTinh[0] + " và " + chinhTinh[1] + " đồng cung tại " + item.chi);
-        }
-        else chinhTinh.forEach(ct => {
-            if (ct)
-                console.log(ct); keyArr.push(ct);
-            if (chinhTinh.length == 2) {
-                keyArr.push(chinhTinh[0] + " và " + chinhTinh[1] + " đồng cung tại " + item.chi);
-            }
-        });
-        const phuTinh = dsPhu[i].phuTinh;
-        phuTinh.forEach(pt => { if (pt) console.log(pt); keyArr.push(pt); });
-        const cachCuc = findCachCuc(getStarsInTuChieu(i, dsChinh, dsPhu));
-        cachCuc.forEach(cc => keyArr.push(cc));
+        cachCuc.forEach(cc => keyArr.push(cc + " hội chiếu tại " + item.tenCung));
 
         //Lọc trùng
         const keyArrUniq = Array.from(new Set(keyArr.filter(Boolean)));
@@ -563,189 +576,12 @@ function renderCungKiemTraSaoSongSong() {
         }
     });
 }
-function showMenhKhongThanKiep(idxCungMenh, idxCungThan, dsChinh, dsPhu) {
-
-    // Lấy các sao của cung Mệnh và cung Thân
-    const saoMenh = [].concat(
-        (dsChinh[idxCungMenh] && dsChinh[idxCungMenh].chinhTinh) || [],
-        (dsPhu[idxCungMenh] && dsPhu[idxCungMenh].phuTinh) || []
-    );
-    const saoThan = [].concat(
-        (dsChinh[idxCungThan] && dsChinh[idxCungThan].chinhTinh) || [],
-        (dsPhu[idxCungThan] && dsPhu[idxCungThan].phuTinh) || []
-    );
-
-    // Kiểm tra điều kiện
-    const menhKhong = saoMenh.includes("Địa Không");
-    const thanKiep = saoThan.includes("Địa Kiếp") || saoThan.includes("Địa Không");
-
-    // Nếu đủ điều kiện, hiển thị cách cục hoặc trả về true
-    if (menhKhong && thanKiep) {
-
-        return true;
-    }
-    return false;
-}//tìm cung nào có sao nào đó tọa thủ
-function isSaoToaThuTaiCung(tenCungKiemTra, tenSao) {
-    let lasoData = {};
-    try {
-        lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
-    } catch (e) { lasoData = {}; }
-    const lasoOb = lasoData.lasoOb || [];
-    if (!Array.isArray(lasoOb)) return false;
-    const cung = lasoOb.find(c => c.tenCung === tenCungKiemTra);
-    if (!cung || !Array.isArray(cung.sao)) return false;
-    return cung.sao.some(
-        sao => sao.ten.replace(/\s+/g, '').toLowerCase() === tenSao.replace(/\s+/g, '').toLowerCase()
-    );
-}
-// tìm cung nào tại chi nào đó
-function isCungTaiChi(tenCungKiemTra, chiKiemTra) {
-    let lasoData = {};
-    try {
-        lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
-    } catch (e) { lasoData = {}; }
-    if (!Array.isArray(lasoOb)) return false;
-    return lasoOb.some(
-        cung => cung.tenCung === tenCungKiemTra && cung.chi === chiKiemTra
-    );
-}
-//tìm sao nào đó tọa thủ một cung nào đó tại chi nào đó
-function isSaoToaThuTaiCungVaChi(tenCungKiemTra, chiKiemTra, tenSao) {
-    let lasoData = {};
-    try {
-        lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
-    } catch (e) { lasoData = {}; }
-    const lasoOb = lasoData.lasoOb || [];
-    if (!Array.isArray(lasoOb)) return false;
-    const cung = lasoOb.find(c => c.tenCung === tenCungKiemTra && c.chi === chiKiemTra);
-    if (!cung || !Array.isArray(cung.sao)) return false;
-    return cung.sao.some(
-        sao => sao.ten.replace(/\s+/g, '').toLowerCase() === tenSao.replace(/\s+/g, '').toLowerCase()
-    );
-}
-//Hai sao đông cung tại một cung không phân biệt chi
-function isHaiSaoDongCungTaiCung(tenCungKiemTra, sao1, sao2) {
-    let lasoData = {};
-    try {
-        lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
-    } catch (e) { lasoData = {}; }
-    const lasoOb = lasoData.lasoOb || [];
-    if (!Array.isArray(lasoOb)) return false;
-    const cung = lasoOb.find(c => c.tenCung === tenCungKiemTra);
-    if (!cung || !Array.isArray(cung.sao)) return false;
-    // Tìm hai sao theo tên, không phân biệt class
-    const hasSao1 = cung.sao.some(sao => sao.ten.replace(/\s+/g, '').toLowerCase() === sao1.replace(/\s+/g, '').toLowerCase());
-    const hasSao2 = cung.sao.some(sao => sao.ten.replace(/\s+/g, '').toLowerCase() === sao2.replace(/\s+/g, '').toLowerCase());
-    return hasSao1 && hasSao2;
-}
-//Hai sao đông cung tại một cung tại chi nào đấy
-function isHaiSaoDongCungTaiCungChi(tenCungKiemTra, chiKiemTra, sao1, sao2) {
-    let lasoData = {};
-    try {
-        lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
-    } catch (e) { lasoData = {}; }
-    const lasoOb = lasoData.lasoOb || [];
-    if (!Array.isArray(lasoOb)) return false;
-    const cung = lasoOb.find(c =>
-        c.tenCung === tenCungKiemTra && c.chi === chiKiemTra
-    );
-    if (!cung || !Array.isArray(cung.sao)) return false;
-    // So sánh tên sao bỏ khoảng trắng và thường hóa
-    const normalize = s => s.replace(/\s+/g, '').toLowerCase();
-    const hasSao1 = cung.sao.some(sao => normalize(sao.ten) === normalize(sao1));
-    const hasSao2 = cung.sao.some(sao => normalize(sao.ten) === normalize(sao2));
-    return hasSao1 && hasSao2;
-}
-// tìm cung tọa thủ của sao cụ thể
-function timCungCuaSao(tenSao) {
-    let lasoData = {};
-    try {
-        lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
-    } catch (e) { lasoData = {}; }
-    const lasoOb = lasoData.lasoOb || [];
-    const normalize = s => s.replace(/\s+/g, '').toLowerCase();
-    return lasoOb.find(
-        cung => Array.isArray(cung.sao) && cung.sao.some(
-            sao => normalize(sao.ten) === normalize(tenSao)
-        )
-    ) || null;
-}
-
-function getTamPhuongTuChinhIdx(idxCungGoc) {
-    // Trả về chỉ số các cung tam phương tứ chính
-    return [
-        (idxCungGoc + 4) % 12,
-        (idxCungGoc + 6) % 12,
-        (idxCungGoc + 8) % 12,
-    ];
-}
-/**
- * Kiểm tra cung gốc và tam phương tứ chính có đủ các sao trong một bộ không
- * @param {Array} lasoOb - mảng 12 cung
- * @param {string} tenSaoGoc - tên sao gốc (ví dụ "Tử Vi")
- * @param {Array<string>} boSaoCanKiemTra - tên các sao cần kiểm tra trong tam phương tứ chính
- * @returns {object|null} - Nếu đủ bộ sao thì trả về thông tin (cung gốc, các cung hội hợp, các sao hội hợp), ngược lại trả về null
- */
-function kiemTraCachCuc(tenSaoGoc, boSaoCanKiemTra) {
-    let lasoData = {};
-    try {
-        lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
-    } catch (e) { lasoData = {}; }
-    const lasoOb = lasoData.lasoOb || [];
-    const cungGoc = timCungCuaSao(lasoOb, tenSaoGoc);
-    if (!cungGoc) return null;
-    const idxCungGoc = lasoOb.indexOf(cungGoc);
-    const idxHop = getTamPhuongTuChinhIdx(idxCungGoc);
-    // Gộp các sao của 3 cung hội hợp
-    let saoHoiHop = [];
-    idxHop.forEach(idx => {
-        const cung = lasoOb[idx];
-        if (cung && Array.isArray(cung.sao)) {
-            saoHoiHop.push(...cung.sao.map(sao => sao.ten));
-        }
-    });
-    // Kiểm tra đủ bộ sao không
-    const normalize = s => s.replace(/\s+/g, '').toLowerCase();
-    const hopDuBo = boSaoCanKiemTra.every(
-        s => saoHoiHop.some(hop => normalize(hop) === normalize(s))
-    );
-    if (!hopDuBo) return null;
-    // Nếu thỏa mãn cách cục, trả về chi tiết
-    return {
-        cungGoc: { tenCung: cungGoc.tenCung, chi: cungGoc.chi },
-        cacSaoHoiHop: saoHoiHop,
-        idxTamPhuongTuChinh: idxHop
-    };
-}
-//tìm sao cụ thể tại chi cụ thể trong lá số
-function isSaoToaThuTaiChi(tenSao, chiKiemTra) {
-    let lasoData = {};
-    try {
-        lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
-    } catch (e) { lasoData = {}; }
-    const lasoOb = lasoData.lasoOb || [];
-    if (!Array.isArray(lasoOb)) return false;
-    const normalize = s => s.replace(/\s+/g, '').toLowerCase();
-    // Tìm cung có chi đúng và chứa sao tên đúng
-    return lasoOb.some(
-        cung =>
-            cung.chi === chiKiemTra &&
-            Array.isArray(cung.sao) &&
-            cung.sao.some(sao => normalize(sao.ten) === normalize(tenSao))
-    );
-}
 // Hàm chính luận giải lá số
 function LuanGiaiLaso() {
     setTimeout(setLasoData(), 200);
     TraSao(comboLuanChungData, fileLuangiaiChung, classluangiaiChung, luanGiaiChung);  // Tổng quan
     TraSao(comboLoiKhuyenData, fileLoiKhuyen, classLoiKhuyen, luanGiaiLoiKhuyen);   // Lời khuyên
-
-    console.log("IDCUNG THAN" + idCungThan);
     renderDaivanSection();
-    getDanhSachChinhTinhTungCung();
-
-    console.log(showMenhKhongThanKiep(idCungMenh, idCungThan, getDanhSachChinhTinhTungCung(), getDanhSachPhuTinhTungCung())); // Kiểm tra Mệnh Không Thân Kiếp
     LuanGiaiChung();
     Luangiaidaivan();
     renderCungKiemTraSaoSongSong();

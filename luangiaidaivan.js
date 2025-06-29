@@ -46,8 +46,8 @@ function LuanNguhanhMenhvaDaivan(lasoData, chiDaiVan) {
 
     // Luận sinh khắc
     const sinhKhac = xetSinhKhacBinhHoaMenhVaChiDaiVan(hanhMenh, chiDaiVan);
-    console.log(sinhKhac);
-    console.log(hienHuongCoMenhChiDaiVan(sinhKhac));
+
+   
     return hienHuongCoMenhChiDaiVan(sinhKhac);
 
 }

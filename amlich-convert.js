@@ -192,7 +192,3 @@ function getCanChiFull(dd, mm, yy, gioChi) {
     };
 }
 
-// Ví dụ sử dụng:
-// const kq = getCanChiFull(8,8,2008,"Thân");
-// console.log(kq);
-// Tháng 7 âm 2008 là "Kỷ Thân" (Can tháng theo bảng khởi Can truyền thống)

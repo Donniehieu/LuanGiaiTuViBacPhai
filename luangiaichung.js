@@ -28,7 +28,7 @@ function LuanGiaiChung() {
 function checkLocTonHayLuuNienVanTinh(lasoData){
 
     let loc="";
-   console.log(lasoData.canNam);
+ 
    if(lasoData.canNam ==='G.' || lasoData.canNam==='Ấ.' || lasoData.canNam ==='C.' || lasoData.canNam==='T.' ){
 
           loc= "Can Giáp, Can Ất, Can Canh, Can Tân được hưởng trọn vẹn Lộc Tồn chính danh";
