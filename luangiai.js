@@ -354,31 +354,6 @@ function getDanhSachPhuTinhTungCung() {
 }
 
 
-function getTuChieuForCung(i, arrCung) {
-    // i: index cung chính trong mảng 12 cung (arrCung)
-    // arrCung: [{tenCung, chi, ...}]
-    const cungChinh = arrCung[i];
-    const idxDoi = (i + 6) % 12;
-    const cungDoi = arrCung[idxDoi];
-
-    // Xác định tam hợp chứa chi của cung chính
-    const TAM_HOP_CHI = [
-        ["Dần", "Ngọ", "Tuất"],
-        ["Thân", "Tý", "Thìn"],
-        ["Tỵ", "Dậu", "Sửu"],
-        ["Hợi", "Mão", "Mùi"]
-    ];
-    let group = TAM_HOP_CHI.find(gr => gr.includes(cungChinh.chi));
-    let cungTamHop1 = null, cungTamHop2 = null;
-    if (group) {
-        const chi1 = group.find(chi => chi !== cungChinh.chi);
-        const chi2 = group.find(chi => chi !== cungChinh.chi && chi !== chi1);
-        cungTamHop1 = arrCung.find(c => c.chi === chi1);
-        cungTamHop2 = arrCung.find(c => c.chi === chi2);
-    }
-    // Đảm bảo không null (có thể check tiếp)
-    return [cungChinh, cungDoi, cungTamHop1, cungTamHop2].filter(Boolean);
-}
 
 
 
@@ -414,10 +389,12 @@ function getStarsInTuChieu(i, dsChinh, dsPhu) {
         chi: c.chi,
         idx
     }));
+    console.log("Cung index:", i, "Cung data:", arrCung);
     const cungChinh = arrCung[i];
     const idxDoi = (i + 6) % 12;
     const cungDoi = arrCung[idxDoi];
-
+   
+  
     // Tam hợp
     const TAM_HOP_CHI = [
         ["Dần", "Ngọ", "Tuất"],
@@ -433,9 +410,32 @@ function getStarsInTuChieu(i, dsChinh, dsPhu) {
         cungTamHop1 = arrCung.find(c => c.chi === chi1);
         cungTamHop2 = arrCung.find(c => c.chi === chi2);
     }
+     const NHI_HOP_HAI = {
+        "Tý":   { hop: "Sửu", hai: "Mùi" },
+        "Sửu":  { hop: "Tý", hai: "Ngọ" },
+        "Dần":  { hop: "Hợi", hai: "Tỵ" },
+        "Mão":  { hop: "Tuất", hai: "Thìn" },
+        "Thìn": { hop: "Dậu", hai: "Mão" },
+        "Tỵ":   { hop: "Thân", hai: "Dần" },
+        "Ngọ":  { hop: "Mùi", hai: "Sửu" },
+        "Mùi":  { hop: "Ngọ", hai: "Tý" },
+        "Thân": { hop: "Tỵ", hai: "Hợi" },
+        "Dậu":  { hop: "Thìn", hai: "Tuất" },
+        "Tuất": { hop: "Mão", hai: "Dậu" },
+        "Hợi":  { hop: "Dần", hai: "Thân" }
+    };
+
+    const nhihopChi = NHI_HOP_HAI[cungChinh.chi]?.hop;
+    const nhihaiChi = NHI_HOP_HAI[cungChinh.chi]?.hai;
+    const cungNhiHop = arrCung.find(c => c.chi === nhihopChi);
+    const cungNhiHai = arrCung.find(c => c.chi === nhihaiChi);
     let idxs = [i, idxDoi];
     if (cungTamHop1) idxs.push(cungTamHop1.idx);
     if (cungTamHop2) idxs.push(cungTamHop2.idx);
+    idxs.push(cungDoi.idx);
+    idxs.push(cungNhiHop.idx);
+    idxs.push(cungNhiHai.idx);
+  
 
     // Lấy tên sao từng cung
     let saoTuchieu = [];
@@ -533,10 +533,11 @@ function LuanGiaiCacCungVaHienThi() {
         // Xét các phụ tinh
         const phuTinh = dsPhu[i].phuTinh;
         phuTinh.forEach(pt => { if (pt)  keyArr.push(pt + " tọa thủ tại " + item.tenCung); });
-
+      
+       
         //Xét các sao trong tứ chiếu
         const cachCuc = findCachCuc(getStarsInTuChieu(i, dsChinh, dsPhu));
-     
+        console.log("CÁCH CỤC" + cachCuc);
         // Kiểm tra nếu cung Mệnh và cung Thân có sao Địa Không và Địa Kiếp
         MenhKhongThanKiep(idCungMenh, idCungThan, dsChinh, dsPhu, keyArr);
         ThanMenhDongCungVoChinhDieu(keyArr); // Kiểm tra Thân mệnh đồng cung Vô Chính Diệu
@@ -565,7 +566,7 @@ function LuanGiaiCacCungVaHienThi() {
         if (isHaiSaoDongCungTaiCung("Quan Lộc", "Tham Lang", "Tử Vi")) {
             keyArr.push("Quan Lộc có Tham Lang Tử Vi đồng cung");
         }
-        cachCuc.forEach(cc => keyArr.push(cc + " hội chiếu tại " + item.tenCung));
+        cachCuc.forEach(cc => {keyArr.push(cc + " hội chiếu tại " + item.tenCung), +"Các Cách " +cc + " hội chiếu tại " + item.tenCung}); // Các cách cục
 
         //Lọc trùng
         const keyArrUniq = Array.from(new Set(keyArr.filter(Boolean)));

@@ -148,88 +148,7 @@ function LuanCachCucSaoTuViTaiMenh(keyArr) {
 
     }
 function LuanCachCucSaoLiemTrinh(keyArr) {
-        //Nếu Liêm Trinh tại Thìn Tuất Sửu Mùi , Tý Ngọ Dần Thân mà gặp Văn Xương Quan Phù dễ đến cửa quan
         
-
-        
-
-
-  // Nếu  Mệnh có Tử VI ở Tỵ Ngọ Dần Thân thì thông minh...
-        if(isSaoToaThuTaiCungVaChi("Mệnh", "Tỵ", "Tử Vi")) {
-            keyArr.push("Tử Vi tọa thủ cung Mệnh ở Tỵ");
-        }
-        if(isSaoToaThuTaiCungVaChi("Mệnh", "Ngọ", "Tử Vi")) {
-            keyArr.push("Tử Vi tọa thủ cung Mệnh ở Ngọ");
-        }
-        if(isSaoToaThuTaiCungVaChi("Mệnh", "Dần", "Tử Vi")) {
-            keyArr.push("Tử Vi tọa thủ cung Mệnh ở Dần");
-        }
-        if(isSaoToaThuTaiCungVaChi("Mệnh", "Thân", "Tử Vi")) {
-            keyArr.push("Tử Vi tọa thủ cung Mệnh ở Thân");
-        }
-        //Tử vi tọa thủ Mệnh tại Thìn Tuất
-        if (isSaoToaThuTaiCungVaChi("Mệnh", "Thìn", "Tử Vi") ) {
-            keyArr.push("Tử Vi tọa thủ cung Mệnh ở Thìn");
-        }
-        if (isSaoToaThuTaiCungVaChi("Mệnh", "Tuất", "Tử Vi") ) {
-            keyArr.push("Tử Vi tọa thủ cung Mệnh ở Tuất");
-        }
-        // Tử vi tọa thủ Mệnh tại Sửu Mùi
-        if ( isSaoToaThuTaiCungVaChi("Mệnh", "Mùi", "Tử Vi")) {
-            keyArr.push("Tử Vi tọa thủ cung Mệnh ở Mùi");
-        }
-        if (isSaoToaThuTaiCungVaChi("Mệnh", "Sửu", "Tử Vi")) {
-            keyArr.push("Tử Vi tọa thủ cung Mệnh ở Sửu");
-        }
-        if( isSaoToaThuTaiCungVaChi("Mệnh", "Tý", "Tử Vi") )
-            keyArr.push("Tử Vi tọa thủ cung Mệnh ở Tý");
-        
-        if( isSaoToaThuTaiCungVaChi("Mệnh", "Hợi", "Tử Vi") ){
-            keyArr.push("Tử Vi tọa thủ cung Mệnh ở Hợi");
-        }
-        if ( isSaoToaThuTaiCungVaChi("Mệnh", "Mão", "Tử Vi") ){
-            keyArr.push("Tử Vi tọa thủ cung Mệnh ở Mão");
-        }
-        if( isSaoToaThuTaiCungVaChi("Mệnh", "Dậu", "Tử Vi") ){
-            keyArr.push("Tử Vi tọa thủ cung Mệnh ở Dậu");
-        }
-        if( isSaoToaThuTaiCung("Mệnh", "Tử Vi") && kiemTraCachCuc("Tử Vi", ["Thiên Tướng", "Văn Khúc", "Văn Xương", "Thiên Khôi", "Thiên Việt", "Tả Phù", "Hữu Bật"] )) {
-            keyArr.push("Tử Vi tọa thủ cung Mệnh và hội chiếu các sao Thiên Tướng, Văn Khúc, Văn Xương, Thiên Khôi, Thiên Việt, Tả Phù, Hữu Bật");
-        }
-        // Nếu Tử Vi thủ mênh và gặp thiên Phủ
-        if(isSaoToaThuTaiCung("Mệnh", "Tử Vi") && kiemTraCachCuc("Tử Vi", ["Thiên Phủ"]) ) {
-            keyArr.push("Tử Vi tọa thủ cung Mệnh và hội chiếu Thiên Phủ");
-        }
-        // Nếu Tử vi thủ mệnh gặp Lộc Mã
-        if(isSaoToaThuTaiCung("Mệnh", "Tử Vi") && kiemTraCachCuc("Tử Vi", ["Thiên Mã", "Lộc Tồn"]) ) {
-            keyArr.push("Tử Vi tọa thủ cung Mệnh và gặp Thiên Mã, Lộc Tồn");
-        }
-        // Nếu Tử vi đồng cung với Thất Sát 
-        if(isHaiSaoDongCungTaiCung("Mệnh", "Tử Vi", "Thất Sát")) {
-            keyArr.push("Tử Vi đồng cung với Thất Sát");
-        }
-        if(isSaoToaThuTaiCung("Mệnh", "Tử Vi") && kiemTraCachCuc("Tử Vi", ["Kình Dương", "Đà La"]) ) {
-            keyArr.push("Tử Vi tọa thủ cung Mệnh và gặp Kình Dương, Đà La");
-        }
-        if(isSaoToaThuTaiCung("Mệnh", "Tử Vi") && kiemTraCachCuc("Tử Vi", ["Địa Không", "Địa Kiếp"]) ) {
-            keyArr.push("Tử Vi tọa thủ cung Mệnh và gặp Địa Không, Địa Kiếp");
-        }
-        if(isSaoToaThuTaiCung("Mệnh", "Tử Vi") && kiemTraCachCuc("Tử Vi", ["Kình Dương", "Đà La","Địa Không", "Địa Kiếp"]) ) {
-            keyArr.push("Tử Vi tọa thủ cung Mệnh và gặp Kình Dương, Đà La, Địa Không, Địa Kiếp");
-        }
-        if(isSaoToaThuTaiCung("Mệnh", "Tử Vi") && kiemTraCachCuc("Tử Vi", ["Kình Dương"]) )   {
-            keyArr.push("Tử Vi tọa thủ cung Mệnh gặp Kình Dương");
-        }
-        if(isSaoToaThuTaiCung("Mệnh", "Tử Vi") && kiemTraCachCuc("Tử Vi", ["Đà La"]) )   {
-            keyArr.push("Tử Vi tọa thủ cung Mệnh gặp Đà La");
-        }
-        if(isSaoToaThuTaiCung("Mệnh", "Tử Vi") && kiemTraCachCuc("Tử Vi", ["Địa Không"]) )   {
-            keyArr.push("Tử Vi tọa thủ cung Mệnh gặp Địa Không");
-        }
-        if(isSaoToaThuTaiCung("Mệnh", "Tử Vi") && kiemTraCachCuc("Tử Vi", ["Địa Kiếp"]) )   {
-            keyArr.push("Tử Vi tọa thủ cung Mệnh gặp Địa Kiếp");
-        }
-
     }
 
 
@@ -284,18 +203,35 @@ function LuanCachCucSaoLiemTrinh(keyArr) {
            (chiCungMenh === 'Ngọ')) {
             keyArr.push("Cung Mệnh của chị được an tại ví trí cung Ngọ");
         }
-       
-       
+        
+        if(ThanMenhDongCungVoChinhDieu(keyArr) && chiCungMenh==="Thìn") {
+            keyArr.push("Thân và Mệnh đồng cung Vô Chính Diệu tại Thìn");
+        }
+        if(ThanMenhDongCungVoChinhDieu(keyArr) && chiCungMenh==="Tuất") {
+            keyArr.push("Thân và Mệnh đồng cung Vô Chính Diệu tại Tuất");
+        }
+        if(ThanMenhDongCungVoChinhDieu(keyArr) && chiCungMenh==="Sửu") {
+            keyArr.push("Thân và Mệnh đồng cung Vô Chính Diệu tại Sửu");
+        }
+        if(ThanMenhDongCungVoChinhDieu(keyArr) && chiCungMenh==="Mùi") {
+            keyArr.push("Thân và Mệnh đồng cung Vô Chính Diệu tại Mùi");
+        }
+        
+        //mệnh vô chính diệu gặp Song Hao
+        if(isCungVoChinhDieu(idCungMenh) && kiemTraCachCuc('Vô Chính Diệu',['Đại Hao','Tiểu Hao'])) {
+            keyArr.push("Cung Mệnh Vô Chính Diệu gặp Song Hao");
+        }
 
     }
 
 function ThanMenhDongCungVoChinhDieu(keyArr){
     if(idCungThan === idCungMenh && getDanhSachChinhTinhTungCung()[idCungMenh].chinhTinh.length === 0){
         keyArr.push("Thân và Mệnh đồng cung Vô Chính Diệu");
-        console.log("Thân và Mệnh đồng cung Vô Chính Diệu");
+        
         return true;
     }
 }
+
 
 
 function MenhKhongThanKiep(idxCungMenh, idxCungThan, dsChinh, dsPhu, keyArr) {

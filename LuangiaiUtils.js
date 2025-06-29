@@ -170,6 +170,9 @@ function kiemTraCachCuc(tenSaoGoc, boSaoCanKiemTra) {
     };
 }
 
+function isCungVoChinhDieu(idCung){
+    getDanhSachChinhTinhTungCung()[idCung].chinhTinh.length === 0
+}
 
 
 //tìm sao cụ thể tại chi cụ thể trong lá số
