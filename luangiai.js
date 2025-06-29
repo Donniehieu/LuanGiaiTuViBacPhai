@@ -4,7 +4,7 @@
 
 let classluangiaiChung = "general-content";
 let classLoiKhuyen = "advice-content";
-let fileLuangiaiChung = "LuangiaiChung";
+let fileLuangiaiChung = "Luangiaichung";
 let fileLoiKhuyen = "LoiKhuyen";
 let fileLuangiaiDaiVan = "Luandaivan";
 let lasoOb = [];
