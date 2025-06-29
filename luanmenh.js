@@ -145,6 +145,13 @@ function LuanCachCucSaoTuViTaiMenh(keyArr) {
         if(isSaoToaThuTaiCung("Mệnh", "Tử Vi") && kiemTraCachCuc("Tử Vi", ["Địa Kiếp"]) )   {
             keyArr.push("Tử Vi tọa thủ cung Mệnh gặp Địa Kiếp");
         }
+        if(isHaiSaoDongCungTaiCungChi("Mệnh","Dậu","Tử Vi","Tham Lang")){
+            keyArr.push("Tử Vi đồng cung Tham Lang tại Dậu");
+        }
+        i
+
+
+
 
     }
 function LuanCachCucSaoLiemTrinh(keyArr) {
@@ -221,6 +228,20 @@ function LuanCachCucSaoLiemTrinh(keyArr) {
         if(isCungVoChinhDieu(idCungMenh) && kiemTraCachCuc('Vô Chính Diệu',['Đại Hao','Tiểu Hao'])) {
             keyArr.push("Cung Mệnh Vô Chính Diệu gặp Song Hao");
         }
+        // mệnh vô chính diệu gặp Song Hao có Thiên Đồng,hoặc Thiên Lương, hoặc Thiên Cơ
+        if(isCungVoChinhDieu(idCungMenh) && kiemTraCachCuc('Vô Chính Diệu',['Thiên Đồng','Thiên Lương','Thiên Cơ']) && kiemTraCachCuc('Vô Chính Diệu',['Đại Hao','Tiểu Hao'])) {
+            keyArr.push("Cung Mệnh Vô Chính Diệu gặp Song Hao có Thiên Đồng, Thiên Lương, hoặc Thiên Cơ");
+        }
+
+        if(lasoData.cungCu==="Phu Thê"){
+            keyArr.push("Thân Cư Phu Thê");
+        }
+        if(lasoData.cungCu==="Tài Bạch"){
+            keyArr.push("Thân Cư Tài Bạch");
+        }
+        if(lasoData.cungCu==="Phúc Đức"){
+            keyArr.push("Thân Cư Phúc Đức");
+        }
 
     }
 
@@ -247,13 +268,20 @@ function MenhKhongThanKiep(idxCungMenh, idxCungThan, dsChinh, dsPhu, keyArr) {
     );
 
     // Kiểm tra điều kiện
-    const menhKhong = saoMenh.includes("Địa Không");
-    const thanKiep = saoThan.includes("Địa Kiếp") || saoThan.includes("Địa Không");
+    const menhKhong = saoMenh.includes("Địa Không") ;
+    const thanKiep = saoThan.includes("Địa Kiếp") ;
+    
+    const menhKiep = saoMenh.includes("Địa Kiếp") ;
+    const thanKhong = saoThan.includes("Địa Không") ;
 
     // Nếu đủ điều kiện, hiển thị cách cục hoặc trả về true
     if (menhKhong && thanKiep) {
         keyArr.push("Mệnh Không Thân Kiếp");
         return true;
+    }else if( menhKiep && thanKhong) {
+        keyArr.push("Mệnh Kiếp Thân Không");
+        return true;
+        
     }
     return false;
 }

@@ -577,6 +577,8 @@ function LuanGiaiCacCungVaHienThi() {
         if (isHaiSaoDongCungTaiCung("Quan Lộc", "Tham Lang", "Tử Vi")) {
             keyArr.push("Quan Lộc có Tham Lang Tử Vi đồng cung");
         }
+
+        
         cachCuc.forEach(cc => { keyArr.push(cc + " hội chiếu tại " + item.tenCung), +"Các Cách " + cc + " hội chiếu tại " + item.tenCung }); // Các cách cục
 
         //Lọc trùng
