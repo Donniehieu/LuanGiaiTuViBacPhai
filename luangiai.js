@@ -533,7 +533,7 @@ function LuanGiaiCacCungVaHienThi() {
 
         //Xét các sao trong tứ chiếu
         const cachCuc = findCachCuc(getStarsInTuChieu(i, dsChinh, dsPhu));
-         LuanCachCucSaoTuViTaiMenh(keyArr);
+        LuanCungMenh(keyArr); // Luận cung Mệnh
         // Kiểm tra nếu cung Mệnh và cung Thân có sao Địa Không và Địa Kiếp
         if (showMenhKhongThanKiep(idCungMenh, idCungThan, dsChinh, dsPhu)) {
 
