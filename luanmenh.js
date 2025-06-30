@@ -514,6 +514,36 @@ function LuanCachCucSaoLiemTrinh(keyArr) {
         }
 
 }
+function LuanCachCucSaoThienDong(keyArr){
+    MVD = [Dần, Thân, Tý, Mão, Tỵ, Hợi];
+    HD = [Ngọ, Sửu, Mùi, Tuất, Thìn, Dậu];
+    //Thiên Đồng toạ thủ cung Mệnh
+    if(isSaoToaThuTaiCung("Mệnh", "Thiên Đồng")) {
+
+        keyArr.push("Thiên Đồng tọa thủ cung Mệnh");
+    }
+    // Thiên Đồng miếu vượng địa
+    for (let i = 0; i < MVD.length; i++) {
+        if(isSaoToaThuTaiCungVaChi("Mệnh", MVD[i], "Thiên Đồng")) {
+            keyArr.push("Thiên Đồng tọa thủ cung Mệnh ở " + MVD[i]);
+            if(MVD[i] === "Dần" && kiemTraCachCuc("Thiên Đồng", ["Hóa Quyền","Hóa Lộc", "Hóa Khoa", "Thiên Phủ","Tả Phù", "Hữu Bật","Thiên Tướng","Văn Xương","Văn Khúc"])) {
+                keyArr.push("Thiên Đồng tọa thủ cung Mệnh ở Dần gặp Quyền, Lộc, Khoa, Phủ, Tả, Hữu, Tướng, Xương, Khúc");
+            }
+        }
+        
+    }
+    // Thiên Đồng hãm địa
+    for (let i = 0; i < HD.length; i++) {
+        if(isSaoToaThuTaiCungVaChi("Mệnh", HD[i], "Thiên Đồng")) {
+            keyArr.push("Thiên Đồng tọa thủ cung Mệnh ở " + HD[i]);
+        }
+    }
+
+
+
+    
+}   
+
 function ThanMenhDongCungVoChinhDieu(keyArr){
     if(idCungThan === idCungMenh && getDanhSachChinhTinhTungCung()[idCungMenh].chinhTinh.length === 0){
         keyArr.push("Thân và Mệnh đồng cung Vô Chính Diệu");
