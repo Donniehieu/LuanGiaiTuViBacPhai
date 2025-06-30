@@ -97,9 +97,6 @@ function LuanCachCucSaoTuViTaiMenh(keyArr) {
         if(isSaoToaThuTaiCung("Mệnh", "Tử Vi") && kiemTraCachCuc("Tử Vi", ["Đào Hoa","Hồng Loan", "Địa Không", "Địa Kiếp"]) ) {
             keyArr.push("Tử Vi tọa thủ cung Mệnh có Đào Hoa, Hồng Loan, Địa Không, Địa Kiếp");
         }
-        
-
-
         //Tử vi tọa thủ Mệnh tại Thìn Tuất
          if ( isHaiSaoDongCungTaiCungChi("Mệnh", "Thìn", "Tử Vi", "Phá Toái")) {
             keyArr.push("Tử Vi tọa thủ cung Mệnh ở Thìn có Phá Toái đồng cung");
@@ -241,10 +238,15 @@ function LuanCachCucSaoTuViTaiMenh(keyArr) {
             keyArr.push("Sinh năm Giáp có Tử Vi đồng cung Thiên Phủ tại Thân");
         }
     }
-
-
-
-    function LuanCacCachCucKhac(keyArr){
+}
+function ThanMenhDongCungVoChinhDieu(keyArr){
+    if(idCungThan === idCungMenh && getDanhSachChinhTinhTungCung()[idCungMenh].chinhTinh.length === 0){
+        keyArr.push("Thân và Mệnh đồng cung Vô Chính Diệu");
+        
+        return true;
+    }
+}
+function LuanCacCachCucKhac(keyArr){
         let lasoData = {};
         try {
             lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
@@ -329,17 +331,6 @@ function LuanCachCucSaoTuViTaiMenh(keyArr) {
         }
 
     }
-
-function ThanMenhDongCungVoChinhDieu(keyArr){
-    if(idCungThan === idCungMenh && getDanhSachChinhTinhTungCung()[idCungMenh].chinhTinh.length === 0){
-        keyArr.push("Thân và Mệnh đồng cung Vô Chính Diệu");
-        
-        return true;
-    }
-}
-
-
-
 function MenhKhongThanKiep(idxCungMenh, idxCungThan, dsChinh, dsPhu, keyArr) {
 
     // Lấy các sao của cung Mệnh và cung Thân
@@ -369,4 +360,6 @@ function MenhKhongThanKiep(idxCungMenh, idxCungThan, dsChinh, dsPhu, keyArr) {
         
     }
     return false;}
-}
+
+
+
