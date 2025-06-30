@@ -313,6 +313,39 @@ function LuanCachCucSaoLiemTrinh(keyArr) {
 
         }
         
+        // Miếu Vượng Đắc mà gặp Sát Tinh, Kỵ, Hình
+        if( isSaoToaThuTaiCungVaChi("Mệnh", "Tý", "Liêm Trinh") && kiemTraCachCuc("Liêm Trinh", ["Kình Dương","Đà La", "Địa Không", "Địa Kiếp","Hoả Tinh", "Linh Tinh","Hoá Kỵ","Thiên Hình"]) ) {
+            keyArr.push("Liêm Trinh tọa thủ cung Mệnh ở Tý gặp Kình Dương, Đà La, Địa Không, Địa Kiếp, Hoả Tinh, Linh Tinh, Hoá Kỵ, Thiên Hình");
+
+        }
+        if( isSaoToaThuTaiCungVaChi("Mệnh", "Ngọ", "Liêm Trinh") && kiemTraCachCuc("Liêm Trinh", ["Kình Dương","Đà La", "Địa Không", "Địa Kiếp","Hoả Tinh", "Linh Tinh","Hoá Kỵ","Thiên Hình"]) ) {
+            keyArr.push("Liêm Trinh tọa thủ cung Mệnh ở Ngọ gặp Kình Dương, Đà La, Địa Không, Địa Kiếp, Hoả Tinh, Linh Tinh, Hoá Kỵ, Thiên Hình");
+
+        }
+         if( isSaoToaThuTaiCungVaChi("Mệnh", "Dần", "Liêm Trinh") && kiemTraCachCuc("Liêm Trinh", ["Kình Dương","Đà La", "Địa Không", "Địa Kiếp","Hoả Tinh", "Linh Tinh","Hoá Kỵ","Thiên Hình"]) ) {
+            keyArr.push("Liêm Trinh tọa thủ cung Mệnh ở Dần gặp Kình Dương, Đà La, Địa Không, Địa Kiếp, Hoả Tinh, Linh Tinh, Hoá Kỵ, Thiên Hình");
+
+        }
+        if( isSaoToaThuTaiCungVaChi("Mệnh", "Thân", "Liêm Trinh") && kiemTraCachCuc("Liêm Trinh", ["Kình Dương","Đà La", "Địa Không", "Địa Kiếp","Hoả Tinh", "Linh Tinh","Hoá Kỵ","Thiên Hình"]) ) {
+            keyArr.push("Liêm Trinh tọa thủ cung Mệnh ở Thân gặp Kình Dương, Đà La, Địa Không, Địa Kiếp, Hoả Tinh, Linh Tinh, Hoá Kỵ, Thiên Hình");
+
+        }
+         if( isSaoToaThuTaiCungVaChi("Mệnh", "Thìn", "Liêm Trinh") && kiemTraCachCuc("Liêm Trinh", ["Kình Dương","Đà La", "Địa Không", "Địa Kiếp","Hoả Tinh", "Linh Tinh","Hoá Kỵ","Thiên Hình"]) ) {
+            keyArr.push("Liêm Trinh tọa thủ cung Mệnh ở Thìn gặp Kình Dương, Đà La, Địa Không, Địa Kiếp, Hoả Tinh, Linh Tinh, Hoá Kỵ, Thiên Hình");
+
+        }
+        if( isSaoToaThuTaiCungVaChi("Mệnh", "Tuất", "Liêm Trinh") && kiemTraCachCuc("Liêm Trinh", ["Kình Dương","Đà La", "Địa Không", "Địa Kiếp","Hoả Tinh", "Linh Tinh","Hoá Kỵ","Thiên Hình"]) ) {
+            keyArr.push("Liêm Trinh tọa thủ cung Mệnh ở Tuất gặp Kình Dương, Đà La, Địa Không, Địa Kiếp, Hoả Tinh, Linh Tinh, Hoá Kỵ, Thiên Hình");
+
+        }
+        if( isSaoToaThuTaiCungVaChi("Mệnh", "Sửu", "Liêm Trinh") && kiemTraCachCuc("Liêm Trinh", ["Kình Dương","Đà La", "Địa Không", "Địa Kiếp","Hoả Tinh", "Linh Tinh","Hoá Kỵ","Thiên Hình"]) ) {
+            keyArr.push("Liêm Trinh tọa thủ cung Mệnh ở Sửu gặp Kình Dương, Đà La, Địa Không, Địa Kiếp, Hoả Tinh, Linh Tinh, Hoá Kỵ, Thiên Hình");
+
+        }
+        if( isSaoToaThuTaiCungVaChi("Mệnh", "Mùi", "Liêm Trinh") && kiemTraCachCuc("Liêm Trinh", ["Kình Dương","Đà La", "Địa Không", "Địa Kiếp","Hoả Tinh", "Linh Tinh","Hoá Kỵ","Thiên Hình"]) ) {
+            keyArr.push("Liêm Trinh tọa thủ cung Mệnh ở Mùi gặp Kình Dương, Đà La, Địa Không, Địa Kiếp, Hoả Tinh, Linh Tinh, Hoá Kỵ, Thiên Hình");
+
+        }
         
 
 
