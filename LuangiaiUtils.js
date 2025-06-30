@@ -46,21 +46,24 @@ function isHaiSaoDongCungTaiCung(tenCungKiemTra, sao1, sao2) {
 }
 //Hai sao đông cung tại một cung tại chi nào đấy
 function isHaiSaoDongCungTaiCungChi(tenCungKiemTra, chiKiemTra, sao1, sao2) {
-    let lasoData = {};
-    try {
-        lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
-    } catch (e) { lasoData = {}; }
-    const lasoOb = lasoData.lasoOb || [];
-    if (!Array.isArray(lasoOb)) return false;
-    const cung = lasoOb.find(c =>
-        c.tenCung === tenCungKiemTra && c.chi === chiKiemTra
-    );
-    if (!cung || !Array.isArray(cung.sao)) return false;
-    // So sánh tên sao bỏ khoảng trắng và thường hóa
-    const normalize = s => s.replace(/\s+/g, '').toLowerCase();
-    const hasSao1 = cung.sao.some(sao => normalize(sao.ten) === normalize(sao1));
-    const hasSao2 = cung.sao.some(sao => normalize(sao.ten) === normalize(sao2));
-    return hasSao1 && hasSao2;
+    const normalize = s => (typeof s === 'string' ? s.replace(/\s+/g, '').toLowerCase() : '');
+
+let lasoData = {};
+try {
+    lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
+} catch (e) { lasoData = {}; }
+
+const lasoOb = lasoData.lasoOb || [];
+if (!Array.isArray(lasoOb)) return false;
+const cung = lasoOb.find(c =>
+    c.tenCung === tenCungKiemTra && c.chi === chiKiemTra
+);
+if (!cung || !Array.isArray(cung.sao)) return false;
+
+// So sánh tên sao bỏ khoảng trắng và thường hóa
+const hasSao1 = cung.sao.some(sao => normalize(sao.ten) === normalize(sao1));
+const hasSao2 = cung.sao.some(sao => normalize(sao.ten) === normalize(sao2));
+return hasSao1 && hasSao2;
 }
 // tìm cung tọa thủ của sao cụ thể để ra cách cục
 function timCungCuaSao(tenSao) {
