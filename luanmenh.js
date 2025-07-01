@@ -97,7 +97,9 @@ function LuanCachCucSaoTuViTaiMenh(keyArr) {
     const tuphu = ["Tử Vi", "Thiên Phủ"];
     const tyhoi = ["Tỵ", "Hợi"];
     const vupha =["Vũ Khúc","Phá Quân"];
+    const tupha = ["Tử Vi", "Phá Quân"];
     const tuvu = ["Tử Vi", "Vũ Khúc"];
+    const tumo =["Thìn","Tuất", "Mùi", "Sửu"];
 
     const mvd = mieu.concat(vuong).concat(dac); // Tử vi thủ mệnh ở miếu, vượng, đắc địa
 
@@ -259,19 +261,38 @@ function LuanCachCucSaoTuViTaiMenh(keyArr) {
         }
     }
     // Tử vi hoặc Vũ Khúc thủ mệnh gặp Sát tinh
-    for (let i = 0; i < tuvu.length; i++) {
-       
-            console.log(`${tuvu[i]} tọa thủ cung Mệnh gặp các sao Sát tinh:`, lucsattinh.join(", "));
-            keyArr.push(`${tuvu[i]} tọa thủ cung Mệnh gặp các sao Sát tinh:`, lucsattinh.join(", "));
-        
-    }
+   
     for (let i = 0; i < tuvu.length; i++) {
         if (isSaoToaThuTaiCung("Mệnh", tuvu[i]) && kiemTraCachCuc(tuvu[i], lucsattinh)) {
             console.log(`${tuvu[i]} tọa thủ cung Mệnh gặp các sao Sát tinh:`, lucsattinh.join(", "));
             keyArr.push(`${tuvu[i]} tọa thủ cung Mệnh gặp các sao Sát tinh:`, lucsattinh.join(", "));
         }
     }
-
+    // Tử vi hoặc Phá Quân thủ mệnh tại tứ mộ cung
+    for (let i = 0; i < tumo.length; i++) {
+        for (let j = 0; j < tupha.length; j++) {
+            if (isSaoToaThuTaiCungVaChi("Mệnh", tumo[i], tupha[j]) ) {
+                console.log(`${tupha[j]} tọa thủ cung Mệnh tại ${tumo[i]}`);
+                keyArr.push(`${tupha[j]} tọa thủ cung Mệnh tại ${tumo[i]}`);
+                if(kiemTraCachCuc(tupha[j], ["Hóa Quyền", "Hóa Lộc", "Hóa Khoa", "Thiên Phủ", "Tả Phù", "Hữu Bật", "Thiên Tướng", "Văn Xương", "Văn Khúc"])) {
+                    console.log(`${tupha[j]} tọa thủ cung Mệnh tại ${tumo[i]} gặp các sao cát tinh: Hóa Quyền, Hóa Lộc, Hóa Khoa, Thiên Phủ, Tả Phù, Hữu Bật, Thiên Tướng, Văn Xương, Văn Khúc`);
+                    keyArr.push(`${tupha[j]} tọa thủ cung Mệnh tại ${tumo[i]} gặp các sao cát tinh: Hóa Quyền, Hóa Lộc, Hóa Khoa, Thiên Phủ, Tả Phù, Hữu Bật, Thiên Tướng, Văn Xương, Văn Khúc`);
+                }
+            }
+        }
+    }
+    for (let i = 0; i < tumo.length; i++) {
+        for (let j = 0; j < tupha.length; j++) {
+            
+                
+                
+                    console.log(`${tupha[j]} tọa thủ cung Mệnh tại ${tumo[i]} gặp các sao cát tinh: Hóa Quyền, Hóa Lộc, Hóa Khoa, Thiên Phủ, Tả Phù, Hữu Bật, Thiên Tướng, Văn Xương, Văn Khúc`);
+                    keyArr.push(`${tupha[j]} tọa thủ cung Mệnh tại ${tumo[i]} gặp các sao cát tinh: Hóa Quyền, Hóa Lộc, Hóa Khoa, Thiên Phủ, Tả Phù, Hữu Bật, Thiên Tướng, Văn Xương, Văn Khúc`);
+                
+            
+        }
+    }
+    
    
 
 
