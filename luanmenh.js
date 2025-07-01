@@ -215,6 +215,18 @@ function LuanCachCucSaoTuViTaiMenh(keyArr) {
         }
 
     }
+     console.log("Tử Vi tọa thủ cung Mệnh gặp cát tinh:", PhuVuTuong.concat(KhoaLocQuyen).concat(TaHuu).concat(LongPhuong).concat(An).join(", "),"Không gặp", KhongKiep.concat(Kinh).join(", "));
+
+    // Tử vi tại mệnh gặp cát tinh
+    if( isSaoToaThuTaiCung("Mệnh", "Tử Vi") && kiemTraCachCuc("Tử Vi", PhuVuTuong.concat(KhoaLocQuyen).concat(TaHuu).concat(LongPhuong).concat(An)) ) {
+         console.log("Tử Vi tọa thủ cung Mệnh gặp cát tinh:", PhuVuTuong.concat(KhoaLocQuyen).concat(TaHuu).concat(LongPhuong).concat(An).join(", "));
+         keyArr.push("Tử Vi tọa thủ cung Mệnh gặp cát tinh:", PhuVuTuong.concat(KhoaLocQuyen).concat(TaHuu).concat(LongPhuong).concat(An).join(", "));
+
+        if(kiemTraCachCuc("Tử Vi", KhongKiep.concat(Kinh))==false){
+       keyArr.push("Tử Vi tọa thủ cung Mệnh gặp cát tinh:", PhuVuTuong.concat(KhoaLocQuyen).concat(TaHuu).concat(LongPhuong).concat(An).join(", "),"Không gặp", KhongKiep.concat(Kinh).join(", "));
+       console.log("Tử Vi tọa thủ cung Mệnh gặp cát tinh:", PhuVuTuong.concat(KhoaLocQuyen).concat(TaHuu).concat(LongPhuong).concat(An).join(", "),"Không gặp", KhongKiep.concat(Kinh).join(", "));
+       }
+    }
    
 
    
