@@ -350,6 +350,7 @@ function LuanCachCucSaoLiemTrinh(keyArr) {
     const ham = ["Tỵ", "Hợi", "Mão", "Dậu"];
     const phutuong = ["Thiên Phủ", "Thiên Tướng"];
     const tyhoi = ["Tỵ", "Hợi"];
+    const maodau = ["Mão", "Dậu"];
 
     // Liêm Trinh Tọa thủ mệnh
     if (isSaoToaThuTaiCung("Mệnh", "Liêm Trinh")) {
@@ -423,10 +424,21 @@ function LuanCachCucSaoLiemTrinh(keyArr) {
         if (isHaiSaoDongCungTaiCungChi("Mệnh", tyhoi[i], "Liêm Trinh", "Hóa Kỵ")) {
             console.log(`Liêm Trinh tọa thủ cung Mệnh ở ${tyhoi[i]} đồng cung Hóa Kỵ`);
             keyArr.push(`Liêm Trinh tọa thủ cung Mệnh ở ${tyhoi[i]} đồng cung Hóa Kỵ`);
+            if(kiemTraCachCuc("Liêm Trinh", [XuongKhuc])&& lasoData.canNam==="B.") {
+                console.log(`Tuổi Bính Liêm Trinh tọa thủ cung Mệnh ở ${tyhoi[i]} đồng cung Hóa Kỵ gặp Văn Xương, Văn Khúc`);
+                keyArr.push(`Tuổi Bính Liêm Trinh tọa thủ cung Mệnh ở ${tyhoi[i]} đồng cung Hóa Kỵ gặp Văn Xương, Văn Khúc`);
+            }
+        }
+    }
+
+     // Liêm Trinh toạ thủ tại Mão Dậu gặp Hoả Linh hội họp
+    for (let i = 0; i < maodau.length; i++) {
+        if (isHaiSaoDongCungTaiCungChi("Mệnh", maodau[i], "Liêm Trinh") && kiemTraCachCuc("Liêm Trinh", HoaLinh)) {
+            console.log(`Liêm Trinh tọa thủ cung Mệnh ở ${maodau[i]} gặp`, HoaLinh.join(", "));
+            keyArr.push(`Liêm Trinh tọa thủ cung Mệnh ở ${maodau[i]} gặp`, HoaLinh.join(", "));
         }
     }
    
-
 
 
 
