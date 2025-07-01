@@ -344,36 +344,32 @@ function LuanCachCucSaoLiemTrinh(keyArr) {
         lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
     } catch (e) { lasoData = {}; }
 
-    const mieu = ["Thìn","Tuất"];
-    const vuong = ["Tý","Ngọ","Dần","Thân"];
-    const dac = ["Sửu","Mùi"];
-    const ham = ["Tỵ","Hợi","Mão","Dậu"];
-    const phutuong =["Thiên Phủ","Thiên Tướng"];
+    const mieu = ["Thìn", "Tuất"];
+    const vuong = ["Tý", "Ngọ", "Dần", "Thân"];
+    const dac = ["Sửu", "Mùi"];
+    const ham = ["Tỵ", "Hợi", "Mão", "Dậu"];
+    const phutuong = ["Thiên Phủ", "Thiên Tướng"];
+    const tyhoi = ["Tỵ", "Hợi"];
 
     // Liêm Trinh Tọa thủ mệnh
-    if(isSaoToaThuTaiCung("Mệnh", "Liêm Trinh")) {
+    if (isSaoToaThuTaiCung("Mệnh", "Liêm Trinh")) {
         console.log("Liêm Trinh tọa thủ cung Mệnh");
         keyArr.push("Liêm Trinh tọa thủ cung Mệnh");
     }
     // Liêm Trinh Miếu địa tọa thủ mệnh gặp cát tinh
     // Liêm Trinh tọa thủ cung Mệnh gặp hung tinh, kỵ hình
-    for (let i = 0; i < mieu.length; i++) {
-       
-            console.log(`Liêm Trinh tọa thủ cung Mệnh ở ${mieu[i]} gặp các sao Hình Kỵ:`, HinhKy.join(", "));
-            keyArr.push(`Liêm Trinh tọa thủ cung Mệnh ở ${mieu[i]} gặp các sao Hình Kỵ:`, HinhKy.join(", "));
-        
-    }
-  
+    
+
     for (let i = 0; i < mieu.length; i++) {
         if (isSaoToaThuTaiCungVaChi("Mệnh", mieu[i], "Liêm Trinh") && kiemTraCachCuc("Liêm Trinh", phutuong.concat(KhoaLocQuyen).concat(TaHuu).concat(XuongKhuc))) {
             console.log(`Liêm Trinh tọa thủ cung Mệnh ở ${mieu[i]} gặp cát tinh:`, phutuong.concat(KhoaLocQuyen).concat(TaHuu).concat(XuongKhuc).join(", "));
             keyArr.push(`Liêm Trinh tọa thủ cung Mệnh ở ${mieu[i]} gặp cát tinh:`, phutuong.concat(KhoaLocQuyen).concat(TaHuu).concat(XuongKhuc).join(", "));
         }
-        if( isSaoToaThuTaiCungVaChi("Mệnh", mieu[i], "Liêm Trinh") && kiemTraCachCuc("Liêm Trinh", lucsattinh)) {
+        if (isSaoToaThuTaiCungVaChi("Mệnh", mieu[i], "Liêm Trinh") && kiemTraCachCuc("Liêm Trinh", lucsattinh)) {
             console.log(`Liêm Trinh tọa thủ cung Mệnh ở ${mieu[i]} gặp các sao Sát tinh:`, lucsattinh.join(", "));
             keyArr.push(`Liêm Trinh tọa thủ cung Mệnh ở ${mieu[i]} gặp các sao Sát tinh:`, lucsattinh.join(", "));
         }
-        if( isSaoToaThuTaiCungVaChi("Mệnh", mieu[i], "Liêm Trinh") && kiemTraCachCuc("Liêm Trinh", HinhKy)) {
+        if (isSaoToaThuTaiCungVaChi("Mệnh", mieu[i], "Liêm Trinh") && kiemTraCachCuc("Liêm Trinh", HinhKy)) {
             console.log(`Liêm Trinh tọa thủ cung Mệnh ở ${mieu[i]} gặp các sao Hình Kỵ:`, HinhKy.join(", "));
             keyArr.push(`Liêm Trinh tọa thủ cung Mệnh ở ${mieu[i]} gặp các sao Hình Kỵ:`, HinhKy.join(", "));
         }
@@ -399,21 +395,41 @@ function LuanCachCucSaoLiemTrinh(keyArr) {
             keyArr.push(`Liêm Trinh tọa thủ cung Mệnh ở ${dac[i]} đồng cung Văn Xương, Văn Khúc`);
         }
     }
-     for (let i = 0; i < dac.length; i++) {
-       
-            console.log(`Liêm Trinh tọa thủ cung Mệnh ở ${dac[i]} đồng cung Văn Xương, Văn Khúc`);
-            keyArr.push(`Liêm Trinh tọa thủ cung Mệnh ở ${dac[i]} đồng cung Văn Xương, Văn Khúc`);
-        
-    }
-
-  
-
-
-
-
-
-
     
+
+    // Liêm trinh hãm 
+    for (let i = 0; i < ham.length; i++) {
+
+        if (isSaoToaThuTaiCung("Mệnh", ham[i], "Liêm Trinh")) {
+            console.log(`Liêm Trinh tọa thủ cung Mệnh ở ${ham[i]}`);
+            keyArr.push(`Liêm Trinh tọa thủ cung Mệnh ở ${ham[i]}`);
+        }
+
+        if (isSaoToaThuTaiCungVaChi("Mệnh", ham[i], "Liêm Trinh") && kiemTraCachCuc("Liêm Trinh", lucsattinh)) {
+            console.log(`Liêm Trinh tọa thủ cung Mệnh ở ${ham[i]} gặp các sao Sát tinh:`, lucsattinh.join(", "));
+            keyArr.push(`Liêm Trinh tọa thủ cung Mệnh ở ${ham[i]} gặp các sao Sát tinh:`, lucsattinh.join(", "));
+        }
+
+        if (isSaoToaThuTaiCungVaChi("Mệnh", ham[i], "Liêm Trinh") && kiemTraCachCuc("Liêm Trinh", HinhKy)) {
+            console.log(`Liêm Trinh tọa thủ cung Mệnh ở ${ham[i]} gặp các sao Hình Kỵ:`, HinhKy.join(", "));
+            keyArr.push(`Liêm Trinh tọa thủ cung Mệnh ở ${ham[i]} gặp các sao Hình Kỵ:`, HinhKy.join(", "));
+
+        }
+        
+
+    }
+    // Liêm trinh Tỵ Hợi đồng cung với Hoá Kỵ
+    for (let i = 0; i < tyhoi.length; i++) {
+        if (isHaiSaoDongCungTaiCungChi("Mệnh", tyhoi[i], "Liêm Trinh", "Hóa Kỵ")) {
+            console.log(`Liêm Trinh tọa thủ cung Mệnh ở ${tyhoi[i]} đồng cung Hóa Kỵ`);
+            keyArr.push(`Liêm Trinh tọa thủ cung Mệnh ở ${tyhoi[i]} đồng cung Hóa Kỵ`);
+        }
+    }
+   
+
+
+
+
     // Tử vi tọa thủ Mệnh tại Sửu Mùi
     if (isHaiSaoDongCungTaiCungChi("Mệnh", "Mùi", "Liêm Trinh")) {
         keyArr.push("Liêm Trinh tọa thủ cung Mệnh ở Mùi");
