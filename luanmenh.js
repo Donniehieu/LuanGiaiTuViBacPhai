@@ -374,12 +374,26 @@ function LuanCachCucSaoLiemTrinh(keyArr) {
             console.log(`Liêm Trinh tọa thủ cung Mệnh ở ${mieu[i]} gặp các sao Hình Kỵ:`, HinhKy.join(", "));
             keyArr.push(`Liêm Trinh tọa thủ cung Mệnh ở ${mieu[i]} gặp các sao Hình Kỵ:`, HinhKy.join(", "));
         }
+        if(lasoData.gioitinh==="Nữ" ) {
+            console.log(`Quý Chị có Liêm Trinh tọa thủ cung Mệnh ở ${mieu[i]}`);
+            keyArr.push(`Quý Chị có Liêm Trinh tọa thủ cung Mệnh ở ${mieu[i]}`);
+        }
+    }
+     for (let i = 0; i < mieu.length; i++) {
+       
+            console.log(`Quý Chị có Liêm Trinh tọa thủ cung Mệnh ở ${mieu[i]}`);
+            keyArr.push(`Quý Chị có Liêm Trinh tọa thủ cung Mệnh ở ${mieu[i]}`);
+        
     }
     // Liêm Trinh Vượng địa tọa thủ mệnh gặp cát tinh 
     for (let i = 0; i < vuong.length; i++) {
         if (isSaoToaThuTaiCungVaChi("Mệnh", vuong[i], "Liêm Trinh") && kiemTraCachCuc("Liêm Trinh", phutuong.concat(KhoaLocQuyen).concat(TaHuu).concat(XuongKhuc))) {
             console.log(`Liêm Trinh tọa thủ cung Mệnh ở ${vuong[i]} gặp cát tinh:`, phutuong.concat(KhoaLocQuyen).concat(TaHuu).concat(XuongKhuc).join(", "));
             keyArr.push(`Liêm Trinh tọa thủ cung Mệnh ở ${vuong[i]} gặp cát tinh:`, phutuong.concat(KhoaLocQuyen).concat(TaHuu).concat(XuongKhuc).join(", "));
+        }
+        if(lasoData.gioitinh==="Nữ" ) {
+            console.log(`Quý Chị có Liêm Trinh tọa thủ cung Mệnh ở ${mieu[i]}`);
+            keyArr.push(`Quý Chị có Liêm Trinh tọa thủ cung Mệnh ở ${mieu[i]}`);
         }
     }
     // Liêm Trinh Đắc địa tọa thủ mệnh gặp cát tinh
@@ -388,14 +402,16 @@ function LuanCachCucSaoLiemTrinh(keyArr) {
             console.log(`Liêm Trinh tọa thủ cung Mệnh ở ${dac[i]} gặp cát tinh:`, phutuong.concat(KhoaLocQuyen).concat(TaHuu).concat(XuongKhuc).join(", "));
             keyArr.push(`Liêm Trinh tọa thủ cung Mệnh ở ${dac[i]} gặp cát tinh:`, phutuong.concat(KhoaLocQuyen).concat(TaHuu).concat(XuongKhuc).join(", "));
         }
-    }
-    // Liêm Trinh Đắc gặp Xương Khúc đồng cung
-    for (let i = 0; i < dac.length; i++) {
-        if (isHaiSaoDongCungTaiCungChi("Mệnh", ham[i], "Liêm Trinh", "Văn Xương") || isHaiSaoDongCungTaiCungChi("Mệnh", ham[i], "Liêm Trinh", "Văn Khúc")) {
+        if(lasoData.gioitinh==="Nữ" ) {
+            console.log(`Quý Chị có Liêm Trinh tọa thủ cung Mệnh ở ${mieu[i]}`);
+            keyArr.push(`Quý Chị có Liêm Trinh tọa thủ cung Mệnh ở ${mieu[i]}`);
+        }
+        if (isHaiSaoDongCungTaiCungChi("Mệnh", dac[i], "Liêm Trinh", "Văn Xương") && isHaiSaoDongCungTaiCungChi("Mệnh", dac[i], "Liêm Trinh", "Văn Khúc")) {
             console.log(`Liêm Trinh tọa thủ cung Mệnh ở ${dac[i]} đồng cung Văn Xương, Văn Khúc`);
             keyArr.push(`Liêm Trinh tọa thủ cung Mệnh ở ${dac[i]} đồng cung Văn Xương, Văn Khúc`);
         }
     }
+    
     
 
     // Liêm trinh hãm 
@@ -416,8 +432,6 @@ function LuanCachCucSaoLiemTrinh(keyArr) {
             keyArr.push(`Liêm Trinh tọa thủ cung Mệnh ở ${ham[i]} gặp các sao Hình Kỵ:`, HinhKy.join(", "));
 
         }
-        
-
     }
     // Liêm trinh Tỵ Hợi đồng cung với Hoá Kỵ
     for (let i = 0; i < tyhoi.length; i++) {
