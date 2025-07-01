@@ -472,7 +472,16 @@ function LuanCachCucSaoLiemTrinh(keyArr) {
         }
     }
     // Phú
-    
+    // Liêm Trinh tọa thủ gặp tứ sát Kình Đà Hỏa Linh 
+    if( isSaoToaThuTaiCung("Mệnh", "Liêm Trinh") && kiemTraCachCuc("Liêm Trinh", Kinh.concat(Da).concat(HoaLinh))) {
+        console.log("Liêm Trinh tọa thủ cung Mệnh gặp tứ sát Kình Đà Hỏa Linh");
+        keyArr.push("Liêm Trinh tọa thủ cung Mệnh gặp tứ sát Kình Đà Hỏa Linh");
+        if(kiemTraCachCuc("Liêm Trinh",Ho ) ){
+            console.log("Liêm Trinh tọa thủ cung Mệnh gặp tứ sát Kình Đà Hỏa Linh và Bạch Hổ");
+            keyArr.push("Liêm Trinh tọa thủ cung Mệnh gặp tứ sát Kình Đà Hỏa Linh và Bạch Hổ");}
+            
+        }
+    }
     
      
 
