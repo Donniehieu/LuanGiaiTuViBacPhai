@@ -321,6 +321,22 @@ function LuanCachCucSaoTuViTaiMenh(keyArr) {
             keyArr.push(`Tử Vi tọa thủ cung Mệnh ở ${tyngo[i]} gặp`, KhoaLocQuyen.join(", "));
         }
     }
+    // Tử vi tại mênj gặp Hóa Quyền, Hóa Lộc, Kình Đà
+    if (isSaoToaThuTaiCung("Mệnh", "Tử Vi") && kiemTraCachCuc("Tử Vi", ["Hóa Quyền", "Hóa Lộc", "Kình Dương", "Đà La"])) {
+        console.log("Tử Vi tọa thủ cung Mệnh gặp Hóa Quyền, Hóa Lộc, Kình Dương, Đà La");
+        keyArr.push("Tử Vi tọa thủ cung Mệnh gặp Hóa Quyền, Hóa Lộc, Kình Dương, Đà La");
+    }
+    // Tử vi và Hóa Lộc đồng cung tại Mệnh hội chiếu Tả Phù Hữu Bật
+    if (isHaiSaoDongCungTaiCung("Mệnh", "Tử Vi", "Hóa Lộc") && kiemTraCachCuc("Tử Vi", TaHuu)) {
+        console.log("Tử Vi tọa thủ cung Mệnh đồng cung Hóa Lộc gặp Tả Phù, Hữu Bật");
+        keyArr.push("Tử Vi tọa thủ cung Mệnh đồng cung Hóa Lộc gặp Tả Phù, Hữu Bật");
+    }
+    // Tử Phủ Hội Chiếu cung Mệnh
+    if(isSaoToaThuTaiCung("Mệnh", "Tử Vi") && kiemTraCachCuc("Tử Vi","Thiên Phủ")) {
+        console.log("Tử Vi tọa thủ cung Mệnh hội chiếu Thiên Phủ");
+        keyArr.push("Tử Vi tọa thủ cung Mệnh hội chiếu Thiên Phủ");
+    }
+
     
     
     
