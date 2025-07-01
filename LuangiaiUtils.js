@@ -1,3 +1,38 @@
+const Kinh = "Kình Dương";
+const Da = "Đà La";
+const Kiep = "Kiếp Sát";
+const Khong = "Không Kiếp";
+const KhongKiep= [Khong, Kiep];
+const Ho = "Bạch Hổ";
+const Cai ="Hoa Cái";
+const Long ="Long Trì";
+const Phuong = "Phượng Các";
+const LongPhuong = [Long, Phuong];
+const lucsattinh = [Kinh, Da, Khong, Kiep, "Hỏa Tinh","Linh Tinh"];
+const tulinh = [Ho, Cai, Long, Phuong];
+const Khoa ="Hóa Khoa";
+const Loc = "Hóa Lộc";
+const Quyen = "Hóa Quyền";
+const KhoaLocQuyen = [Khoa, Loc, Quyen];
+const Phu = "Thiên Phủ";
+const Vu ="Vũ Khúc";
+const Tuong ="Thiên Tướng";
+const PhuVuTuong = [Phu, Vu, Tuong];
+const Xuong ="Văn Xương";
+const Khuc ="Văn Khúc";
+const XuongKhuc = [Xuong, Khuc];
+const Khoi = "Thiên Khôi";
+const Viet = "Thiên Việt";
+const KhoiViet = [Khoi, Viet];
+const Ta ="Tả Phù";
+const Huu = "Hữu Bật";
+const TaHuu = [Ta, Huu];
+const Tham ="Tham Lang";
+const Tu = "Tử Vi";
+const Hinh ="Thiên Hình";
+const Ky ="Hóa Kỵ";
+const HinhKy = [Hinh, Ky];
+
 
 //tìm cung nào có sao nào đó tọa thủ
 function isSaoToaThuTaiCung(tenCungKiemTra, tenSao) {
@@ -121,6 +156,23 @@ function getHoiChieuCung(idxCungGoc) {
         (5-idxCungGoc + 12) % 12  //cung nhị hại
     ];
 }
+
+// Hàm giúp tạo ra các mảng có chiều dài từ 1 đến n từ một mảng đầu vào
+function getCombinations(array) {
+  const result = [];
+  const n = array.length;
+
+  // Hàm đệ quy để sinh tổ hợp
+  function combine(start, combo) {
+    if (combo.length > 0) result.push(combo);
+    for (let i = start; i < n; i++) {
+      combine(i + 1, combo.concat(array[i]));
+    }
+  }
+
+  combine(0, []);
+  return result;
+}
 /**
  * Kiểm tra cung gốc và tam phương tứ chính có đủ các sao trong một bộ không
  * @param {Array} lasoOb - mảng 12 cung
@@ -194,4 +246,64 @@ function isSaoToaThuTaiChi(tenSao, chiKiemTra) {
             Array.isArray(cung.sao) &&
             cung.sao.some(sao => normalize(sao.ten) === normalize(tenSao))
     );
+}
+
+/**
+ * Kiểm tra sự xuất hiện của sao tại cung/chi với nhiều trường hợp khác nhau
+ * @param {Object} options - Các lựa chọn:
+ *   - tenSao: tên sao cần tìm (bắt buộc)
+ *   - tenCung: tên cung cần kiểm tra (không bắt buộc, nếu không có sẽ kiểm tra trên tất cả các cung)
+ *   - chi: tên chi cần kiểm tra (không bắt buộc, nếu không có sẽ kiểm tra trên tất cả các chi)
+ *   - sao2: tên sao thứ 2 (nếu kiểm tra đông cung)
+ *   - chi2: tên chi thứ 2 (nếu kiểm tra đông cung và chi đồng cung)
+ *   - mode: kiểu kiểm tra:
+ *      + "toaThu" (sao tọa thủ cung, có thể chỉ định thêm chi)
+ *      + "haiSaoDongCung" (hai sao cùng cung, có thể chỉ định chi/chi2)
+ *      + "toaThuChiOnly" (sao tại chi, không quan tâm cung)
+ * @returns {boolean}
+ */
+function kiemTraSaoCung(options = {}) {
+    let lasoData = {};
+    try {
+        lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
+    } catch (e) { lasoData = {}; }
+    const lasoOb = lasoData.lasoOb || [];
+    if (!Array.isArray(lasoOb)) return false;
+    const normalize = s => (typeof s === 'string' ? s.replace(/\s+/g, '').toLowerCase() : '');
+
+    switch (options.mode) {
+        case "toaThu":
+            {
+                // Kiểm tra sao tọa thủ tại cung và (nếu có) chi
+                return lasoOb.some(cung =>
+                    (!options.tenCung || cung.tenCung === options.tenCung) &&
+                    (!options.chi || cung.chi === options.chi) &&
+                    Array.isArray(cung.sao) &&
+                    cung.sao.some(sao => normalize(sao.ten) === normalize(options.tenSao))
+                );
+            }
+        case "haiSaoDongCung":
+            {
+                // Kiểm tra hai sao đồng cung (và có thể cả chi, chi2)
+                return lasoOb.some(cung =>
+                    (!options.tenCung || cung.tenCung === options.tenCung) &&
+                    (!options.chi || cung.chi === options.chi || !options.chi2 && cung.chi === options.chi) &&
+                    Array.isArray(cung.sao) &&
+                    cung.sao.some(sao => normalize(sao.ten) === normalize(options.tenSao)) &&
+                    cung.sao.some(sao => normalize(sao.ten) === normalize(options.sao2))
+                );
+            }
+        case "toaThuChiOnly":
+            {
+                // Tìm cung có chi đúng và chứa sao tên đúng (không cần tên cung)
+                return lasoOb.some(
+                    cung =>
+                        (!options.chi || cung.chi === options.chi) &&
+                        Array.isArray(cung.sao) &&
+                        cung.sao.some(sao => normalize(sao.ten) === normalize(options.tenSao))
+                );
+            }
+        default:
+            return false;
+    }
 }
