@@ -78,8 +78,9 @@ function LuanCungMenh(keyArr) {
 
 
 function LuanCachCucSaoTuViTaiMenh(keyArr) {
-    
-     let lasoData = {};
+
+
+    let lasoData = {};
     try {
         lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
     } catch (e) { lasoData = {}; }
@@ -88,11 +89,15 @@ function LuanCachCucSaoTuViTaiMenh(keyArr) {
     const dac = ["Sửu", "Mùi"];
     const binh = ["Hợi", "Tý", "Mão", "Dậu"];
     const maodau = ["Mão", "Dậu"];
-    const gdk = ["G.", "Đ.","K."];
-    const giap_dinh_ky= ["Giáp", "Đinh", "Kỷ"];
-  
+    const gdk = ["G.", "Đ.", "K."];
+    const giap_dinh_ky = ["Giáp", "Đinh", "Kỷ"];
+    const nhamgiap = ["Nhâm", "Giáp"];
+    const nh_giap = ["N.", "G."];
+    const danthan = ["Dần", "Thân"];
+    const tuphu = ["Tử Vi", "Thiên Phủ"];
+
     const mvd = mieu.concat(vuong).concat(dac); // Tử vi thủ mệnh ở miếu, vượng, đắc địa
-   
+
     for (let i = 0; i < mvd.length; i++) {
         if (isSaoToaThuTaiCungVaChi("Mệnh", mvd[i], "Tử Vi")) {
             console.log(`Tử Vi tọa thủ cung Mệnh ở ${mvd[i]}`);
@@ -100,7 +105,7 @@ function LuanCachCucSaoTuViTaiMenh(keyArr) {
         }
     }
     const mb = mieu.concat(binh);  // Tử vi Thủ mệnh miếu và bình hòa
-    
+
     for (let i = 0; i < mb.length; i++) {
         if (isSaoToaThuTaiCungVaChi("Mệnh", mb[i], "Tử Vi")) {
             console.log(`Tử Vi tọa thủ cung Mệnh ở ${mb[i]}`);
@@ -116,16 +121,16 @@ function LuanCachCucSaoTuViTaiMenh(keyArr) {
     }
     // Tử vi thủ mệnh gặp cát tinh
     let cattinh = PhuVuTuong.concat(XuongKhuc).concat(KhoiViet).concat(TaHuu).concat(KhoaLocQuyen).concat(LongPhuong);
-    console.log("Các sao cát tinh hội chiếu:", cattinh.join(", "));
-    
+  
+
     if (isSaoToaThuTaiCung("Mệnh", "Tử Vi") && kiemTraCachCuc("Tử Vi", cattinh)) {
         console.log("Tử Vi tọa thủ cung Mệnh và hội chiếu các sao:", cattinh.join(", "));
         keyArr.push("Tử Vi tọa thủ cung Mệnh và hội chiếu các", cattinh.join(", "));
     }
     //Tử vi thủ mệnh gặp sát tinh
     let hungtinh = lucsattinh;
- 
-    
+
+
     if (isSaoToaThuTaiCung("Mệnh", "Tử Vi") && kiemTraCachCuc("Tử Vi", KhongKiep)) {
         console.log("Tử Vi tọa thủ cung Mệnh và hội chiếu ", KhongKiep.join(", "));
         keyArr.push("Tử Vi tọa thủ cung Mệnh và hội chiếu ", KhongKiep.join(", "));
@@ -135,222 +140,88 @@ function LuanCachCucSaoTuViTaiMenh(keyArr) {
 
         }
     }
-    
+
     // Tử vi thủ mệnh đồng cung với Tham Lang
-   
+
     for (let i = 0; i < maodau.length; i++) {
         if (isHaiSaoDongCungTaiCung("Mệnh", "Tử Vi", Tham)) {
             console.log(`Tử Vi đồng cung với ${Tham} tại Mệnh`);
             keyArr.push(`Tử Vi đồng cung với ${Tham} tại Mệnh`);
         }
     }
-    
+
     // Phú
-    // Sinh năm Giáp Đinh Kỷ có Tử Vi tọa thủ cung Mệnh ở Ngọ
+    // Sinh năm Giáp Đinh Kỷ có Tử Vi tọa thủ cung Mệnh ở Ngọ không gặp Hình Kỵ
     for (let i = 0; i < giap_dinh_ky.length; i++) {
-       
-        if(lasoData.chiCan === gdk[i]) {
-            if (isSaoToaThuTaiCungVaChi("Mệnh", "Ngọ", "Tử Vi")) {
-                console.log(`Người sinh năm ${giap_dinh_ky[i]} có Tử Vi tọa thủ cung Mệnh ở Ngọ`);
-                keyArr.push(`Người sinh năm ${giap_dinh_ky[i]} có Tử Vi tọa thủ cung Mệnh ở Ngọ`);
+
+        if (lasoData.chiCan === gdk[i]) {
+            if (isSaoToaThuTaiCungVaChi("Mệnh", "Ngọ", "Tử Vi") && kiemTraCachCuc("Tử Vi", HinhKy) == false) {
+                console.log(`Sinh năm ${giap_dinh_ky[i]} có Tử Vi tọa thủ cung Mệnh ở Ngọ và không gặp`, HinhKy.join(", "));
+                keyArr.push(`Sinh năm ${giap_dinh_ky[i]} có Tử Vi tọa thủ cung Mệnh ở Ngọ và không gặp`, HinhKy.join(", "));
+
+            }
+        }
+
+
+    }
+    // Sinh năm Nhâm Giáp Nam có Tử Vi tọa thủ cung Mệnh ở Hợi, Nữ có Tử Vi tọa thủ cung Mệnh ở Dần
+
+    for (let i = 0; i < nhamgiap.length; i++) {
+        if (lasoData.chiCan === nh_giap[i]) {
+            if (isSaoToaThuTaiCungVaChi("Mệnh", "Hợi", "Tử Vi") && lasoData.gioitinh === "Nam") {
+                console.log(`Nam mệnh sinh năm ${nhamgiap[i]} có Tử Vi tọa thủ cung Mệnh ở Hợi`);
+                keyArr.push(`Nam mệnh sinh năm ${nhamgiap[i]} có Tử Vi tọa thủ cung Mệnh ở Hợi`);
+            }
+            if (isSaoToaThuTaiCungVaChi("Mệnh", "Dần", "Tử Vi") && lasoData.gioitinh === "Nữ") {
+                console.log(`Nữ mệnh sinh năm ${nhamgiap[i]} có Tử Vi tọa thủ cung Mệnh ở Dần`);
+                keyArr.push(`Nữ mệnh sinh năm ${nhamgiap[i]} có Tử Vi tọa thủ cung Mệnh ở Dần`);
+            }
+        }
+    }
+    // Tử phủ đồng cung, mệnh an tại dần thân, sinh năm giáp
+
+
+    for (let i = 0; i < danthan.length; i++) {
+        if (isHaiSaoDongCungTaiCungChi("Mệnh", danthan[i], "Tử Vi", "Thiên Phủ")) {
+            if (lasoData.chiCan === "G.") {
+                console.log(`Sinh năm Giáp có Tử Vi đồng cung Thiên Phủ tại ${danthan[i]}`);
+                keyArr.push(`Sinh năm Giáp có Tử Vi đồng cung Thiên Phủ tại ${danthan[i]}`);
             }
         }
 
     }
 
 
+    // Tử vi tọa mệnh đồng cung với Thiên Phủ gặp Tả HỮu
+    if (isHaiSaoDongCungTaiCung("Mệnh", "Tử Vi", "Thiên Phủ") && kiemTraCachCuc("Tử Vi", TaHuu)) {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    if (isSaoToaThuTaiCungVaChi("Mệnh", "Tỵ", "Tử Vi")) {
-        keyArr.push("Tử Vi tọa thủ cung Mệnh ở Tỵ");
+        console.log("Tử Vi tọa thủ cung Mệnh đồng cung Thiên Phủ gặp", TaHuu.join(", "));
+        keyArr.push("Tử Vi tọa thủ cung Mệnh đồng cung Thiên Phủ gặp", TaHuu.join(", "));
     }
-    if (isHaiSaoDongCungTaiCungChi("Mệnh", "Tỵ", "Tử Vi", "Thẩt Sát")) {
-        keyArr.push("Tử Vi Thất Sát đồng cung tọa thủ cung Mệnh ở Tỵ");
-    }
-    if (isHaiSaoDongCungTaiCungChi("Mệnh", "Tỵ", "Tử Vi", "Thẩt Sát") && kiemTraCachCuc("Tử Vi", ["Hóa Quyền"])) {
-        keyArr.push("Tử Vi Thất Sát đồng cung tọa thủ cung Mệnh ở Tỵ gặp Hóa Quyền");
-    }
-
-    if (isSaoToaThuTaiCungVaChi("Mệnh", "Ngọ", "Tử Vi")) {
-        keyArr.push("Tử Vi tọa thủ cung Mệnh ở Ngọ");
-    }
-    if (isSaoToaThuTaiCungVaChi("Mệnh", "Dần", "Tử Vi")) {
-        keyArr.push("Tử Vi tọa thủ cung Mệnh ở Dần");
-    }
-    if (isSaoToaThuTaiCungVaChi("Mệnh", "Thân", "Tử Vi")) {
-        keyArr.push("Tử Vi tọa thủ cung Mệnh ở Thân");
-    }
-    // Tử Vi tọa thủ Mệnh Phá Toái Không Kiếp
-    if (isHaiSaoDongCungTaiCung("Mệnh", "Tử Vi", "Phá Toái") && kiemTraCachCuc("Tử Vi", ["Địa Không", "Địa Kiếp"])) {
-        keyArr.push("Tử Vi tọa thủ cung Mệnh có Phá Toái đồng cung với Địa Không, Địa Kiếp");
-    }
-    if (isSaoToaThuTaiCung("Mệnh", "Tử Vi") && kiemTraCachCuc("Tử Vi", ["Đào Hoa", "Hồng Loan", "Địa Không", "Địa Kiếp"])) {
-        keyArr.push("Tử Vi tọa thủ cung Mệnh có Đào Hoa, Hồng Loan, Địa Không, Địa Kiếp");
-    }
-    //Tử vi tọa thủ Mệnh tại Thìn Tuất
-    if (isHaiSaoDongCungTaiCungChi("Mệnh", "Thìn", "Tử Vi", "Phá Toái")) {
-        keyArr.push("Tử Vi tọa thủ cung Mệnh ở Thìn có Phá Toái đồng cung");
-    }
-    if (isHaiSaoDongCungTaiCungChi("Mệnh", "Tuất", "Tử Vi", "Phá Toái")) {
-        keyArr.push("Tử Vi tọa thủ cung Mệnh ở Tuất có Phá Toái đồng cung");
-    }
-    // Tử vi tọa thủ Mệnh tại Sửu Mùi
-    if (isHaiSaoDongCungTaiCungChi("Mệnh", "Mùi", "Tử Vi", "Phá Toái")) {
-        keyArr.push("Tử Vi tọa thủ cung Mệnh ở Mùi có Phá Toái đồng cung");
-    }
-    if (isHaiSaoDongCungTaiCungChi("Mệnh", "Sửu", "Tử Vi", "Phá Toái")) {
-        keyArr.push("Tử Vi tọa thủ cung Mệnh ở Sửu có Phá Toái đồng cung");
-    }
-    if (isSaoToaThuTaiCungVaChi("Mệnh", "Tý", "Tử Vi")) {
-        keyArr.push("Tử Vi tọa thủ cung Mệnh ở Tý");
-
-    }
-    if (isSaoToaThuTaiCungVaChi("Mệnh", "Tý", "Tử Vi") && kiemTraCachCuc("Tử Vi", ["Hóa Quyền", "Hóa Lộc", "Hóa Khoa"])) {
-        keyArr.push("Tử Vi tọa thủ cung Mệnh ở Tý gặp Quyền, Lộc, Khoa");
-
-    }
-    if (isSaoToaThuTaiCungVaChi("Mệnh", "Ngọ", "Tử Vi") && kiemTraCachCuc("Tử Vi", ["Hóa Quyền", "Hóa Lộc", "Hóa Khoa"])) {
-        keyArr.push("Tử Vi tọa thủ cung Mệnh ở Ngọ gặp Quyền, Lộc, Khoa");
-
-    }
-    if (isSaoToaThuTaiCung("Mệnh", "Tử Vi") && kiemTraCachCuc("Tử Vi", ["Hóa Quyền", "Hóa Lộc", "Hóa Khoa", "Kình Dương", "Đà La"])) {
-        keyArr.push("Tử Vi tọa thủ cung Mệnh gặp Quyền, Lộc, Khoa, Kình, Đà");
-
-    }
-    if (isSaoToaThuTaiCungVaChi("Mệnh", "Hợi", "Tử Vi")) {
-        keyArr.push("Tử Vi tọa thủ cung Mệnh ở Hợi");
-    }
-    if (isHaiSaoDongCungTaiCungChi("Mệnh", "Hợi", "Tử Vi", "Thẩt Sát")) {
-        keyArr.push("Tử Vi Thất Sát đồng cung tọa thủ cung Mệnh ở Hợi");
-    }
-    if (isHaiSaoDongCungTaiCungChi("Mệnh", "Hợi", "Tử Vi", "Thẩt Sát") && kiemTraCachCuc("Tử Vi", ["Hóa Quyền"])) {
-        keyArr.push("Tử Vi Thất Sát đồng cung tọa thủ cung Mệnh ở Hợi gặp Hóa Quyền");
-    }
-    if (isSaoToaThuTaiCungVaChi("Mệnh", "Hợi", "Tử Vi") && lasoData.gioitinh === "Nam" && lasoData.chiCan === "N.") {
-        keyArr.push("Nam mệnh sinh năm Nhâm có Tử Vi tọa thủ cung Mệnh ở Hợi");
-    }
-    if (isSaoToaThuTaiCungVaChi("Mệnh", "Hợi", "Tử Vi") && lasoData.gioitinh === "Nam" && lasoData.chiCan === "G.") {
-        keyArr.push("Nam mệnh sinh năm Giáp có Tử Vi tọa thủ cung Mệnh ở Hợi");
-    }
-    if (isSaoToaThuTaiCungVaChi("Mệnh", "Hợi", "Tử Vi") && lasoData.gioitinh === "Nữ" && lasoData.chiCan === "N.") {
-        keyArr.push("Nữ mệnh sinh năm Nhâm có Tử Vi tọa thủ cung Mệnh ở Hợi");
-    }
-    if (isSaoToaThuTaiCungVaChi("Mệnh", "Hợi", "Tử Vi") && lasoData.gioitinh === "Nữ" && lasoData.chiCan === "G.") {
-        keyArr.push("Nữ mệnh sinh năm Giáp có Tử Vi tọa thủ cung Mệnh ở Hợi");
-    }
-    if (isSaoToaThuTaiCungVaChi("Mệnh", "Mão", "Tử Vi")) {
-        keyArr.push("Tử Vi tọa thủ cung Mệnh ở Mão");
-    }
-    if (isSaoToaThuTaiCungVaChi("Mệnh", "Dậu", "Tử Vi")) {
-        keyArr.push("Tử Vi tọa thủ cung Mệnh ở Dậu");
-    }
-    if (isSaoToaThuTaiCung("Mệnh", "Tử Vi") && kiemTraCachCuc("Tử Vi", ["Văn Khúc", "Văn Xương",])) {
-        keyArr.push("Tử Vi tọa thủ cung Mệnh và hội chiếu các sao Văn Khúc, Văn Xương");
-    }
-    if (isHaiSaoDongCungTaiCung("Mệnh", "Tử Vi", "Tả Phù") && isHaiSaoDongCungTaiCung("Mệnh", "Tử Vi", "Hữu Bật")) {
-        keyArr.push("Tử Vi đồng cung Tả Phù Hữu Bật");
-    }
-
-    if (isSaoToaThuTaiCung("Mệnh", "Tử Vi") && kiemTraCachCuc("Tử Vi", ["Thiên Tướng", "Văn Khúc", "Văn Xương", "Thiên Khôi", "Thiên Việt", "Tả Phù", "Hữu Bật"])) {
-        keyArr.push("Tử Vi tọa thủ cung Mệnh và hội chiếu các sao Thiên Tướng, Văn Khúc, Văn Xương, Thiên Khôi, Thiên Việt, Tả Phù, Hữu Bật");
-    }
-    // Nếu Tử Vi thủ mênh và gặp thiên Phủ
-    if (isSaoToaThuTaiCung("Mệnh", "Tử Vi") && kiemTraCachCuc("Tử Vi", ["Thiên Phủ"])) {
-        keyArr.push("Tử Vi tọa thủ cung Mệnh và hội chiếu Thiên Phủ");
-    }
-    if (isSaoToaThuTaiCung("Mệnh", "Tử Vi") && kiemTraCachCuc("Tử Vi", ["Thiên Phủ"]) && kiemTraCachCuc("Tử Vi", ["Tả Phù", "Hữu Bật"])) {
-        keyArr.push("Tử Vi tọa thủ cung Mệnh và hội chiếu Thiên Phủ gặp Tả Phù, Hữu Bật");
-    }
-    if (isHaiSaoDongCungTaiCung("Mệnh", "Tử Vi", "Kình Dương") && kiemTraCachCuc("Tử Vi", ["Thiên Phủ"])) {
-        keyArr.push("Tử Vi tọa thủ cung Mệnh và hội chiếu Thiên Phủ có Kình Dương đồng cung");
-    }
-
-    // Nếu Tử vi thủ mệnh gặp Lộc Mã
-    if (isSaoToaThuTaiCung("Mệnh", "Tử Vi") && kiemTraCachCuc("Tử Vi", ["Thiên Mã", "Lộc Tồn"])) {
-        keyArr.push("Tử Vi tọa thủ cung Mệnh và gặp Thiên Mã, Lộc Tồn");
-    }
-    if (isSaoToaThuTaiCung("Mệnh", "Tử Vi") && kiemTraCachCuc("Tử Vi", ["Vũ Khúc", "Phá Quân", "Kình Dương", "Đà La"])) {
-        keyArr.push("Tử Vi tọa thủ cung Mệnh và gặp Vũ Khúc, Phá Quân, Kình Dương, Đà La");
-    }
-    if (isSaoToaThuTaiCung("Mệnh", "Tử Vi") && kiemTraCachCuc("Tử Vi", ["Thiên Phủ", "Vũ Khúc", "Thiên Tướng", "Tả Phù", "Hữu Bật", "Long Trì", "Phượng Các", "Hóa Khoa", "Hóa Quyền", "Hóa Lộc"]) && kiemTraCachCuc("Tử Vi", ["Kình Dương", "Thiên Kiếp"]) === null) {
-        {
-            keyArr.push("Tử Vi tọa thủ cung Mệnh và gặp Thiên Phủ, Vũ Khúc, Thiên Tướng, Tả Phù, Hữu Bật, Long Trì, Phượng Các, Hóa Khoa, Hóa Quyền, Hóa Lộc không gặp Kình Dương, Thiên Kiếp");
+    // Tử vi hoặc Thiên Phủ tọa mệnh gặp Tả Hữu
+    for(    let i = 0; i < tuphu.length; i++) {
+        if (isSaoToaThuTaiCung("Mệnh", tuphu[i]) && kiemTraCachCuc(tuphu[i], TaHuu)) {
+            console.log(`${tuphu[i]} tọa thủ cung Mệnh gặp`, TaHuu.join(", "));
+            keyArr.push(`${tuphu[i]} tọa thủ cung Mệnh gặp`, TaHuu.join(", "));
         }
-        // Nếu Tử vi đồng cung với Thất Sát 
-        if (isHaiSaoDongCungTaiCung("Mệnh", "Tử Vi", "Thất Sát")) {
-            keyArr.push("Tử Vi đồng cung với Thất Sát");
-        }
-        if (isSaoToaThuTaiCung("Mệnh", "Tử Vi") && kiemTraCachCuc("Tử Vi", ["Kình Dương", "Đà La"])) {
-            keyArr.push("Tử Vi tọa thủ cung Mệnh và gặp Kình Dương, Đà La");
-        }
-        if (isSaoToaThuTaiCung("Mệnh", "Tử Vi") && kiemTraCachCuc("Tử Vi", ["Địa Không", "Địa Kiếp"])) {
-            keyArr.push("Tử Vi tọa thủ cung Mệnh và gặp Địa Không, Địa Kiếp");
-        }
-        if (isSaoToaThuTaiCung("Mệnh", "Tử Vi") && kiemTraCachCuc("Tử Vi", ["Kình Dương", "Đà La", "Địa Không", "Địa Kiếp"])) {
-            keyArr.push("Tử Vi tọa thủ cung Mệnh và gặp Kình Dương, Đà La, Địa Không, Địa Kiếp");
-        }
-        if (isSaoToaThuTaiCung("Mệnh", "Tử Vi") && kiemTraCachCuc("Tử Vi", ["Kình Dương"])) {
-            keyArr.push("Tử Vi tọa thủ cung Mệnh gặp Kình Dương");
-        }
-        if (isSaoToaThuTaiCung("Mệnh", "Tử Vi") && kiemTraCachCuc("Tử Vi", ["Đà La"])) {
-            keyArr.push("Tử Vi tọa thủ cung Mệnh gặp Đà La");
-        }
-        if (isSaoToaThuTaiCung("Mệnh", "Tử Vi") && kiemTraCachCuc("Tử Vi", ["Địa Không"])) {
-            keyArr.push("Tử Vi tọa thủ cung Mệnh gặp Địa Không");
-        }
-        if (isSaoToaThuTaiCung("Mệnh", "Tử Vi") && kiemTraCachCuc("Tử Vi", ["Địa Kiếp"])) {
-            keyArr.push("Tử Vi tọa thủ cung Mệnh gặp Địa Kiếp");
-        }
-        if (isHaiSaoDongCungTaiCungChi("Mệnh", "Dậu", "Tử Vi", "Tham Lang")) {
-            keyArr.push("Tử Vi đồng cung Tham Lang tại Dậu");
-        }
-        if (isSaoToaThuTaiCungVaChi("Mệnh", "Ngọ", "Tử Vi") && kiemTraCachCuc("Tử Vi", ["Thiên Hình", "Kình Dương", "Đà La"]) === null && lasoData.chiCan === "G.") {
-            keyArr.push("Sinh năm Giáp có Tử Vi tọa thủ cung Mệnh ở Ngọ và không gặp Thiên Hình, Kình Dương, Đà La");
-        }
-        if (isSaoToaThuTaiCungVaChi("Mệnh", "Ngọ", "Tử Vi") && kiemTraCachCuc("Tử Vi", ["Thiên Hình", "Kình Dương", "Đà La"]) === null && lasoData.chiCan === "Đ.") {
-            keyArr.push("Sinh năm Đinh có Tử Vi tọa thủ cung Mệnh ở Ngọ và không gặp Thiên Hình, Kình Dương, Đà La");
-        }
-        if (isSaoToaThuTaiCungVaChi("Mệnh", "Ngọ", "Tử Vi") && kiemTraCachCuc("Tử Vi", ["Thiên Hình", "Kình Dương", "Đà La"]) === null && lasoData.chiCan === "K.") {
-            keyArr.push("Sinh năm Kỷ có Tử Vi tọa thủ cung Mệnh ở Ngọ và không gặp Thiên Hình, Kình Dương, Đà La");
-        }
-        if (isHaiSaoDongCungTaiCungChi("Mệnh", "Dần", "Tử Vi", "Thiên Phủ")) {
-            keyArr.push("Tử Vi đồng cung Thiên Phủ tại Dần");
-        }
-        if (isHaiSaoDongCungTaiCungChi("Mệnh", "Dần", "Tử Vi", "Thiên Phủ") && lasoData.chiCan === "G.") {
-            keyArr.push("Sinh năm Giáp có Tử Vi đồng cung Thiên Phủ tại Dần");
-        }
-        if (isHaiSaoDongCungTaiCungChi("Mệnh", "Dần", "Tử Vi", "Thiên Phủ") && lasoData.chiCan === "K." && kiemTraCachCuc("Tử Vi", ["Hóa Quyền"])) {
-            keyArr.push("Sinh năm Kỷ có Tử Vi đồng cung Thiên Phủ tại Dần tại Mệnh gặp Hóa Quyền");
-        }
-        if (isHaiSaoDongCungTaiCungChi("Mệnh", "Thân", "Tử Vi", "Thiên Phủ")) {
-            keyArr.push("Tử Vi đồng cung Thiên Phủ tại Thân");
-        }
-        if (isHaiSaoDongCungTaiCungChi("Mệnh", "Thân", "Tử Vi", "Thiên Phủ") && lasoData.chiCan === "G.") {
-            keyArr.push("Sinh năm Giáp có Tử Vi đồng cung Thiên Phủ tại Thân");
-        }
+        
     }
+
+    // Tử hoặc Phủ tọa thủ cung Mệnh đồng cung Kình
+    for (let i = 0; i < tuphu.length; i++) {
+        if (isHaiSaoDongCungTaiCung("Mệnh", tuphu[i], "Kình Dương")) {
+            console.log(`${tuphu[i]} tọa thủ cung Mệnh đồng cung Kình Dương`);
+            keyArr.push(`${tuphu[i]} tọa thủ cung Mệnh đồng cung Kình Dương`);
+        }
+
+    }
+   
+
+   
+
+
 }
+
 function LuanCachCucSaoLiemTrinh(keyArr) {
 
     if (isHaiSaoDongCungTaiCungChi("Mệnh", "Thìn", "Liêm Trinh")) {

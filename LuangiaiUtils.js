@@ -1,13 +1,14 @@
 const Kinh = "Kình Dương";
 const Da = "Đà La";
-const Kiep = "Kiếp Sát";
-const Khong = "Không Kiếp";
+const Kiep = "Địa Không";
+const Khong = "Địa Kiếp";
 const KhongKiep= [Khong, Kiep];
 const Ho = "Bạch Hổ";
 const Cai ="Hoa Cái";
 const Long ="Long Trì";
 const Phuong = "Phượng Các";
 const LongPhuong = [Long, Phuong];
+const HoaLinh =["Hỏa Tinh","Linh Tinh"]
 const lucsattinh = [Kinh, Da, Khong, Kiep, "Hỏa Tinh","Linh Tinh"];
 const tulinh = [Ho, Cai, Long, Phuong];
 const Khoa ="Hóa Khoa";
@@ -32,6 +33,7 @@ const Tu = "Tử Vi";
 const Hinh ="Thiên Hình";
 const Ky ="Hóa Kỵ";
 const HinhKy = [Hinh, Ky];
+const An = "Quốc Ấn";
 
 
 //tìm cung nào có sao nào đó tọa thủ
