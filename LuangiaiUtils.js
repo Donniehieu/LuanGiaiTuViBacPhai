@@ -36,7 +36,7 @@ const HinhKy = [Hinh, Ky];
 const An = "Quốc Ấn";
 const Hong ="Hồng Loan";
 const Dao = "Đào Hoa";
-
+const MaLoc =["Thiên Mã","Hóa Lộc"];
 
 
 //tìm cung nào có sao nào đó tọa thủ
