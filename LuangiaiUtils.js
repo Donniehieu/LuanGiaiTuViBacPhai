@@ -8,6 +8,7 @@ const Cai ="Hoa Cái";
 const Long ="Long Trì";
 const Phuong = "Phượng Các";
 const LongPhuong = [Long, Phuong];
+const Linh = "Linh Tinh";
 const HoaLinh =["Hỏa Tinh","Linh Tinh"]
 const lucsattinh = [Kinh, Da, Khong, Kiep, "Hỏa Tinh","Linh Tinh"];
 const tulinh = [Ho, Cai, Long, Phuong];
@@ -37,7 +38,7 @@ const An = "Quốc Ấn";
 const Hong ="Hồng Loan";
 const Dao = "Đào Hoa";
 const MaLoc =["Thiên Mã","Hóa Lộc"];
-
+const SongHao = ["Đại Hao", "Tiểu Hao"];
 
 //tìm cung nào có sao nào đó tọa thủ
 function isSaoToaThuTaiCung(tenCungKiemTra, tenSao) {
