@@ -3593,9 +3593,9 @@ function LuanCachCucLocTon(keyArr) {
             console.log(`Lộc Tồn toạ thủ cung Thiên Di ở ${tyngo[i]}`);
             keyArr.push(`Lộc Tồn toạ thủ cung Thiên Di ở ${tyngo[i]}`);
         }
-        if (isSaoToaThuTaiCungVaChi(lasodata.cungcu, tyngo[i], "Lộc Tồn")) {
-            console.log(`Lộc Tồn toạ thủ cung ${lasoData.cungcu} ở ${tyngo[i]}`);
-            keyArr.push(`Lộc Tồn toạ thủ cung ${lasoData.cungcu} ở ${tyngo[i]}`);
+        if (isSaoToaThuTaiCungVaChi(lasoData.cungCu, tyngo[i], "Lộc Tồn")) {
+            console.log(`Lộc Tồn toạ thủ cung ${lasoData.cungCu} ở ${tyngo[i]}`);
+            keyArr.push(`Lộc Tồn toạ thủ cung ${lasoData.cungCu} ở ${tyngo[i]}`);
         }
     }
 }
