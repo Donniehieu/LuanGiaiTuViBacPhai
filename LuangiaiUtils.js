@@ -39,6 +39,8 @@ const Hong ="Hồng Loan";
 const Dao = "Đào Hoa";
 const MaLoc =["Thiên Mã","Hóa Lộc"];
 const SongHao = ["Đại Hao", "Tiểu Hao"];
+const Tue = "Thái Tuế";
+const QuanPhu ="Quan Phù";
 
 //tìm cung nào có sao nào đó tọa thủ
 function isSaoToaThuTaiCung(tenCungKiemTra, tenSao) {
