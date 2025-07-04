@@ -596,6 +596,8 @@ function LuanGiaiCacCungVaHienThi() {
     });
 }
 
+
+
 // Thân mệnh đồng cung mệnh vô chính diệu
 
 // Hàm chính luận giải lá số
