@@ -3874,7 +3874,7 @@ function LuanCachCucKinhDuongDaLa(keyArr) {
         }
     }
 
-    if (isSaoToaThuTaiCung("Mệnh", "Kình Dương") && kiemTraCachCuc("Kình Dương", ["Hỏa Tinh", "Linh Tinh", "Đà La"])){
+    if (isSaoToaThuTaiCung("Mệnh", "Kình Dương") && kiemTraCachCuc("Kình Dương", ["Hỏa Tinh", "Linh Tinh", "Đà La"])) {
         console.log("Kình Dương toạ thủ cung Mệnh gặp Hỏa Tinh, Linh Tinh, Đà La");
         keyArr.push("Kình Dương toạ thủ cung Mệnh gặp Hỏa Tinh, Linh Tinh, Đà La");
     }
@@ -3883,29 +3883,29 @@ function LuanCachCucKinhDuongDaLa(keyArr) {
         console.log("Kình Dương toạ thủ cung Mệnh gặp Địa Không, Địa Kiếp, Đà La");
         keyArr.push("Kình Dương toạ thủ cung Mệnh gặp Địa Không, Địa Kiếp, Đà La");
     }
-     if (isSaoToaThuTaiCung("Phụ Mẫu", "Kình Dương") && isSaoToaThuTaiCung("Huynh Đệ", "Đà La") || isSaoToaThuTaiCung("Phụ Mẫu", "Đà La") && isSaoToaThuTaiCung("Huynh Đệ", "Kình Dương")) {
+    if (isSaoToaThuTaiCung("Phụ Mẫu", "Kình Dương") && isSaoToaThuTaiCung("Huynh Đệ", "Đà La") || isSaoToaThuTaiCung("Phụ Mẫu", "Đà La") && isSaoToaThuTaiCung("Huynh Đệ", "Kình Dương")) {
         console.log(`Kình Dương, Đà La giáp mệnh`);
         keyArr.push(`Kình Dương, Đà La giáp mệnh`);
         if (isSaoToaThuTaiCung("Mệnh", "Hóa Kỵ")) {
             console.log(`Mệnh có Hóa Kỵ giáp Kình Dương, Đà La`);
             keyArr.push(`Mệnh có Hóa Kỵ giáp Kình Dương, Đà La`);
         }
-        
+
     }
-    if(isHaiSaoDongCungTaiCung("Mệnh","Kình Dương","Lực Sỹ")){
+    if (isHaiSaoDongCungTaiCung("Mệnh", "Kình Dương", "Lực Sỹ")) {
         console.log("Kình Dương, Lực Sỹ đồng cung Mệnh");
         keyArr.push("Kình Dương, Lực Sỹ đồng cung Mệnh");
     }
-   
-    if(isSaoToaThuTaiCung("Mệnh","Đà La")){
+
+    if (isSaoToaThuTaiCung("Mệnh", "Đà La")) {
         console.log("Đà La toạ thủ cung Mệnh");
         keyArr.push("Đà La toạ thủ cung Mệnh");
-        if (kiemTraCachCuc("Đà La", ["Hỏa Tinh", "Linh Tinh", "Kình Dương","Địa Không", "Địa Kiếp"])) {
+        if (kiemTraCachCuc("Đà La", ["Hỏa Tinh", "Linh Tinh", "Kình Dương", "Địa Không", "Địa Kiếp"])) {
             console.log("Đà La toạ thủ cung Mệnh gặp Hỏa Tinh, Linh Tinh, Kình Dương, Địa Không, Địa Kiếp");
             keyArr.push("Đà La toạ thủ cung Mệnh gặp Hỏa Tinh, Linh Tinh, Kình Dương, Địa Không, Địa Kiếp");
-           
+
         }
-        if(kiemTraCachCuc("Đà La", ["Hóa Kỵ", "Liêm Trinh", "Thiên Hình"])){
+        if (kiemTraCachCuc("Đà La", ["Hóa Kỵ", "Liêm Trinh", "Thiên Hình"])) {
             console.log("Đà La toạ thủ cung Mệnh gặp Hóa Kỵ, Liêm Trinh, Thiên Hình");
             keyArr.push("Đà La toạ thủ cung Mệnh gặp Hóa Kỵ, Liêm Trinh, Thiên Hình");
         }
@@ -3925,122 +3925,200 @@ function LuanCachCucKinhDuongDaLa(keyArr) {
 
 
 }
-function LuanCachCucKinhDuongDaLa(keyArr) {
+// function LuanCachCucKinhDuongDaLa(keyArr) {
+//     let lasoData = {};
+//     try {
+//         lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
+//     } catch (e) { lasoData = {}; }
+
+
+//     const dac_dia = ["Thìn", " Tuất", "Sửu", "Mùi"];
+//     const ham_dia = ["Tý", "Dần", "Mão", "Tỵ", "Ngọ", "Thân", "Dậu", "Hợi"];
+//     const tymui = ["Tỵ", "Mùi"];
+//     const tumo = ["Thìn", "Tuất", "Sửu", "Mùi"];
+
+
+//         console.log("Kình Dương toạ thủ cung Mệnh");
+//         keyArr.push("Kình Dương toạ thủ cung Mệnh");
+
+//             console.log("Kình Dương toạ thủ cung Mệnh gặp Hóa Kỵ, Liêm Trinh, Cự Môn");
+//             keyArr.push("Kình Dương toạ thủ cung Mệnh gặp Hóa Kỵ, Liêm Trinh, Cự Môn");
+
+//             console.log("Kình Dương, Cự Môn, Liêm Trinh, Hóa Kỵ đồng cung Mệnh");
+//             keyArr.push("Kình Dương, Cự Môn, Liêm Trinh, Hóa Kỵ đồng cung Mệnh");
+
+
+
+//     for (let i = 0; i < dac_dia.length; i++) {
+
+//             console.log(`Kình Dương toạ thủ cung Mệnh ở ${dac_dia[i]}`);
+//             keyArr.push(`Kình Dương toạ thủ cung Mệnh ở ${dac_dia[i]}`);
+
+//     }
+//     for (let i = 0; i < ham_dia.length; i++) {
+
+//             console.log(`Kình Dương toạ thủ cung Mệnh ở ${ham_dia[i]}`);
+//             keyArr.push(`Kình Dương toạ thủ cung Mệnh ở ${ham_dia[i]}`);
+
+//     }
+
+//         console.log("Thái Dương, Thái Âm đồng cung Mệnh gặp Kình Dương");
+//         keyArr.push("Thái Dương, Thái Âm đồng cung Mệnh gặp Kình Dương");
+
+
+//     for (let i = 0; i < tymui.length; i++) {
+
+//             console.log(`Thiên Phủ, Tử Vi đồng cung Mệnh ở ${tymui[i]} gặp Kình Dương`);
+//             keyArr.push(`Thiên Phủ, Tử Vi đồng cung Mệnh ở ${tymui[i]} gặp Kình Dương`);
+
+//     }
+
+
+//         console.log("Kình Dương toạ thủ cung Mệnh gặp Thiên Khôi, Hóa Quyền, Hóa Lộc, Thiên Mã");
+//         keyArr.push("Kình Dương toạ thủ cung Mệnh gặp Thiên Khôi, Hóa Quyền, Hóa Lộc, Thiên Mã");
+
+//         console.log("Kình Dương, Thái Âm, Thiên Đồng đồng cung Mệnh ở Ngọ gặp Địa Giải, Phượng Các");
+//         keyArr.push("Kình Dương, Thái Âm, Thiên Đồng đồng cung Mệnh ở Ngọ gặp Địa Giải, Phượng Các");
+
+
+//     for (let i = 0; i < tumo.length; i++) {
+
+//             console.log(`Tham Lang, Vũ Khúc đồng cung Mệnh ở ${tumo[i]} gặp Kình Dương`);
+//             keyArr.push(`Tham Lang, Vũ Khúc đồng cung Mệnh ở ${tumo[i]} gặp Kình Dương`);
+
+
+//     }
+
+
+//         console.log("Kình Dương toạ thủ cung Mệnh gặp Hỏa Tinh, Linh Tinh, Đà La");
+//         keyArr.push("Kình Dương toạ thủ cung Mệnh gặp Hỏa Tinh, Linh Tinh, Đà La");
+
+
+
+//         console.log("Kình Dương toạ thủ cung Mệnh gặp Địa Không, Địa Kiếp, Đà La");
+//         keyArr.push("Kình Dương toạ thủ cung Mệnh gặp Địa Không, Địa Kiếp, Đà La");
+
+
+//         console.log(`Kình Dương, Đà La giáp mệnh`);
+//         keyArr.push(`Kình Dương, Đà La giáp mệnh`);
+
+//             console.log(`Mệnh có Hóa Kỵ giáp Kình Dương, Đà La`);
+//             keyArr.push(`Mệnh có Hóa Kỵ giáp Kình Dương, Đà La`);
+
+
+
+
+//         console.log("Kình Dương, Lực Sỹ đồng cung Mệnh");
+//         keyArr.push("Kình Dương, Lực Sỹ đồng cung Mệnh");
+
+
+
+//         console.log("Đà La toạ thủ cung Mệnh");
+//         keyArr.push("Đà La toạ thủ cung Mệnh");
+
+//             console.log("Đà La toạ thủ cung Mệnh gặp Hỏa Tinh, Linh Tinh, Kình Dương, Địa Không, Địa Kiếp");
+//             keyArr.push("Đà La toạ thủ cung Mệnh gặp Hỏa Tinh, Linh Tinh, Kình Dương, Địa Không, Địa Kiếp");
+
+
+
+//             console.log("Đà La toạ thủ cung Mệnh gặp Hóa Kỵ, Liêm Trinh, Thiên Hình");
+//             keyArr.push("Đà La toạ thủ cung Mệnh gặp Hóa Kỵ, Liêm Trinh, Thiên Hình");
+
+
+//     for (let i = 0; i < dac_dia.length; i++) {
+
+//             console.log(`Đà La toạ thủ cung Mệnh ở ${dac_dia[i]}`);
+//             keyArr.push(`Đà La toạ thủ cung Mệnh ở ${dac_dia[i]}`);
+
+//     }
+//     for (let i = 0; i < ham_dia.length; i++) {
+
+//             console.log(`Đà La toạ thủ cung Mệnh ở ${ham_dia[i]}`);
+//             keyArr.push(`Đà La toạ thủ cung Mệnh ở ${ham_dia[i]}`);
+
+//     }
+
+
+// }
+
+function LuanCachCucHoaLinh(keyArr) {
     let lasoData = {};
     try {
         lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
     } catch (e) { lasoData = {}; }
-
-
-    const dac_dia = ["Thìn", " Tuất", "Sửu", "Mùi"];
-    const ham_dia = ["Tý", "Dần", "Mão", "Tỵ", "Ngọ", "Thân", "Dậu", "Hợi"];
-    const tymui = ["Tỵ", "Mùi"];
+    const dac_dia = ["Dần", "Mão", "Thìn", "Tỵ", "Ngọ"];
+    const ham_dia = ["Tý", "Sửu", "Dậu", "Hợi", "Tuất", "Mùi", "Thân"];
     const tumo = ["Thìn", "Tuất", "Sửu", "Mùi"];
-
-  
-        console.log("Kình Dương toạ thủ cung Mệnh");
-        keyArr.push("Kình Dương toạ thủ cung Mệnh");
-       
-            console.log("Kình Dương toạ thủ cung Mệnh gặp Hóa Kỵ, Liêm Trinh, Cự Môn");
-            keyArr.push("Kình Dương toạ thủ cung Mệnh gặp Hóa Kỵ, Liêm Trinh, Cự Môn");
-     
-            console.log("Kình Dương, Cự Môn, Liêm Trinh, Hóa Kỵ đồng cung Mệnh");
-            keyArr.push("Kình Dương, Cự Môn, Liêm Trinh, Hóa Kỵ đồng cung Mệnh");
-        
-
+    const thamvu = ["Tham Lang", "Vũ Khúc"];
     
+    for(let i =0; i< HoaLinh.length; i++) { 
+        if (isSaoToaThuTaiCung("Mệnh", HoaLinh[i])) {
+            console.log(`${HoaLinh[i]} toạ thủ cung Mệnh`);
+            keyArr.push(`${HoaLinh[i]} toạ thủ cung Mệnh`);
+            if (kiemTraCachCuc(HoaLinh[i], ["Hóa Kỵ", "Liêm Trinh", "Cự Môn"])) {
+                console.log(`${HoaLinh[i]} toạ thủ cung Mệnh gặp Hóa Kỵ, Liêm Trinh, Cự Môn`);
+                keyArr.push(`${HoaLinh[i]} toạ thủ cung Mệnh gặp Hóa Kỵ, Liêm Trinh, Cự Môn`);
+            }
+        }
+    }
+
     for (let i = 0; i < dac_dia.length; i++) {
-       
-            console.log(`Kình Dương toạ thủ cung Mệnh ở ${dac_dia[i]}`);
-            keyArr.push(`Kình Dương toạ thủ cung Mệnh ở ${dac_dia[i]}`);
-        
+       for (let j = 0; j < HoaLinh.length; j++) {
+            if (isSaoToaThuTaiCungVaChi("Mệnh", dac_dia[i], HoaLinh[j])) {
+                console.log(`${HoaLinh[j]} toạ thủ cung Mệnh ở ${dac_dia[i]}`);
+                keyArr.push(`${HoaLinh[j]} toạ thủ cung Mệnh ở ${dac_dia[i]}`);
+            }
+        }
     }
+
     for (let i = 0; i < ham_dia.length; i++) {
-     
-            console.log(`Kình Dương toạ thủ cung Mệnh ở ${ham_dia[i]}`);
-            keyArr.push(`Kình Dương toạ thủ cung Mệnh ở ${ham_dia[i]}`);
-        
-    }
- 
-        console.log("Thái Dương, Thái Âm đồng cung Mệnh gặp Kình Dương");
-        keyArr.push("Thái Dương, Thái Âm đồng cung Mệnh gặp Kình Dương");
-    
-
-    for (let i = 0; i < tymui.length; i++) {
-      
-            console.log(`Thiên Phủ, Tử Vi đồng cung Mệnh ở ${tymui[i]} gặp Kình Dương`);
-            keyArr.push(`Thiên Phủ, Tử Vi đồng cung Mệnh ở ${tymui[i]} gặp Kình Dương`);
-        
+        for (let j = 0; j < HoaLinh.length; j++) {
+            if (isSaoToaThuTaiCungVaChi("Mệnh", ham_dia[i], HoaLinh[j])) {
+                console.log(`${HoaLinh[j]} toạ thủ cung Mệnh ở ${ham_dia[i]}`);
+                keyArr.push(`${HoaLinh[j]} toạ thủ cung Mệnh ở ${ham_dia[i]}`);
+            }
+        }
     }
 
-   
-        console.log("Kình Dương toạ thủ cung Mệnh gặp Thiên Khôi, Hóa Quyền, Hóa Lộc, Thiên Mã");
-        keyArr.push("Kình Dương toạ thủ cung Mệnh gặp Thiên Khôi, Hóa Quyền, Hóa Lộc, Thiên Mã");
-  
-        console.log("Kình Dương, Thái Âm, Thiên Đồng đồng cung Mệnh ở Ngọ gặp Địa Giải, Phượng Các");
-        keyArr.push("Kình Dương, Thái Âm, Thiên Đồng đồng cung Mệnh ở Ngọ gặp Địa Giải, Phượng Các");
-    
-
-    for (let i = 0; i < tumo.length; i++) {
- 
-            console.log(`Tham Lang, Vũ Khúc đồng cung Mệnh ở ${tumo[i]} gặp Kình Dương`);
-            keyArr.push(`Tham Lang, Vũ Khúc đồng cung Mệnh ở ${tumo[i]} gặp Kình Dương`);
-
-        
+    for (let i = 0; i < tumo.length; i++) { 
+        for (let j = 0; j < HoaLinh.length; j++) {
+            if(isHaiSaoDongCungTaiCungChi("Mệnh", tumo[i],"Tham Lang","Vũ Khúc" )&& kiemTraCachCuc(HoaLinh[j], ["Tham Lang", "Vũ Khúc"])) {
+                console.log(`Tham Lang, Vũ Khúc đồng cung Mệnh ở ${tumo[i]} gặp ${HoaLinh[j]}`);
+                keyArr.push(`Tham Lang, Vũ Khúc đồng cung Mệnh ở ${tumo[i]} gặp ${HoaLinh[j]}`);
+                if(isHaiSaoDongCungTaiCungChi("Mệnh", tumo[i], "Thiên Kiếp","Vũ Khúc")){
+                    console.log(`Thiên Kiếp, Tham Lang, Vũ Khúc đồng cung Mệnh ở ${tumo[i]} gặp ${HoaLinh[j]}`);
+                    keyArr.push(`Thiên Kiếp, Tham Lang, Vũ Khúc đồng cung Mệnh ở ${tumo[i]} gặp ${HoaLinh[j]}`);
+                }
+            }
+        }
     }
 
-  
-        console.log("Kình Dương toạ thủ cung Mệnh gặp Hỏa Tinh, Linh Tinh, Đà La");
-        keyArr.push("Kình Dương toạ thủ cung Mệnh gặp Hỏa Tinh, Linh Tinh, Đà La");
-    
-
- 
-        console.log("Kình Dương toạ thủ cung Mệnh gặp Địa Không, Địa Kiếp, Đà La");
-        keyArr.push("Kình Dương toạ thủ cung Mệnh gặp Địa Không, Địa Kiếp, Đà La");
-    
- 
-        console.log(`Kình Dương, Đà La giáp mệnh`);
-        keyArr.push(`Kình Dương, Đà La giáp mệnh`);
-     
-            console.log(`Mệnh có Hóa Kỵ giáp Kình Dương, Đà La`);
-            keyArr.push(`Mệnh có Hóa Kỵ giáp Kình Dương, Đà La`);
-        
-        
-    
-   
-        console.log("Kình Dương, Lực Sỹ đồng cung Mệnh");
-        keyArr.push("Kình Dương, Lực Sỹ đồng cung Mệnh");
-    
-   
-   
-        console.log("Đà La toạ thủ cung Mệnh");
-        keyArr.push("Đà La toạ thủ cung Mệnh");
+    if( isSaoToaThuTaiCung("Mệnh", "Hỏa Tinh") && isSaoToaThuTaiCung("Thiên Di", "Linh Tinh")){
+        console.log("Hỏa Tinh toạ thủ cung Mệnh gặp Linh Tinh ở Thiên Di");
+        keyArr.push("Hỏa Tinh toạ thủ cung Mệnh gặp Linh Tinh ở Thiên Di");
+        if(kiemtraCachCuc("Hỏa Tinh", ["Kình Dương"])){
+            console.log("Hỏa Tinh toạ thủ cung Mệnh đối xung Linh Tinh và gặp Kình Dương");
+            keyArr.push("Hỏa Tinh toạ thủ cung Mệnh đối xung Linh Tinh và gặp Kình Dương");
+        }
+    }
+    if( isSaoToaThuTaiCung("Mệnh", "Linh Tinh") && isSaoToaThuTaiCung("Thiên Di", "Hỏa Tinh")){
+        console.log("Linh Tinh toạ thủ cung Mệnh gặp Hỏa Tinh ở Thiên Di");
+        keyArr.push("Linh Tinh toạ thủ cung Mệnh gặp Hỏa Tinh ở Thiên Di");
+        if(kiemtraCachCuc("Linh Tinh", ["Kình Dương"])){
+            console.log("Linh Tinh toạ thủ cung Mệnh đối xung Hỏa Tinh và gặp Kình Dương");
+            keyArr.push("Linh Tinh toạ thủ cung Mệnh đối xung Hỏa Tinh và gặp Kình Dương");
+        }
+    }
+    if(isHaiSaoDongCungTaiCung("Mệnh", "Hỏa Tinh", "Linh Tinh")){
+        console.log("Hỏa Tinh, Linh Tinh đồng cung Mệnh");
+        keyArr.push("Hỏa Tinh, Linh Tinh đồng cung Mệnh");
        
-            console.log("Đà La toạ thủ cung Mệnh gặp Hỏa Tinh, Linh Tinh, Kình Dương, Địa Không, Địa Kiếp");
-            keyArr.push("Đà La toạ thủ cung Mệnh gặp Hỏa Tinh, Linh Tinh, Kình Dương, Địa Không, Địa Kiếp");
-           
-        
-      
-            console.log("Đà La toạ thủ cung Mệnh gặp Hóa Kỵ, Liêm Trinh, Thiên Hình");
-            keyArr.push("Đà La toạ thủ cung Mệnh gặp Hóa Kỵ, Liêm Trinh, Thiên Hình");
-        
-    
-    for (let i = 0; i < dac_dia.length; i++) {
-     
-            console.log(`Đà La toạ thủ cung Mệnh ở ${dac_dia[i]}`);
-            keyArr.push(`Đà La toạ thủ cung Mệnh ở ${dac_dia[i]}`);
-        
+
     }
-    for (let i = 0; i < ham_dia.length; i++) {
-   
-            console.log(`Đà La toạ thủ cung Mệnh ở ${ham_dia[i]}`);
-            keyArr.push(`Đà La toạ thủ cung Mệnh ở ${ham_dia[i]}`);
-        
-    }
+
 
 
 }
-
 
 
 function ThanMenhDongCungVoChinhDieu(keyArr) {
