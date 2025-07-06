@@ -1685,9 +1685,6 @@ function LuanCachCucThienTuong(keyArr) {
         }
     }
 
-
-
-
     for (let i = 0; i < ham.length; i++) {
         if (isSaoToaThuTaiCung("Mệnh", ham[i], "Thiên Tướng")) {
             console.log(`Thiên Tướng tọa thủ cung Mệnh ở ${ham[i]}`);
@@ -1712,14 +1709,14 @@ function LuanCachCucThienTuong(keyArr) {
 
     for (let i = 0; i < tyngo.length; i++) {
         if (isHaiSaoDongCungTaiCungChi("Mệnh", tyngo[i], "Thiên Tướng", "Liêm Trinh") && kiemTraCachCuc("Thiên Tướng", "Kình Dương")) {
-            console.log(`Thiên Tướng tọa thủ cung Mệnh ở ${tyngo[i]} đồng cung Liêm Trinh gặp Kình Dương`);
-            keyArr.push(`Thiên Tướng tọa thủ cung Mệnh ở ${tyngo[i]} đồng cung Liêm Trinh gặp Kình Dương`);
+            console.log(`Thiên Tướng đồng cung Liêm Trinh tại cung Mệnh ở ${tyngo[i]} gặp Kình Dương`);
+            keyArr.push(`Thiên Tướng đồng cung Liêm Trinh tại cung Mệnh ở ${tyngo[i]} gặp Kình Dương`);
         }
     }
 
     if (lasoData.gioitinh === "Nữ" && isHaiSaoDongCungTaiCung("Mệnh", "Thiên Tướng", "Hồng Loan")) {
-        console.log("Quý chị có Thiên Tướng tọa thủ cung Mệnh đồng cung Hồng Loan");
-        keyArr.push("Quý chị có Thiên Tướng tọa thủ cung Mệnh đồng cung Hồng Loan");
+        console.log("Quý chị có Thiên Tướng đồng cung Hồng Loan tại cung Mệnh");
+        keyArr.push("Quý chị có Thiên Tướng đồng cung Hồng Loan tại cung Mệnh");
     }
     if (lasoData.gioitinh === "Nữ" && kiemTraCachCuc("Thiên Tướng", DaoHongHoaKhuc)) {
         console.log("Quý chị có Thiên Tướng tọa thủ cung Mệnh gặp Đào Hoa, Hồng Loan, Hoa Cái, Vũ Khúc");
