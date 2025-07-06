@@ -501,6 +501,7 @@ function LuanCachCucSaoThienDong(keyArr) {
     const HD = ["Ngọ", "Sửu", "Mùi", "Tuất", "Thìn", "Dậu"];
     const tyhoi = ["Tỵ", "Hợi"];
     const dinh_canh = ["Đ.", "C."];
+    const dinhcanh = ["Đinh", "Canh"];
     const tuatngo = ["Tuất", "Ngọ"];
     const DanThan = ["Dần", "Thân"];
     let lasoData = {};
@@ -556,16 +557,16 @@ function LuanCachCucSaoThienDong(keyArr) {
     }
     // Thiên Đông, Thái Âm đồng cung tại Tý gặp hổ khốc riêu tang
     if (isHaiSaoDongCungTaiCungChi("Mệnh", "Tý", "Thiên Đồng", "Thái Âm") && kiemTraCachCuc("Thiên Đồng", ["Bạch Hổ", "Thiên Khốc", "Thiên Riêu", "Tang Môn"]) && lasoData.gioitinh === "Nữ") {
-        console.log("Thiên Đồng tọa thủ cung Mệnh ở Tý đồng cung Thái Âm gặp các sao Bạch Hổ, Thiên Khốc, Thiên Riêu, Tang Môn");
-        keyArr.push("Thiên Đồng tọa thủ cung Mệnh ở Tý đồng cung Thái Âm gặp các sao Bạch Hổ, Thiên Khốc, Thiên Riêu, Tang Môn");
+        console.log("Quý Chị có Thiên Đồng tọa thủ cung Mệnh ở Tý đồng cung Thái Âm gặp các sao Bạch Hổ, Thiên Khốc, Thiên Riêu, Tang Môn");
+        keyArr.push("Quý Chị có Thiên Đồng tọa thủ cung Mệnh ở Tý đồng cung Thái Âm gặp các sao Bạch Hổ, Thiên Khốc, Thiên Riêu, Tang Môn");
     }
     // Thiên Đồng đồng cung với Thiến Việt
     if (isHaiSaoDongCungTaiCung("Mệnh", "Thiên Đồng", "Thiên Việt")) {
         console.log("Thiên Đồng tọa thủ cung Mệnh đồng cung Thiên Việt");
         keyArr.push("Thiên Đồng tọa thủ cung Mệnh đồng cung Thiên Việt");
-        if (kiemTraCachCuc("Thiên Đồng", ["Hóa Lộc", "Hóa Quyền", "Lộc Tồn", "Hỏa Linh", "Hóa Kỵ"])) {
-            console.log("Thiên Đồng tọa thủ cung Mệnh đồng cung Thiên Việt gặp các sao cát tinh: Hóa Lộc, Hóa Quyền, Lộc Tồn, Hỏa Linh, Hóa Kỵ");
-            keyArr.push("Thiên Đồng tọa thủ cung Mệnh đồng cung Thiên Việt gặp các sao cát tinh: Hóa Lộc, Hóa Quyền, Lộc Tồn, Hỏa Linh, Hóa Kỵ");
+        if (kiemTraCachCuc("Thiên Đồng", ["Hóa Lộc", "Hóa Quyền", "Lộc Tồn", "Hỏa Tinh","Linh Tinh", "Hóa Kỵ"])) {
+            console.log("Thiên Đồng tọa thủ cung Mệnh đồng cung Thiên Việt gặp các sao cát tinh: Hóa Lộc, Hóa Quyền, Lộc Tồn, Hỏa Tinh, Linh Tinh, Hóa Kỵ");
+            keyArr.push("Thiên Đồng tọa thủ cung Mệnh đồng cung Thiên Việt gặp các sao cát tinh: Hóa Lộc, Hóa Quyền, Lộc Tồn, Hỏa Tinh, Linh Tinh, Hóa Kỵ");
         }
     }
 
@@ -601,12 +602,12 @@ function LuanCachCucSaoThienDong(keyArr) {
             console.log("Thiên Đồng tọa thủ cung Mệnh ở " + tyhoi[i]);
             keyArr.push("Thiên Đồng tọa thủ cung Mệnh ở " + tyhoi[i]);
             if (lasoData.canNam === dinh_canh[i]) {
-                console.log("Người tuổi " + dinh_canh[i] + " có Thiên Đồng tọa thủ cung Mệnh ở " + tyhoi[i]);
-                keyArr.push("Người tuổi " + dinh_canh[i] + " có Thiên Đồng tọa thủ cung Mệnh ở " + tyhoi[i]);
+                console.log("Người tuổi " + dinhcanh[i] + " có Thiên Đồng tọa thủ cung Mệnh ở " + tyhoi[i]);
+                keyArr.push("Người tuổi " + dinhcanh[i] + " có Thiên Đồng tọa thủ cung Mệnh ở " + tyhoi[i]);
             }
             if (lasoData.gioitinh === "Nam" && kiemTraCachCuc("Thiên Đồng", lucsattinh)) {
-                console.log("Thiên Đồng tọa thủ cung Mệnh ở " + tyhoi[i] + " gặp các sao Sát tinh: ", lucsattinh.join(", "));
-                keyArr.push("Thiên Đồng tọa thủ cung Mệnh ở " + tyhoi[i] + " gặp các sao Sát tinh: ", lucsattinh.join(", "));
+                console.log("Quý Anh có Thiên Đồng tọa thủ cung Mệnh ở " + tyhoi[i] + " gặp các sao Sát tinh: ", lucsattinh.join(", "));
+                keyArr.push("Quý Anh có Thiên Đồng tọa thủ cung Mệnh ở " + tyhoi[i] + " gặp các sao Sát tinh: ", lucsattinh.join(", "));
             }
         }
     }
