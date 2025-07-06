@@ -611,9 +611,6 @@ function LuanCachCucSaoThienDong(keyArr) {
             }
         }
     }
-
-
-
 }
 
 function LuanCachCucSaoVuKhuc(keyArr) {
@@ -785,11 +782,6 @@ function LuanCachCucSaoVuKhuc(keyArr) {
             keyArr.push(`Vũ Khúc tọa thủ cung Mệnh ở ${danthan[i]} gặp các sao cát tinh:`, KhoaLocQuyen.join(", "));
         }
     }
-
-
-
-
-
 }
 
 function LuanCachCucThaiDuong(keyArr) {
