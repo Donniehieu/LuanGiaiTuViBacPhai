@@ -1011,11 +1011,11 @@ function LuanCachCucThienCo(keyArr) {
             keyArr.push(`Quý Anh có Thiên Cơ tọa thủ cung Mệnh ở ${thintuat[i]}`);
         }
         if (isSaoToaThuTaiCungVaChi("Mệnh", thintuat[i], "Thiên Cơ") && isHaiSaoDongCungTaiCungChi("Mệnh", thintuat[i], "Thiên Cơ", "Thiên Lương")) {
-            console.log(`Thiên Cơ tọa thủ cung Mệnh ở ${thintuat[i]} đồng cung Thiên Lương`);
-            keyArr.push(`Thiên Cơ tọa thủ cung Mệnh ở ${thintuat[i]} đồng cung Thiên Lương`);
+            console.log(`Thiên Cơ Thiên Lương đồng cung tại Mệnh ở ${thintuat[i]}`);
+            keyArr.push(`Thiên Cơ Thiên Lương đồng cung tại Mệnh ở ${thintuat[i]}`);
             if (kiemTraDiaSinh("Thiên Cơ", kinhdahoalinhtuong)) {
-                console.log(`Thiên Cơ tọa thủ cung Mệnh ở ${thintuat[i]} đồng cung Thiên Lương gặp các sao Kình Đà Hỏa Linh Tướng`);
-                keyArr.push(`Thiên Cơ tọa thủ cung Mệnh ở ${thintuat[i]} đồng cung Thiên Lương gặp các sao Kình Đà Hỏa Linh Tướng`);
+                console.log(`Thiên Cơ Thiên Lương đồng cung tại Mệnh ở ${thintuat[i]} gặp các sao Kình Đà Hỏa Linh Tướng`);
+                keyArr.push(`Thiên Cơ Thiên Lương đồng cung tại Mệnh ở ${thintuat[i]} gặp các sao Kình Đà Hỏa Linh Tướng`);
             }
         }
 
