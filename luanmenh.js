@@ -1279,9 +1279,6 @@ function LuanCachCucThaiAm(keyArr) {
             keyArr.push("Thái Âm tọa thủ cung Mệnh đồng cung Vũ Khúc, Lộc Tồn gặp các sao: ", TaHuu.join(", "));
         }
     }
-
-
-
 }
 
 
