@@ -795,7 +795,8 @@ function LuanCachCucThaiDuong(keyArr) {
     const hoity = ["Tý", "Hợi"];
     const than_tuat_ty = ["Thân", "Tuất", "Tý"];
     const canhtannhamky = ["C.", "T.", "N.", "K."];
-    const binhdin = ["B.", "Đ."];
+    
+    const binhdinh = ["B.", "Đ."];
     const CanhTanNhamKy = ["Canh", "Tân", "Nhâm", "Kỷ"];
     const BinhDinh = ["Bính", "Đinh"];
     const muithan = ["Mùi", "Thân"];
@@ -893,8 +894,8 @@ function LuanCachCucThaiDuong(keyArr) {
             keyArr.push("Người tuổi " + CanhTanNhamKy[i] + " có Thái Dương tọa thủ cung Mệnh ở Ngọ");
         }
     }
-    for (let i = 0; i < binhdin.length; i++) {
-        if (lasoData.canNam === binhdin[i] && isHaiSaoDongCungTaiCungChi("Mệnh", "Tý", "Thái Dương")) {
+    for (let i = 0; i < binhdinh.length; i++) {
+        if (lasoData.canNam === binhdinh[i] && isHaiSaoDongCungTaiCungChi("Mệnh", "Tý", "Thái Dương")) {
             console.log("Người tuổi " + BinhDinh[i] + " có Thái Dương tọa thủ cung Mệnh ở Tý");
             keyArr.push("Người tuổi " + BinhDinh[i] + " có Thái Dương tọa thủ cung Mệnh ở Tý");
         }
@@ -929,7 +930,7 @@ function LuanCachCucThaiDuong(keyArr) {
         console.log("Thái Dương Thái Âm đồng cung tại Sửu hội chiếu cung Mệnh tại Mùi");
         keyArr.push("Thái Dương Thái Âm đồng cung tại Sửu hội chiếu cung Mệnh tại Mùi");
     }
-    if (lasoData.lasoOb[0].chi === "Mùi" && isSaoToaThuTaiChi("Thái Dương", "Mão", "Thái Âm", "Hợi")) {
+    if (lasoData.lasoOb[0].chi === "Mùi" && isSaoToaThuTaiChi("Thái Dương", "Mão") && isSaoToaThuTaiChi("Thái Âm", "Hợi")) {
 
         console.log("Thái Dương Thái Âm hội chiếu cung Mệnh tại Mùi");
         keyArr.push("Thái Dương Thái Âm hội chiếu cung Mệnh tại Mùi");
