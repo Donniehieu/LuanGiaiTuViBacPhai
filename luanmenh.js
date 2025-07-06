@@ -2032,9 +2032,11 @@ function LuanCachcCucPhaQuan(keyArr) {
             keyArr.push(`Phá Quân tọa thủ cung Mệnh ở ${mvd[i]}`);
 
         } if (kiemTraCachCuc("Phá Quân", tuphuxuongkhuckhoiviettahuukhoaquyenloc) && isSaoToaThuTaiCung("Mệnh", mvd[i], "Phá Quân")) {
+            console.log(`Phá Quân tọa thủ cung Mệnh ở ${mvd[i]} có cách cục: ${tuphuxuongkhuckhoiviettahuukhoaquyenloc.join(", ")}`);
             keyArr.push(`Phá Quân tọa thủ cung Mệnh ở ${mvd[i]} có cách cục: ${tuphuxuongkhuckhoiviettahuukhoaquyenloc.join(", ")}`);
         }
         if (kiemTraCachCuc("Phá Quân", hokyhinhsonghao) && isSaoToaThuTaiCung("Mệnh", mvd[i], "Phá Quân")) {
+            console.log(`Phá Quân tọa thủ cung Mệnh ở ${mvd[i]} có cách cục: ${hokyhinhsonghao.join(", ")}`);
             keyArr.push(`Phá Quân tọa thủ cung Mệnh ở ${mvd[i]} có cách cục: ${hokyhinhsonghao.join(", ")}`);
         }
     }
@@ -2108,8 +2110,8 @@ function LuanCachcCucPhaQuan(keyArr) {
     }
 
     if (isSaoToaThuTaiCungVaChi("Mệnh", "Ngọ", "Phá Quân") && isHaiSaoDongCungTaiCungChi("Mệnh", "Ngọ", "Phá Quân", "Lộc Tồn") && kiemTraCachCuc("Phá Quân", ["Thiếu Dương"])) {
-        console.log("Phá Quân tọa thủ cung Mệnh ở Ngọ đồng cung Lộc Tồn và gặp Thiếu Dương");
-        keyArr.push("Phá Quân tọa thủ cung Mệnh ở Ngọ đồng cung Lộc Tồn và gặp Thiếu Dương");
+        console.log("Phá Quân đồng cung Lộc Tồn tại cung Mệnh ở Ngọ và gặp Thiếu Dương");
+        keyArr.push("Phá Quân đồng cung Lộc Tồn tại cung Mệnh ở Ngọ và gặp Thiếu Dương");
     }
 
     for (let i = 0; i < tumo.length; i++) {
@@ -2118,10 +2120,6 @@ function LuanCachcCucPhaQuan(keyArr) {
             keyArr.push(`Phá Quân tọa thủ cung Mệnh ở ${tumo[i]} gặp Hoá Lộc, Thiên Hình`);
         }
     }
-
-
-
-
 }
 
 
