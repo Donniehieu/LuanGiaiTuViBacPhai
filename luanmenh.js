@@ -2694,14 +2694,14 @@ function LuanCachCucKhongKiep(keyArr) {
 
     for (let i = 0; i < tyhoi.length; i++) {
         if (isHaiSaoDongCungTaiCungChi("Mệnh", tyhoi[i], "Địa Không", "Địa Kiếp")) {
-            console.log(`Địa Không, Địa Kiếp đồng cung Mệnh ở ${tyhoi[i]}`);
-            keyArr.push(`Địa Không, Địa Kiếp đồng cung Mệnh ở ${tyhoi[i]}`);
+            console.log(`Địa Không, Địa Kiếp đồng cung tại Mệnh ở ${tyhoi[i]}`);
+            keyArr.push(`Địa Không, Địa Kiếp đồng cung tại Mệnh ở ${tyhoi[i]}`);
         }
     }
     for (let i = 0; i < tusinh.length; i++) {
         if (isHaiSaoDongCungTaiCungChi("Mệnh", tusinh[i], "Địa Không", "Địa Kiếp")) {
-            console.log(`Địa Không, Địa Kiếp đồng cung Mệnh ở ${tusinh[i]}`);
-            keyArr.push(`Địa Không, Địa Kiếp đồng cung Mệnh ở ${tusinh[i]}`);
+            console.log(`Địa Không, Địa Kiếp đồng cung tại Mệnh ở ${tusinh[i]}`);
+            keyArr.push(`Địa Không, Địa Kiếp đồng cung tại Mệnh ở ${tusinh[i]}`);
         }
     }
 
@@ -2711,6 +2711,8 @@ function LuanCachCucKhongKiep(keyArr) {
             keyArr.push(`Địa Không, Địa Kiếp đồng cung Mệnh ở ${danthan[i]} gặp Hoá Lộc, Hoá Quyền, Văn Xương`);
         }
     }
+
+
     if (isSaoToaThuTaiCung("Phụ Mẫu", "Địa Không") && isSaoToaThuTaiCung("Huynh Đệ", "Địa Kiếp") || isSaoToaThuTaiCung("Phụ Mẫu", "Địa Kiếp") && isSaoToaThuTaiCung("Huynh Đệ", "Địa Không")) {
         console.log(`Địa Không, Địa Kiếp giáp mệnh`);
         keyArr.push(`Địa Không, Địa Kiếp giáp mệnh`);
@@ -2722,19 +2724,19 @@ function LuanCachCucKhongKiep(keyArr) {
     }
 
     if (isHaiSaoDongCungTaiCung("Mệnh", "Địa Kiếp", "Thiên Cơ") && kiemTraCachCuc("Địa Kiếp", ["Hoả Tinh"])) {
-        console.log("Địa Kiếp, Thiên Cơ đồng cung Mệnh gặp Hoả Tinh");
-        keyArr.push("Địa Kiếp, Thiên Cơ đồng cung Mệnh gặp Hoả Tinh");
+        console.log("Địa Kiếp, Thiên Cơ đồng cung tại Mệnh gặp Hoả Tinh");
+        keyArr.push("Địa Kiếp, Thiên Cơ đồng cung tại Mệnh gặp Hoả Tinh");
     }
 
     if (isHaiSaoDongCungTaiCung("Mệnh", "Địa Kiếp", "Tham Lang") && isHaiSaoDongCungTaiCung("Mệnh", "Địa Kiếp", "Lưu Hà")) {
         console.log("Địa Kiếp, Tham Lang Lưu Hà đồng cung tại Mệnh");
-        keyArr.push("Địa Kiếp, Tham Lang Lưu Hà đồng cung Mệnh");
+        keyArr.push("Địa Kiếp, Tham Lang Lưu Hà đồng cung tại Mệnh");
 
     }
     for (let i = 0; i < tyhoi.length; i++) {
         if (isHaiSaoDongCungTaiCungChi("Mệnh", tyhoi[i], "Địa Không", "Địa Kiếp") && isHaiSaoDongCungTaiCungChi("Mệnh", tyhoi[i], "Địa Không", "Thiên Tướng") && isHaiSaoDongCungTaiCungChi("Mệnh", tyhoi[i], "Địa Không", "Thiên Mã")) {
-            console.log("Địa Không, Địa Kiếp, Thiên Tướng, Thiên Mã đồng cung Mệnh ở " + tyhoi[i]);
-            keyArr.push("Địa Không, Địa Kiếp, Thiên Tướng, Thiên Mã đồng cung Mệnh ở " + tyhoi[i]);
+            console.log("Địa Không, Địa Kiếp, Thiên Tướng, Thiên Mã đồng cung tại Mệnh ở " + tyhoi[i]);
+            keyArr.push("Địa Không, Địa Kiếp, Thiên Tướng, Thiên Mã đồng cung tại Mệnh ở " + tyhoi[i]);
         }
     }
     if (isSaoToaThuTaiCung("Mệnh", "Địa Kiếp") && kiemTraCachCuc("Địa Kiếp", cunhatphukhockhach)) {
