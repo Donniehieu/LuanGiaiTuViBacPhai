@@ -2309,17 +2309,17 @@ function LuanCachCucLocTon(keyArr) {
 
         }
         if (isHaiSaoDongCungTaiCung("Mệnh", "Lộc Tồn", "Hóa Lộc")) {
-            console.log("Lộc Tồn toạ thủ cung Mệnh đồng cung Hoá Lộc");
-            keyArr.push("Lộc Tồn toạ thủ cung Mệnh đồng cung Hoá Lộc");
+            console.log("Lộc Tồn đồng cung Hoá Lộc tại cung Mệnh");
+            keyArr.push("Lộc Tồn đồng cung Hoá Lộc tại cung Mệnh");
         }
         if (isSaoToaThuTaiCung("Mệnh", "Hóa Lộc") && kiemTraCachCuc("Hóa Lộc", "Lộc Tồn") || isSaoToaThuTaiCung("Mệnh", "Lộc Tồn") && kiemTraCachCuc("Lộc Tồn", "Hóa Lộc")) {
-            console.log("Song Lộc xung chiếu");
-            keyArr.push("Song Lộc xung chiếu");
+            console.log("Song Lộc hội chiếu tại cung Mệnh");
+            keyArr.push("Song Lộc hội chiếu tại cung Mệnh");
 
         }
         if (isHaiSaoDongCungTaiCung("Mệnh", "Lộc Tồn", "Thiên Mã")) {
-            console.log("Lộc Tồn toạ thủ cung Mệnh đồng cung Thiên Mã");
-            keyArr.push("Lộc Tồn toạ thủ cung Mệnh đồng cung Thiên Mã");
+            console.log("Lộc Tồn đồng cung Thiên Mã tại cung Mệnh");
+            keyArr.push("Lộc Tồn đồng cung Thiên Mã tại cung Mệnh");
         }
         if (isSaoToaThuTaiCung("Mệnh", "Thiên Mã") && kiemTraCachCuc("Thiên Mã", "Lộc Tồn") && kiemTraCachCuc("Thiên Mã", ["Thiên Không", "Địa Kiếp", "Tuế Phá"]) === false || isSaoToaThuTaiCung("Mệnh", "Lộc Tồn") && kiemTraCachCuc("Lộc Tồn", "Thiên Mã") && kiemTraCachCuc("Lộc Tồn", ["Thiên Không", "Địa Kiếp", "Tuế Phá"]) === false) {
             console.log("Lộc Mã giao trì không gặp Tuế Phá, Địa Kiếp, Thiên Không");
