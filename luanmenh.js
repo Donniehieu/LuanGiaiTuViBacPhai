@@ -2397,8 +2397,8 @@ function LuanCachCucTaHuu(keyArr) {
                 keyArr.push(`Tả Phù, Hữu Bật toạ thủ cung Mệnh ở ${tumo[i]} gặp Thất Sát, Phá Quân, Liêm Trinh`);
             }
             if (isHaiSaoDongCungTaiCungChi("Mệnh", tumo[i], "Tả Phù", "Hữu Bật") && kiemTraCachCuc("Tả Phù", ["Văn Xương ", "Văn Khúc", "Thiên Khôi", "Thiên Việt"])) {
-                console.log(`Tả Phù, Hữu Bật đồng cung Mệnh ở ${tumo[i]} gặp Văn Xương, Văn Khúc, Thiên Khôi, Thiên Việt`);
-                keyArr.push(`Tả Phù, Hữu Bật đồng cung Mệnh ở ${tumo[i]} gặp Văn Xương, Văn Khúc, Thiên Khôi, Thiên Việt`);
+                console.log(`Tả Phù, Hữu Bật đồng cung tại Mệnh ở ${tumo[i]} gặp Văn Xương, Văn Khúc, Thiên Khôi, Thiên Việt`);
+                keyArr.push(`Tả Phù, Hữu Bật đồng cung tại Mệnh ở ${tumo[i]} gặp Văn Xương, Văn Khúc, Thiên Khôi, Thiên Việt`);
             }
 
         }
@@ -2407,8 +2407,8 @@ function LuanCachCucTaHuu(keyArr) {
     }
     for (let i = 0; i < tyhoi.length; i++) {
         if (isHaiSaoDongCungTaiCungChi("Mệnh", tyhoi[i], "Hữu Bật", "Thiên Tướng")) {
-            console.log(`Hữu Bật, Thiên Tướng đồng cung Mệnh ở ${tyhoi[i]}`);
-            keyArr.push(`Hữu Bật, Thiên Tướng đồng cung Mệnh ở ${tyhoi[i]}`);
+            console.log(`Hữu Bật, Thiên Tướng đồng cung tại Mệnh ở ${tyhoi[i]}`);
+            keyArr.push(`Hữu Bật, Thiên Tướng đồng cung tại Mệnh ở ${tyhoi[i]}`);
         }
     }
 
