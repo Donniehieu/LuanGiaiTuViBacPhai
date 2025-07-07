@@ -3148,12 +3148,13 @@ function LuanCachCucLucBaiTinh(keyArr) {
             }
         }
     }
-    
-    for(let i = 0; i < songhao.length; i++) {
-        for (let j=0; j< maodau.length; j++) {
-        if (isSaoToaThuTaiCungVaChi("Mệnh", maodau[j], songhao[i]) && kiemTraCachCuc(songhao[i], ["Thiên Cơ","Cự Môn"])) {
-           console.log(songhao[i] + " toạ thủ cung Mệnh tại " + maodau[j] + " gặp Thiên Cơ, Cự Môn");
-           keyArr.push(songhao[i] + " toạ thủ cung Mệnh tại " + maodau[j] + " gặp Thiên Cơ, Cự Môn");
+
+    for (let i = 0; i < songhao.length; i++) {
+        for (let j = 0; j < maodau.length; j++) {
+            if (isSaoToaThuTaiCungVaChi("Mệnh", maodau[j], songhao[i]) && kiemTraCachCuc(songhao[i], ["Thiên Cơ", "Cự Môn"])) {
+                console.log(songhao[i] + " toạ thủ cung Mệnh tại " + maodau[j] + " gặp Thiên Cơ, Cự Môn");
+                keyArr.push(songhao[i] + " toạ thủ cung Mệnh tại " + maodau[j] + " gặp Thiên Cơ, Cự Môn");
+            }
         }
     }
 }
