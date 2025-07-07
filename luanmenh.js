@@ -2159,16 +2159,16 @@ function LuanCachCucXuongKhuc(keyArr) {
                     keyArr.push(`${XuongKhuc[j]} toạ thủ cung Mệnh ở ${dac_dia[i]} gặp Thiên Cơ, Hoá Lộc`);
                 }
                 if (isHaiSaoDongCungTaiCung("Mệnh", dac_dia[i], XuongKhuc[j], "Hóa Lộc")) {
-                    console.log(`${XuongKhuc[j]} toạ thủ cung Mệnh ở ${dac_dia[i]} đồng cung Hoá Lộc`);
-                    keyArr.push(`${XuongKhuc[j]} toạ thủ cung Mệnh ở ${dac_dia[i]} đồng cung Hoá Lộc`);
+                    console.log(`${XuongKhuc[j]} đồng cung Hoá Lộc tại Mệnh ở ${dac_dia[i]}`);
+                    keyArr.push(`${XuongKhuc[j]} đồng cung Hoá Lộc tại Mệnh ở ${dac_dia[i]}`);
                 }
                 if (isHaiSaoDongCungTaiCungChi("Mệnh", dac_dia[i], XuongKhuc[j], "Vũ Khúc")) {
-                    console.log(`${XuongKhuc[j]} toạ thủ cung Mệnh ở ${dac_dia[i]} đồng cung Vũ Khúc`);
-                    keyArr.push(`${XuongKhuc[j]} toạ thủ cung Mệnh ở ${dac_dia[i]} đồng cung Vũ Khúc`);
+                    console.log(`${XuongKhuc[j]} đồng cung Vũ Khúc tại cung Mệnh ở ${dac_dia[i]}`);
+                    keyArr.push(`${XuongKhuc[j]} đồng cung Vũ Khúc tại cung Mệnh ở ${dac_dia[i]}`);
                 }
                 if (isHaiSaoDongCungTaiCungChi("Mệnh", dac_dia[i], XuongKhuc[j], "Tả Phù")) {
-                    console.log(`${XuongKhuc[j]} toạ thủ cung Mệnh ở ${dac_dia[i]} đồng cung Tả Phù`);
-                    keyArr.push(`${XuongKhuc[j]} toạ thủ cung Mệnh ở ${dac_dia[i]} đồng cung Tả Phù`);
+                    console.log(`${XuongKhuc[j]} đồng cung Tả Phù tại cung Mệnh ở ${dac_dia[i]}`);
+                    keyArr.push(`${XuongKhuc[j]} đồng cung Tả Phù tại cung Mệnh ở ${dac_dia[i]}`);
 
                 }
             }
@@ -2177,8 +2177,8 @@ function LuanCachCucXuongKhuc(keyArr) {
 
 
     if (isSaoToaThuTaiCung("Phụ Mẫu", "Văn Xương") && isSaoToaThuTaiCung("Huynh Đệ", "Văn Khúc") || isSaoToaThuTaiCung("Phụ Mẫu", "Văn Khúc") && isSaoToaThuTaiCung("Huynh Đệ", "Văn Xương")) {
-        console.log(`${XuongKhuc[i]} Vũ Khúc giáp mệnh`);
-        keyArr.push(`${XuongKhuc[i]} Vũ Khúc giáp mệnh`);
+        console.log(`Văn Xương Văn Khúc giáp mệnh`);
+        keyArr.push(`Văn Xương Văn Khúc giáp mệnh`);
         if (isSaoToaThuTaiCung("Mệnh", "Thái Dương")) {
             console.log("Mệnh có Thái Dương giáp Văn Xương, Văn Khúc");
             keyArr.push("Mệnh có Thái Dương giáp Văn Xương, Văn Khúc");
@@ -2196,10 +2196,8 @@ function LuanCachCucXuongKhuc(keyArr) {
     for (let i = 0; i < tyhoi.length; i++) {
         for (let j = 0; j < XuongKhuc.length; j++) {
             if (isSaoToaThuTaiCungVaChi("Mệnh", tyhoi[i], XuongKhuc[j]) && isHaiSaoDongCungTaiCungChi("Mệnh", tyhoi[i], XuongKhuc[j], "Liêm Trinh")) {
-                console.log(`${XuongKhuc[j]} toạ thủ cung Mệnh ở ${tyhoi[i]} đồng cung Liêm Trinh`);
-                keyArr.push(`${XuongKhuc[j]} toạ thủ cung Mệnh ở ${tyhoi[i]} đồng cung Liêm Trinh`);
-
-
+                console.log(`${XuongKhuc[j]} đồng cung Liêm Trinh tại cung Mệnh ở ${tyhoi[i]}`);
+                keyArr.push(`${XuongKhuc[j]} đồng cung Liêm Trinh tại cung Mệnh ở ${tyhoi[i]}`);
             }
         }
     }
@@ -2207,8 +2205,8 @@ function LuanCachCucXuongKhuc(keyArr) {
     for (let i = 0; i < danmao.length; i++) {
         for (let j = 0; j < XuongKhuc.length; j++) {
             if (isHaiSaoDongCungTaiCungChi("Mệnh", danmao[i], XuongKhuc[j], "Phá Quân") && kiemTraCachCuc(XuongKhuc[j], "Kình Dương")) {
-                console.log(`${XuongKhuc[j]} toạ thủ cung Mệnh ở ${danmao[i]} đồng cung Phá Quân gặp Kình Dương`);
-                keyArr.push(`${XuongKhuc[j]} toạ thủ cung Mệnh ở ${danmao[i]} đồng cung Phá Quân gặp Kình Dương`);
+                console.log(`${XuongKhuc[j]} đồng cung Phá Quân tại cung Mệnh ở ${danmao[i]} gặp Kình Dương`);
+                keyArr.push(`${XuongKhuc[j]} đồng cung Phá Quân tại cung Mệnh ở ${danmao[i]} gặp Kình Dương`);
 
             }
         }
