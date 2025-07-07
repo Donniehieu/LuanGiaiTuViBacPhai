@@ -3033,7 +3033,9 @@ function LuanCachCucLucBaiTinh(keyArr) {
             }
         }
     }
+
     for (let i = 0; i < tangho.length; i++) {
+
         if (isSaoToaThuTaiCung("Mệnh", tangho[i]) && kiemTraCachCuc(tangho[i], ["Hỏa Tinh", "Linh Tinh", "Kình Dương", "Đà La"])) {
             console.log(tangho[i] + " toạ thủ cung Mệnh gặp Hỏa Tinh, Linh Tinh, Kình Dương, Đà La");
             keyArr.push(tangho[i] + " toạ thủ cung Mệnh gặp Hỏa Tinh, Linh Tinh, Kình Dương, Đà La");
@@ -3043,14 +3045,23 @@ function LuanCachCucLucBaiTinh(keyArr) {
             keyArr.push(tangho[i] + " toạ thủ cung Mệnh gặp Địa Không, Địa Kiếp");
         }
         if (isSaoToaThuTaiCung("Mệnh", tangho[i]) && kiemTraCachCuc(tangho[i], ["Kình Dương ", "Thiên Hình"])) {
+
             console.log(tangho[i] + " toạ thủ cung Mệnh gặp Kinh Dương, Thiên Hình");
             keyArr.push(tangho[i] + " toạ thủ cung Mệnh gặp Kinh Dương, Thiên Hình");
 
         }
+
         if (isHaiSaoDongCungTaiCung("Mệnh", tangho[i], "Tham Lang") && kiemTraCachCuc("Tham Lang", ["Hoả Tinh", "Linh Tinh", "Kình Dương", "Đà La"])) {
             console.log(tangho[i] + ", Tham Lang đồng cung tại Mệnh gặp Hỏa Tinh, Linh Tinh, Kình Dương, Đà La");
             keyArr.push(tangho[i] + ", Tham Lang đồng cung tại Mệnh gặp Hỏa Tinh, Linh Tinh, Kình Dương, Đà La");
         }
+
+    }
+
+    if (isSaoToaThuTaiCung("Mệnh", "Bạch Hổ") && kiemTraCachCuc("Bạch Hổ", ["Thiên Hình"])) {
+
+        console.log("Bạch Hổ toạ thủ cung Mệnh gặp Thiên Hình");
+        keyArr.push("Bạch Hổ toạ thủ cung Mệnh gặp Thiên Hình");
 
     }
 

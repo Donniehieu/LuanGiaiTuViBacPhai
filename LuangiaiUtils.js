@@ -188,20 +188,62 @@ function getCombinations(array) {
  * @param {Array<string>} boSaoCanKiemTra - tên các sao cần kiểm tra trong tam phương tứ chính
  * @returns {object|null} - Nếu đủ bộ sao thì trả về thông tin (cung gốc, các cung hội hợp, các sao hội hợp), ngược lại trả về null
  */
-function kiemTraCachCuc(tenSaoGoc, boSaoCanKiemTra) {
+// function kiemTraCachCuc(tenSaoGoc, boSaoCanKiemTra) {
+//     let lasoData = {};
+//     try {
+//         lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
+//     } catch (e) { lasoData = {}; }
+//     const lasoOb = lasoData.lasoOb || [];
+//     const cungGoc = timCungCuaSao(tenSaoGoc);
+//     console.log("Cung gốc:", cungGoc);
+//     if (!cungGoc) return null;
+//     const idxCungGoc = lasoData.lasoOb.findIndex(c => c.tenCung === cungGoc.tenCung)   || cungGoc.idCunggoc;
+//     console.log("Chỉ số cung gốc:", idxCungGoc);
+//     const idxHop = getHoiChieuCung(idxCungGoc);
+
+//     // Gộp các sao của 3 cung hội hợp thành 1 mảng phẳng
+//     let saoHoiHop = [];
+//     idxHop.forEach(idx => {
+//         const cung = lasoOb[idx];
+//         if (cung && Array.isArray(cung.sao)) {
+//             saoHoiHop.push(...cung.sao.map(sao => sao.ten));
+//         }
+//     });
+   
+//     console.log("Các sao hội hợp:", saoHoiHop);
+//     console.log("Bộ sao cần kiểm tra:", boSaoCanKiemTra);
+//     // Chuẩn hóa so sánh
+//     const normalize = s => (s ? String(s) : '').replace(/\s+/g, '').toLowerCase();
+
+//     // Kiểm tra đủ bộ sao không (bộ hợp phải chứa tất cả phần tử boSaoCanKiemTra)
+//     const hopDuBo = boSaoCanKiemTra.every(
+//         s => saoHoiHop.some(hop => normalize(hop) === normalize(s))
+//     );
+
+//     console.log("Cung gốc:", cungGoc.tenCung, "Chi:", cungGoc.chi);
+//     console.log("Các sao hội hợp:", saoHoiHop);
+//     console.log("Đủ bộ hợp:", hopDuBo);
+
+//     if (!hopDuBo) return null;
+//     // Nếu thỏa mãn cách cục, trả về chi tiết
+//     return {
+//         cungGoc: { tenCung: cungGoc.tenCung, chi: cungGoc.chi },
+//         cacSaoHoiHop: saoHoiHop,
+//         idxHoiHop: idxHop
+//     };
+// }
+function kiemTraCachCuc(tenSaoGoc, cacBoSaoCanKiemTra) {
     let lasoData = {};
     try {
         lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
     } catch (e) { lasoData = {}; }
     const lasoOb = lasoData.lasoOb || [];
     const cungGoc = timCungCuaSao(tenSaoGoc);
-    console.log("Cung gốc:", cungGoc);
     if (!cungGoc) return null;
-    const idxCungGoc = lasoData.lasoOb.findIndex(c => c.tenCung === cungGoc.tenCung)   || cungGoc.idCunggoc;
-    console.log("Chỉ số cung gốc:", idxCungGoc);
+    const idxCungGoc = lasoOb.findIndex(c => c.tenCung === cungGoc.tenCung) || cungGoc.idCunggoc;
     const idxHop = getHoiChieuCung(idxCungGoc);
 
-    // Gộp các sao của 3 cung hội hợp thành 1 mảng phẳng
+    // Gộp tất cả sao hội chiếu thành mảng phẳng
     let saoHoiHop = [];
     idxHop.forEach(idx => {
         const cung = lasoOb[idx];
@@ -209,30 +251,31 @@ function kiemTraCachCuc(tenSaoGoc, boSaoCanKiemTra) {
             saoHoiHop.push(...cung.sao.map(sao => sao.ten));
         }
     });
-   
-    console.log("Các sao hội hợp:", saoHoiHop);
-    console.log("Bộ sao cần kiểm tra:", boSaoCanKiemTra);
-    // Chuẩn hóa so sánh
+
     const normalize = s => (s ? String(s) : '').replace(/\s+/g, '').toLowerCase();
 
-    // Kiểm tra đủ bộ sao không (bộ hợp phải chứa tất cả phần tử boSaoCanKiemTra)
-    const hopDuBo = boSaoCanKiemTra.every(
-        s => saoHoiHop.some(hop => normalize(hop) === normalize(s))
-    );
+    let ketQua = [];
+    (Array.isArray(cacBoSaoCanKiemTra) ? cacBoSaoCanKiemTra : [cacBoSaoCanKiemTra]).forEach(boSao => {
+        // Đảm bảo boSao là mảng
+        const bo = Array.isArray(boSao) ? boSao : [boSao];
+        // Lọc các sao trong bộ thực sự xuất hiện trong hội hợp
+        const saoKhop = bo.filter(
+            s => saoHoiHop.some(hop => normalize(hop) === normalize(s))
+        );
+        if (saoKhop.length > 0) {
+            ketQua.push({
+                boSaoGoc: tenSaoGoc,
+                saoKhop: saoKhop,
+                fullBo: saoKhop.length === bo.length,
+                cungGoc: { tenCung: cungGoc.tenCung, chi: cungGoc.chi },
+                cacSaoHoiHop: saoHoiHop,
+                idxHoiHop: idxHop
+            });
+        }
+    });
 
-    console.log("Cung gốc:", cungGoc.tenCung, "Chi:", cungGoc.chi);
-    console.log("Các sao hội hợp:", saoHoiHop);
-    console.log("Đủ bộ hợp:", hopDuBo);
-
-    if (!hopDuBo) return null;
-    // Nếu thỏa mãn cách cục, trả về chi tiết
-    return {
-        cungGoc: { tenCung: cungGoc.tenCung, chi: cungGoc.chi },
-        cacSaoHoiHop: saoHoiHop,
-        idxHoiHop: idxHop
-    };
+    return ketQua.length > 0 ? ketQua : null;
 }
-
 function isCungVoChinhDieu(idCung){
     getDanhSachChinhTinhTungCung()[idCung].chinhTinh.length === 0
 }
