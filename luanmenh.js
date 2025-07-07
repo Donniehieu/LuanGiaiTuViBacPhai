@@ -3057,14 +3057,21 @@ function LuanCachCucLucBaiTinh(keyArr) {
         }
 
     }
-
+    
+    console.log("/////////////////////////////////"+isSaoToaThuTaiCung("Mệnh", "Bạch Hổ"));
+    console.log("/////////////////////////////////"+kiemTraCachCuc("Bạch Hổ", ["Thiên Hình"]));
     if (isSaoToaThuTaiCung("Mệnh", "Bạch Hổ") && kiemTraCachCuc("Bạch Hổ", ["Thiên Hình"])) {
 
         console.log("Bạch Hổ toạ thủ cung Mệnh gặp Thiên Hình");
         keyArr.push("Bạch Hổ toạ thủ cung Mệnh gặp Thiên Hình");
+        
 
     }
+    if(isHaiSaoDongCungTaiCung("Mệnh", "Bạch Hổ", "Thiên Hình")) {
+        console.log("Bạch Hổ, Thiên Hình đồng cung tại Mệnh");      
+        keyArr.push("Bạch Hổ, Thiên Hình đồng cung tại Mệnh");
 
+    }
     if (isHaiSaoDongCungTaiCung("Mệnh", "Bạch Hổ", "Tấu Thư")) {
         console.log("Bạch Hổ, Tấu Thư đồng cung tại Mệnh");
         keyArr.push("Bạch Hổ, Tấu Thư đồng cung tại Mệnh");
