@@ -495,7 +495,6 @@ function LuanCachCucSaoLiemTrinh(keyArr) {
 
 }
 
-
 function LuanCachCucSaoThienDong(keyArr) {
     const MVD = ["Dần", "Thân", "Tý", "Mão", "Tỵ", "Hợi"];
     const HD = ["Ngọ", "Sửu", "Mùi", "Tuất", "Thìn", "Dậu"];
@@ -1070,8 +1069,6 @@ function LuanCachCucThienCo(keyArr) {
         keyArr.push("Thiên Cơ tọa thủ cung Mệnh gặp Thiên Đồng, Thiên Lương, Thái Âm");
     }
 }
-
-
 function LuanCacCachCucThienPhu(keyArr) {
 
     let lasoData = {};
@@ -1280,9 +1277,6 @@ function LuanCachCucThaiAm(keyArr) {
         }
     }
 }
-
-
-
 function LuanCachCucThamLang(keyArr) {
 
     let lasoData = {};
@@ -1405,10 +1399,7 @@ function LuanCachCucThamLang(keyArr) {
 
     }
 
-
 }
-
-
 function LuanCachCucCuMon(keyArr) {
     let lasoData = {};
     try {
@@ -1722,10 +1713,7 @@ function LuanCachCucThienTuong(keyArr) {
         console.log("Quý chị có Thiên Tướng tọa thủ cung Mệnh gặp Đào Hoa, Hồng Loan, Hoa Cái, Vũ Khúc");
         keyArr.push("Quý chị có Thiên Tướng tọa thủ cung Mệnh gặp Đào Hoa, Hồng Loan, Hoa Cái, Vũ Khúc");
     }
-
-
 }
-
 
 function LuanCachCucThienLuong(keyArr) {
     let lasoData = {};
@@ -1844,10 +1832,7 @@ function LuanCachCucThienLuong(keyArr) {
         }
     }
 
-
 }
-
-
 function LuanCachCucThatSat(keyArr) {
     let lasoData = {};
     try {
@@ -1998,8 +1983,6 @@ function LuanCachCucThatSat(keyArr) {
 
     }
 }
-
-
 function LuanCachcCucPhaQuan(keyArr) {
     let lasoData = {};
 
@@ -2121,8 +2104,6 @@ function LuanCachcCucPhaQuan(keyArr) {
         }
     }
 }
-
-
 function LuanCachCucXuongKhuc(keyArr) {
     let lasoData = {};
     try {
@@ -2211,12 +2192,7 @@ function LuanCachCucXuongKhuc(keyArr) {
             }
         }
     }
-
-
-
 }
-
-
 function LuanCachCucKhoiViet(keyArr) {
     let lasoData = {};
     try {
@@ -2275,9 +2251,6 @@ function LuanCachCucKhoiViet(keyArr) {
         }
     }
 }
-
-
-
 function LuanCachCucLocTon(keyArr) {
     let lasoData = {};
     try {
@@ -2342,7 +2315,6 @@ function LuanCachCucLocTon(keyArr) {
         }
     }
 }
-
 
 function LuanCachCucTaHuu(keyArr) {
     let lasoData = {};
@@ -2423,9 +2395,6 @@ function LuanCachCucTaHuu(keyArr) {
         }
     }
 }
-
-
-
 function LuanCachCucKinhDuongDaLa(keyArr) {
     let lasoData = {};
     try {
@@ -2541,7 +2510,6 @@ function LuanCachCucKinhDuongDaLa(keyArr) {
         }
     }
 }
-
 
 function LuanCachCucHoaLinh(keyArr) {
     let lasoData = {};
@@ -2744,8 +2712,6 @@ function LuanCachCucKhongKiep(keyArr) {
         keyArr.push("Địa Kiếp toạ thủ cung Mệnh gặp Cự Môn, Thái Dương, Thiên Phủ, Thiên Khốc, Thiên Hư");
     }
 }
-
-
 function LuanCachCucTuHoa(keyArr) {
     let lasoData = {};
     try {
@@ -3260,9 +3226,6 @@ function MenhVoChinhDieu() {
     }
 
 }
-
-
-
 function MenhKhongThanKiep(idxCungMenh, idxCungThan, dsChinh, dsPhu, keyArr) {
 
     // Lấy các sao của cung Mệnh và cung Thân
