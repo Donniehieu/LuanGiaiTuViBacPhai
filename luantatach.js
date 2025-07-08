@@ -44,7 +44,7 @@ function kiemTraDiaSinh(banMenh, cungVi) {
     return "Bình thường";
 }
 
-function LuanCungMenh() {
+function LuanCungTatAch() {
     let lasoData = {};
     try {
         lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
@@ -61,7 +61,7 @@ function LuanCungMenh() {
         danhGia: danhGia
     };
 }
-function LuanCungMenh(keyArr) {
+function LuanCungTatAch(keyArr) {
     let lasoData = {};
     try {
         lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
@@ -69,32 +69,32 @@ function LuanCungMenh(keyArr) {
     const vitriDiaSinhCungMenh = kiemTraDiaSinh(lasoData.hanhMenh, lasoData.lasoOb[0].chi);
     keyArr.push(`Vị trí địa sinh cung Tật Ách tại ${vitriDiaSinhCungMenh}`);
     console.log(`Vị trí địa sinh cung Tật Ách tại ${vitriDiaSinhCungMenh}`);
-    LuanCachCucSaoTuVi(keyArr);
-    LuanCachCucSaoLiemTrinh(keyArr);
-    LuanCachCucSaoThienDong(keyArr);
-    LuanCachCucSaoVuKhuc(keyArr);
-    LuanCachCucThaiDuong(keyArr);
-    LuanCachCucThienCo(keyArr);
-    LuanCacCachCucThienPhu(keyArr);
-    LuanCachCucThaiAm(keyArr);
-    LuanCachCucThamLang(keyArr);
-    LuanCachCucCuMon(keyArr);
-    LuanCachCucThienTuong(keyArr);
-    LuanCachCucThienLuong(keyArr);
-    LuanCachCucThatSat(keyArr);
-    LuanCachcCucPhaQuan(keyArr);
-    LuanCachCucXuongKhuc(keyArr);
-    LuanCachCucKhoiViet(keyArr);
-    LuanCachCucLocTon(keyArr);
-    LuanCachCucTaHuu(keyArr);
-    LuanCachCucKinhDuongDaLa(keyArr);
-    LuanCachCucHoaLinh(keyArr);
-    LuanCachCucKhongKiep(keyArr);
-    LuanCachCucTuHoa(keyArr);
-    LuanCachCucLucBaiTinh(keyArr);
-    LuanCacCachCucKhac(keyArr);
+    LuanCachCucSaoTuViTatAch(keyArr);
+    LuanCachCucSaoLiemTrinhTatAch(keyArr);
+    LuanCachCucSaoThienDongTatAch(keyArr);
+    LuanCachCucSaoVuKhucTatAch(keyArr);
+    LuanCachCucThaiDuongTatAch(keyArr);
+    LuanCachCucThienCoTatAch(keyArr);
+    LuanCacCachCucThienPhuTatAch(keyArr);
+    LuanCachCucThaiAmTatAch(keyArr);
+    LuanCachCucThamLangTatAch(keyArr);
+    LuanCachCucCuMonTatAch(keyArr);
+    LuanCachCucThienTuongTatAch(keyArr);
+    LuanCachCucThienLuongTatAch(keyArr);
+    LuanCachCucThatSatTatAch(keyArr);
+    LuanCachCucPhaQuanTatAch(keyArr);
+    LuanCachCucXuongKhucTatAch(keyArr);
+    LuanCachCucKhoiVietTatAch(keyArr);
+    LuanCachCucLocTonTatAch(keyArr);
+    LuanCachCucTaHuuTatAch(keyArr);
+    LuanCachCucKinhDuongDaLaTatAch(keyArr);
+    LuanCachCucHoaLinhTatAch(keyArr);
+    LuanCachCucKhongKiepTatAch(keyArr);
+    LuanCachCucTuHoaTatAch(keyArr);
+    LuanCachCucLucBaiTinhTatAch(keyArr);
+    LuanCacCachCucKhacTatAch(keyArr);
 }
-function LuanCachCucSaoTuVi(keyArr) {
+function LuanCachCucSaoTuViTatAch(keyArr) {
     let lasoData = {};
     try {
         lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
@@ -349,7 +349,7 @@ function LuanCachCucSaoTuVi(keyArr) {
     }
 }
 
-function LuanCachCucSaoLiemTrinh(keyArr) {
+function LuanCachCucSaoLiemTrinhTatAch(keyArr) {
     let lasoData = {};
     try {
         lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
@@ -495,7 +495,7 @@ function LuanCachCucSaoLiemTrinh(keyArr) {
 
 }
 
-function LuanCachCucSaoThienDong(keyArr) {
+function LuanCachCucSaoThienDongTatAch(keyArr) {
     const MVD = ["Dần", "Thân", "Tý", "Mão", "Tỵ", "Hợi"];
     const HD = ["Ngọ", "Sửu", "Mùi", "Tuất", "Thìn", "Dậu"];
     const tyhoi = ["Tỵ", "Hợi"];
@@ -612,7 +612,7 @@ function LuanCachCucSaoThienDong(keyArr) {
     }
 }
 
-function LuanCachCucSaoVuKhuc(keyArr) {
+function LuanCachCucSaoVuKhucTatAch(keyArr) {
     let lasoData = {};
     try {
         lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
@@ -783,7 +783,7 @@ function LuanCachCucSaoVuKhuc(keyArr) {
     }
 }
 
-function LuanCachCucThaiDuong(keyArr) {
+function LuanCachCucThaiDuongTatAch(keyArr) {
     const mieu = ["Tỵ", "Ngọ"];
     const vuong = ["Dần", "Mão", "Thìn"];
     const dac = ["Sửu", "Mùi"];
@@ -955,7 +955,7 @@ function LuanCachCucThaiDuong(keyArr) {
     }
 }
 
-function LuanCachCucThienCo(keyArr) {
+function LuanCachCucThienCoTatAch(keyArr) {
     let lasoData = {};
     try {
         lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
@@ -1069,7 +1069,7 @@ function LuanCachCucThienCo(keyArr) {
         keyArr.push("Thiên Cơ tọa thủ cung Tật Ách gặp Thiên Đồng, Thiên Lương, Thái Âm");
     }
 }
-function LuanCacCachCucThienPhu(keyArr) {
+function LuanCacCachCucThienPhuTatAch(keyArr) {
 
     let lasoData = {};
     try {
@@ -1166,7 +1166,7 @@ function LuanCacCachCucThienPhu(keyArr) {
 
 }
 
-function LuanCachCucThaiAm(keyArr) {
+function LuanCachCucThaiAmTatAch(keyArr) {
 
     let lasoData = {};
     try {
@@ -1277,7 +1277,7 @@ function LuanCachCucThaiAm(keyArr) {
         }
     }
 }
-function LuanCachCucThamLang(keyArr) {
+function LuanCachCucThamLangTatAch(keyArr) {
 
     let lasoData = {};
     try {
@@ -1400,7 +1400,7 @@ function LuanCachCucThamLang(keyArr) {
     }
 
 }
-function LuanCachCucCuMon(keyArr) {
+function LuanCachCucCuMonTatAch(keyArr) {
     let lasoData = {};
     try {
         lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
@@ -1634,7 +1634,7 @@ function LuanCachCucCuMon(keyArr) {
     }
 
 }
-function LuanCachCucThienTuong(keyArr) {
+function LuanCachCucThienTuongTatAch(keyArr) {
     let lasoData = {};
     try {
         lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
@@ -1715,7 +1715,7 @@ function LuanCachCucThienTuong(keyArr) {
     }
 }
 
-function LuanCachCucThienLuong(keyArr) {
+function LuanCachCucThienLuongTatAch(keyArr) {
     let lasoData = {};
     try {
         lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
@@ -1833,7 +1833,7 @@ function LuanCachCucThienLuong(keyArr) {
     }
 
 }
-function LuanCachCucThatSat(keyArr) {
+function LuanCachCucThatSatTatAch(keyArr) {
     let lasoData = {};
     try {
         lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
@@ -1983,7 +1983,7 @@ function LuanCachCucThatSat(keyArr) {
 
     }
 }
-function LuanCachcCucPhaQuan(keyArr) {
+function LuanCachCucPhaQuanTatAch(keyArr) {
     let lasoData = {};
 
     try {
@@ -2104,7 +2104,7 @@ function LuanCachcCucPhaQuan(keyArr) {
         }
     }
 }
-function LuanCachCucXuongKhuc(keyArr) {
+function LuanCachCucXuongKhucTatAch(keyArr) {
     let lasoData = {};
     try {
         lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
@@ -2193,7 +2193,7 @@ function LuanCachCucXuongKhuc(keyArr) {
         }
     }
 }
-function LuanCachCucKhoiViet(keyArr) {
+function LuanCachCucKhoiVietTatAch(keyArr) {
     let lasoData = {};
     try {
         lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
@@ -2251,7 +2251,7 @@ function LuanCachCucKhoiViet(keyArr) {
         }
     }
 }
-function LuanCachCucLocTon(keyArr) {
+function LuanCachCucLocTonTatAch(keyArr) {
     let lasoData = {};
     try {
         lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
@@ -2316,7 +2316,7 @@ function LuanCachCucLocTon(keyArr) {
     }
 }
 
-function LuanCachCucTaHuu(keyArr) {
+function LuanCachCucTaHuuTatAch(keyArr) {
     let lasoData = {};
     try {
         lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
@@ -2395,7 +2395,7 @@ function LuanCachCucTaHuu(keyArr) {
         }
     }
 }
-function LuanCachCucKinhDuongDaLa(keyArr) {
+function LuanCachCucKinhDuongDaLaTatAch(keyArr) {
     let lasoData = {};
     try {
         lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
@@ -2511,7 +2511,7 @@ function LuanCachCucKinhDuongDaLa(keyArr) {
     }
 }
 
-function LuanCachCucHoaLinh(keyArr) {
+function LuanCachCucHoaLinhTatAch(keyArr) {
     let lasoData = {};
     try {
         lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
@@ -2594,7 +2594,7 @@ function LuanCachCucHoaLinh(keyArr) {
     }
 }
 
-function LuanCachCucKhongKiep(keyArr) {
+function LuanCachCucKhongKiepTatAch(keyArr) {
     let lasoData = {};
     try {
         lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
@@ -2712,7 +2712,7 @@ function LuanCachCucKhongKiep(keyArr) {
         keyArr.push("Địa Kiếp toạ thủ cung Tật Ách gặp Cự Môn, Thái Dương, Thiên Phủ, Thiên Khốc, Thiên Hư");
     }
 }
-function LuanCachCucTuHoa(keyArr) {
+function LuanCachCucTuHoaTatAch(keyArr) {
     let lasoData = {};
     try {
         lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
@@ -2981,7 +2981,7 @@ function LuanCachCucTuHoa(keyArr) {
 
 }
 
-function LuanCachCucLucBaiTinh(keyArr) {
+function LuanCachCucLucBaiTinhTatAch(keyArr) {
     const lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
 
     const songhao_dac = ["Dần", "Thân", "Mão", "Dậu"];
@@ -3157,7 +3157,7 @@ function ThanMenhDongCungVoChinhDieu(keyArr) {
         return true;
     }
 }
-function LuanCacCachCucKhac(keyArr) {
+function LuanCacCachCucKhacTatAch(keyArr) {
     let lasoData = {};
     try {
         lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};

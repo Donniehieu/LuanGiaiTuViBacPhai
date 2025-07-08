@@ -552,6 +552,18 @@ function LuanGiaiCacCungVaHienThi() {
         MenhKhongThanKiep(idCungMenh, idCungThan, dsChinh, dsPhu, keyArr);
         ThanMenhDongCungVoChinhDieu(keyArr); // Kiểm tra Thân mệnh đồng cung Vô Chính Diệu
         LuanCungMenh(keyArr); // Luận cung Mệnh
+        LuanCungPhuMau(keyArr); // Luận cung Phụ Mẫu
+        LuanCungPhucDuc(keyArr); // Luận cung Phúc Đức
+        LuanCungDienTrach(keyArr); // Luận cung Điền Trạch
+        LuanCungQuanLoc(keyArr); // Luận cung Quan Lộc
+        LuanCungNoBoc(keyArr); // Luận cung Nô Bộc
+        LuanCungThienDi(keyArr); // Luận cung Thiên Di
+        LuanCungTatAch(keyArr); // Luận cung Tật Ách
+        LuanCungTaiBach(keyArr); // Luận cung Tài Bạch
+        LuanCungTuTuc(keyArr); // Luận cung Tử Tức
+        LuanCungPhuThe(keyArr); // Luận cung Phu Thê
+        LuanCungHuynhDe(keyArr); // Luận cung Huynh Đệ
+        // Lọc các cách cục đặc biệt
 
         // Kiểm tra các cách cục đặc biệt
 
