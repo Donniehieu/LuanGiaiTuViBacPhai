@@ -3240,6 +3240,23 @@ function LuanCacCachCucKhacThienDi(keyArr) {
     if (lasoData.cungCu === "Phúc Đức") {
         keyArr.push("Thân Cư Phúc Đức");
     }
+    if(isHaiSaoDongCungTaiCung("Thiên Di", "Đào Hoa", "Hồng Loan")&& isHaiSaoDongCungTaiCung("Thiên Di", "Thiên Hỉ", "Thiên Mã")) {
+        keyArr.push("Đào Hoa, Hồng Loan, Thiên Hỉ, Thiên Mã đồng cung tại Thiên Di");
+    }
+    if (isHaiSaoDongCungTaiCung("Thiên Di", "Đào Hoa", "Hồng Loan") && kiemTraCachCuc("Đào Hoa", ["Thiên Hỷ", "Thiên Mã"])) {
+        keyArr.push("Đào Hoa, Hồng Loan đồng cung tại Thiên Di gặp Thiên Hỷ, Thiên Mã");
+    }
+    if(isHaiSaoDongCungTaiCung("Thiên Di", "Phục Binh","Địa Không") && isHaiSaoDongCungTaiCung("Thiên Di", "Địa Kiếp", "Phục Binh")){
+        keyArr.push("Phục Binh, Địa Không, Địa Kiếp đồng cung tại Thiên Di");
+    }
+    if(isHaiSaoDongCungTaiCung("Thiên Di", "Thiên Tướng","Phục Binh")&& kiemTraCachCuc("Thiên Tướng", ["Đào Hoa", "Hồng Loan"])) {
+        keyArr.push("Thiên Tướng, Phục Binh đồng cung tại Thiên Di gặp Đào Hoa, Hồng Loan");
+    }
+    if(isHaiSaoDongCungTaiCung("Thiên Di","Lưu Hà","Kiếp Sát")){
+        keyArr.push("Lưu Hà, Kiếp Sát đồng cung tại Thiên Di");
+    }
+
+   
 
 
 
