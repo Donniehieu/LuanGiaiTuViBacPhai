@@ -393,6 +393,10 @@ const DS_CACH_CUC = [
     { key: "Hình Riêu Y", need: ["Thiên Hình", "Thiên Riêu", "Thiên Y"] },
     { key: "Mã Hỏa Linh", need: ["Thiên Mã", "Hỏa Tinh", "Linh Tinh"] },
     { key: "Thai Tọa Hồng Đào", need: ["Tam Thai", "Bát Toạ", "Hồng Loan", "Đào Hoa"] },
+    { key: "Tả Hữu Không Kiếp", need: ["Tả Phù", "Hữu Bật", "Địa Không", "Địa Kiếp"] },
+    { key: "Tả Hữu Binh Tướng", need: ["Tả Phù", "Hữu Bật", "Phục Binh", "Thiên Tướng"] },
+    { key: "Đào Quyền", need: ["Đào Hoa", "Hóa Quyền"] },
+    { key: "Đào Hồng Tả Cái Hữu", need: ["Đào Hoa", "Hồng Loan", "Tả Phù", "Hữu Bật", "HoaCái"] },
 ];
 
 // Helper tứ chiếu
