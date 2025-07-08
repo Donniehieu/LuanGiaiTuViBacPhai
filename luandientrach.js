@@ -165,6 +165,11 @@ function LuanCachCucSaoTuViDienTrach(keyArr) {
 
         }
     }
+    // Tử Vi đồng cung Tham Lang tại Điền Trạch 
+    if (isHaiSaoDongCungTaiCung("Điền Trạch", "Tử Vi", "Tham Lang")) {
+        console.log("Tử Vi đồng cung với Tham Lang tại Điền Trạch");
+        keyArr.push("Tử Vi đồng cung với Tham Lang tại Điền Trạch");
+    }
 
     // Tử vi thủ Điền Trạch đồng cung với Tham Lang ở mão dậu
 
@@ -347,6 +352,19 @@ function LuanCachCucSaoTuViDienTrach(keyArr) {
         console.log("Tử Vi tọa thủ cung Điền Trạch hội chiếu Thiên Phủ");
         keyArr.push("Tử Vi tọa thủ cung Điền Trạch hội chiếu Thiên Phủ");
     }
+
+    // Tử vi đồng cung với Thất Sát tại Điền Trạch
+    if (isHaiSaoDongCungTaiCung("Điền Trạch", "Tử Vi", "Thất Sát")) {
+        console.log("Tử Vi đồng cung với Thất Sát tại Điền Trạch");
+        keyArr.push("Tử Vi đồng cung với Thất Sát tại Điền Trạch");
+    }
+
+    // Tử Vi đồng cung với Phá Quân tại Điền Trạch
+    if (isHaiSaoDongCungTaiCung("Điền Trạch", "Tử Vi", "Phá Quân")) {
+        console.log("Tử Vi đồng cung với Phá Quân tại Điền Trạch");
+        keyArr.push("Tử Vi đồng cung với Phá Quân tại Điền Trạch");
+    }
+
 }
 
 function LuanCachCucSaoLiemTrinhDienTrach(keyArr) {
@@ -493,6 +511,32 @@ function LuanCachCucSaoLiemTrinhDienTrach(keyArr) {
         }
     }
 
+    //Liêm Trinh đồng cung với Thiên Phủ tại Điền Trạch
+    if (isHaiSaoDongCungTaiCung("Điền Trạch", "Liêm Trinh", "Thiên Phủ")) {
+        console.log("Liêm Trinh đồng cung với Thiên Phủ tại Điền Trạch");
+        keyArr.push("Liêm Trinh đồng cung với Thiên Phủ tại Điền Trạch");
+    }
+    // Liêm Trinh đồng cung với Thiên Tướng tại Điền Trạch
+    if (isHaiSaoDongCungTaiCung("Điền Trạch", "Liêm Trinh", "Thiên Tướng")) {
+        console.log("Liêm Trinh đồng cung với Thiên Tướng tại Điền Trạch");
+        keyArr.push("Liêm Trinh đồng cung với Thiên Tướng tại Điền Trạch");
+    }
+    // Liêm Trinh đồng cung với Thất Sát tại Điền Trạch
+    if (isHaiSaoDongCungTaiCung("Điền Trạch", "Liêm Trinh", "Thất Sát")) {
+        console.log("Liêm Trinh đồng cung với Thất Sát tại Điền Trạch");
+        keyArr.push("Liêm Trinh đồng cung với Thất Sát tại Điền Trạch");
+    }
+    // Liêm Trinh đồng cung với Phá Quân tại Điền Trạch
+    if (isHaiSaoDongCungTaiCung("Điền Trạch", "Liêm Trinh", "Phá Quân")) {
+        console.log("Liêm Trinh đồng cung với Phá Quân tại Điền Trạch");
+        keyArr.push("Liêm Trinh đồng cung với Phá Quân tại Điền Trạch");
+    }
+    // Liêm Trinh đồng cung với Tham Lang tại Điền Trạch
+    if (isHaiSaoDongCungTaiCung("Điền Trạch", "Liêm Trinh", "Tham Lang")) {
+        console.log("Liêm Trinh đồng cung với Tham Lang tại Điền Trạch");
+        keyArr.push("Liêm Trinh đồng cung với Tham Lang tại Điền Trạch");
+    }
+
 }
 
 function LuanCachCucSaoThienDongDienTrach(keyArr) {
@@ -610,6 +654,18 @@ function LuanCachCucSaoThienDongDienTrach(keyArr) {
             }
         }
     }
+
+    // Thiên Đồng đồng cung với Thiên Lương tại Điền Trạch
+    if (isHaiSaoDongCungTaiCung("Điền Trạch", "Thiên Đồng", "Thiên Lương")) {
+        console.log("Thiên Đồng đồng cung với Thiên Lương tại Điền Trạch");
+        keyArr.push("Thiên Đồng đồng cung với Thiên Lương tại Điền Trạch");
+    }
+    // Thiên Đồng đồng cung với Cự Môn tại Điền Trạch
+    if (isHaiSaoDongCungTaiCung("Điền Trạch", "Thiên Đồng", "Cự Môn")) {
+        console.log("Thiên Đồng đồng cung với Cự Môn tại Điền Trạch");
+        keyArr.push("Thiên Đồng đồng cung với Cự Môn tại Điền Trạch");
+    }
+
 }
 
 function LuanCachCucSaoVuKhucDienTrach(keyArr) {
@@ -752,6 +808,11 @@ function LuanCachCucSaoVuKhucDienTrach(keyArr) {
 
         }
     }
+    // Vũ Khúc đồng cung với Phá Quân tại Điền Trạch
+    if (isHaiSaoDongCungTaiCung("Điền Trạch", "Vũ Khúc", "Phá Quân")) {
+        console.log("Vũ Khúc đồng cung với Phá Quân tại Điền Trạch");
+        keyArr.push("Vũ Khúc đồng cung với Phá Quân tại Điền Trạch");
+    }
 
     for (let i = 0; i < gkn.length; i++) {
         if (lasoData.canNam === gkn[i] && isHaiSaoDongCungTaiCungChi("Điền Trạch", "Hợi", "Vũ Khúc", "Phá Quân ") && isHaiSaoDongCungTaiCung("Điền Trạch", "Vũ Khúc", "Hỏa Tinh")) {
@@ -767,6 +828,7 @@ function LuanCachCucSaoVuKhucDienTrach(keyArr) {
         keyArr.push("Vũ Khúc tọa thủ cung Điền Trạch đồng cung Tham Lang");
 
     }
+
     // Tại sủu mùi, vũ tham đồng cung và đồng cung kiếp sát
     for (let i = 0; i < suumui.length; i++) {
         if (isHaiSaoDongCungTaiCungChi("Điền Trạch", suumui[i], "Vũ Khúc", "Tham Lang") && isHaiSaoDongCungTaiCungChi("Điền Trạch", suumui[i], "Vũ Khúc", "Kiếp Sát")) {
@@ -780,6 +842,23 @@ function LuanCachCucSaoVuKhucDienTrach(keyArr) {
             console.log(`Vũ Khúc tọa thủ cung Điền Trạch ở ${danthan[i]} gặp các sao cát tinh:`, KhoaLocQuyen.join(", "));
             keyArr.push(`Vũ Khúc tọa thủ cung Điền Trạch ở ${danthan[i]} gặp các sao cát tinh:`, KhoaLocQuyen.join(", "));
         }
+    }
+
+    // Vũ Khúc đồng cung với Thiên Phủ tại Điền Trạch 
+    if (isHaiSaoDongCungTaiCung("Điền Trạch", "Vũ Khúc", "Thiên Phủ")) {
+        console.log("Vũ Khúc đồng cung với Thiên Phủ tại Điền Trạch");
+        keyArr.push("Vũ Khúc đồng cung với Thiên Phủ tại Điền Trạch");
+
+    }
+    // Vũ Khúc đồng cung với Thiên Tướng tại Điền Trạch
+    if (isHaiSaoDongCungTaiCung("Điền Trạch", "Vũ Khúc", "Thiên Tướng")) {
+        console.log("Vũ Khúc đồng cung với Thiên Tướng tại Điền Trạch");
+        keyArr.push("Vũ Khúc đồng cung với Thiên Tướng tại Điền Trạch");
+    }
+    // Vũ Khúc đồng cung Thất Sát tại Điền Trạch
+    if (isHaiSaoDongCungTaiCung("Điền Trạch", "Vũ Khúc", "Thất Sát")) {
+        console.log("Vũ Khúc đồng cung Thất Sát tại Điền Trạch");
+        keyArr.push("Vũ Khúc đồng cung Thất Sát tại Điền Trạch");
     }
 }
 
@@ -803,6 +882,8 @@ function LuanCachCucThaiDuongDienTrach(keyArr) {
     const ThaiToa = ["Tam Thai", "Bát Tọa"];
     const KhoiHong = ["Thiên Khôi", "Đào Hồng"];
     const suumui = ["Sửu", "Mùi"];
+    const danthan = ["Dần", "Thân"];
+    const maodau = ["Mão", "Dậu"];
     let lasoData = {};
     try {
         lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
@@ -953,6 +1034,23 @@ function LuanCachCucThaiDuongDienTrach(keyArr) {
         console.log("Thái Dương tọa thủ cung Điền Trạch ở Sửu đồng cung Thái Âm gặp Khoa Lộc Quyền");
         keyArr.push("Thái Dương tọa thủ cung Điền Trạch ở Sửu đồng cung Thái Âm gặp Khoa Lộc Quyền");
     }
+
+
+    // Thái Dương đồng cung với Cự Môn tại Điền Trạch
+    for (let i = 0; i < danthan.length; i++) {
+        if (isHaiSaoDongCungTaiCungChi("Điền Trạch", danthan[i], "Thái Dương", "Cự Môn")) {
+            console.log("Thái Dương đồng cung với Cự Môn tại Điền Trạch ở " + danthan[i]);
+            keyArr.push("Thái Dương đồng cung với Cự Môn tại Điền Trạch ở " + danthan[i]);
+        }
+    }
+    // Thái Dương đồng cung với Thiên Lương tại Điền Trạch
+    for (let i = 0; i < maodau.length; i++) {
+        if (isHaiSaoDongCungTaiCungChi("Điền Trạch", maodau[i], "Thái Dương", "Thiên Lương")) {
+            console.log("Thái Dương đồng cung với Thiên Lương tại Điền Trạch ở " + maodau[i]);
+            keyArr.push("Thái Dương đồng cung với Thiên Lương tại Điền Trạch ở " + maodau[i]);
+        }
+    }
+
 }
 
 function LuanCachCucThienCoDienTrach(keyArr) {
@@ -975,6 +1073,7 @@ function LuanCachCucThienCoDienTrach(keyArr) {
     const thintuat = ["Thìn", "Tuất"];
     const kinhdahoalinhtuong = ["Kình Dương", "Đà La", "Hỏa Tinh", "Linh Tinh", "Thiên Tướng"];
     const nguyetdongluong = ["Thái Âm", "Thiên Đồng", "Thiên Lương"];
+    const danthan = ["Dần", "Thân"];
 
     // Thiên Cơ Miếu Vượng Địa
     for (let i = 0; i < mvd.length; i++) {
@@ -1067,6 +1166,27 @@ function LuanCachCucThienCoDienTrach(keyArr) {
     if (isSaoToaThuTaiCung("Điền Trạch", "Thiên Cơ") && kiemTraCachCuc("Thiên Cơ", nguyetdongluong)) {
         console.log("Thiên Cơ tọa thủ cung Điền Trạch gặp Thiên Đồng, Thiên Lương, Thái Âm");
         keyArr.push("Thiên Cơ tọa thủ cung Điền Trạch gặp Thiên Đồng, Thiên Lương, Thái Âm");
+    }
+
+    // Thiên Cơ đồng cung Thiên Lương tại Điền Trạch
+    if (isHaiSaoDongCungTaiCung("Điền Trạch", "Thiên Cơ", "Thiên Lương")) {
+        console.log("Thiên Cơ đồng cung Thiên Lương tại Điền Trạch");
+        keyArr.push("Thiên Cơ đồng cung Thiên Lương tại Điền Trạch");
+    }
+
+    // Thiên Cơ đồng cung với Cự Môn tại Điền Trạch ở Mão Dậu
+    for (let i = 0; i < maodau.length; i++) {
+        if (isHaiSaoDongCungTaiCungChi("Điền Trạch", maodau[i], "Thiên Cơ", "Cự Môn")) {
+            console.log("Thiên Cơ đồng cung với Cự Môn tại Điền Trạch ở " + maodau[i]);
+            keyArr.push("Thiên Cơ đồng cung với Cự Môn tại Điền Trạch ở " + maodau[i]);
+        }
+    }
+
+    for (let i = 0; i < danthan.length; i++) {
+        if (isHaiSaoDongCungTaiCungChi("Điền Trạch", danthan[i], "Thiên Cơ", "Thái Âm")) {
+            console.log("Thiên Cơ đồng cung với Thái Âm tại Điền Trạch ở " + danthan[i]);
+            keyArr.push("Thiên Cơ đồng cung với Thái Âm tại Điền Trạch ở " + danthan[i]);
+        }
     }
 }
 function LuanCacCachCucThienPhuDienTrach(keyArr) {
@@ -1275,6 +1395,12 @@ function LuanCachCucThaiAmDienTrach(keyArr) {
             console.log("Thái Âm tọa thủ cung Điền Trạch đồng cung Vũ Khúc, Lộc Tồn gặp các sao: ", TaHuu.join(", "));
             keyArr.push("Thái Âm tọa thủ cung Điền Trạch đồng cung Vũ Khúc, Lộc Tồn gặp các sao: ", TaHuu.join(", "));
         }
+    }
+
+    // Thiên Đồng đồng cung tại Ngọ 
+    if (isHaiSaoDongCungTaiCungChi("Điền Trạch", "Ngọ", "Thái Âm", "Thiên Đồng")) {
+        console.log("Thái Âm đồng cung Thiên Đồng tại Điền Trạch ở Ngọ");
+        keyArr.push("Thái Âm đồng cung Thiên Đồng tại Điền Trạch ở Ngọ");
     }
 }
 function LuanCachCucThamLangDienTrach(keyArr) {
@@ -2103,6 +2229,8 @@ function LuanCachCucPhaQuanDienTrach(keyArr) {
             keyArr.push(`Phá Quân tọa thủ cung Điền Trạch ở ${tumo[i]} gặp Hoá Lộc, Thiên Hình`);
         }
     }
+
+    
 }
 function LuanCachCucXuongKhucDienTrach(keyArr) {
     let lasoData = {};
@@ -2509,6 +2637,13 @@ function LuanCachCucKinhDuongDaLaDienTrach(keyArr) {
             keyArr.push(`Đà La toạ thủ cung Điền Trạch ở ${ham_dia[i]}`);
         }
     }
+
+    // Kình Dương, Địa Không, Địa Kiếp 
+    if(isHaiSaoDongCungTaiCung("Điền Trạch", "Kình Dương", "Địa Không") && isHaiSaoDongCungTaiCung("Điền Trạch", "Kình Dương", "Địa Kiếp")) {
+        console.log("Kình Dương, Địa Không, Địa Kiếp đồng cung tại Điền Trạch");
+        keyArr.push("Kình Dương, Địa Không, Địa Kiếp đồng cung tại Điền Trạch");
+    }
+    
 }
 
 function LuanCachCucHoaLinhDienTrach(keyArr) {
@@ -3057,17 +3192,17 @@ function LuanCachCucLucBaiTinhDienTrach(keyArr) {
         }
 
     }
-    
-  
+
+
     if (isSaoToaThuTaiCung("Điền Trạch", "Bạch Hổ") && kiemTraCachCuc("Bạch Hổ", ["Thiên Hình"])) {
 
         console.log("Bạch Hổ toạ thủ cung Điền Trạch gặp Thiên Hình");
         keyArr.push("Bạch Hổ toạ thủ cung Điền Trạch gặp Thiên Hình");
-        
+
 
     }
-    if(isHaiSaoDongCungTaiCung("Điền Trạch", "Bạch Hổ", "Thiên Hình")) {
-        console.log("Bạch Hổ, Thiên Hình đồng cung tại Điền Trạch");      
+    if (isHaiSaoDongCungTaiCung("Điền Trạch", "Bạch Hổ", "Thiên Hình")) {
+        console.log("Bạch Hổ, Thiên Hình đồng cung tại Điền Trạch");
         keyArr.push("Bạch Hổ, Thiên Hình đồng cung tại Điền Trạch");
 
     }
@@ -3241,6 +3376,51 @@ function LuanCacCachCucKhacDienTrach(keyArr) {
         keyArr.push("Thân Cư Phúc Đức");
     }
 
+    // Cự Môn Hỏa Tinh
+    if(isHaiSaoDongCungTaiCung("Điền Trạch", "Cự Môn", "Hỏa Tinh")) {
+        keyArr.push("Cự Môn, Hỏa Tinh đồng cung tại Điền Trạch");
+    }
+    // Cơ Nguyệt Đà Kỵ
+
+    if(isHaiSaoDongCungTaiCung("Điền Trạch", "Thiên Cơ","Thái Âm")&&  isHaiSaoDongCungTaiCung("Điền Trạch", "Đà La","Hóa Kỵ")) {
+        keyArr.push("Thiên Cơ, Thái Âm, Đà La, Hóa Kỵ đồng cung tại Điền Trạch");
+    }
+    // Thiên Cơ Hỏa Tinh
+    if( isHaiSaoDongCungTaiCung("Điền Trạch", "Thiên Cơ", "Hỏa Tinh")) {
+        keyArr.push("Thiên Cơ, Hỏa Tinh đồng cung tại Điền Trạch");
+    }
+    // Cơ Hổ Kình Đà
+    if(isHaiSaoDongCungTaiCung("Điền Trạch", "Thiên Cơ", "Bạch Hổ") && isHaiSaoDongCungTaiCung("Điền Trạch", "Kình Dương", "Đà La")) {
+        keyArr.push("Thiên Cơ, Bạch Hổ, Kình Dương, Đà La đồng cung tại Điền Trạch");
+    }
+    // Hỏa Linh Tướng Binh
+    if(isHaiSaoDongCungTaiCung("Điền Trạch", "Hỏa Tinh", "Linh Tinh") && isHaiSaoDongCungTaiCung("Điền Trạch", "Thiên Tướng", "Phục Binh")) {
+        keyArr.push("Hỏa Tinh, Linh Tinh, Thiên Tướng, Phục Binh đồng cung tại Điền Trạch");
+    }   
+    // Hoả Tang
+    if(isHaiSaoDongCungTaiCung("Điền Trạch", "Hỏa Tinh", "Tang Môn")) {
+        keyArr.push("Hỏa Tinh, Tang Môn đồng cung tại Điền Trạch");
+    }
+    // Không Kiếp Tướng Binh Tả Hữu
+    if(isHaiSaoDongCungTaiCung("Điền Trạch", "Địa Không", "Địa Kiếp") && isHaiSaoDongCungTaiCung("Điền Trạch", "Thiên Tướng", "Phục Binh") && isHaiSaoDongCungTaiCung("Điền Trạch", "Tả Phù", "Hữu Bật")) {
+        keyArr.push("Địa Không, Địa Kiếp, Thiên Tướng, Phục Binh, Tả Phù, Hữu Bật đồng cung tại Điền Trạch");
+    }
+    // Không Kiếp Tướng Binh Kình Đà
+    if(isHaiSaoDongCungTaiCung("Điền Trạch", "Địa Không", "Địa Kiếp") && isHaiSaoDongCungTaiCung("Điền Trạch", "Thiên Tướng", "Phục Binh") && isHaiSaoDongCungTaiCung("Điền Trạch", "Kình Dương", "Đà La")) {
+        keyArr.push("Địa Không, Địa Kiếp, Thiên Tướng, Phục Binh, Kình Dương, Đà La đồng cung tại Điền Trạch");
+    }
+    // Khốc Hư
+    if(isHaiSaoDongCungTaiCung("Điền Trạch", "Thiên Khốc", "Thiên Hư")) {
+        keyArr.push("Thiên Khốc, Thiên Hư đồng cung tại Điền Trạch");
+    }
+    // Khốc Hư Hỏa Linh Tấu Thư
+    if(isHaiSaoDongCungTaiCung("Điền Trạch", "Thiên Khốc", "Thiên Hư") && isHaiSaoDongCungTaiCung("Điền Trạch", "Hỏa Tinh", "Linh Tinh") && isSaoToaThuTaiCung("Điền Trạch", "Tấu Thư")){
+        keyArr.push("Thiên Khốc, Thiên Hư, Hỏa Tinh, Linh Tinh, Tấu Thư đồng cung tại Điền Trạch");
+    } 
+    // Hồng Riêu Cái
+    if(isSaoToaThuTaiCung("Điền Trạch", "Hồng Loan") && isHaiSaoDongCungTaiCung("Điền Trạch", "Hoa Cái", "Thiên Riêu")) {
+        keyArr.push("Hồng Loan, Hoa Cái, Thiên Riêu đồng cung tại Điền Trạch");
+    }
 
 
 }

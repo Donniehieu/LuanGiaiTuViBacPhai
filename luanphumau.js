@@ -1,3 +1,48 @@
+function kiemTraDiaSinh(banMenh, cungVi) {
+    // Gom Thủy và Thổ làm một nhóm theo bảng
+    let group = banMenh;
+    if (banMenh === "Thổ") group = "Thủy - Thổ";
+    if (banMenh === "Thủy") group = "Thủy - Thổ";
+
+    // Bảng tra cứu
+    const table = {
+        "Kim": {
+            "Sinh địa": ["Tỵ"],
+            "Vượng địa": ["Dậu"],
+            "Bại địa": ["Ngọ"],
+            "Tuyệt địa": ["Dần"]
+        },
+        "Mộc": {
+            "Sinh địa": ["Hợi"],
+            "Vượng địa": ["Mão"],
+            "Bại địa": ["Tý"],
+            "Tuyệt địa": ["Thân"]
+        },
+        "Hỏa": {
+            "Sinh địa": ["Dần"],
+            "Vượng địa": ["Ngọ"],
+            "Bại địa": ["Mão"],
+            "Tuyệt địa": ["Hợi"]
+        },
+        "Thủy - Thổ": {
+            "Sinh địa": ["Thân"],
+            "Vượng địa": ["Tý"],
+            "Bại địa": ["Dậu"],
+            "Tuyệt địa": ["Tỵ"]
+        }
+    };
+
+    // Tìm nhóm đúng
+    const mapping = table[group];
+
+    // Tìm trạng thái địa
+    for (let key in mapping) {
+        if (mapping[key].includes(cungVi)) {
+            return key;
+        }
+    }
+    return "Bình thường";
+}
 
 function LuanCungPhuMau(keyArr) {
     let lasoData = {};
