@@ -347,6 +347,27 @@ function LuanCachCucSaoTuViPhucDuc(keyArr) {
         console.log("Tử Vi tọa thủ cung Phúc Đức hội chiếu Thiên Phủ");
         keyArr.push("Tử Vi tọa thủ cung Phúc Đức hội chiếu Thiên Phủ");
     }
+
+    // Tử Vi đồng cung với Thiên Phủ tại Phúc Đức
+    if (isHaiSaoDongCungTaiCung("Phúc Đức", "Tử Vi", "Thiên Phủ")) {
+        console.log("Tử Vi đồng cung với Thiên Phủ tại Phúc Đức");
+        keyArr.push("Tử Vi đồng cung với Thiên Phủ tại Phúc Đức");
+    }
+    // Tử vi đồng cung với Thất Sát tại Phúc Đức
+    if (isHaiSaoDongCungTaiCung("Phúc Đức", "Tử Vi", "Thất Sát")) {
+        console.log("Tử Vi đồng cung với Thất Sát tại Phúc Đức");
+        keyArr.push("Tử Vi đồng cung với Thất Sát tại Phúc Đức");
+    }
+    // Tử vi đồng cung với Tham Lang tại Phúc Đức
+    if (isHaiSaoDongCungTaiCung("Phúc Đức", "Tử Vi", "Tham Lang")) {
+        console.log("Tử Vi đồng cung với Tham Lang tại Phúc Đức");
+        keyArr.push("Tử Vi đồng cung với Tham Lang tại Phúc Đức");
+    }
+    // Tử vi đồng cung với Phá Quân tại Phúc Đức
+    if (isHaiSaoDongCungTaiCung("Phúc Đức", "Tử Vi", "Phá Quân")) {
+        console.log("Tử Vi đồng cung với Phá Quân tại Phúc Đức");
+        keyArr.push("Tử Vi đồng cung với Phá Quân tại Phúc Đức");
+    }
 }
 
 function LuanCachCucSaoLiemTrinhPhucDuc(keyArr) {
@@ -493,6 +514,32 @@ function LuanCachCucSaoLiemTrinhPhucDuc(keyArr) {
         }
     }
 
+    // Liêm Trinh đồng cung với Thiên Phủ tại Phúc Đức
+    if (isHaiSaoDongCungTaiCung("Phúc Đức", "Liêm Trinh", "Thiên Phủ")) {
+        console.log("Liêm Trinh đồng cung với Thiên Phủ tại Phúc Đức");
+        keyArr.push("Liêm Trinh đồng cung với Thiên Phủ tại Phúc Đức");
+    }
+    // Liêm Trinh đồng cung với Thiên Tướng tại Phúc Đức
+    if (isHaiSaoDongCungTaiCung("Phúc Đức", "Liêm Trinh", "Thiên Tướng")) {
+        console.log("Liêm Trinh đồng cung với Thiên Tướng tại Phúc Đức");
+        keyArr.push("Liêm Trinh đồng cung với Thiên Tướng tại Phúc Đức");
+    }
+    // Liêm Trinh đồng cung với Thất Sát tại Phúc Đức
+    if (isHaiSaoDongCungTaiCung("Phúc Đức", "Liêm Trinh", "Thất Sát")) {
+        console.log("Liêm Trinh đồng cung với Thất Sát tại Phúc Đức");
+        keyArr.push("Liêm Trinh đồng cung với Thất Sát tại Phúc Đức");
+    }
+    // Liêm Trinh đồng cung với Tham Lang tại Phúc Đức
+    if (isHaiSaoDongCungTaiCung("Phúc Đức", "Liêm Trinh", "Tham Lang")) {
+        console.log("Liêm Trinh đồng cung với Tham Lang tại Phúc Đức");
+        keyArr.push("Liêm Trinh đồng cung với Tham Lang tại Phúc Đức");
+    }
+    // Liêm Trinh đồng cung với Phá Quân tại Phúc Đức
+    if (isHaiSaoDongCungTaiCung("Phúc Đức", "Liêm Trinh", "Phá Quân")) {
+        console.log("Liêm Trinh đồng cung với Phá Quân tại Phúc Đức");
+        keyArr.push("Liêm Trinh đồng cung với Phá Quân tại Phúc Đức");
+    }
+
 }
 
 function LuanCachCucSaoThienDongPhucDuc(keyArr) {
@@ -503,6 +550,7 @@ function LuanCachCucSaoThienDongPhucDuc(keyArr) {
     const dinhcanh = ["Đinh", "Canh"];
     const tuatngo = ["Tuất", "Ngọ"];
     const DanThan = ["Dần", "Thân"];
+    const tyngo = ["Tý", "Ngọ"];
     let lasoData = {};
     try {
         lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
@@ -610,6 +658,21 @@ function LuanCachCucSaoThienDongPhucDuc(keyArr) {
             }
         }
     }
+    // Thiên Đồng đồng cung với Thiên Lương
+    if (isHaiSaoDongCungTaiCung("Phúc Đức", "Thiên Đồng", "Thiên Lương")) {
+        console.log("Thiên Đồng đồng cung với Thiên Lương tại Phúc Đức");
+        keyArr.push("Thiên Đồng đồng cung với Thiên Lương tại Phúc Đức");
+    }
+    // Thiên Đồng đồng cung với Thái Âm ở Tý, Ngọ
+    for (let i = 0; i < tyngo.length; i++) {
+        if (isHaiSaoDongCungTaiCungChi("Phúc Đức", tyngo[i], "Thiên Đồng", "Thái Âm")) {
+            console.log("Thiên Đồng đồng cung với Thái Âm tại Phúc Đức ở " + tyngo[i]);
+            keyArr.push("Thiên Đồng đồng cung với Thái Âm tại Phúc Đức ở " + tyngo[i]);
+
+        }
+    }
+
+
 }
 
 function LuanCachCucSaoVuKhucPhucDuc(keyArr) {
@@ -780,6 +843,28 @@ function LuanCachCucSaoVuKhucPhucDuc(keyArr) {
             console.log(`Vũ Khúc tọa thủ cung Phúc Đức ở ${danthan[i]} gặp các sao cát tinh:`, KhoaLocQuyen.join(", "));
             keyArr.push(`Vũ Khúc tọa thủ cung Phúc Đức ở ${danthan[i]} gặp các sao cát tinh:`, KhoaLocQuyen.join(", "));
         }
+    }
+
+    // Vũ Khúc đồng cung với Thiên Phủ tại Phúc Đức
+    if (isHaiSaoDongCungTaiCung("Phúc Đức", "Vũ Khúc", "Thiên Phủ")) {
+        console.log("Vũ Khúc đồng cung với Thiên Phủ tại Phúc Đức");
+        keyArr.push("Vũ Khúc đồng cung với Thiên Phủ tại Phúc Đức");
+
+    }
+    // Vũ Khúc đồng cung với Thiên Tướng tại Phúc Đức
+    if (isHaiSaoDongCungTaiCung("Phúc Đức", "Vũ Khúc", "Thiên Tướng")) {
+        console.log("Vũ Khúc đồng cung với Thiên Tướng tại Phúc Đức");
+        keyArr.push("Vũ Khúc đồng cung với Thiên Tướng tại Phúc Đức");
+    }
+    // Vũ Khúc đồng cung với Phá Quân tại Phúc Đức
+    if (isHaiSaoDongCungTaiCung("Phúc Đức", "Vũ Khúc", "Phá Quân")) {
+        console.log("Vũ Khúc đồng cung với Phá Quân tại Phúc Đức");
+        keyArr.push("Vũ Khúc đồng cung với Phá Quân tại Phúc Đức");
+    }
+    // Vũ Khúc đồng cung với Thất Sát tại Phúc Đức
+    if (isHaiSaoDongCungTaiCung("Phúc Đức", "Vũ Khúc", "Thất Sát")) {
+        console.log("Vũ Khúc đồng cung với Thất Sát tại Phúc Đức");
+        keyArr.push("Vũ Khúc đồng cung với Thất Sát tại Phúc Đức");
     }
 }
 
@@ -975,6 +1060,7 @@ function LuanCachCucThienCoPhucDuc(keyArr) {
     const thintuat = ["Thìn", "Tuất"];
     const kinhdahoalinhtuong = ["Kình Dương", "Đà La", "Hỏa Tinh", "Linh Tinh", "Thiên Tướng"];
     const nguyetdongluong = ["Thái Âm", "Thiên Đồng", "Thiên Lương"];
+    const thandan = ["Thân", "Dần"];
 
     // Thiên Cơ Miếu Vượng Địa
     for (let i = 0; i < mvd.length; i++) {
@@ -1068,6 +1154,26 @@ function LuanCachCucThienCoPhucDuc(keyArr) {
         console.log("Thiên Cơ tọa thủ cung Phúc Đức gặp Thiên Đồng, Thiên Lương, Thái Âm");
         keyArr.push("Thiên Cơ tọa thủ cung Phúc Đức gặp Thiên Đồng, Thiên Lương, Thái Âm");
     }
+
+    // Thiên Cơ đồng cung với Cự Môn tại Phúc Đức
+    if (isHaiSaoDongCungTaiCung("Phúc Đức", "Thiên Cơ", "Cự Môn")) {
+        console.log("Thiên Cơ đồng cung với Cự Môn tại Phúc Đức");
+        keyArr.push("Thiên Cơ đồng cung với Cự Môn tại Phúc Đức");
+    }
+    // Thiên Cơ đồng cung với Thiên Lương tại Phúc Đức
+    if (isHaiSaoDongCungTaiCung("Phúc Đức", "Thiên Cơ", "Thiên Lương")) {
+        console.log("Thiên Cơ đồng cung với Thiên Lương tại Phúc Đức");
+        keyArr.push("Thiên Cơ đồng cung với Thiên Lương tại Phúc Đức");
+    }
+    // Thiên Cơ đồng cung với Thái Âm tại Phúc Đức ở Thân Dần
+    for (let i = 0; i < thandan.length; i++) {
+        if (isHaiSaoDongCungTaiCungChi("Phúc Đức", thandan[i], "Thiên Cơ", "Thái Âm")) {
+            console.log("Thiên Cơ đồng cung với Thái Âm tại Phúc Đức ở " + thandan[i]);
+            keyArr.push("Thiên Cơ đồng cung với Thái Âm tại Phúc Đức ở " + thandan[i]);
+        }
+    }
+
+
 }
 function LuanCacCachCucThienPhuPhucDuc(keyArr) {
 
@@ -1276,6 +1382,18 @@ function LuanCachCucThaiAmPhucDuc(keyArr) {
             keyArr.push("Thái Âm tọa thủ cung Phúc Đức đồng cung Vũ Khúc, Lộc Tồn gặp các sao: ", TaHuu.join(", "));
         }
     }
+
+    // Thái Âm đồng cung với Thái Dương tại Phúc Đức
+    if (isHaiSaoDongCungTaiCung("Phúc Đức", "Thái Âm", "Thái Dương")) {
+        console.log("Thái Âm đồng cung với Thái Dương tại Phúc Đức");
+        keyArr.push("Thái Âm đồng cung với Thái Dương tại Phúc Đức");
+        if (isHaiSaoDongCungTaiCung("Phúc Đức", "Thái Âm", "Hóa Kỵ")) {
+            console.log("Thái Âm, Thái Dương, Hóa Kỵ đồng cung tại Phúc Đức");
+            keyArr.push("Thái Âm, Thái Dương, Hóa Kỵ đồng cung tại Phúc Đức");
+
+        }
+    }
+
 }
 function LuanCachCucThamLangPhucDuc(keyArr) {
 
@@ -1632,6 +1750,14 @@ function LuanCachCucCuMonPhucDuc(keyArr) {
             }
         }
     }
+
+    // Thiên Đồng đồng cung Cư Môn tại Phúc Đức
+    if (isHaiSaoDongCungTaiCung("Phúc Đức", "Thiên Đồng", "Cự Môn")) {
+        console.log("Cự Môn đồng cung Thiên Đồng tại Phúc Đức");
+        keyArr.push("Cự Môn đồng cung Thiên Đồng tại Phúc Đức");
+    }
+
+
 
 }
 function LuanCachCucThienTuongPhucDuc(keyArr) {
@@ -3057,17 +3183,17 @@ function LuanCachCucLucBaiTinhPhucDuc(keyArr) {
         }
 
     }
-    
-  
+
+
     if (isSaoToaThuTaiCung("Phúc Đức", "Bạch Hổ") && kiemTraCachCuc("Bạch Hổ", ["Thiên Hình"])) {
 
         console.log("Bạch Hổ toạ thủ cung Phúc Đức gặp Thiên Hình");
         keyArr.push("Bạch Hổ toạ thủ cung Phúc Đức gặp Thiên Hình");
-        
+
 
     }
-    if(isHaiSaoDongCungTaiCung("Phúc Đức", "Bạch Hổ", "Thiên Hình")) {
-        console.log("Bạch Hổ, Thiên Hình đồng cung tại Phúc Đức");      
+    if (isHaiSaoDongCungTaiCung("Phúc Đức", "Bạch Hổ", "Thiên Hình")) {
+        console.log("Bạch Hổ, Thiên Hình đồng cung tại Phúc Đức");
         keyArr.push("Bạch Hổ, Thiên Hình đồng cung tại Phúc Đức");
 
     }
@@ -3239,6 +3365,60 @@ function LuanCacCachCucKhacPhucDuc(keyArr) {
     }
     if (lasoData.cungCu === "Phúc Đức") {
         keyArr.push("Thân Cư Phúc Đức");
+    }
+
+    // Vũ Xương, Khúc Khôi Việt tại Phúc Đức
+
+    if (isSaoToaThuTaiCung("Phúc Đức", "Văn Xương") && kiemTraCachCuc("Văn Xương", ["Thiên Khôi", "Thiên Việt", "Vũ Khúc", "Văn Khúc"])) {
+        keyArr.push("Văn Xương toạ thủ cung Phúc Đức gặp Thiên Khôi, Thiên Việt, Vũ Khúc, Văn Khúc");
+    }
+    if (isSaoToaThuTaiCung("Phúc Đức", "Văn Khúc") && kiemTraCachCuc("Văn Khúc", ["Thiên Khôi", "Thiên Việt", "Vũ Khúc", "Văn Xương"])) {
+        keyArr.push("Văn Xương toạ thủ cung Phúc Đức gặp Thiên Khôi, Thiên Việt, Vũ Khúc, Văn Xương");
+    }
+    if (isSaoToaThuTaiCung("Phúc Đức", "Thiên Khôi") && kiemTraCachCuc("Thiên Khôi", ["Văn Xương", "Thiên Việt", "Vũ Khúc", "Văn Khúc"])) {
+        keyArr.push("Thiên Khôi toạ thủ cung Phúc Đức gặp Văn Xương, Thiên Việt, Vũ Khúc, Văn Khúc");
+    }
+    if (isSaoToaThuTaiCung("Phúc Đức", "Thiên Việt") && kiemTraCachCuc("Thiên Việt", ["Thiên Khôi", "Văn Khúc", "Vũ Khúc", "Văn Xương"])) {
+        keyArr.push("Văn Xương toạ thủ cung Phúc Đức gặp Thiên Khôi, Thiên Việt, Vũ Khúc, Văn Xương");
+    }
+    // Thiên Phủ Tam Thai Địa Không đồng cung Phúc Đức
+    if (isHaiSaoDongCungTaiCung("Phúc Đức", "Thiên Phủ", "Tam Thai") && isHaiSaoDongCungTaiCung("Phúc Đức", "Địa Không", "Thiên Phủ")) {
+        keyArr.push("Thiên Phủ, Tam Thai, Địa Không đồng cung tại Phúc Đức");
+    }
+    // Đào Hồng Phục Binh Thiên Tướng
+    if (isHaiSaoDongCungTaiCung("Phúc Đức", "Đào Hoa", "Hồng Loan") && isHaiSaoDongCungTaiCung("Phúc Đức", "Phục Binh", "Thiên Tướng")) {
+        keyArr.push("Đào Hoa , Hồng Loan, Phục Binh, Thiên Tướng đồng cung tại Phúc Đức");
+
+    }
+    // Cô Thần Quả Tú, Ân Quang  Thiên Quý đồng cung Phúc Đức
+    if (isHaiSaoDongCungTaiCung("Phúc Đức", "Cô Thần", "Ân Quang")) {
+        keyArr.push("Cô Thần, Ân Quang đồng cung tại Phúc Đức");
+    }
+    if (isHaiSaoDongCungTaiCung("Phúc Đức", "Quả Tú", "Thiên Quý")) {
+        keyArr.push("Quả Tú, Thiên Quý đồng cung tại Phúc Đức");
+    }
+    if (isHaiSaoDongCungTaiCung("Phúc Đức", "Cô Thần", "Thiên Quý")) {
+        keyArr.push("Cô Thần, Thiên Quý đồng cung tại Phúc Đức");
+    }
+    if (isHaiSaoDongCungTaiCung("Phúc Đức", "Quả Tú", "Ân Quang")) {
+        keyArr.push("Quả Tú, Ân Quang đồng cung tại Phúc Đức");
+    }
+
+    // Tham Vũ Hỏa Tinh đồng cung Phúc Đức
+    if (isHaiSaoDongCungTaiCung("Phúc Đức", "Tham Lang", "Vũ Khúc") && isHaiSaoDongCungTaiCung("Phúc Đức", "Tham Lang", "Hỏa Tinh")) {
+        keyArr.push("Tham Lang, Vũ Khúc, Hỏa Tinh đồng cung tại Phúc Đức");
+    }
+    // Kình Đà Kỵ đồng cung Phúc Đức
+    if (isHaiSaoDongCungTaiCung("Phúc Đức", "Kình Dương", "Đà La") && isHaiSaoDongCungTaiCung("Phúc Đức", "Kình Dương", "Hóa Kỵ")) {
+        keyArr.push("Kình Dương, Đà La, Hóa Kỵ đồng cung tại Phúc Đức");
+    }
+    // Kiếp Sát, Kình Dương đồng cung tại Phúc Đức
+    if(isHaiSaoDongCungTaiCung("Phúc Đức", "Kiếp Sát", "Kình Dương")) {
+        keyArr.push("Kiếp Sát, Kình Dương đồng cung tại Phúc Đức");
+    }
+    // Kình Đà Không Kiếp đồng cung Phúc Đức
+    if (isHaiSaoDongCungTaiCung("Phúc Đức", "Kình Dương", "Đà La") && isHaiSaoDongCungTaiCung("Phúc Đức", "Địa Không", "Địa Kiếp")) {
+        keyArr.push("Kình Dương, Đà La, Địa Không, Địa Kiếp đồng cung tại Phúc Đức");
     }
 
 
