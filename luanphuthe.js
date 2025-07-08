@@ -3057,17 +3057,17 @@ function LuanCachCucLucBaiTinhPhuThe(keyArr) {
         }
 
     }
-    
-  
+
+
     if (isSaoToaThuTaiCung("Phu Thê", "Bạch Hổ") && kiemTraCachCuc("Bạch Hổ", ["Thiên Hình"])) {
 
         console.log("Bạch Hổ toạ thủ cung Phu Thê gặp Thiên Hình");
         keyArr.push("Bạch Hổ toạ thủ cung Phu Thê gặp Thiên Hình");
-        
+
 
     }
-    if(isHaiSaoDongCungTaiCung("Phu Thê", "Bạch Hổ", "Thiên Hình")) {
-        console.log("Bạch Hổ, Thiên Hình đồng cung tại Phu Thê");      
+    if (isHaiSaoDongCungTaiCung("Phu Thê", "Bạch Hổ", "Thiên Hình")) {
+        console.log("Bạch Hổ, Thiên Hình đồng cung tại Phu Thê");
         keyArr.push("Bạch Hổ, Thiên Hình đồng cung tại Phu Thê");
 
     }
@@ -3240,6 +3240,63 @@ function LuanCacCachCucKhacPhuThe(keyArr) {
     if (lasoData.cungCu === "Phúc Đức") {
         keyArr.push("Thân Cư Phúc Đức");
     }
+
+    if (isHaiSaoDongCungTaiCungChi("Phu Thê", "Đào Hoa", "Hồng Loan") && isHaiSaoDongCungTaiCung("Phu Thê", "Tả Phù", "Hữu Bật")) {
+        keyArr.push("Đào Hoa, Hồng Loan, Tả Phù, Hữu Bật đồng cung tại Phu Thê");
+    }
+
+    if (isHaiSaoDongCungTaiCungChi("Phu Thê", "Đào Hoa", "Thiên Riêu")) {
+        keyArr.push("Đào Hoa, Thiên Riêu đồng cung tại Phu Thê");
+    }
+    if (isHaiSaoDongCungTaiCungChi("Phu Thê", "Hồng Loan", "Đào Hoa") && isSaoToaThuTaiCung("Phu Thê", "Hóa Kỵ")) {
+        keyArr.push("Hồng Loan, Đào Hoa, Hóa Kỵ đồng cung tại Phu Thê");
+    }
+    if (isHaiSaoDongCungTaiCungChi("Phu Thê", "Hồng Loan", "Đào Hoa") && isSaoToaThuTaiCung("Phu Thê", "Hoa Cái")) {
+        keyArr.push("Hồng Loan, Đào Hoa, Hoa Cái đồng cung tại Phu Thê");
+    }
+    if (isHaiSaoDongCungTaiCung("Phu Thê", "Hóa Lộc", "Thiên Mã") && isSaoToaThuTaiCung("Phu Thê", "Long Trì")) {
+        keyArr.push("Hóa Lộc, Thiên Mã, Long Trì đồng cung tại Phu Thê");
+    }
+
+    if (isHaiSaoDongCungTaiCung("Phu Thê", "Hóa Lộc", "Phượng Các") && isSaoToaThuTaiCung("Phu Thê", "Long Trì")) {
+        keyArr.push("Hóa Lộc, Phượng Các, Long Trì đồng cung tại Phu Thê");
+    }
+    if (isHaiSaoDongCungTaiCung("Phu Thê", "Hóa Lộc", "Hồng Loan")) {
+        keyArr.push("Hóa Lộc, Hồng Loan đồng cung tại Phu Thê");
+    }
+    if (isHaiSaoDongCungTaiCung("Phu Thê", "Hóa Kỵ", "Phục Binh")) {
+        keyArr.push("Hóa Kỵ, Phục Binh đồng cung tại Phu Thê");
+    }
+    if (isHaiSaoDongCungTaiCung("Phu Thê", "Hóa Kỵ", "Thiên Riêu")) {
+        keyArr.push("Hóa Kỵ, Thiên Riêu đồng cung tại Phu Thê");
+    }
+    if (isHaiSaoDongCungTaiCung("Phu Thê", "Hồng Loan", "Đào Hoa") && isHaiSaoDongCungTaiCung("Phu Thê", "Hóa Kỵ", "Đà La")) {
+        keyArr.push("Hồng Loan, Đào Hoa, Hóa Kỵ, Đà La đồng cung tại Phu Thê");
+    }
+    if (isHaiSaoDongCungTaiCung("Phu Thê", "Hóa Kỵ", "Địa Kiếp") && isSaoToaThuTaiCung("Phu Thê", "Kiếp Sát")) {
+        keyArr.push("Hóa Kỵ, Địa Kiếp, Kiếp Sát đồng cung tại Phu Thê");
+    }
+    if (isHaiSaoDongCungTaiCung("Phu Thê", "Thất Sát", "Thiên Riêu") && isHaiSaoDongCungTaiCung("Phu Thê", "Hỏa Tinh", "Linh Tinh") && isSaoToaThuTaiCung("Phu Thê", "Đà La")) {
+        keyArr.push("Thất Sát, Thiên Riêu, Hỏa Tinh, Linh Tinh, Đà La đồng cung tại Phu Thê");
+    }
+    if( isHaiSaoDongCungTaiCung("Phu Thê", "Tham Lang","Đà La")){
+        keyArr.push("Tham Lang, Đà La đồng cung tại Phu Thê");
+    }
+    if( isHaiSaoDongCungTaiCung("Phu Thê", "Thiên Tướng","Đào Hoa")&& isSaoToaThuTaiCung("Phu Thê", "Hồng Loan")){
+        keyArr.push("Thiên Tướng, Đào Hoa, Hồng Loan đồng cung tại Phu Thê");
+    }
+    if(isHaiSaoDongCungTaiCung("Phu Thê", "Cự Môn", "Hỏa Tinh")&& isSaoToaThuTaiCung("Phu Thê", "Linh Tinh")){
+        
+        keyArr.push("Cự Môn, Hỏa Tinh, Linh Tinh đồng cung tại Phu Thê");
+    }
+    if(isHaiSaoDongCungTaiCung("Phu Thê", "Tiểu Hao", "Đại Hao")){
+        keyArr.push("Tiểu Hao, Đại Hao đồng cung tại Phu Thê");
+    }
+    if(isHaiSaoDongCungTaiCung("Phu Thê", "Ân Quang","Thiên Quý" )){
+        keyArr.push("Ân Quang, Thiên Quý đồng cung tại Phu Thê");
+    }
+   
+
 
 
 
