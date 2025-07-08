@@ -15,20 +15,20 @@ const tulinh = [Ho, Cai, Long, Phuong];
 const Khoa ="Hóa Khoa";
 const Loc = "Hóa Lộc";
 const Quyen = "Hóa Quyền";
-const KhoaLocQuyen = [Khoa, Loc, Quyen];
+const KhoaLocQuyen = ["Hóa Khoa", "Hóa Lộc", "Hóa Quyền"];
 const Phu = "Thiên Phủ";
 const Vu ="Vũ Khúc";
 const Tuong ="Thiên Tướng";
-const PhuVuTuong = [Phu, Vu, Tuong];
+const PhuVuTuong = ["Thiên Phủ", "Vũ Khúc", "Thiên Tướng"];
 const Xuong ="Văn Xương";
 const Khuc ="Văn Khúc";
-const XuongKhuc = [Xuong, Khuc];
+const XuongKhuc = ["Văn Xương", "Văn Khúc"];
 const Khoi = "Thiên Khôi";
 const Viet = "Thiên Việt";
 const KhoiViet = ["Thiên Khôi", "Thiên Việt"];
 const Ta ="Tả Phù";
 const Huu = "Hữu Bật";
-const TaHuu = [Ta, Huu];
+const TaHuu = ["Tả Phù", "Hữu Bật"];
 const Tham ="Tham Lang";
 const Tu = "Tử Vi";
 const Hinh ="Thiên Hình";
@@ -218,8 +218,16 @@ function kiemTraCachCuc(tenSaoGoc, boSaoCanKiemTra) {
 
     const normalize = s => (s ? String(s) : '').replace(/\s+/g, '').toLowerCase();
 
+    // Ép boSaoCanKiemTra thành array phẳng
+    let boSaoArr = [];
+    if (Array.isArray(boSaoCanKiemTra)) {
+        boSaoArr = boSaoCanKiemTra.flat(Infinity).filter(Boolean);
+    } else if (boSaoCanKiemTra) {
+        boSaoArr = [boSaoCanKiemTra];
+    }
+
     // Kiểm tra đủ bộ sao không (bộ hợp phải chứa tất cả phần tử boSaoCanKiemTra)
-    const hopDuBo = boSaoCanKiemTra.every(
+    const hopDuBo = boSaoArr.every(
         s => saoHoiHop.some(hop => normalize(hop) === normalize(s))
     );
 
