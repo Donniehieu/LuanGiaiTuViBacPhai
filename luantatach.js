@@ -3241,6 +3241,124 @@ function LuanCacCachCucKhacTatAch(keyArr) {
         keyArr.push("Thân Cư Phúc Đức");
     }
 
+    if(isHaiSaoDongCungTaiCung("Tật Ách", "Hóa Quyền", "Lộc Tồn")){
+        keyArr.push("Hóa Quyền, Lộc Tồn đồng cung tại Tật Ách");
+    }
+
+    if(isHaiSaoDongCungTaiCung("Tật Ách", "Hóa Lộc","Lộc Tồn","Bác Sỹ")){
+        keyArr.push("Hóa Lộc, Lộc Tồn, Bác Sỹ đồng cung tại Tật Ách");
+    }
+
+    if(isHaiSaoDongCungTaiCungChi("Tật Ách", "Dần","Liêm Trinh", "Hóa Kỵ")){
+        keyArr.push("Liêm Trinh, Hóa Kỵ đồng cung tại Tật Ách ở Dần");
+    }
+    if(isHaiSaoDongCungTaiCungChi("Tật Ách", "Thân","Liêm Trinh", "Hóa Kỵ")){
+        keyArr.push("Liêm Trinh, Hóa Kỵ đồng cung tại Tật Ách ở Thân");
+    }
+
+    if(isHaiSaoDongCungTaiCung("Tật Ách", "Hóa Kỵ", "Thiên Đồng")){
+        keyArr.push("Hóa Kỵ, Thiên Đồng đồng cung tại Tật Ách");
+    }
+    if(isHaiSaoDongCungTaiCung("Tật Ách", "Vũ Khúc","Tham Lang")&& isHaiSaoDongCungTaiCung("Tật Ách", "Văn Xương", "Văn Khúc")){
+       keyArr.push("Vũ Khúc, Tham Lang, Văn Xương, Văn Khúc đồng cung tại Tật Ách");
+    }
+    if(isHaiSaoDongCungTaiCung("Tật Ách", "Vũ Khúc", "Thiên Riêu")){
+        keyArr.push("Vũ Khúc, Thiên Riêu đồng cung tại Tật Ách");
+    }
+    if(isHaiSaoDongCungTaiCung("Tật Ách", "Vũ Khúc","Thiên Riêu")&& isHaiSaoDongCungTaiCung("Tật Ách", "Phá Toái", "Thien Việt")){
+        keyArr.push("Vũ Khúc, Thiên Riêu, Phá Toái, Thiên Việt đồng cung tại Tật Ách");
+    }
+    if(isHaiSaoDongCungTaiCung("Tật Ách", "Thái Dương", "Thiên Riêu") && isHaiSaoDongCungTaiCung("Tật Ách", "Đà La", "Hóa Kỵ")){
+        keyArr.push("Thái Dương, Thiên Riêu, Đà La, Hóa Kỵ đồng cung tại Tật Ách");
+    }
+    if(isHaiSaoDongCungTaiCung("Tật Ách", "Thái Dương", "Thiên Hình")){
+        keyArr.push("Thái Dương, Thiên Hình đồng cung tại Tật Ách");
+    }
+    if(isHaiSaoDongCungTaiCung("Tật Ách", "Thái Dương", "Long Trì")){
+        keyArr.push("Thái Dương, Long Trì đồng cung tại Tật Ách");
+    }
+    if(isHaiSaoDongCungTaiCung("Tật Ách", "Thiên Cơ", "Thiên Hình")&&isHaiSaoDongCungTaiCung("Tật Ách", "Địa Không,", "Địa Kiếp")){
+        keyArr.push("Thiên Cơ, Thiên Hình, Địa Không, Địa Kiếp đồng cung tại Tật Ách");
+    }
+
+    if(isHaiSaoDongCungTaiCung("Tật Ách", "Thiên Cơ", "Kình Dương")&& isHaiSaoDongCungTaiCung("Tật Ách", "Thiên Cơ", "Đà La")){
+        keyArr.push("Thiên Cơ, Kình Dương, Đà La đồng cung tại Tật Ách");
+    }
+    if(isHaiSaoDongCungTaiCung("Tật Ách", "Thiên Cơ","Thiên Khốc")&& isHaiSaoDongCungTaiCung("Tật Ách", "Thiên Cơ", "Thiên Hư")){
+        keyArr.push("Thiên Cơ, Thiên Khốc, Thiên Hư đồng cung tại Tật Ách");
+    }
+     if(isHaiSaoDongCungTaiCung("Tật Ách", "Thái Âm", "Thiên Riêu") && isHaiSaoDongCungTaiCung("Tật Ách", "Đà La", "Hóa Kỵ")){
+        keyArr.push("Thái Âm, Thiên Riêu, Đà La, Hóa Kỵ đồng cung tại Tật Ách");
+    }
+    if(isHaiSaoDongCungTaiCung("Tật Ách", "Thái Âm", "Thiên Hình")){
+        keyArr.push("Thái Âm Thiên Hình đồng cung tại Tật Ách");
+    }
+    if(isHaiSaoDongCungTaiCung("Tật Ách", "Tham Lang", "Thiên Riêu")){
+        keyArr.push("Tham Lang, Thiên Riêu đồng cung tại Tật Ách");
+    }
+    if(isHaiSaoDongCungTaiCung("Tật Ách", "Tham Lang", "Hóa Kỵ")){
+        keyArr.push("Tham Lang, Hóa Kỵ đồng cung tại Tật Ách");
+    }
+    if(isHaiSaoDongCungTaiCung("Tật Ách", "Cự Môn", "Kình Dương")&& isHaiSaoDongCungTaiCung("Tật Ách", "Cự Môn", "Hỏa Tinh")){
+        keyArr.push("Cự Môn, Kình Dương, Hỏa Tinh đồng cung tại Tật Ách");
+    }
+    if(isHaiSaoDongCungTaiCung("Tật Ách", "Cự Môn", "Hóa Kỵ")){
+        keyArr.push("Cự Môn, Hóa Kỵ đồng cung tại Tật Ách");
+    }
+    if(isHaiSaoDongCungTaiCung("Tật Ách", "Thiên Tướng", "Thiên Hình")){
+        keyArr.push("Thiên Tướng, Thiên Hình đồng cung tại Tật Ách");
+    }
+    if(isHaiSaoDongCungTaiCung("Tật Ách", "Thất Sát", "Đại Hao")&& isHaiSaoDongCungTaiCung("Tật Ách", "Tiểu Hao", "Hóa Kỵ")){
+        keyArr.push("Thất Sát, Đại Hao, Tiểu Hao, Hóa Kỵ đồng cung tại Tật Ách");
+    }
+    if(isHaiSaoDongCungTaiCung("Tật Ách", "Thất Sát","Thiên Hình" )&& isHaiSaoDongCungTaiCung("Tật Ách", "Đà La", "Phá Quân")){
+        keyArr.push("Thất Sát, Thiên Hình, Đà La, Phá Quân đồng cung tại Tật Ách");
+    }
+    if( isHaiSaoDongCungTaiCung("Tật Ách", "Phá Quân", "Thiên Hình")&& isHaiSaoDongCungTaiCung("Tật Ách", "Phục Binh","Địa Không")){
+        keyArr.push("Phá Quân, Thiên Hình, Phục Binh, Địa Không đồng cung tại Tật Ách");
+    }
+    if(isHaiSaoDongCungTaiCung("Tật Ách", "Phá Quân", "Thiên Hình") && isHaiSaoDongCungTaiCung("Tật Ách", "Hóa Kỵ", "Kình Dương")){
+        keyArr.push("Phá Quân, Thiên Hình, Hóa Kỵ, Kình Dương đồng cung tại Tật Ách");
+    }
+
+    if(isHaiSaoDongCungTaiCung("Tật Ách", "Kình Dương", "Hỏa Tinh")&& isHaiSaoDongCungTaiCung("Tật Ách", "Linh Tinh", "Địa Không")&& isHaiSaoDongCungTaiCung("Tật Ách", "Kình Dương","Địa Kiếp")){
+        keyArr.push("Kình Dương, Hỏa Tinh, Linh Tinh, Địa Không, Địa Kiếp đồng cung tại Tật Ách");
+    }
+    if( isHaiSaoDongCungTaiCung("Tật Ách", "Kình Dương", "Thiên Hình")&& isHaiSaoDongCungTaiCung("Tật Ách", "Địa Không", "Địa Kiếp")){
+
+        keyArr.push("Kình Dương, Thiên Hình, Địa Không, Địa Kiếp đồng cung tại Tật Ách");
+    }
+    if( isHaiSaoDongCungTaiCung("Tật Ách", "Kình Dương", "Thiên Hình")){
+        keyArr.push("Kình Dương, Thiên Hình đồng cung tại Tật Ách");
+    }
+    if(isHaiSaoDongCungTaiCungChi("Tật Ách", "Thìn","Kình Dương", "Hỏa Tinh") && isHaiSaoDongCungTaiCung("Tật Ách", "Linh Tinh","Lưu Hà")){
+        keyArr.push("Kình Dương, Hỏa Tinh, Linh Tinh, Lưu Hà đồng cung tại Tật Ách ở Thìn");
+    }
+    if(isHaiSaoDongCungTaiCungChi("Tật Ách", "Tang Môn", "Điếu Khách")&& isSaoToaThuTaiCung("Tật Ách", "Hóa Kỵ")){
+        keyArr.push("Tang Môn, Điếu Khách, Hóa Kỵ đồng cung tại Tật Ách");
+    }
+    if( isHaiSaoDongCungTaiCung("Tật Ách", "Thiên Mã", "Thiên Hình")){
+        keyArr.push("Thiên Mã, Thiên Hình đồng cung tại Tật Ách");
+    }
+    if( isHaiSaoDongCungTaiCung("Tật Ách", "Thái Tuế", "Thiên Hình")&& isHaiSaoDongCungTaiCung("Tật Ách", "Thiên Mã", "Kiếp Sát")){
+        keyArr.push("Thái Tuế, Thiên Hình, Thiên Mã, Kiếp Sát đồng cung tại Tật Ách");
+    }
+    if( isHaiSaoDongCungTaiCung("Tật Ách", "Tang Môn","Điếu Khách")){
+        keyArr.push("Tang Môn, Điếu Khách đồng cung tại Tật Ách");
+    }
+    if(isHaiSaoDongCungTaiCung("Tật Ách", "Thiên Khốc","Thiên Hư")&& isHaiSaoDongCungTaiCung("Tật Ách", "Tang Môn","Bạch Hổ")){
+        keyArr.push("Thiên Khốc, Thiên Hư, Tang Môn, Bạch Hổ đồng cung tại Tật Ách");
+    }
+    if( isHaiSaoDongCungTaiCung("Tật Ách", "Thiên Riêu", "Thiên Hình") && isHaiSaoDongCungTaiCung("Tật Ách", "Địa Không","Địa Kiếp")){
+        keyArr.push("Thiên Riêu, Thiên Hình, Địa Không, Địa Kiếp đồng cung tại Tật Ách");
+    }
+     if( isHaiSaoDongCungTaiCung("Tật Ách", "Đào Hoa", "Hồng Loan") && isHaiSaoDongCungTaiCung("Tật Ách", "Địa Không","Địa Kiếp")){
+        keyArr.push("Đào Hoa, Hồng Loan, Địa Không, Địa Kiếp đồng cung tại Tật Ách");
+    }
+     if( isHaiSaoDongCungTaiCung("Tật Ách", "Đào Hoa", "Hồng Loan") && isHaiSaoDongCungTaiCung("Tật Ách", "Kình Dương","Hóa Kỵ")){
+        keyArr.push("Đào Hoa, Hồng Loan, Kình Dương, Hóa Kỵ đồng cung tại Tật Ách");
+    }
+    
 
 
 }
