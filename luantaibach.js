@@ -3241,6 +3241,57 @@ function LuanCacCachCucKhacTaiBach(keyArr) {
         keyArr.push("Thân Cư Phúc Đức");
     }
 
+    if( isHaiSaoDongCungTaiCungChi("Tài Bạch", "Kình Dương", "Đà La") ){
+        keyArr.push("Kình Dương, Đà La đồng cung tại Tài Bạch");
+    }
+    
+    if(isHaiSaoDongCungTaiCungChi("Tài Bạch", "Địa Không", "Địa Kiếp")){
+        keyArr.push("Địa Không, Địa Kiếp đồng cung tại Tài Bạch");
+    }
+    if( isHaiSaoDongCungTaiCungChi("Tài Bạch", "Văn Xương", "Văn Khúc") ){
+        keyArr.push("Văn Xương, Văn Khúc đồng cung tại Tài Bạch");
+    }
+    if( isHaiSaoDongCungTaiCungChi("Tài Bạch", "Ân Quang", "Thiên Quý") ){
+        keyArr.push("Ân Quang, Thiên Quý đồng cung tại Tài Bạch");
+    }
+    if( isHaiSaoDongCungTaiCungChi("Tài Bạch", "Thiên Khôi", "Thiên Việt") ){
+        keyArr.push("Khôi Việt đồng cung tại Tài Bạch");
+    }
+    if( isHaiSaoDongCungTaiCungChi("Tài Bạch", "Lộc Tồn", "Hóa Lộc") ){
+        keyArr.push("Song Lộc đồng cung tại Tài Bạch");
+    }
+    if(isHaiSaoDongCungTaiCung("Tài Bạch","Địa Không","Địa Kiếp")&& isHaiSaoDongCungTaiCung("Tài Bạch","Tả Phù","Hữu Bật")){
+        keyArr.push("Tả Phù, Hữu Bật, Địa Không, Địa Kiếp đồng cung tại Tài Bạch");
+    }
+    if(isHaiSaoDongCungTaiCung("Tài Bạch","Địa Không","Địa Kiếp")&& isHaiSaoDongCungTaiCung("Tài Bạch","Tả Phù","Hữu Bật") && isHaiSaoDongCungTaiCung("Tài Bạch","Thiên Tướng","Phục Binh")){
+        keyArr.push("Tả Phù, Hữu Bật, Thiên Tướng, Phục Binh, Địa Không, Địa Kiếp đồng cung tại Tài Bạch");
+    }
+    if(isHaiSaoDongCungTaiCung("Tài Bạch","Hóa Lộc", "Đại Hao")|| isHaiSaoDongCungTaiCung("Tài Bạch","Hóa Lộc", "Tiểu Hao")){
+        keyArr.push("Hóa Lộc, Hao đồng cung tại Tài Bạch");
+    }
+    if( isHaiSaoDongCungTaiCung("Tài Bạch","Hồng Loan","Hóa Lộc")){
+        keyArr.push("Hồng Loan, Hóa Lộc đồng cung tại Tài Bạch");
+    }
+    if( isHaiSaoDongCungTaiCung("Tài Bạch","Thiên Mã","Hóa Lộc")){
+        keyArr.push("Thiên Mã, Hóa Lộc đồng cung tại Tài Bạch");
+    }
+    if( isHaiSaoDongCungTaiCung("Tài Bạch","Thái Tuế","Hóa Lộc")){
+        keyArr.push("Thái Tuế, Hóa Lộc đồng cung tại Tài Bạch");
+    }
+    if(isHaiSaoDongCungTaiCung("Tài Bạch","Thiên Hình", "Tang Môn") && isHaiSaoDongCungTaiCung("Tài Bạch","Thiên Hình", "Đào Hoa")){
+        keyArr.push("Thiên Hình, Tang Môn, Đào Hoa đồng cung tại Tài Bạch");
+    }
+    if(isHaiSaoDongCungTaiCung("Tài Bạch","Thiên Không", "Địa Kiếp")){
+        keyArr.push("Thiên Không, Địa Kiếp đồng cung tại Tài Bạch");
+    }
+    if(isHaiSaoDongCungTaiCung("Tài Bạch","Thiên Hình", "Lưu Hà")&& isSaoToaThuTaiCung("Tài Bạch", "Kiếp Sát")){
+
+        keyArr.push("Thiên Hình, Lưu Hà, Kiếp Sát đồng cung tại Tài Bạch");
+    }
+    if(isHaiSaoDongCungTaiCung("Tài Bạch","Đại Hao", "Đào Hoa")&& isHaiSaoDongCungTaiCung("Tài Bạch","Tiểu Hao", "Hồng Loan")){
+        
+        keyArr.push("Đại Hao, Tiểu Hao, Đào Hoa, Hồng Loan đồng cung tại Tài Bạch");
+    }
 
 
 }
