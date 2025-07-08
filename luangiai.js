@@ -379,8 +379,20 @@ const DS_CACH_CUC = [
     { key: "Song Hao Quyền Lộc Kiếp Hoả", need: ["Đại Hao", "Tiểu Hao", "Hóa Quyền", "Hóa Lộc", "Địa Kiếp", "Hỏa Tinh"] },
     { key: "Tử Phủ Vũ Tướng Xương Khúc Khôi Việt Tả Hữu Khoa Quyền Lộc Long", need: ["Tử Vi", "Thiên Phủ", "Vũ Khúc", "Thiên Tướng", "Văn Xương", "Văn Khúc", "Thiên Khôi", "Thiên Việt", "Tả Phù", "Hữu Bật", "Hóa Khoa", "Hóa Quyền", "Hóa Lộc", "Long Trì", "Phượng Các"] },
     { key: "Tử Phủ Vũ Tướng Tả Hữu Khoa Quyền Lộc Long Phượng", need: ["Tử Vi", "Thiên Phủ", "Vũ Khúc", "Thiên Tướng", "Tả Phù", "Hữu Bật", "Hóa Khoa", "Hóa Quyền", "Hóa Lộc", "Long Trì", "Phượng Các"] },
-    { key: "Tử Khúc Phá Dương Đà", need: ["Tử Vi", "Vũ Khúc", "Phá Quân", "Kình Dương", "Đà La"] }
-
+    { key: "Tử Khúc Phá Dương Đà", need: ["Tử Vi", "Vũ Khúc", "Phá Quân", "Kình Dương", "Đà La"] },
+    { key: "Cơ Nguyệt Đồng Lương gặp Xương Khúc Tả Hữu", need: ["Thiên Cơ", "Thiên Lương", "Thiên Đồng", "Thái Âm", "Văn Xương", "Văn Khúc", "Tả Phù", "Hữu Bật"] },
+    { key: "Cơ Nguyệt Đồng Lương Khoa Tả Hữu Quang Quý Quan Phúc", need: ["Thiên Cơ", "Thiên Lương", "Thiên Đồng", "Thái Âm", "Hóa Khoa", "Tả Phù", "Hữu Bật", "Ân Quang", "Thiên Quý", "Quan Phúc"] },
+    { key: "Sát Quyền", need: ["Thất Sát", "Hóa Quyền"] },
+    { key: "Lộc Mã", need: ["Hóa Lộc", "Mã"] },
+    { key: "Kiếp Hư Hao Quyền", need: ["Địa Kiếp", "Thiên Hư", "Đại Hao", "Hóa Quyền"] },
+    { key: "Tuế Hổ Phù Xương Khúc", need: ["Thái Tuế", "Bạch Hổ", "Quan Phù", "Văn Xương", "Văn Khúc"] },
+    { key: "Xương Khúc Tấu Long Phượng", need: ["Văn Xương", "Văn Khúc", "Tấu Thư", "Long Trì", "Phượng Các"] },
+    { key: "Đào Hồng Riêu Tấu Cơ Vũ", need: ["Đào Hoa", "Hồng Loan", "Thiên Riêu", "Tấu Thư", "Thiên Cơ", "Vũ Khúc"] },
+    { key: "Binh Hình Tướng Ấn", need: ["Phục Binh", "Thiên Hình", "Thiên Tướng", "Quốc Ấn"] },
+    { key: "Hổ Tấu", need: ["Bạch Hổ", "Tấu Thư"] },
+    { key: "Hình Riêu Y", need: ["Thiên Hình", "Thiên Riêu", "Thiên Y"] },
+    { key: "Mã Hỏa Linh", need: ["Thiên Mã", "Hỏa Tinh", "Linh Tinh"] },
+    { key: "Thai Tọa Hồng Đào", need: ["Tam Thai", "Bát Toạ", "Hồng Loan", "Đào Hoa"] },
 ];
 
 // Helper tứ chiếu
@@ -519,10 +531,10 @@ function LuanGiaiCacCungVaHienThi() {
         } else if (chinhTinh.length === 1) {
 
             keyArr.push(chinhTinh[0] + " tọa thủ tại " + item.chi);
-             console.log(chinhTinh[0] + " tọa thủ tại " + item.chi);
+            console.log(chinhTinh[0] + " tọa thủ tại " + item.chi);
         } else if (chinhTinh.length === 2) {
             keyArr.push(chinhTinh[0] + " và " + chinhTinh[1] + " đồng cung tại " + item.chi);
-             console.log(chinhTinh[0] + " và " + chinhTinh[1] + " đồng cung tại " + item.chi);
+            console.log(chinhTinh[0] + " và " + chinhTinh[1] + " đồng cung tại " + item.chi);
         }
         else chinhTinh.forEach(ct => {
             if (ct)
@@ -591,7 +603,7 @@ function LuanGiaiCacCungVaHienThi() {
             keyArr.push("Quan Lộc có Tham Lang Tử Vi đồng cung");
         }
 
-        
+
         cachCuc.forEach(cc => { keyArr.push(cc + " hội chiếu tại " + item.tenCung), +"Các Cách " + cc + " hội chiếu tại " + item.tenCung }); // Các cách cục
 
         //Lọc trùng

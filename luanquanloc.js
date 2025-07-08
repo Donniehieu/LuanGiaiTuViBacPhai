@@ -165,6 +165,12 @@ function LuanCachCucSaoTuViQuanLoc(keyArr) {
 
         }
     }
+    // Tử vi đồng cung với Tham Lang
+
+    if (isHaiSaoDongCungTaiCung("Quan Lộc", "Tử Vi", "Tham Lang")) {
+        console.log("Tử Vi đồng cung với Tham Lang tại Quan Lộc");
+        keyArr.push("Tử Vi đồng cung với Tham Lang tại Quan Lộc");
+    }
 
     // Tử vi thủ Quan Lộc đồng cung với Tham Lang ở mão dậu
 
@@ -238,6 +244,12 @@ function LuanCachCucSaoTuViQuanLoc(keyArr) {
         }
 
     }
+    // Tử vi đồng cung với Thiên Phủ tại Quan Lộc
+    if (isHaiSaoDongCungTaiCung("Quan Lộc", "Tử Vi", "Thiên Phủ")) {
+        console.log("Tử Vi đồng cung với Thiên Phủ tại Quan Lộc");
+        keyArr.push("Tử Vi đồng cung với Thiên Phủ tại Quan Lộc");
+    }
+
     // Tử vi tọa Quan Lộc đồng cung với Thiên Phủ gặp Tả HỮu
     if (isHaiSaoDongCungTaiCung("Quan Lộc", "Tử Vi", "Thiên Phủ") && kiemTraCachCuc("Tử Vi", TaHuu)) {
 
@@ -255,6 +267,11 @@ function LuanCachCucSaoTuViQuanLoc(keyArr) {
         }
     }
 
+    // Tử vi đồng cung với Thiên Tướng tại Quan Lộc
+    if (isHaiSaoDongCungTaiCung("Quan Lộc", "Tử Vi", "Thiên Tướng")) {
+        console.log("Tử Vi đồng cung với Thiên Tướng tại Quan Lộc");
+        keyArr.push("Tử Vi đồng cung với Thiên Tướng tại Quan Lộc");
+    }
 
     // Tử vi tại Quan Lộc đồng cung với Thiên Tướng, phá toại tại cung thân hợp chiếu với các sao Kình
     if (isHaiSaoDongCungTaiCung("Quan Lộc", "Tử Vi", "Thiên Tướng") && isSaoToaThuTaiCung(lasoData.cungCu, "Phá Toái") && kiemTraCachCuc("Phá Toái", Kinh)) {
@@ -268,13 +285,24 @@ function LuanCachCucSaoTuViQuanLoc(keyArr) {
             keyArr.push(`Tử Vi đồng cung với Thất Sát tại Quan Lộc ở ${tyhoi[i]}`);
         }
     }
+    // Tử vi đồng cung với Thât Sát
+    if (isHaiSaoDongCungTaiCung("Quan Lộc", "Tử Vi", "Thất Sát")) {
+        console.log("Tử Vi đồng cung với Thất Sát tại Quan Lộc");
+        keyArr.push("Tử Vi đồng cung với Thất Sát tại Quan Lộc");
+    }
+
+
     // Tử vi Thất Sát Hóa Quyền đồng cung tại Quan Lộc
 
     if (isHaiSaoDongCungTaiCung("Quan Lộc", "Tử Vi", "Thất Sát") && isHaiSaoDongCungTaiCung("Quan Lộc", "Tử Vi", "Hóa Quyền")) {
         console.log("Tử Vi, Thất Sát, Hóa Quyền đồng cung tại Quan Lộc");
         keyArr.push("Tử Vi, Thất Sát, Hóa Quyền đồng cung tại Quan Lộc");
     }
-
+    // Tử vi đồng cung với Phá Quân tại Quan Lộc
+    if (isHaiSaoDongCungTaiCung("Quan Lộc", "Tử Vi", "Phá Quân")) {
+        console.log("Tử Vi đồng cung với Phá Quân tại Quan Lộc");
+        keyArr.push("Tử Vi đồng cung với Phá Quân tại Quan Lộc");
+    }
     // Tử Vũ hoặc Tử Phá đồng cung tại Quan Lộc gặp Kình Đà
     for (let i = 0; i < vupha.length; i++) {
         if (isHaiSaoDongCungTaiCung("Quan Lộc", "Tử Vi", vupha[i]) && kiemTraCachCuc("Tử Vi", ["Kình Dương", "Đà La"])) {
@@ -492,6 +520,18 @@ function LuanCachCucSaoLiemTrinhQuanLoc(keyArr) {
             keyArr.push("Liêm Trinh tọa thủ cung Quan Lộc gặp tứ sát Kình Đà Hỏa Linh và Bạch Hổ");
         }
     }
+
+    // Liêm Trinh đồng cung với Thiên Phủ tại Quan Lộc
+    if (isHaiSaoDongCungTaiCung("Quan Lộc", "Liêm Trinh", "Thiên Phủ")) {
+        console.log("Liêm Trinh đồng cung với Thiên Phủ tại Quan Lộc");
+        keyArr.push("Liêm Trinh đồng cung với Thiên Phủ tại Quan Lộc");
+    }
+    // Liêm Trinh đồng cung với Thiên Tướng tại Quan Lộc
+    if (isHaiSaoDongCungTaiCung("Quan Lộc", "Liêm Trinh", "Thiên Tướng")) {
+        console.log("Liêm Trinh đồng cung với Thiên Tướng tại Quan Lộc");
+        keyArr.push("Liêm Trinh đồng cung với Thiên Tướng tại Quan Lộc");
+    }
+
 
 }
 
@@ -953,8 +993,25 @@ function LuanCachCucThaiDuongQuanLoc(keyArr) {
         console.log("Thái Dương tọa thủ cung Quan Lộc ở Sửu đồng cung Thái Âm gặp Khoa Lộc Quyền");
         keyArr.push("Thái Dương tọa thủ cung Quan Lộc ở Sửu đồng cung Thái Âm gặp Khoa Lộc Quyền");
     }
-}
 
+    // Tham Xương tại Tỵ Hợi
+    for (let i = 0; i < hoity.length; i++) {
+        if (isHaiSaoDongCungTaiCungChi("Quan Lộc", hoity[i], "Văn Xương", "Tham Lang")) {
+            console.log("Tham Lang Văn Xương đồng cung tại " + hoity[i]);
+            keyArr.push("Tham Lang Văn Xương đồng cung tại " + hoity[i]);
+        }
+    }
+    // Cự Đồng Hình 
+
+    if(isHaiSaoDongCungTaiCung("Quan Lộc", "Cự Môn", "Thiên Đồng")&& isHaiSaoDongCungTaiCung("Quan Lộc", "Cự Môn", "Thiên Hình")) {
+        console.log("Thiên Đồng, Cự Môn, Thiên Hình đồng cung tại Quan Lộc");
+        keyArr.push("Thiên Đồng, Cự Môn, Thiên Hình đồng cung tại Quan Lộc");
+    }
+
+    
+
+        
+}
 function LuanCachCucThienCoQuanLoc(keyArr) {
     let lasoData = {};
     try {
@@ -3057,17 +3114,17 @@ function LuanCachCucLucBaiTinhQuanLoc(keyArr) {
         }
 
     }
-    
-  
+
+
     if (isSaoToaThuTaiCung("Quan Lộc", "Bạch Hổ") && kiemTraCachCuc("Bạch Hổ", ["Thiên Hình"])) {
 
         console.log("Bạch Hổ toạ thủ cung Quan Lộc gặp Thiên Hình");
         keyArr.push("Bạch Hổ toạ thủ cung Quan Lộc gặp Thiên Hình");
-        
+
 
     }
-    if(isHaiSaoDongCungTaiCung("Quan Lộc", "Bạch Hổ", "Thiên Hình")) {
-        console.log("Bạch Hổ, Thiên Hình đồng cung tại Quan Lộc");      
+    if (isHaiSaoDongCungTaiCung("Quan Lộc", "Bạch Hổ", "Thiên Hình")) {
+        console.log("Bạch Hổ, Thiên Hình đồng cung tại Quan Lộc");
         keyArr.push("Bạch Hổ, Thiên Hình đồng cung tại Quan Lộc");
 
     }
