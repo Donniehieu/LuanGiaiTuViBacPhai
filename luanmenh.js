@@ -1448,7 +1448,7 @@ function LuanCachCucCuMon(keyArr) {
                 keyArr.push(`Cự Môn tọa thủ cung Mệnh ở ${mvd[i]} gặp các sao cát tinh: `, XuongKhuc.concat(TaHuu).concat(KhoaTueHinh).concat(KhoiViet).join(", "));
             }
 
-            if (kiemtraCachCuc("Cự Môn", TueHoPhu)) {
+            if (kiemtraCachCuc("Cự Môn", ["Thái Tuế", "Bạch Hổ", "Quan Phù"])) {
                 console.log(`Cự Môn tọa thủ cung Mệnh ở ${mvd[i]} gặp Tuế Hổ Phù`);
                 keyArr.push(`Cự Môn tọa thủ cung Mệnh ở ${mvd[i]} gặp Tuế Hổ Phù`);
             }
@@ -1484,7 +1484,7 @@ function LuanCachCucCuMon(keyArr) {
                 console.log(`Cự Môn tọa thủ cung Mệnh ở ${ham[i]} gặp các sao cát tinh: `, KhoaTueHinh.concat(TaHuu).concat(HoaLinh).join(", "));
                 keyArr.push(`Cự Môn tọa thủ cung Mệnh ở ${ham[i]} gặp các sao cát tinh: `, KhoaTueHinh.concat(TaHuu).concat(HoaLinh).join(", "));
             }
-            if (kiemtraCachCuc("Cự Môn", TueHoPhu)) {
+            if (kiemtraCachCuc("Cự Môn", ["Thái Tuế", "Bạch Hổ", "Quan Phù"])) {
                 console.log(`Cự Môn tọa thủ cung Mệnh ở ${ham[i]} gặp Tuế Hổ Phù`);
                 keyArr.push(`Cự Môn tọa thủ cung Mệnh ở ${ham[i]} gặp Tuế Hổ Phù`);
             }
@@ -3058,8 +3058,7 @@ function LuanCachCucLucBaiTinh(keyArr) {
 
     }
     
-    console.log("/////////////////////////////////"+isSaoToaThuTaiCung("Mệnh", "Bạch Hổ"));
-    console.log("/////////////////////////////////"+kiemTraCachCuc("Bạch Hổ", ["Thiên Hình"]));
+  
     if (isSaoToaThuTaiCung("Mệnh", "Bạch Hổ") && kiemTraCachCuc("Bạch Hổ", ["Thiên Hình"])) {
 
         console.log("Bạch Hổ toạ thủ cung Mệnh gặp Thiên Hình");

@@ -157,7 +157,7 @@ function getTamPhuongTuChinhIdx(idxCungGoc) {
 function getHoiChieuCung(idxCungGoc) {
     // Trả về chỉ số các cung hội chiếu }
      return [
-        (idxCungGoc)%12, // Cung nhị hợp
+        // (idxCungGoc)%12, // Cung nhị hợp
         (idxCungGoc + 4) % 12, // Cung tam hợp
         (idxCungGoc + 6) % 12,  // Cung đối
         (idxCungGoc + 8) % 12, // Cung tam hợp
@@ -203,9 +203,9 @@ function kiemTraCachCuc(tenSaoGoc, boSaoCanKiemTra) {
     // Gộp các sao của cung gốc + 3 cung hội hợp thành 1 mảng phẳng
     let saoHoiHop = [];
     // 1. Các sao của cung gốc
-    if (cungGoc && Array.isArray(cungGoc.sao)) {
-        saoHoiHop.push(...cungGoc.sao.map(sao => sao.ten));
-    }
+    // if (cungGoc && Array.isArray(cungGoc.sao)) {
+    //     saoHoiHop.push(...cungGoc.sao.map(sao => sao.ten));
+    // }
     // 2. Các sao của các cung hội hợp (tránh trùng cung gốc)
     idxHop.forEach(idx => {
         if (idx !== idxCungGoc) {
