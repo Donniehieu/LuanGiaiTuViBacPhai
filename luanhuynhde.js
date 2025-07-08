@@ -1,8 +1,12 @@
+
+
+
 function kiemTraDiaSinh(banMenh, cungVi) {
     // Gom Thủy và Thổ làm một nhóm theo bảng
     let group = banMenh;
     if (banMenh === "Thổ") group = "Thủy - Thổ";
     if (banMenh === "Thủy") group = "Thủy - Thổ";
+
 
     // Bảng tra cứu
     const table = {
@@ -3240,6 +3244,35 @@ function LuanCacCachCucKhacHuynhDe(keyArr) {
     if (lasoData.cungCu === "Phúc Đức") {
         keyArr.push("Thân Cư Phúc Đức");
     }
+
+    if( isHaiSaoDongCungTaiCung("Huynh Đệ", "Thái Tuế","Văn Xương")&& isSaoToaThuTaiCung("Huynh Đệ", "Văn Khúc")) {
+        keyArr.push("Thái Tuế, Văn Xương, Văn Khúc đồng cung tại Huynh Đệ");
+    }
+    if(isHaiSaoDongCungTaiCung("Huynh Đệ", "Tuế Phá","Tang Môn")&& isSaoToaThuTaiCung("Huynh Đệ", "Trực Phù")){
+        keyArr.push("Tuế Phá, Tang Môn, Trực Phù đồng cung tại Huynh Đệ");
+    }
+    if( isHaiSaoDongCungTaiCung("Huynh Đệ", "Tang Môn","Thiên Mã")){
+        keyArr.push("Tang Môn, Thiên Mã đồng cung tại Huynh Đệ");
+    }
+    if(isHaiSaoDongCungTaiCung("Huynh Đệ", "Tuế Phá", "Thiên Hình") && isSaoToaThuTaiCung("Huynh Đệ", "Hóa Kỵ")){
+        keyArr.push("Tuế Phá, Thiên Hình, Hóa Kỵ đồng cung tại Huynh Đệ");
+    }
+    if(isHaiSaoDongCungTaiCung("Huynh Đệ", "Phá Quân", "Thiên Hình") && isSaoToaThuTaiCung("Huynh Đệ", "Hóa Kỵ")){
+        keyArr.push("Phá Quân, Thiên Hình, Hóa Kỵ đồng cung tại Huynh Đệ");
+    }
+    if(isHaiSaoDongCungTaiCung("Huynh Đệ", "Phá Toái", "Thiên Hình") && isSaoToaThuTaiCung("Huynh Đệ", "Hóa Kỵ")){
+        keyArr.push("Phá Toái, Thiên Hình, Hóa Kỵ đồng cung tại Huynh Đệ");
+    }
+    if(isHaiSaoDongCungTaiCung("Huynh Đệ", "Thái Dương", "Thái Âm")){
+        keyArr.push("Thái Dương, Thái Âm đồng cung tại Huynh Đệ");
+    }
+    if(isSaoToaThuTaiCung("Huynh Đệ", "Tử Vi")&& isHaiSaoDongCungTaiCung("Huynh Đệ", "Tả Phù", "Hữu Bật")) {
+        keyArr.push("Tử Vi, Tả Phù, Hữu Bật đồng cung tại Huynh Đệ");
+    }
+    if(isHaiSaoDongCungTaiCung("Huynh Đệ", "Tử Vi", "Tang Môn")&& isHaiSaoDongCungTaiCung("Huynh Đệ", "Tả Phù", "Hữu Bật")) {
+        keyArr.push("Tử Vi, Tang Môn, Tả Phù, Hữu Bật đồng cung tại Huynh Đệ");
+    }
+    
 
 
 
