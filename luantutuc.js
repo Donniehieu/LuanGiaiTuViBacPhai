@@ -3241,7 +3241,49 @@ function LuanCacCachCucKhacTuTuc(keyArr) {
         keyArr.push("Thân Cư Phúc Đức");
     }
 
+    if(isHaiSaoDongCungTaiCung("Tử Tức", "Quan Phù", "Phúc Đức")&& isHaiSaoDongCungTaiCung("Tử Tức","Ân Quang", "Tấu Thư")){
+        keyArr.push("Quan Phù, Phúc Đức đồng cung tại Tử Tức, Ân Quang, Tấu Thư đồng cung tại Tử Tức");
+    }
+    if(isHaiSaoDongCungTaiCung("Tử Tức", "Đào Hoa","Hồng Loan")&& isHaiSaoDongCungTaiCung("Tử Tức", "Văn Xương", "Văn Khúc")){
+        keyArr.push("Đào Hoa, Hồng Loan, Văn Xương, Văn Khúc đồng cung tại Tử Tức");
+    }
+    if(isHaiSaoDongCungTaiCung("Tử Tức", "Thiên Phủ", "Đào Hoa") && isSaoToaThuTaiCung("Tử Tức", "Tử Vi")){
+        keyArr.push("Thiên Phủ, Đào Hoa Tử Vi đồng cung tại Tử Tức");
+    }
+    if(isHaiSaoDongCungTaiCung("Tử Tức", "Thiên Tướng","Phục Binh")){
+        keyArr.push("Thiên Tướng, Phục Binh đồng cung tại Tử Tức");
+    }
+    if(isHaiSaoDongCungTaiCung("Tử Tức", "Bạch Hổ", "Thất Sát") && isSaoToaThuTaiCung("Tử Tức", "Kình Dương")){
+        keyArr.push("Bạch Hổ, Thất Sát, Kình Dương đồng cung tại Tử Tức");
+    }
+    if(isHaiSaoDongCungTaiCung("Tử Tức", "Bạch Hổ", "Tang Môn","Địa Kiếp")){
+        keyArr.push("Bạch Hổ, Tang Môn, Địa Kiếp đồng cung tại Tử Tức");
+    }
+    if(isHaiSaoDongCungTaiCung("Tử Tức", "Bạch Hổ", "Tang Môn")&& isHaiSaoDongCungTaiCung("Tử Tức", "Địa Kiếp", "Địa Không")){
+        keyArr.push("Bạch Hổ, Tang Môn đồng cung tại Tử Tức, Địa Kiếp, Địa Không đồng cung tại Tử Tức");
+    }
+    if(isHaiSaoDongCungTaiCung("Tử Tức", "Thiên Khốc", "Thiên Hư")){
+        keyArr.push("Thiên Khốc, Thiên Hư đồng cung tại Tử Tức");
+    }
+    if(isHaiSaoDongCungTaiCung("Tử Tức", "Tả Phù", "Hữu Bật")){
+        keyArr.push("Tả Phù, Hữu Bật đồng cung tại Tử Tức");
+    }
+    if(isHaiSaoDongCungTaiCung("Tử Tức", "Thiên Lương", "Thiên Khốc") && isSaoToaThuTaiCung("Tử Tức", "Thái Tuế")){
+        keyArr.push("Thiên Lương, Thiên Khốc, Thái Tuế đồng cung tại Tử Tức");
+    }
+    if(isHaiSaoDongCungTaiCung("Tử Tức", "Kình Dương", "Đà La") && isHaiSaoDongCungTaiCung("Tử Tức", "Địa Không", "Địa Kiếp")){
+        keyArr.push("Kình Dương, Đà La, Địa Không, Địa Kiếp đồng cung tại Tử Tức");
+    }
+    if( isHaiSaoDongCungTaiCung("Tử Tức", "Thất Sát", "Thiên Hình") && isSaoToaThuTaiCung("Tử Tức", "Bach Hổ")){
+        keyArr.push("Thất Sát, Thiên Hình, Bạch Hổ đồng cung tại Tử Tức");
+    }
+    if(isHaiSaoDongCungTaiCung("Tử Tức", "Hỏa Tinh", "Thái Âm")) {
+        keyArr.push("Hỏa Tinh, Thái Âm đồng cung tại Tử Tức");
 
+    }
+    if(isHaiSaoDongCungTaiCungChi("Tử Tức", "Tý", "Thái Tuế","Thái Âm") && isSaoToaThuTaiCung("Tử Tức", "Thiên Đồng")){
+        keyArr.push("Thái Tuế, Thái Âm, Thiên Đồng toạ thủ cung Tử Tức tại Tý");
+    }
 
 }
 function MenhVoChinhDieu() {
