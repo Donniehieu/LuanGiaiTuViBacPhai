@@ -661,7 +661,7 @@ function LuanGiaiCacCungVaHienThi() {
         }
 
 
-        cachCuc.forEach(cc => { keyArr.push(cc + " hội chiếu tại " + item.tenCung), +"Các Cách " + cc + " hội chiếu tại " + item.tenCung }); // Các cách cục
+        cachCuc.forEach(cc => { keyArr.push(cc + " hội chiếu tại " + item.tenCung) }); // Các cách cục
 
         //Lọc trùng
         const keyArrUniq = Array.from(new Set(keyArr.filter(Boolean)));
