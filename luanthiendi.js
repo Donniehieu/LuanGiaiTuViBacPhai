@@ -2116,12 +2116,7 @@ function LuanCachCucXuongKhucThienDi(keyArr) {
 
     const tyhoi = ["Tỵ", "Hợi"];
     const danmao = ["Dần", "Mão"];
-    for (let i = 0; i < XuongKhuc.length; i++) {
-        if (isSaoToaThuTaiCung("Thiên Di", XuongKhuc[i])) {
-            console.log(`${XuongKhuc[i]} toạ thủ cung Thiên Di`);
-            keyArr.push(`${XuongKhuc[i]} toạ thủ cung Thiên Di`);
-        }
-    }
+    
     for (let i = 0; i < dac_dia.length; i++) {
         for (let j = 0; j < XuongKhuc.length; j++) {
             if (isSaoToaThuTaiCungVaChi("Thiên Di", dac_dia[i], XuongKhuc[j])) {
@@ -2203,8 +2198,7 @@ function LuanCachCucKhoiVietThienDi(keyArr) {
 
     for (let i = 0; i < KhoiViet.length; i++) {
         if (isSaoToaThuTaiCung("Thiên Di", KhoiViet[i])) {
-            console.log(`${KhoiViet[i]} toạ thủ cung Thiên Di`);
-            keyArr.push(`${KhoiViet[i]} toạ thủ cung Thiên Di`);
+            
             if (kiemTraCachCuc(KhoiViet[i], tuphuvutuongxuongkhuctahuukhoaquyenloc)) {
                 console.log(`${KhoiViet[i]} toạ thủ cung Thiên Di gặp`, tuphuvutuongxuongkhuctahuukhoaquyenloc.join(", "));
                 keyArr.push(`${KhoiViet[i]} toạ thủ cung Thiên Di gặp`, tuphuvutuongxuongkhuctahuukhoaquyenloc.join(", "));
@@ -2262,8 +2256,7 @@ function LuanCachCucLocTonThienDi(keyArr) {
     const khongkiephaokypha = ["Địa Không", "Địa Kiếp", "Đại Hao", "Tiểu Hao", "Hóa Kỵ", "Tuế Phá"];
 
     if (isSaoToaThuTaiCung("Thiên Di", "Lộc Tồn")) {
-        console.log("Lộc Tồn toạ thủ cung Thiên Di");
-        keyArr.push("Lộc Tồn toạ thủ cung Thiên Di");
+       
         if (kiemTraCachCuc("Lộc Tồn", tuphuxuongkhuckhoivietma)) {
             console.log("Lộc Tồn toạ thủ cung Thiên Di gặp", tuphuxuongkhuckhoivietma.join(", "));
             keyArr.push("Lộc Tồn toạ thủ cung Thiên Di gặp", tuphuxuongkhuckhoivietma.join(", "));
@@ -2330,8 +2323,7 @@ function LuanCachCucTaHuuThienDi(keyArr) {
 
     for (let i = 0; i < TaHuu.length; i++) {
         if (isSaoToaThuTaiCung("Thiên Di", TaHuu[i])) {
-            console.log(`${TaHuu[i]} toạ thủ cung Thiên Di`);
-            keyArr.push(`${TaHuu[i]} toạ thủ cung Thiên Di`);
+            
             if (kiemTraCachCuc(TaHuu[i], tuphuxuongkhuckhoivietkhoaquyenloc)) {
                 console.log(`${TaHuu[i]} toạ thủ cung Thiên Di gặp`, tuphuxuongkhuckhoivietkhoaquyenloc.join(", "));
                 keyArr.push(`${TaHuu[i]} toạ thủ cung Thiên Di gặp`, tuphuxuongkhuckhoivietkhoaquyenloc.join(", "));
@@ -2408,8 +2400,7 @@ function LuanCachCucKinhDuongDaLaThienDi(keyArr) {
     const tumo = ["Thìn", "Tuất", "Sửu", "Mùi"];
 
     if (isSaoToaThuTaiCung("Thiên Di", "Kình Dương")) {
-        console.log("Kình Dương toạ thủ cung Thiên Di");
-        keyArr.push("Kình Dương toạ thủ cung Thiên Di");
+        
         if (kiemTraCachCuc("Kình Dương", ["Hóa Kỵ", "Liêm Trinh", "Cự Môn"])) {
             console.log("Kình Dương toạ thủ cung Thiên Di gặp Hóa Kỵ, Liêm Trinh, Cự Môn");
             keyArr.push("Kình Dương toạ thủ cung Thiên Di gặp Hóa Kỵ, Liêm Trinh, Cự Môn");
@@ -2485,8 +2476,7 @@ function LuanCachCucKinhDuongDaLaThienDi(keyArr) {
     }
 
     if (isSaoToaThuTaiCung("Thiên Di", "Đà La")) {
-        console.log("Đà La toạ thủ cung Thiên Di");
-        keyArr.push("Đà La toạ thủ cung Thiên Di");
+       
         if (kiemTraCachCuc("Đà La", ["Hỏa Tinh", "Linh Tinh", "Kình Dương", "Địa Không", "Địa Kiếp"])) {
             console.log("Đà La toạ thủ cung Thiên Di gặp Hỏa Tinh, Linh Tinh, Kình Dương, Địa Không, Địa Kiếp");
             keyArr.push("Đà La toạ thủ cung Thiên Di gặp Hỏa Tinh, Linh Tinh, Kình Dương, Địa Không, Địa Kiếp");
@@ -2523,8 +2513,7 @@ function LuanCachCucHoaLinhThienDi(keyArr) {
 
     for (let i = 0; i < HoaLinh.length; i++) {
         if (isSaoToaThuTaiCung("Thiên Di", HoaLinh[i])) {
-            console.log(`${HoaLinh[i]} toạ thủ cung Thiên Di`);
-            keyArr.push(`${HoaLinh[i]} toạ thủ cung Thiên Di`);
+           
             if (kiemTraCachCuc(HoaLinh[i], ["Hóa Kỵ", "Liêm Trinh", "Cự Môn"])) {
                 console.log(`${HoaLinh[i]} toạ thủ cung Thiên Di gặp Hóa Kỵ, Liêm Trinh, Cự Môn`);
                 keyArr.push(`${HoaLinh[i]} toạ thủ cung Thiên Di gặp Hóa Kỵ, Liêm Trinh, Cự Môn`);
@@ -2608,13 +2597,7 @@ function LuanCachCucKhongKiepThienDi(keyArr) {
     const tusinh = ["Dần", "Thân", "Tỵ", "Hợi"];
     const cunhatphukhockhach = ["Cự Môn", "Thái Dương", "Thiên Phủ", "Thiên Khốc", "Thiên Hư"];
 
-    for (let i = 0; i < khongkiep.length; i++) {
-        if (isSaoToaThuTaiCung("Thiên Di", khongkiep[i])) {
-            console.log(`${khongkiep[i]} toạ thủ cung Thiên Di`);
-            keyArr.push(`${khongkiep[i]} toạ thủ cung Thiên Di`);
-
-        }
-    }
+   
     for (let i = 0; i < dac_dia.length; i++) {
         for (let j = 0; j < khongkiep.length; j++) {
             if (isSaoToaThuTaiCungVaChi("Thiên Di", dac_dia[i], khongkiep[j])) {
@@ -2729,8 +2712,7 @@ function LuanCachCucTuHoaThienDi(keyArr) {
     const danthan = ["Dần", "Thân"];
 
     if (isSaoToaThuTaiCung("Thiên Di", "Hoá Lộc")) {
-        console.log("Hoá Lộc toạ thủ cung Thiên Di");
-        keyArr.push("Hoá Lộc toạ thủ cung Thiên Di");
+       
         if (kiemTraCachCuc("Hoá Lộc", ["Hóa Quyền", "Hóa Khoa", "Văn Xương", "Văn Khúc"])) {
             console.log("Hoá Lộc toạ thủ cung Thiên Di gặp Hóa Quyền, Hóa Khoa, Văn Xương, Văn Khúc");
             keyArr.push("Hoá Lộc toạ thủ cung Thiên Di gặp Hóa Quyền, Hóa Khoa, Văn Xương, Văn Khúc");
@@ -2754,8 +2736,7 @@ function LuanCachCucTuHoaThienDi(keyArr) {
     }
 
     if (isSaoToaThuTaiCung("Thiên Di", "Hoá Quyền")) {
-        console.log("Hoá Quyền toạ thủ cung Thiên Di");
-        keyArr.push("Hoá Quyền toạ thủ cung Thiên Di");
+       
         if (kiemTraCachCuc("Hoá Quyền", ["Hóa Lộc", "Hóa Khoa", "Văn Xương", "Văn Khúc"])) {
             console.log("Hoá Quyền toạ thủ cung Thiên Di gặp Hóa Lộc, Hóa Khoa, Văn Xương, Văn Khúc");
             keyArr.push("Hoá Quyền toạ thủ cung Thiên Di gặp Hóa Lộc, Hóa Khoa, Văn Xương, Văn Khúc");
@@ -2791,8 +2772,7 @@ function LuanCachCucTuHoaThienDi(keyArr) {
         }
     }
     if (isSaoToaThuTaiCung("Thiên Di", "Hoá Khoa")) {
-        console.log("Hoá Khoa toạ thủ cung Thiên Di");
-        keyArr.push("Hoá Khoa toạ thủ cung Thiên Di");
+       
         if (kiemTraCachCuc("Hoá Khoa", ["Hóa Lộc", "Hóa Quyền", "Văn Xương", "Văn Khúc"])) {
             console.log("Hoá Khoa toạ thủ cung Thiên Di gặp Hóa Lộc, Hóa Quyền, Văn Xương, Văn Khúc");
             keyArr.push("Hoá Khoa toạ thủ cung Thiên Di gặp Hóa Lộc, Hóa Quyền, Văn Xương, Văn Khúc");
@@ -2820,8 +2800,7 @@ function LuanCachCucTuHoaThienDi(keyArr) {
     }
 
     if (isSaoToaThuTaiCung("Thiên Di", "Hóa Kỵ")) {
-        console.log("Hóa Kỵ toạ thủ cung Thiên Di");
-        keyArr.push("Hóa Kỵ toạ thủ cung Thiên Di");
+        
         if (kiemTraCachCuc("Hóa Kỵ", ["Hỏa Tinh", "Linh Tinh", "Kình Dương", "Đà La"])) {
             console.log("Hóa Kỵ toạ thủ cung Thiên Di gặp Hỏa Tinh, Linh Tinh, Kình Dương, Đà La");
             keyArr.push("Hóa Kỵ toạ thủ cung Thiên Di gặp Hỏa Tinh, Linh Tinh, Kình Dương, Đà La");
@@ -2990,14 +2969,7 @@ function LuanCachCucLucBaiTinhThienDi(keyArr) {
     const songhao = ["Đại Hao", "Tiểu Hao"];
     const tangho = ["Tang Môn", "Bạch Hổ"];
 
-    for (let i = 0; i < songhao.length; i++) {
-        if (isSaoToaThuTaiCung("Thiên Di", songhao[i])) {
-
-            console.log(songhao[i] + " toạ thủ tại cung Thiên Di");
-            keyArr.push(songhao[i] + " toạ thủ tại cung Thiên Di");
-
-        }
-    }
+    
 
 
     for (let i = 0; i < songhao_dac.length; i++) {
@@ -3019,12 +2991,11 @@ function LuanCachCucLucBaiTinhThienDi(keyArr) {
 
     for (let i = 0; i < tangho.length; i++) {
         if (isSaoToaThuTaiCung("Thiên Di", tangho[i])) {
-            console.log("Cung Thiên Di có " + tangho[i]);
-            keyArr.push("Cung Thiên Di có " + tangho[i]);
+            
             for (let j = 0; j < tangho_dac.log; j++) {
                 if (isSaoToaThuTaiCungVaChi("Thiên Di", tangho_dac[j], tangho[i])) {
-                    console.log("Cung Thiên Di có " + tangho[i] + " toạ thủ cung Thiên Di tại " + tangho_dac[j]);
-                    keyArr.push("Cung Thiên Di có " + tangho[i] + " toạ thủ cung Thiên Di tại " + tangho_dac[j]);
+                    console.log(tangho[i] + " toạ thủ cung Thiên Di tại " + tangho_dac[j]);
+                    keyArr.push(tangho[i] + " toạ thủ cung Thiên Di tại " + tangho_dac[j]);
                 }
             }
             if (lasoData.gioitinh === "Nữ") {
@@ -3090,8 +3061,7 @@ function LuanCachCucLucBaiTinhThienDi(keyArr) {
 
     for (let i = 0; i < khochu.length; i++) {
         if (isSaoToaThuTaiCung("Thiên Di", khochu[i])) {
-            console.log(khochu[i] + " toạ thủ cung Thiên Di");
-            keyArr.push(khochu[i] + " toạ thủ cung Thiên Di");
+           
             for (let j = 0; j < khochu_dac.length; j++) {
                 if (isSaoToaThuTaiCungVaChi("Thiên Di", khochu_dac[j], khochu[i])) {
                     console.log((khochu[i] + " toạ thủ cung Thiên Di tại " + khochu_dac[j]));
