@@ -46,7 +46,7 @@ function getAllStarsInCells() {
         '.chinh-tinh'
         // ... bổ sung nếu bạn có thêm class cho các loại sao khác
     ];
-    lasoOb= [];
+    lasoOb = [];
     for (let i = 0; i < 12; ++i) {
         const cellNum = CUNG_CELLS[(i + IDCungMenh) % 12].cell;
         const cell = document.querySelector('.cell' + cellNum);
@@ -404,6 +404,11 @@ const DS_CACH_CUC = [
     { key: "Hổ Kình Sát", need: ["Bạch Hổ", "Kình Dương", "Thất Sát"] },
     { key: "Hổ Tang Kiếp", need: ["Bạch Hổ", "Tang Môn", "Địa Kiếp"] },
     { key: "Hổ Tang Không Kiếp", need: ["Bạch Hổ", "Tang Môn", "Địa Không", "Địa Kiếp"] },
+    { key: "Âm Dương Lương", need: ["Thái Âm", "Thái Dương", "Thiên Lương"] },
+    { key: "Cơ Lương Gia Hội", need: ["Thiên Cơ", "Thiên Lương", "Tả Phù", "Hữu Bật", "Thiên Khôi", "Thiên Việt"] },
+    { key: "Nhật Chiếu Lôi Môn ", need: ["Thái Dương", "Thiên Lương", "Lộc Tồn", "Hóa Khoa", "Hóa Quyền", "Hóa Lộc", "Tả Phù", "Hữu Bật", "Văn Xương"] },
+    { key: "Tả Hữu Xương Khúc", need: ["Tả Phù", "Hữu Bật", "Văn Xương", "Văn Khúc"] },
+    { key: "Tham Linh Triều Viên", need: ["Tham Lang", "Linh Tinh", "Hóa Khoa", "Hóa Quyền", "Hóa Lộc", "Thiên Việt", "Thiên Khôi","Tả Phù", "Hữu Bật","Lộc Tồn"] },
 
 ];
 
