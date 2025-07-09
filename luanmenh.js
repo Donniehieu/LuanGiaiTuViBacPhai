@@ -3194,19 +3194,19 @@ function LuanCacCachCucKhac(keyArr) {
 
     if (lasoData.gioitinh === 'Nữ' &&
         (chiCungMenh === 'Thìn' || chiCungMenh === 'Sửu' || chiCungMenh === 'Tuất' || chiCungMenh === 'Mùi')) {
-        keyArr.push("Cung Mệnh của chị được an tại ví trí Tứ Mộ");
+        keyArr.push("Cung Mệnh của quý chị được an tại ví trí Tứ Mộ");
     }
     if (lasoData.gioitinh === 'Nữ' &&
         (chiCungMenh === 'Dậu')) {
-        keyArr.push("Cung Mệnh của chị được an tại ví trí cung Dậu");
+        keyArr.push("Cung Mệnh của quý chị được an tại ví trí cung Dậu");
     }
     if (lasoData.gioitinh === 'Nữ' &&
         (chiCungMenh === 'Tý')) {
-        keyArr.push("Cung Mệnh của chị được an tại ví trí cung Tý");
+        keyArr.push("Cung Mệnh của quý chị được an tại ví trí cung Tý");
     }
     if (lasoData.gioitinh === 'Nữ' &&
         (chiCungMenh === 'Ngọ')) {
-        keyArr.push("Cung Mệnh của chị được an tại ví trí cung Ngọ");
+        keyArr.push("Cung Mệnh của quý chị được an tại ví trí cung Ngọ");
     }
 
     if (ThanMenhDongCungVoChinhDieu(keyArr) && chiCungMenh === "Thìn") {
@@ -3239,6 +3239,15 @@ function LuanCacCachCucKhac(keyArr) {
     }
     if (lasoData.cungCu === "Phúc Đức") {
         keyArr.push("Thân Cư Phúc Đức");
+    }
+    if (lasoData.cungCu === "Quan Lộc") {
+        keyArr.push("Thân Cư Quan Lộc");
+    }
+    if (lasoData.cungCu === "Thiên Di") {
+        keyArr.push("Thân Cư Thiên Di");
+    }
+    if (lasoData.cungCu === "Mệnh") {
+        keyArr.push("Thân Mệnh đồng cung");
     }
 
 
