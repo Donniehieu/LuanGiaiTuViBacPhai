@@ -488,6 +488,8 @@ function LuanGiaiCacCungVaHienThi() {
     const dsChinh = getDanhSachChinhTinhTungCung();
     const dsPhu = getDanhSachPhuTinhTungCung();
     let cungArr = getCungData();
+
+
     // hiển thị HTML
     document.getElementById('cung-content').innerHTML =
         cungArr.map((item, i) => {
@@ -530,9 +532,16 @@ function LuanGiaiCacCungVaHienThi() {
 
     // B3: Lặp qua từng cung và tra cứu sao
     // Add sao từng cung vào mảng key
-
+    let lasoData = {};
+    try {
+        lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
+    } catch (e) { lasoData = {}; }
     cungArr.forEach((item, i) => {
+
         const keyArr = [];
+        const vitriDiaSinhCungMenh = kiemTraDiaSinh(lasoData.hanhMenh, lasoData.lasoOb[0].chi);
+        keyArr.push(`Vị trí địa sinh cung Mệnh tại ${vitriDiaSinhCungMenh}`);
+        console.log(`Vị trí địa sinh cung Mệnh tại ${vitriDiaSinhCungMenh}`);
         //xét các chính tinh
         const chinhTinh = dsChinh[i].chinhTinh;
 
@@ -567,11 +576,6 @@ function LuanGiaiCacCungVaHienThi() {
                 console.log(pt + " tọa thủ tại " + item.tenCung);
             }
         });
-
-
-        //Xét các sao trong tứ chiếu
-        const cachCuc = findCachCuc(getStarsInTuChieu(i, dsChinh, dsPhu));
-        console.log("CÁCH CỤC " + cachCuc);
         // Kiểm tra nếu cung Mệnh và cung Thân có sao Địa Không và Địa Kiếp
         MenhKhongThanKiep(idCungMenh, idCungThan, dsChinh, dsPhu, keyArr);
         ThanMenhDongCungVoChinhDieu(keyArr); // Kiểm tra Thân mệnh đồng cung Vô Chính Diệu
@@ -588,6 +592,11 @@ function LuanGiaiCacCungVaHienThi() {
         LuanCungPhuThe(keyArr); // Luận cung Phu Thê
         LuanCungHuynhDe(keyArr); // Luận cung Huynh Đệ
         // Lọc các cách cục đặc biệt
+
+        //Xét các sao trong tứ chiếu
+        const cachCuc = findCachCuc(getStarsInTuChieu(i, dsChinh, dsPhu));
+        console.log("CÁCH CỤC " + cachCuc);
+
 
         // Kiểm tra các cách cục đặc biệt
 
