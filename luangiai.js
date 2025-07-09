@@ -46,6 +46,7 @@ function getAllStarsInCells() {
         '.chinh-tinh'
         // ... bổ sung nếu bạn có thêm class cho các loại sao khác
     ];
+    lasoOb= [];
     for (let i = 0; i < 12; ++i) {
         const cellNum = CUNG_CELLS[(i + IDCungMenh) % 12].cell;
         const cell = document.querySelector('.cell' + cellNum);

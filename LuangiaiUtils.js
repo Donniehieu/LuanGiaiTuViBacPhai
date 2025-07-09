@@ -123,7 +123,7 @@ function timCungCuaSao(tenSao) {
             Array.isArray(cung.sao) &&
             cung.sao.some(
                 sao => {
-                    console.log("Tìm sao:", sao.ten);
+                   
                     return sao.ten === tenSao;
                 }
             )
