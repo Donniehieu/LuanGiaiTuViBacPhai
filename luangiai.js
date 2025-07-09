@@ -559,6 +559,7 @@ function LuanGiaiCacCungVaHienThi() {
 
         // Xét các phụ tinh
         const phuTinh = dsPhu[i].phuTinh;
+        console.log("Phụ tinh của cung " + item.tenCung + ": " + phuTinh.join(", "));
         phuTinh.forEach(pt => {
             if (pt) {
                 keyArr.push(pt + " tọa thủ tại " + item.tenCung);

@@ -3186,7 +3186,7 @@ function LuanCacCachCucKhac(keyArr) {
     }
     if (lasoData.gioitinh === 'Nam' &&
         (lasoData.chiNam === 'Mùi') &&
-        (chiCungMenh === 'Tý')) {
+        (chiCungMenh === 'Sửu')) {
         keyArr.push("Anh sinh năm Mùi, Mệnh an tại Sửu");
     }
 
