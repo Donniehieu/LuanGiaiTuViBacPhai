@@ -593,7 +593,7 @@ function LuanGiaiCacCungVaHienThi() {
         }
         else chinhTinh.forEach(ct => {
             if (ct)
-
+               
                 if (chinhTinh.length == 2) {
                     keyArr.push(chinhTinh[0] + " và " + chinhTinh[1] + " đồng cung tại " + item.chi);
                     console.log(chinhTinh[0] + " và " + chinhTinh[1] + " đồng cung tại " + item.chi);
@@ -605,6 +605,7 @@ function LuanGiaiCacCungVaHienThi() {
         const phuTinh = dsPhu[i].phuTinh;
         console.log("Phụ tinh của cung " + item.tenCung + ": " + phuTinh.join(", "));
         phuTinh.forEach(pt => {
+             console.log(pt + " tọa thủ tại " + item.tenCung);
             if (pt) {
                 keyArr.push(pt + " tọa thủ tại " + item.tenCung);
 
