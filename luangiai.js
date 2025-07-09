@@ -400,7 +400,7 @@ const DS_CACH_CUC = [
     { key: "Đào Hồng Tả Cái Hữu", need: ["Đào Hoa", "Hồng Loan", "Tả Phù", "Hữu Bật", "Hoa Cái"] },
     { key: "Quan Phúc Quang Tấu", need: ["Quan Phù", "Phúc Đức", "Ân Quang", "Tấu Thư"] },
     { key: "Đào Hồng Xương Khúc", need: ["Đào Hoa", "Hồng Loan", "Văn Xương", "Văn Khúc"] },
-    { key: "Đào Tử Vi Phủ", need: ["Đào Hoa", "Tử Vi", "Thiên Phủ"] },
+    { key: "Đào Tử Phủ", need: ["Đào Hoa", "Tử Vi", "Thiên Phủ"] },
     { key: "Hổ Kình Sát", need: ["Bạch Hổ", "Kình Dương", "Thất Sát"] },
     { key: "Hổ Tang Kiếp", need: ["Bạch Hổ", "Tang Môn", "Địa Kiếp"] },
     { key: "Hổ Tang Không Kiếp", need: ["Bạch Hổ", "Tang Môn", "Địa Không", "Địa Kiếp"] },
