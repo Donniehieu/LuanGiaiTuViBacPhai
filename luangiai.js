@@ -439,6 +439,7 @@ const DS_CACH_CUC = [
     { key: "Tuế Xương Khúc", need: ["Thái Tuế", "Văn Xương", "Văn Khúc"] },
     { key: "Tử Vi Tả Hữu", need: ["Tử Vi", "Tả Phù", "Hữu Bật"] },
     { key: "Tử Vi Tang Tả Hữu", need: ["Tử Vi", "Tang Môn", "Tả Phù", "Hữu Bật"] },
+    {key :"Ân Quang Thiên Quý Thai Cáo", need: ["Ân Quang", "Thiên Quý", "Tam Thai","Phong Cáo"]},
 ];
 
 // Helper tứ chiếu
