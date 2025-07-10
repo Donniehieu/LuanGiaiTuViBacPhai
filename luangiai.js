@@ -528,12 +528,20 @@ function LuanGiaiCacCungVaHienThi() {
     // hiển thị HTML
     document.getElementById('cung-content').innerHTML =
         cungArr.map((item, i) => {
-            const chinhTinh = dsChinh[i].chinhTinh;
+            let chinhTinh = dsChinh[i].chinhTinh;
             const phuTinh = dsPhu[i].phuTinh;
             let contentHtml = '';
-            // Chính tinh
             if (chinhTinh.length === 0) {
-                contentHtml += `<div><i>Vô Chính Diệu</i></div>`;
+                // Lấy chính tinh đối cung
+                const idxDoi = (i + 6) % 12;
+                const chinhTinhDoi = dsChinh[idxDoi].chinhTinh;
+                if (chinhTinhDoi.length === 0) {
+                    contentHtml += `<div><i>Vô Chính Diệu (cả cung đối)</i></div>`;
+                } else if (chinhTinhDoi.length === 1) {
+                    contentHtml += `<div><i>Vô chính diệu nên lấy <b>${chinhTinhDoi[0]}</b> của cung đối (${cungArr[idxDoi].tenCung}) để xét</i></div>`;
+                } else if (chinhTinhDoi.length === 2) {
+                    contentHtml += `<div><i>Vô chính diệu nên lấy <b>${chinhTinhDoi[0]} và ${chinhTinhDoi[1]}</b> đồng cung của cung đối (${cungArr[idxDoi].tenCung}) để xét</i></div>`;
+                }
 
             } else if (chinhTinh.length === 1) {
                 contentHtml += `<div><b>${chinhTinh[0]}</b> tọa thủ tại ${item.tenCung}</div>`;
@@ -578,11 +586,23 @@ function LuanGiaiCacCungVaHienThi() {
         keyArr.push(`Vị trí địa sinh cung Mệnh tại ${vitriDiaSinhCungMenh}`);
         console.log(`Vị trí địa sinh cung Mệnh tại ${vitriDiaSinhCungMenh}`);
         //xét các chính tinh
-        const chinhTinh = dsChinh[i].chinhTinh;
+      
 
+        const idxDoi = (i + 6) % 12;
+        const chinhTinh = dsChinh[i].chinhTinh;
+        const chinhTinhDoi = dsChinh[idxDoi].chinhTinh;
+        const tenCungDoi = cungArr[idxDoi].tenCung;
 
         if (chinhTinh.length === 0) {
-            keyArr.push("Vô Chính Diệu");
+            // Vô chính diệu
+            if (chinhTinhDoi.length === 1) {
+                keyArr.push(`${chinhTinhDoi[0]} tọa thủ tại cung đối ${tenCungDoi}`);
+            } else if (chinhTinhDoi.length === 2) {
+                keyArr.push(`${chinhTinhDoi[0]} đồng cung ${chinhTinhDoi[1]} tại cung đối ${tenCungDoi}`);
+            } else {
+                keyArr.push("Vô Chính Diệu");
+            }
+
         } else if (chinhTinh.length === 1) {
 
             keyArr.push(chinhTinh[0] + " tọa thủ tại " + item.chi);
@@ -593,7 +613,7 @@ function LuanGiaiCacCungVaHienThi() {
         }
         else chinhTinh.forEach(ct => {
             if (ct)
-               
+
                 if (chinhTinh.length == 2) {
                     keyArr.push(chinhTinh[0] + " và " + chinhTinh[1] + " đồng cung tại " + item.chi);
                     console.log(chinhTinh[0] + " và " + chinhTinh[1] + " đồng cung tại " + item.chi);
@@ -605,7 +625,7 @@ function LuanGiaiCacCungVaHienThi() {
         const phuTinh = dsPhu[i].phuTinh;
         console.log("Phụ tinh của cung " + item.tenCung + ": " + phuTinh.join(", "));
         phuTinh.forEach(pt => {
-             console.log(pt + " tọa thủ tại " + item.tenCung);
+            console.log(pt + " tọa thủ tại " + item.tenCung);
             if (pt) {
                 keyArr.push(pt + " tọa thủ tại " + item.tenCung);
 
