@@ -439,7 +439,12 @@ const DS_CACH_CUC = [
     { key: "Tuế Xương Khúc", need: ["Thái Tuế", "Văn Xương", "Văn Khúc"] },
     { key: "Tử Vi Tả Hữu", need: ["Tử Vi", "Tả Phù", "Hữu Bật"] },
     { key: "Tử Vi Tang Tả Hữu", need: ["Tử Vi", "Tang Môn", "Tả Phù", "Hữu Bật"] },
-    {key :"Ân Quang Thiên Quý Thai Cáo", need: ["Ân Quang", "Thiên Quý", "Tam Thai","Phong Cáo"]},
+    { key: "Ân Quang Thiên Quý Thai Cáo", need: ["Ân Quang", "Thiên Quý", "Tam Thai", "Phong Cáo"] },
+    { key: "Ân Quang Thiên Quý Thiên Phúc Quyền Lộc", need: ["Ân Quang", "Thiên Quý", "Thiên Phúc", "Hóa Quyền", "Hóa Lộc"] },
+    { key: "Ân Quang Thiên Quý Thiên Hỷ", need: ["Ân Quang", "Thiên Quý", "Thiên Hỷ"] },
+    { key: "Quang Quý Tả Hữu Hồng Loan Khôi Việt Hoa Cái Long Trì", need: ["Ân Quang", "Thiên Quý", "Tả Phù", "Hữu Bật", "Hồng Loan", "Thiên Khôi", "Thiên Việt", "Hoa Cái", "Long Trì"] },
+    { key: "Quang Quý Đào Hồng", need: ["Ân Quang", "Thiên Quý", "Đào Hoa", "Hồng Loan"] },
+
 ];
 
 // Helper tứ chiếu
@@ -587,7 +592,7 @@ function LuanGiaiCacCungVaHienThi() {
         keyArr.push(`Vị trí địa sinh cung Mệnh tại ${vitriDiaSinhCungMenh}`);
         console.log(`Vị trí địa sinh cung Mệnh tại ${vitriDiaSinhCungMenh}`);
         //xét các chính tinh
-      
+
 
         const idxDoi = (i + 6) % 12;
         const chinhTinh = dsChinh[i].chinhTinh;
