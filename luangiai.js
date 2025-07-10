@@ -448,6 +448,7 @@ const DS_CACH_CUC = [
     { key: "Bác Sỹ Lương Tướng Quang Quý Thiên Phúc", need: ["Bác Sỹ", "Thiên Lương", "Thiên Tướng", "Ân Quang", "Thiên Quý", "Thiên Phúc"] },
     { key: "Bác Sỹ Cơ Đồng Xương Khúc Đào Hoa", need: ["Bác Sỹ", "Thiên Cơ", "Thiên Đồng", "Văn Xương", "Văn Khúc", "Đào Hoa"] },
     { key: "Bác Sỹ Cô Quả Đẩu Quân Vũ Khúc", need: ["Bác Sỹ", "Cô Thần", "Quả Tú", "Đẩu Quân", "Vũ Khúc"] },
+    { key: "Hổ Cái Long Phượng", need: ["Bạch Hổ", "Hoa Cái", "Long Trì", "Phượng Các"] },
 
 
 ];

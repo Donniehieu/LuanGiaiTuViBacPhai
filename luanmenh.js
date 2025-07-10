@@ -3019,14 +3019,34 @@ function LuanCachCucLucBaiTinh(keyArr) {
             keyArr.push(tangho[i] + " toạ thủ cung Mệnh gặp Kinh Dương, Thiên Hình");
 
         }
+        if(isHaiSaoDongCungTaiCung("Mệnh", tangho[i], "Tham Lang")){
+            console.log(tangho[i] + ", Tham Lang đồng cung tại Mệnh");
+            keyArr.push(tangho[i] + ", Tham Lang đồng cung tại Mệnh");
+        }
 
         if (isHaiSaoDongCungTaiCung("Mệnh", tangho[i], "Tham Lang") && kiemTraCachCuc("Tham Lang", ["Hoả Tinh", "Linh Tinh", "Kình Dương", "Đà La"])) {
             console.log(tangho[i] + ", Tham Lang đồng cung tại Mệnh gặp Hỏa Tinh, Linh Tinh, Kình Dương, Đà La");
             keyArr.push(tangho[i] + ", Tham Lang đồng cung tại Mệnh gặp Hỏa Tinh, Linh Tinh, Kình Dương, Đà La");
         }
 
+
     }
     
+    if (kiemTraCachCuc("Bạch Hổ", "Lưu Tang Môn")){
+        console.log("Bạch Hổ gặp Lưu Tang Môn");
+        keyArr.push("Bạch Hổ gặp Lưu Tang Môn");
+    } 
+    if (kiemTraCachCuc("Bạch Hổ", "Lưu Bạch Hổ")){
+        console.log("Bạch Hổ gặp Lưu Bạch Hổ");
+        keyArr.push("Bạch Hổ gặp Lưu Bạch Hổ");
+    } 
+
+     if (isSaoToaThuTaiCung("Mệnh", "Bạch Hổ") && kiemTraCachCuc("Bạch Hổ", ["Kình Dương"])) {
+
+        console.log("Bạch Hổ toạ thủ cung Mệnh gặp Kình Dương");
+        keyArr.push("Bạch Hổ toạ thủ cung Mệnh gặp Kình Dương");
+
+    }
   
     if (isSaoToaThuTaiCung("Mệnh", "Bạch Hổ") && kiemTraCachCuc("Bạch Hổ", ["Thiên Hình"])) {
 
@@ -3046,6 +3066,11 @@ function LuanCachCucLucBaiTinh(keyArr) {
     if (isHaiSaoDongCungTaiCung("Mệnh", "Bạch Hổ", "Phi Liêm")) {
         console.log("Bạch Hổ, Phi Liêm đồng cung tại Mệnh");
         keyArr.push("Bạch Hổ, Phi Liêm đồng cung tại Mệnh");
+    }
+
+    if(kiemTraCachCuc("Bạch Hổ", ["Tang Môn","Điếu Khách","Phục Binh", "Thiên Khốc"])){
+        console.log("Bạch Hổ gặp Tang Môn, Điếu Khách, Phục Binh, Thiên Khốc");
+        keyArr.push("Bạch Hổ gặp Tang Môn, Điếu Khách, Phục Binh, Thiên Khốc");
     }
 
 
