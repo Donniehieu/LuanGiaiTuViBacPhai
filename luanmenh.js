@@ -154,9 +154,9 @@ function LuanCachCucSaoTuVi(keyArr) {
     let hungtinh = lucsattinh;
 
 
-    if (isSaoToaThuTaiCung("Mệnh", "Tử Vi") && kiemTraCachCuc("Tử Vi", KhongKiep)) {
-        console.log("Tử Vi tọa thủ cung Mệnh và hội chiếu ", KhongKiep.join(", "));
-        keyArr.push("Tử Vi tọa thủ cung Mệnh và hội chiếu ", KhongKiep.join(", "));
+    if (isSaoToaThuTaiCungVaChi("Mệnh", "Sửu", "Tử Vi") && kiemTraCachCuc("Tử Vi", KhongKiep)) {
+        console.log("Tử Vi tọa thủ cung Mệnh ở Sửu và hội chiếu ", KhongKiep.join(", "));
+        keyArr.push("Tử Vi tọa thủ cung Mệnh ở Sửu và hội chiếu ", KhongKiep.join(", "));
         if (kiemTraCachCuc("Tử Vi", hungtinh)) {
             console.log("Tử Vi tọa thủ cung Mệnh và hội chiếu các sao:", hungtinh.join(", "));
             keyArr.push("Tử Vi tọa thủ cung Mệnh và hội chiếu các", hungtinh.join(", "));
@@ -259,6 +259,11 @@ function LuanCachCucSaoTuVi(keyArr) {
         console.log("Tử Vi tọa thủ cung Mệnh đồng cung Thiên Tướng, Phá Toái tại cung thân hợp chiếu với sao Kình Dương");
         keyArr.push("Tử Vi tọa thủ cung Mệnh đồng cung Thiên Tướng, Phá Toái tại cung thân hợp chiếu với sao Kình Dương");
     }
+    if (isHaiSaoDongCungTaiCung("Mệnh", "Tử Vi", "Thiên Tướng") && isSaoToaThuTaiCung(lasoData.cungCu, "Phá Quân") && kiemTraCachCuc("Phá Quân", Kinh)) {
+        console.log("Tử Vi tọa thủ cung Mệnh đồng cung Thiên Tướng, Phá Quân tại cung thân hợp chiếu với sao Kình Dương");
+        keyArr.push("Tử Vi tọa thủ cung Mệnh đồng cung Thiên Tướng, Phá Quân tại cung thân hợp chiếu với sao Kình Dương");
+    }
+
     // Tử Sát đồng lâm Tỵ Hợi
     for (let i = 0; i < tyhoi.length; i++) {
         if (isHaiSaoDongCungTaiCungChi("Mệnh", tyhoi[i], "Tử Vi", "Thất Sát")) {
@@ -280,6 +285,8 @@ function LuanCachCucSaoTuVi(keyArr) {
             keyArr.push(`Tử Vi đồng cung với ${vupha[i]} tại Mệnh gặp Kình Dương, Đà La`);
         }
     }
+
+
     // Tử vi hoặc Vũ Khúc thủ mệnh gặp Sát tinh
 
     for (let i = 0; i < tuvu.length; i++) {
@@ -287,9 +294,18 @@ function LuanCachCucSaoTuVi(keyArr) {
             console.log(`${tuvu[i]} tọa thủ cung Mệnh gặp các sao Sát tinh:`, lucsattinh.join(", "));
             keyArr.push(`${tuvu[i]} tọa thủ cung Mệnh gặp các sao Sát tinh:`, lucsattinh.join(", "));
         }
+        if (isSaoToaThuTaiCung("Mệnh", tuvu[i]) && kiemTraCachCuc(tuvu[i], "Thất Sát")) {
+            console.log(`${tuvu[i]} tọa thủ cung Mệnh gặp Thất Sát`);
+            keyArr.push(`${tuvu[i]} tọa thủ cung Mệnh gặp Thất Sát`);
+        }
+
     }
     // Tử vi hoặc Phá Quân thủ mệnh tại tứ mộ cung
     for (let i = 0; i < tumo.length; i++) {
+        if (isSaoToaThuTaiCungVaChi("Mệnh", tumo[i], "Vũ Khúc")) {
+            console.log(`Vũ Khúc tọa thủ cung Mệnh ở ${tumo[i]}`);
+            keyArr.push(`Vũ Khúc tọa thủ cung Mệnh ở ${tumo[i]}`);
+        }
         for (let j = 0; j < tupha.length; j++) {
             if (isSaoToaThuTaiCungVaChi("Mệnh", tumo[i], tupha[j])) {
                 console.log(`${tupha[j]} tọa thủ cung Mệnh tại ${tumo[i]}`);
@@ -345,6 +361,14 @@ function LuanCachCucSaoTuVi(keyArr) {
         console.log("Tử Vi tọa thủ cung Mệnh hội chiếu Thiên Phủ");
         keyArr.push("Tử Vi tọa thủ cung Mệnh hội chiếu Thiên Phủ");
     }
+    // Tử Phủ giáp mệnh
+    if (isSaoToaThuTaiCung("Huynh Đệ", "Tử Vi") && isSaoToaThuTaiCung("Phu Mẫu", "Thiên Phủ") || isSaoToaThuTaiCung("Phu Mẫu", "Tử Vi") && isSaoToaThuTaiCung("Huynh Đệ", "Thiên Phủ")) {
+        console.log("Tử Vi và Thiên Phủ giáp Mệnh");
+        keyArr.push("Tử Vi và Thiên Phủ giáp Mệnh");
+    }
+
+
+
 }
 
 function LuanCachCucSaoLiemTrinh(keyArr) {
@@ -3282,6 +3306,8 @@ function MenhKhongThanKiep(idxCungMenh, idxCungThan, dsChinh, dsPhu, keyArr) {
     }
     return false;
 }
+
+
 
 
 
