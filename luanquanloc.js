@@ -3277,7 +3277,7 @@ function MenhVoChinhDieu() {
     }
 
 }
-function MenhKhongThanKiep(idxCungMenh, idxCungThan, dsChinh, dsPhu, keyArr) {
+function QuanLocKhongThanKiep(idxCungMenh, idxCungThan, dsChinh, dsPhu, keyArr) {
 
     // Lấy các sao của cung Quan Lộc và cung Thân
     const saoMenh = [].concat(

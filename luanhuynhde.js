@@ -3254,7 +3254,7 @@ function MenhVoChinhDieu() {
     }
 
 }
-function MenhKhongThanKiep(idxCungMenh, idxCungThan, dsChinh, dsPhu, keyArr) {
+function HuynhDeKhongThanKiep(idxCungMenh, idxCungThan, dsChinh, dsPhu, keyArr) {
 
     // Lấy các sao của cung Huynh Đệ và cung Thân
     const saoMenh = [].concat(

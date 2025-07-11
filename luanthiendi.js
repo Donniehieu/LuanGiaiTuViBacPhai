@@ -3239,7 +3239,7 @@ function MenhVoChinhDieu() {
     }
 
 }
-function MenhKhongThanKiep(idxCungMenh, idxCungThan, dsChinh, dsPhu, keyArr) {
+function ThienDiKhongThanKiep(idxCungMenh, idxCungThan, dsChinh, dsPhu, keyArr) {
 
     // Lấy các sao của cung Thiên Di và cung Thân
     const saoMenh = [].concat(

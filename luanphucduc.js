@@ -3402,7 +3402,7 @@ function MenhVoChinhDieu() {
     }
 
 }
-function MenhKhongThanKiep(idxCungMenh, idxCungThan, dsChinh, dsPhu, keyArr) {
+function PhucDucKhongThanKiep(idxCungMenh, idxCungThan, dsChinh, dsPhu, keyArr) {
 
     // Lấy các sao của cung Phúc Đức và cung Thân
     const saoMenh = [].concat(
