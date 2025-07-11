@@ -515,6 +515,12 @@ function LuanCachCucSaoLiemTrinh(keyArr) {
         }
     }
 
+    // Liêm Trinh tại mệnh gặp Thất sát
+    if (isSaoToaThuTaiCung("Mệnh", "Liêm Trinh") && kiemTraCachCuc("Liêm Trinh", "Thất Sát")) {
+        console.log("Liêm Trinh tọa thủ cung Mệnh gặp Thất Sát");
+        keyArr.push("Liêm Trinh tọa thủ cung Mệnh gặp Thất Sát");
+    }
+
 }
 
 function LuanCachCucSaoThienDong(keyArr) {
