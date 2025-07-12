@@ -909,6 +909,11 @@ function LuanCachCucThaiDuong(keyArr) {
                 console.log("Thái Dương tọa thủ cung Mệnh ở " + ham[i] + " gặp các sao cát tinh: ", XuongKhuc.concat(TaHuu).concat(KhoaLocQuyen).concat(KhoiViet).concat(daohonghy).join(", "));
                 keyArr.push("Thái Dương tọa thủ cung Mệnh ở " + ham[i] + " gặp các sao cát tinh: ", XuongKhuc.concat(TaHuu).concat(KhoaLocQuyen).concat(KhoiViet).concat(daohonghy).join(", "));
             }
+            if (lasoData.gioitinh === "Nữ") {
+                console.log("Quý Chị có Thái Dương tọa thủ cung Mệnh ở " + ham[i]);
+                keyArr.push("Quý Chị có Thái Dương tọa thủ cung Mệnh ở " + ham[i]);
+                
+            }
 
         }
     }
