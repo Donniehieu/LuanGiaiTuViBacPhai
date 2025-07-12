@@ -761,7 +761,7 @@ function LuanCachCucSaoVuKhuc(keyArr) {
                 console.log(`Vũ Khúc tọa thủ cung Mệnh ở ${ham[i]} gặp Phá Quân`);
                 keyArr.push(`Vũ Khúc tọa thủ cung Mệnh ở ${ham[i]} gặp Phá Quân`);
             }
-            if (isSaoToaThuTaiCungVaChi("Mệnh", ham[i], "Vũ Khúc") && kiemTraCachCuc("Vũ Khúc", ["Phá Quân","Tham Lang"])) {
+            if (isSaoToaThuTaiCungVaChi("Mệnh", ham[i], "Vũ Khúc") && kiemTraCachCuc("Vũ Khúc", ["Phá Quân", "Tham Lang"])) {
                 console.log(`Vũ Khúc tọa thủ cung Mệnh ở ${ham[i]} gặp Phá Quân Tham Lang`);
                 keyArr.push(`Vũ Khúc tọa thủ cung Mệnh ở ${ham[i]} gặp Phá Quân Tham Lang`);
             }
@@ -787,7 +787,7 @@ function LuanCachCucSaoVuKhuc(keyArr) {
             if (isHaiSaoDongCungTaiCungChi("Mệnh", ham[i], "Vũ Khúc", "Kiếp Sát") && kiemTraCachCuc("Vũ Khúc", "Kình Dương")) {
                 console.log(`Vũ Khúc tọa thủ cung Mệnh ở ${ham[i]} đồng cung Kiếp Sát gặp Kình Dương`);
                 keyArr.push(`Vũ Khúc tọa thủ cung Mệnh ở ${ham[i]} đồng cung Kiếp Sát gặp Kình Dương`);
-                
+
             }
         }
     }
@@ -830,10 +830,10 @@ function LuanCachCucSaoVuKhuc(keyArr) {
     }
 
     // Vũ Phá đồng cung tại Tỵ Hợi
-    if(isHaiSaoDongCungTaiCungChi("Mệnh", "Tỵ", "Vũ Khúc", "Phá Quân") ){
-        console.log("Vũ Khúc đồng cung Phá Quân tại Mệnh ở Tỵ");   
+    if (isHaiSaoDongCungTaiCungChi("Mệnh", "Tỵ", "Vũ Khúc", "Phá Quân")) {
+        console.log("Vũ Khúc đồng cung Phá Quân tại Mệnh ở Tỵ");
         keyArr.push("Vũ Khúc đồng cung Phá Quân tại Mệnh ở Tỵ");
-        
+
     }
 }
 
@@ -847,10 +847,10 @@ function LuanCachCucThaiDuong(keyArr) {
     const kinhdakhongkiephinhrieu = ["Kình Dương", "Đà La", "Địa Không", "Địa Kiếp", "Thiên Riêu", "Thiên Hình"];
     const hoity = ["Tý", "Hợi"];
     const than_tuat_ty = ["Thân", "Tuất", "Tý"];
-    const canhtannhamky = ["C.", "T.", "N.", "K."];
+    const canhtandinhky = ["C.", "T.", "Đ.", "K."];
 
     const binhdinh = ["B.", "Đ."];
-    const CanhTanNhamKy = ["Canh", "Tân", "Nhâm", "Kỷ"];
+    const CanhTanDinhKy = ["Canh", "Tân", "Đinh", "Kỷ"];
     const BinhDinh = ["Bính", "Đinh"];
     const muithan = ["Mùi", "Thân"];
     const XuongKhuc = ["Văn Xương", "Văn Khúc"];
@@ -912,7 +912,7 @@ function LuanCachCucThaiDuong(keyArr) {
             if (lasoData.gioitinh === "Nữ") {
                 console.log("Quý Chị có Thái Dương tọa thủ cung Mệnh ở " + ham[i]);
                 keyArr.push("Quý Chị có Thái Dương tọa thủ cung Mệnh ở " + ham[i]);
-                
+
             }
 
         }
@@ -946,10 +946,10 @@ function LuanCachCucThaiDuong(keyArr) {
 
     }
 
-    for (let i = 0; i < canhtannhamky.length; i++) {
-        if (lasoData.canNam === canhtannhamky[i] && isSaoToaThuTaiCungVaChi("Mệnh", "Ngọ", "Thái Dương")) {
-            console.log("Người tuổi " + CanhTanNhamKy[i] + " có Thái Dương tọa thủ cung Mệnh ở Ngọ");
-            keyArr.push("Người tuổi " + CanhTanNhamKy[i] + " có Thái Dương tọa thủ cung Mệnh ở Ngọ");
+    for (let i = 0; i < canhtandinhky.length; i++) {
+        if (lasoData.canNam === canhtandinhky[i] && isSaoToaThuTaiCungVaChi("Mệnh", "Ngọ", "Thái Dương")) {
+            console.log("Người tuổi " + CanhTanDinhKy[i] + " có Thái Dương tọa thủ cung Mệnh ở Ngọ");
+            keyArr.push("Người tuổi " + CanhTanDinhKy[i] + " có Thái Dương tọa thủ cung Mệnh ở Ngọ");
         }
     }
     for (let i = 0; i < binhdinh.length; i++) {
@@ -971,27 +971,30 @@ function LuanCachCucThaiDuong(keyArr) {
 
     }
 
-    if (lasoData.lasoOb[0].chi === "Sửu" && isHaiSaoDongCungTaiCung("Tài Bạch", "Mùi", "Thái Dương", "Thái Âm") ||
-        lasoData.lasoOb[0].chi === "Sửu" && isHaiSaoDongCungTaiCung("Quan Lộc", "Mùi", "Thái Dương", "Thái Âm")) {
+    if (lasoData.lasoOb[0].chi === "Sửu" && isHaiSaoDongCungTaiCungChi("Tài Bạch", "Mùi", "Thái Dương", "Thái Âm") ||
+        lasoData.lasoOb[0].chi === "Sửu" && isHaiSaoDongCungTaiCungChi("Quan Lộc", "Mùi", "Thái Dương", "Thái Âm")) {
 
         console.log("Thái Dương Thái Âm đồng cung tại Mùi hội chiếu cung Mệnh tại Sửu");
         keyArr.push("Thái Dương Thái Âm đồng cung tại Mùi hội chiếu cung Mệnh tại Sửu");
+
+
     }
     if (lasoData.lasoOb[0].chi === "Sửu" && isSaoToaThuTaiChi("Thái Dương", "Tỵ") && isSaoToaThuTaiChi("Thái Âm", "Dậu")) {
 
         console.log("Thái Dương Thái Âm hội chiếu cung Mệnh tại Sửu");
         keyArr.push("Thái Dương Thái Âm hội chiếu cung Mệnh tại Sửu");
     }
-    if (lasoData.lasoOb[0].chi === "Mùi" && isHaiSaoDongCungTaiCung("Tài Bạch", "Sửu", "Thái Dương", "Thái Âm") ||
-        lasoData.lasoOb[0].chi === "Mùi" && isHaiSaoDongCungTaiCung("Quan Lộc", "Sửu", "Thái Dương", "Thái Âm")) {
+    if (lasoData.lasoOb[0].chi === "Mùi" && isHaiSaoDongCungTaiCungChi("Tài Bạch", "Sửu", "Thái Dương", "Thái Âm") ||
+        lasoData.lasoOb[0].chi === "Mùi" && isHaiSaoDongCungTaiCungChi("Quan Lộc", "Sửu", "Thái Dương", "Thái Âm")) {
 
         console.log("Thái Dương Thái Âm đồng cung tại Sửu hội chiếu cung Mệnh tại Mùi");
         keyArr.push("Thái Dương Thái Âm đồng cung tại Sửu hội chiếu cung Mệnh tại Mùi");
+
     }
     if (lasoData.lasoOb[0].chi === "Mùi" && isSaoToaThuTaiChi("Thái Dương", "Mão") && isSaoToaThuTaiChi("Thái Âm", "Hợi")) {
 
-        console.log("Thái Dương Thái Âm hội chiếu cung Mệnh tại Mùi");
-        keyArr.push("Thái Dương Thái Âm hội chiếu cung Mệnh tại Mùi");
+        console.log("Thái Dương tại Mão Thái Âm tại Hợi hội chiếu cung Mệnh tại Mùi");
+        keyArr.push("Thái Dương tại Mão Thái Âm tại Hợi hội chiếu cung Mệnh tại Mùi");
     }
     if (lasoData.lasoOb[0].chi === "Sửu" && isSaoToaThuTaiChi("Thái Dương", "Mão") && isSaoToaThuTaiChi("Thái Âm", "Hợi")) {
         console.log("Thái Dương tại Mão Thái Âm ở Hợi hội chiếu cung Mệnh tại Sửu");
@@ -1002,9 +1005,10 @@ function LuanCachCucThaiDuong(keyArr) {
         keyArr.push("Cung Mệnh Vô Chính Diệu gặp Thái Dương, Thái Âm");
     }
     for (let i = 0; i < suumui.length; i++) {
-        if (isHaiSaoDongCungTaiCungChi("Mệnh", suumui[i], "Thái Dương", "Thái Âm") && kiemTraCachCuc("Thái Dương", XuongKhuc.concat(KhoiHong))) {
-            console.log("Thái Dương tọa thủ cung Mệnh ở " + suumui[i] + " đồng cung Thái Âm gặp", XuongKhuc.concat(KhoiHong).join(", "));
-            keyArr.push("Thái Dương tọa thủ cung Mệnh ở " + suumui[i] + " đồng cung Thái Âm gặp", XuongKhuc.concat(KhoiHong).join(", "));
+        if (isHaiSaoDongCungTaiCungChi("Mệnh", suumui[i], "Thái Dương", "Thái Âm") && kiemTraCachCuc("Thái Dương", XuongKhuc.concat(KhoiHong).concat(ThaiToa))) {
+            console.log("Thái Dương Thái Âm đồng cung tại " + suumui[i] + " gặp các sao cát tinh: ", XuongKhuc.concat(KhoiHong).concat(ThaiToa).join(", "));
+            keyArr.push("Thái Dương Thái Âm đồng cung tại " + suumui[i] + " gặp các sao cát tinh: ", XuongKhuc.concat(KhoiHong).concat(ThaiToa).join(", "));
+
         }
     }
 
@@ -1012,6 +1016,53 @@ function LuanCachCucThaiDuong(keyArr) {
         console.log("Thái Dương tọa thủ cung Mệnh ở Sửu đồng cung Thái Âm gặp Khoa Lộc Quyền");
         keyArr.push("Thái Dương tọa thủ cung Mệnh ở Sửu đồng cung Thái Âm gặp Khoa Lộc Quyền");
     }
+
+    // Mệnh Thìn có Thái Dương gặp Thái Âm
+    if (isSaoToaThuTaiCungVaChi("Mệnh", "Thìn", "Thái Dương") && kiemTraCachCuc("Thái Dương", "Thái Âm")) {
+        console.log("Thái Dương tọa thủ cung Mệnh ở Thìn gặp Thái Âm");
+        keyArr.push("Thái Dương tọa thủ cung Mệnh ở Thìn gặp Thái Âm");
+    }
+
+    if (lasoData.lasoOb[0].chi === "Mùi" && isSaoToaThuTaiChi("Thái Dương", "Ngọ") && isSaoToaThuTaiChi("Thái Âm", "Thân") ||
+        lasoData.lasoOb[0].chi === "Sửu" && isSaoToaThuTaiChi("Thái Dương", "Dần") && isSaoToaThuTaiChi("Thái Âm", "Tý")) {
+        console.log("Mệnh giáp Âm Dương Sáng");
+        keyArr.push("Mệnh giáp Âm Dương Sáng");
+    }
+
+    // Nhật, Mệnh tại Tỵ còn Cự Môn ở Hợi chiếu
+    if (isSaoToaThuTaiCungVaChi("Mệnh", "Tỵ", "Thái Dương") && isSaoToaThuTaiChi("Cự Môn", "Hợi")) {
+        console.log("Thái Dương tọa thủ cung Mệnh ở Tỵ còn Cự Môn ở Hợi chiếu");
+        keyArr.push("Thái Dương tọa thủ cung Mệnh ở Tỵ còn Cự Môn ở Hợi chiếu");
+
+
+    }
+    // NHật tại Tỵ gặp Lộc Mã Tả Hữu
+    if (isSaoToaThuTaiCungVaChi("Mệnh", "Tỵ", "Thái Dương") && kiemTraCachCuc("Thái Dương", ["Hóa Lộc", "Thiên Mã", "Tả Phù", "Hữu Bật"])) {
+        console.log("Thái Dương tọa thủ cung Mệnh ở Tỵ gặp Lộc Mã Tả Hữu");
+        keyArr.push("Thái Dương tọa thủ cung Mệnh ở Tỵ gặp Lộc Mã Tả Hữu");
+
+    }
+    if (isSaoToaThuTaiCungVaChi("Mệnh", "Tỵ", "Thái Dương") && kiemTraCachCuc("Thái Dương", ["Thiên Tướng", "Thiên Hình", "Phục Binh", "Quốc Ấn"])) {
+        console.log("Thái Dương tọa thủ cung Mệnh ở Tỵ gặp Thiên Tướng, Thiên Hình, Phục Binh, Quốc Ấn");
+        keyArr.push("Thái Dương tọa thủ cung Mệnh ở Tỵ gặp Thiên Tướng, Thiên Hình, Phục Binh, Quốc Ấn");
+    }
+
+    // Nhật Mệnh tịa HƠi có Cự Môn ở Tỵ chiếu
+    if (isSaoToaThuTaiCungVaChi("Mệnh", "Hợi", "Thái Dương") && isSaoToaThuTaiChi("Cự Môn", "Tỵ")) {
+        console.log("Thái Dương tọa thủ cung Mệnh ở Hợi còn Cự Môn ở Tỵ chiếu");
+        keyArr.push("Thái Dương tọa thủ cung Mệnh ở Hợi còn Cự Môn ở Tỵ chiếu");
+    }
+
+    if(isSaoToaThuTaiCungVaChi("Mệnh", "Hợi", "Thái Dương") && kiemTraCachCuc("Thái Dương", KhoaLocQuyen.concat(TaHuu).concat(KhoiHong))) {
+        console.log("Thái Dương tọa thủ cung Mệnh ở Hợi gặp Khoa Lộc Quyền, Tả Hữu, Thiên Khôi Đào Hồng");
+        keyArr.push("Thái Dương tọa thủ cung Mệnh ở Hợi gặp Khoa Lộc Quyền, Tả Hữu, Thiên Khôi Đào Hồng");
+    }
+    if(isSaoToaThuTaiCungVaChi("Mệnh", "Hợi", "Thái Dương") && kiemTraCachCuc("Thái Dương", ["Bạch Hổ", "Long Trì","Phượng Các","Hoa Cái"])){
+        console.log("Thái Dương tọa thủ cung Mệnh ở Hợi gặp Bạch Hổ, Long Trì, Phượng Các, Hoa Cái");
+        keyArr.push("Thái Dương tọa thủ cung Mệnh ở Hợi gặp Bạch Hổ, Long Trì, Phượng Các, Hoa Cái");
+    }
+
+
 }
 
 function LuanCachCucThienCo(keyArr) {
