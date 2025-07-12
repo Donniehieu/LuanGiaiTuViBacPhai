@@ -1206,9 +1206,13 @@ function LuanCacCachCucThienPhu(keyArr) {
         console.log("Thiên Phủ tọa thủ cung Mệnh");
         keyArr.push("Thiên Phủ tọa thủ cung Mệnh");
 
-        if (kiemTraCachCuc("Thiên Phủ", ["Thiên Không", "Địa Không", "Địa Kiếp"])) {
-            console.log("Thiên Phủ tọa thủ cung Mệnh gặp các sao: ", ["Thiên Không", "Địa Không", "Địa Kiếp"].join(", "));
-            keyArr.push("Thiên Phủ tọa thủ cung Mệnh gặp các sao: ", ["Thiên Không", "Địa Không", "Địa Kiếp"].join(", "));
+        if (kiemTraCachCuc("Thiên Phủ", ["Địa Không", "Địa Kiếp"])) {
+            console.log("Thiên Phủ tọa thủ cung Mệnh gặp các sao: ", ["Địa Không", "Địa Kiếp"].join(", "));
+            keyArr.push("Thiên Phủ tọa thủ cung Mệnh gặp các sao: ", ["Địa Không", "Địa Kiếp"].join(", "));
+            if(lasoData.gioitinh === "Nữ") {
+                console.log("Quý Chị có Thiên Phủ tọa thủ cung Mệnh gặp Địa Không Địa Kiếp");
+                keyArr.push("Quý Chị có Thiên Phủ tọa thủ cung Mệnh gặp Địa Không Địa Kiếp");
+            }
         }
         if (kiemTraCachCuc("Thiến Phủ", lucsattinh)) {
             console.log("Thiên Phủ tọa thủ cung Mệnh gặp các sao Sát tinh: ", lucsattinh.join(", "));
@@ -1225,10 +1229,7 @@ function LuanCacCachCucThienPhu(keyArr) {
 
     }
     if (isSaoToaThuTaiCungVaChi("Mệnh", "Tuất", "Thiên Phủ")) {
-        if (kiemTraCachCuc("Thiên Phủ", XuongKhuc.concat(TaHuu).concat(KhoaLocQuyen).concat(KhoiViet))) {
-            console.log("Thiên Phủ tọa thủ cung Mệnh ở Tuất gặp các sao cát tinh: ", XuongKhuc.concat(TaHuu).concat(KhoaLocQuyen).concat(KhoiViet).join(", "));
-            keyArr.push("Thiên Phủ tọa thủ cung Mệnh ở Tuất gặp các sao cát tinh: ", XuongKhuc.concat(TaHuu).concat(KhoaLocQuyen).concat(KhoiViet).join(", "));
-        }
+       
         if (kiemTraCachCuc("Thiên Phủ", TaHuu.concat(TuTuongTham).concat(KhoaLocQuyen).concat(KhoiViet))) {
             console.log("Thiên Phủ tọa thủ cung Mệnh ở Tuất gặp các sao cát tinh: ", TaHuu.concat(TuTuongTham).concat(KhoaLocQuyen).concat(KhoiViet).join(", "));
             keyArr.push("Thiên Phủ tọa thủ cung Mệnh ở Tuất gặp các sao cát tinh: ", TaHuu.concat(TuTuongTham).concat(KhoaLocQuyen).concat(KhoiViet).join(", "));
