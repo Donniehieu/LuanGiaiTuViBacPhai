@@ -1197,7 +1197,7 @@ function LuanCacCachCucThienPhu(keyArr) {
     const giapky = ["Giáp", "Kỷ"];
     const gk = ["G.", "K."];
     const cn = ["C.", "N."];
-    const canhnham = ["Canh", "Nham"];
+    const canhnham = ["Canh", "Nhâm"];
     const ngotuat = ["Ngọ", "Tuất"];
     const mvd = mieu.concat(vuong).concat(dac);
     const TuTuongTham = ["Tử Vi", "Thiên Tướng", "Tham Lang"];
@@ -1214,7 +1214,7 @@ function LuanCacCachCucThienPhu(keyArr) {
                 keyArr.push("Quý Chị có Thiên Phủ tọa thủ cung Mệnh gặp Địa Không Địa Kiếp");
             }
         }
-        if (kiemTraCachCuc("Thiến Phủ", lucsattinh)) {
+        if (kiemTraCachCuc("Thiên Phủ", lucsattinh)) {
             console.log("Thiên Phủ tọa thủ cung Mệnh gặp các sao Sát tinh: ", lucsattinh.join(", "));
             keyArr.push("Thiên Phủ tọa thủ cung Mệnh gặp các sao Sát tinh: ", lucsattinh.join(", "));
         }
@@ -1277,6 +1277,12 @@ function LuanCacCachCucThienPhu(keyArr) {
             keyArr.push("Thiên Phủ tọa thủ cung Mệnh gặp các sao Tả Hữu, Xương Khúc, Lộc Tồn");
         }
 
+    }
+    // Tử Vi Thiên Phủ đồng cung tại Dần
+    if(isHaiSaoDongCungTaiCungChi("Mệnh", "Dần", "Tử Vi", "Thiên Phủ") && kiemTraCachCuc("Thiên Phủ", ["Hóa Khoa","Hóa Quyền","Hóa Lộc","Kình Dương","Hữu Bật"])&& kiemTraCachCuc("Tử Vi",["Địa Không","Địa Kiếp"])=== false) {
+        console.log("Tử Vi Thiên Phủ đồng cung tại Dần gặp Khoa, Lộc, Quyền, Kình, Bật không gặp Địa Không, Địa Kiếp");
+        keyArr.push("Tử Vi Thiên Phủ đồng cung tại Dần gặp Khoa, Lộc, Quyền, Kình, Bật không gặp Địa Không, Địa Kiếp");
+       
     }
 
 }
