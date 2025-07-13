@@ -1345,7 +1345,7 @@ function LuanCachCucThaiAm(keyArr) {
                 console.log(`Quý Chị có Thái Âm tọa thủ cung Mệnh ở ${mvd[i]}`);
                 keyArr.push(`Quý Chị có Thái Âm tọa thủ cung Mệnh ở ${mvd[i]}`);
             }
-            if(isHaiSaoDongCungTaiCungChi("Mệnh", mvd[i], "Thái Âm", "Hóa Lộc")&& kiemTraCachCuc("Thái Âm", ["Tả Phù", "Hữu Bật"])) {
+            if (isHaiSaoDongCungTaiCungChi("Mệnh", mvd[i], "Thái Âm", "Hóa Lộc") && kiemTraCachCuc("Thái Âm", ["Tả Phù", "Hữu Bật"])) {
                 console.log(`Thái Âm tọa thủ cung Mệnh ở ${mvd[i]} đồng cung Hóa Lộc gặp Tả Phù, Hữu Bật`);
                 keyArr.push(`Thái Âm tọa thủ cung Mệnh ở ${mvd[i]} đồng cung Hóa Lộc gặp Tả Phù, Hữu Bật`);
             }
@@ -1440,6 +1440,7 @@ function LuanCachCucThamLang(keyArr) {
     const tusinh = ["Dần", "Tỵ", "Thân", "Hợi"];
     const mk = ["M.", "K."];
     const mauky = ["Mậu", "Kỷ"];
+    const tyhoi = ["Tý", "Hợi"];
 
     const mvd = mieu.concat(vuong).concat(dac);
     if (isSaoToaThuTaiCung("Mệnh", "Tham Lang")) {
@@ -1465,6 +1466,10 @@ function LuanCachCucThamLang(keyArr) {
                     keyArr.push("Người tuổi" + mauky[j] + " có Tham Lang tọa thủ cung Mệnh ở " + mvd[i] + " gặp các sao: ", HoaLinh.join(", "));
                 }
             }
+            if (lasoData.gioitinh === "Nữ") {
+                console.log(`Quý Chị có Tham Lang tọa thủ cung Mệnh ở ${mvd[i]}`);
+                keyArr.push(`Quý Chị có Tham Lang tọa thủ cung Mệnh ở ${mvd[i]}`);
+            }
         }
 
     }
@@ -1473,6 +1478,10 @@ function LuanCachCucThamLang(keyArr) {
         if (isHaiSaoDongCungTaiCung("Mệnh", vuong[i], "Tham Lang", "Hoá Kỵ") && kiemTraCachCuc("Tham Lang", lucsattinh) === false) {
             console.log(`Tham Lang tọa thủ cung Mệnh ở ${vuong[i]} đồng cung Hoá Kỵ không gặp Sát tinh`);
             keyArr.push(`Tham Lang tọa thủ cung Mệnh ở ${vuong[i]} đồng cung Hoá Kỵ không gặp Sát tinh`);
+        }
+        if (isSaoToaThuTaiCungVaChi("Mệnh", vuong[i], "Tham Lang") && isSaoToaThuTaiCung("Thiên Di", "Hóa Kỵ")) {
+            console.log(`Tham Lang tọa thủ cung Mệnh ở ${vuong[i]} gặp Hoá Kỵ tại Thiên Di`);
+            keyArr.push(`Tham Lang tọa thủ cung Mệnh ở ${vuong[i]} gặp Hoá Kỵ tại Thiên Di`);
         }
     }
 
@@ -1504,8 +1513,13 @@ function LuanCachCucThamLang(keyArr) {
                 console.log(`Tham Lang đồng cung Thiên Riêu tại cung Mệnh ở ${ham[i]}`);
                 keyArr.push(`Tham Lang đồng cung Thiên Riêu tại cung Mệnh ở ${ham[i]}`);
             }
+            if (isHaiSaoDongCungTaiCung("Mệnh", ham[i], "Tham Lang", "Thiên Riêu")) {
+                console.log(`Tham Lang đồng cung Thiên Riêu tại cung Mệnh ở ${ham[i]}`);
+                keyArr.push(`Tham Lang đồng cung Thiên Riêu tại cung Mệnh ở ${ham[i]}`);
+            }
         }
     }
+
 
     for (let i = 0; i < tumo.length; i++) {
         if (isHaiSaoDongCungTaiCung("Mệnh", tumo[i], "Tham Lang", "Vũ Khúc")) {
@@ -1513,13 +1527,22 @@ function LuanCachCucThamLang(keyArr) {
             keyArr.push(`Tham Lang đồng cung Vũ Khúc tại cung Mệnh ở ${tumo[i]}`);
         }
         if (isHaiSaoDongCungTaiCung(lasoData.cungCu, tumo[i], "Tham Lang", "Vũ Khúc")) {
-            console.log(`Tham Lang đồng cung tại ${lasoData.cungCu} ở ${tumo[i]}`);
-            keyArr.push(`Tham Lang đồng cung tại ${lasoData.cungCu} ở ${tumo[i]}s`);
+            console.log(`Tham Lang Vũ Khúc đồng cung tại ${lasoData.cungCu} ở ${tumo[i]}`);
+            keyArr.push(`Tham Lang Vũ Khúc đồng cung tại ${lasoData.cungCu} ở ${tumo[i]}s`);
         }
         if (isSaoToaThuTaiCungVaChi("Mệnh", tumo[i], "Tham Lang") && kiemTraCachCuc("Tham Lang", ["Hỏa Tinh", "Linh Tinh"])) {
             console.log(`Tham Lang tọa thủ cung Mệnh ở ${tumo[i]} gặp Hoả Tinh, Linh Tinh`);
             keyArr.push(`Tham Lang tọa thủ cung Mệnh ở ${tumo[i]} gặp Hoả Tinh, Linh Tinh`);
         }
+        if (isHaiSaoDongCungTaiCungChi("Mệnh", tumo[i], "Tham Lang", "Hỏa Tinh")) {
+            console.log(`Tham Lang tọa thủ cung Mệnh ở ${tumo[i]} đồng cung Hoả Tinh`);
+            keyArr.push(`Tham Lang tọa thủ cung Mệnh ở ${tumo[i]} đồng cung Hoả Tinh`);
+        }
+        if (isHaiSaoDongCungTaiCungChi("Mệnh", tumo[i], "Tham Lang", "Linh Tinh")) {
+            console.log(`Tham Lang tọa thủ cung Mệnh ở ${tumo[i]} đồng cung Linh Tinh`);
+            keyArr.push(`Tham Lang tọa thủ cung Mệnh ở ${tumo[i]} đồng cung Linh Tinh`);
+        }
+
     }
     for (let i = 0; i < suumui.length; i++) {
         if (isSaoToaThuTaiCungVaChi("Mệnh", suumui[i], "Tham Lang") && kiemTraCachCuc("Tham Lang", ["Phá Quân"]) === true && kiemTraCachCuc("Tham Lang", KhoaLocQuyen.concat(TaHuu)) === false) {
@@ -1528,9 +1551,27 @@ function LuanCachCucThamLang(keyArr) {
         }
     }
     for (let i = 0; i < tumo.length; i++) {
-        if (isSaoToaThuTaiCung("Mệnh", tumo[i], "Tham Lang") && kiemTraCachCuc("Tham Lang", ["Phá Quân"]) && kiemTraCachCuc("Tham Lang", lucsattinh) && kiemTraCachCuc("Tham Lang", "Hóa Kỵ")) {
+        if (isSaoToaThuTaiCung("Mệnh", tumo[i], "Tham Lang") && kiemTraCachCuc("Tham Lang", ["Phá Quân"]) && kiemTraCachCuc("Tham Lang", ["Thất Sát"]) && kiemTraCachCuc("Tham Lang", "Hóa Kỵ")) {
             console.log(`Tham Lang tọa thủ cung Mệnh ở ${tumo[i]} gặp Phá Quân, Sát tinh, Hoá Kỵ`);
             keyArr.push(`Tham Lang tọa thủ cung Mệnh ở ${tumo[i]} gặp Phá Quân, Sát tinh, Hoá Kỵ`);
+        }
+        if(isHaiSaoDongCungTaiCungChi("Mệnh", tumo[i], "Tham Lang", "Thiên Không")){
+            console.log(`Tham Lang tọa thủ cung Mệnh ở ${tumo[i]} đồng cung Thiên Không`);
+            keyArr.push(`Tham Lang tọa thủ cung Mệnh ở ${tumo[i]} đồng cung Thiên Không`);
+        }
+        if(isHaiSaoDongCungTaiCungChi("Mệnh", tumo[i], "Tham Lang", "Địa Không")){
+            console.log(`Tham Lang tọa thủ cung Mệnh ở ${tumo[i]} đồng cung Địa Không`);
+            keyArr.push(`Tham Lang tọa thủ cung Mệnh ở ${tumo[i]} đồng cung Địa Không`);
+        }
+         if(isHaiSaoDongCungTaiCungChi("Mệnh", tumo[i], "Tham Lang", "Địa Kiếp")){
+            console.log(`Tham Lang tọa thủ cung Mệnh ở ${tumo[i]} đồng cung Địa Kiếp`);
+            keyArr.push(`Tham Lang tọa thủ cung Mệnh ở ${tumo[i]} đồng cung Địa Kiếp`);
+        }
+    }
+    for (let i = 0; i < tusinh.length; i++) {
+        if (isSaoToaThuTaiCung("Mệnh", tumo[i], "Tham Lang") && kiemTraCachCuc("Tham Lang", ["Phá Quân"]) && kiemTraCachCuc("Tham Lang", ["Thất Sát"]) && kiemTraCachCuc("Tham Lang", "Hóa Kỵ")) {
+            console.log(`Tham Lang tọa thủ cung Mệnh ở ${tusinh[i]} gặp Phá Quân, Sát tinh, Hoá Kỵ`);
+            keyArr.push(`Tham Lang tọa thủ cung Mệnh ở ${tusinh[i]} gặp Phá Quân, Sát tinh, Hoá Kỵ`);
         }
     }
 
@@ -1544,6 +1585,22 @@ function LuanCachCucThamLang(keyArr) {
         console.log("Tham Lang tọa thủ cung Mệnh ở Hợi đồng cung Liêm Trinh gặp Kinh, Đà, Thiên Hư, Thiên Không, Địa Không, Địa Kiếp");
         keyArr.push("Tham Lang tọa thủ cung Mệnh ở Hợi đồng cung Liêm Trinh gặp Kinh, Đà, Thiên Hư, Thiên Không, Địa Không, Địa Kiếp");
 
+    }
+
+    if (isHaiSaoDongCungTaiCung("Mệnh", "Tham Lang", "Vũ Khúc") && kiemTraCachCuc("Tham Lang", "Phá Quân") && kiemTraCachCuc("Tham Lang", KhoaLocQuyen.concat(TaHuu).concat(KhoiViet)) === false) {
+        console.log("Tham Lang tọa thủ cung Mệnh đồng cung Vũ Khúc gặp Phá Quân không gặp Khoa Lộc Quyền Tả Hữu Khôi Việt");
+        keyArr.push("Tham Lang tọa thủ cung Mệnh đồng cung Vũ Khúc gặp Phá Quân không gặp Khoa Lộc Quyền Tả Hữu Khôi Việt");
+    }
+    if (isHaiSaoDongCungTaiCungChi("Mệnh", "Dần", "Tham Lang", "Đà La") && kiemTraCachCuc("Tham Lang", ["Thiên Hình"])) {
+        console.log("Tham Lang tọa thủ cung Mệnh ở Dần đồng cung Đà La gặp Thiên Hình");
+        keyArr.push("Tham Lang tọa thủ cung Mệnh ở Dần đồng cung Đà La gặp Thiên Hình");
+    }
+
+    for (let i = 0; i < tyhoi.length; i++) {
+        if (isSaoToaThuTaiCungVaChi("Mệnh", tyhoi[i], "Tham Lang") && kiemTraCachCuc("Tham Lang", ["Hóa Quyền"])) {
+            console.log(`Tham Lang tọa thủ cung Mệnh ở ${tyhoi[i]} gặp Hoá Quyền`);
+            keyArr.push(`Tham Lang tọa thủ cung Mệnh ở ${tyhoi[i]} gặp Hoá Quyền`);
+        }
     }
 
 }
