@@ -1053,11 +1053,11 @@ function LuanCachCucThaiDuong(keyArr) {
         keyArr.push("Thái Dương tọa thủ cung Mệnh ở Hợi còn Cự Môn ở Tỵ chiếu");
     }
 
-    if(isSaoToaThuTaiCungVaChi("Mệnh", "Hợi", "Thái Dương") && kiemTraCachCuc("Thái Dương", KhoaLocQuyen.concat(TaHuu).concat(KhoiHong))) {
+    if (isSaoToaThuTaiCungVaChi("Mệnh", "Hợi", "Thái Dương") && kiemTraCachCuc("Thái Dương", KhoaLocQuyen.concat(TaHuu).concat(KhoiHong))) {
         console.log("Thái Dương tọa thủ cung Mệnh ở Hợi gặp Khoa Lộc Quyền, Tả Hữu, Thiên Khôi Đào Hồng");
         keyArr.push("Thái Dương tọa thủ cung Mệnh ở Hợi gặp Khoa Lộc Quyền, Tả Hữu, Thiên Khôi Đào Hồng");
     }
-    if(isSaoToaThuTaiCungVaChi("Mệnh", "Hợi", "Thái Dương") && kiemTraCachCuc("Thái Dương", ["Bạch Hổ", "Long Trì","Phượng Các","Hoa Cái"])){
+    if (isSaoToaThuTaiCungVaChi("Mệnh", "Hợi", "Thái Dương") && kiemTraCachCuc("Thái Dương", ["Bạch Hổ", "Long Trì", "Phượng Các", "Hoa Cái"])) {
         console.log("Thái Dương tọa thủ cung Mệnh ở Hợi gặp Bạch Hổ, Long Trì, Phượng Các, Hoa Cái");
         keyArr.push("Thái Dương tọa thủ cung Mệnh ở Hợi gặp Bạch Hổ, Long Trì, Phượng Các, Hoa Cái");
     }
@@ -1126,7 +1126,7 @@ function LuanCachCucThienCo(keyArr) {
                 console.log(`Thiên Cơ Thiên Lương đồng cung tại Mệnh ở ${thintuat[i]} gặp các sao Kình Đà Hỏa Linh Tướng`);
                 keyArr.push(`Thiên Cơ Thiên Lương đồng cung tại Mệnh ở ${thintuat[i]} gặp các sao Kình Đà Hỏa Linh Tướng`);
             }
-            if(kiemTraCachCuc("Thiên Cơ", XuongKhuc.concat(TaHuu).concat(KhoaLocQuyen).concat(KhoiViet))){
+            if (kiemTraCachCuc("Thiên Cơ", XuongKhuc.concat(TaHuu).concat(KhoaLocQuyen).concat(KhoiViet))) {
                 console.log(`Thiên Cơ Thiên Lương đồng cung tại Mệnh ở ${thintuat[i]} gặp các sao cát tinh: `, XuongKhuc.concat(TaHuu).concat(KhoaLocQuyen).concat(KhoiViet).join(", "));
                 keyArr.push(`Thiên Cơ Thiên Lương đồng cung tại Mệnh ở ${thintuat[i]} gặp các sao cát tinh: `, XuongKhuc.concat(TaHuu).concat(KhoaLocQuyen).concat(KhoiViet).join(", "));
             }
@@ -1209,7 +1209,7 @@ function LuanCacCachCucThienPhu(keyArr) {
         if (kiemTraCachCuc("Thiên Phủ", ["Địa Không", "Địa Kiếp"])) {
             console.log("Thiên Phủ tọa thủ cung Mệnh gặp các sao: ", ["Địa Không", "Địa Kiếp"].join(", "));
             keyArr.push("Thiên Phủ tọa thủ cung Mệnh gặp các sao: ", ["Địa Không", "Địa Kiếp"].join(", "));
-            if(lasoData.gioitinh === "Nữ") {
+            if (lasoData.gioitinh === "Nữ") {
                 console.log("Quý Chị có Thiên Phủ tọa thủ cung Mệnh gặp Địa Không Địa Kiếp");
                 keyArr.push("Quý Chị có Thiên Phủ tọa thủ cung Mệnh gặp Địa Không Địa Kiếp");
             }
@@ -1229,7 +1229,7 @@ function LuanCacCachCucThienPhu(keyArr) {
 
     }
     if (isSaoToaThuTaiCungVaChi("Mệnh", "Tuất", "Thiên Phủ")) {
-       
+
         if (kiemTraCachCuc("Thiên Phủ", TaHuu.concat(TuTuongTham).concat(KhoaLocQuyen).concat(KhoiViet))) {
             console.log("Thiên Phủ tọa thủ cung Mệnh ở Tuất gặp các sao cát tinh: ", TaHuu.concat(TuTuongTham).concat(KhoaLocQuyen).concat(KhoiViet).join(", "));
             keyArr.push("Thiên Phủ tọa thủ cung Mệnh ở Tuất gặp các sao cát tinh: ", TaHuu.concat(TuTuongTham).concat(KhoaLocQuyen).concat(KhoiViet).join(", "));
@@ -1279,10 +1279,10 @@ function LuanCacCachCucThienPhu(keyArr) {
 
     }
     // Tử Vi Thiên Phủ đồng cung tại Dần
-    if(isHaiSaoDongCungTaiCungChi("Mệnh", "Dần", "Tử Vi", "Thiên Phủ") && kiemTraCachCuc("Thiên Phủ", ["Hóa Khoa","Hóa Quyền","Hóa Lộc","Kình Dương","Hữu Bật"])&& kiemTraCachCuc("Tử Vi",["Địa Không","Địa Kiếp"])=== false) {
+    if (isHaiSaoDongCungTaiCungChi("Mệnh", "Dần", "Tử Vi", "Thiên Phủ") && kiemTraCachCuc("Thiên Phủ", ["Hóa Khoa", "Hóa Quyền", "Hóa Lộc", "Kình Dương", "Hữu Bật"]) && kiemTraCachCuc("Tử Vi", ["Địa Không", "Địa Kiếp"]) === false) {
         console.log("Tử Vi Thiên Phủ đồng cung tại Dần gặp Khoa, Lộc, Quyền, Kình, Bật không gặp Địa Không, Địa Kiếp");
         keyArr.push("Tử Vi Thiên Phủ đồng cung tại Dần gặp Khoa, Lộc, Quyền, Kình, Bật không gặp Địa Không, Địa Kiếp");
-       
+
     }
 
 }
@@ -1300,6 +1300,8 @@ function LuanCachCucThaiAm(keyArr) {
     const ham = ["Dần", "Mão", "Thìn", "Tỵ", "Ngọ"];
     const daohonghy = ["Đào Hoa", "Hồng Loan", "Thiên Hỷ"];
     const maoty = ["Mão", "Tý"];
+    const binhdinh = ["Bính", "Đinh"];
+    const bd = ["B.", "Đ."];
 
     const mvd = mieu.concat(vuong).concat(dac);
     if (isSaoToaThuTaiCung("Mệnh", "Thái Âm")) {
@@ -1334,6 +1336,18 @@ function LuanCachCucThaiAm(keyArr) {
             if (kiemTraCachCuc("Thái Âm", HinhKy.concat("Thiên Riêu"))) {
                 console.log(`Thái Âm tọa thủ cung Mệnh ở ${mvd[i]} gặp các sao Hình Kỵ: `, HinhKy.concat("Thiên Riêu").join(", "));
                 keyArr.push(`Thái Âm tọa thủ cung Mệnh ở ${mvd[i]} gặp các sao Hình Kỵ: `, HinhKy.concat("Thiên Riêu").join(", "));
+            }
+            if (kiemTraCachCuc("Thái Âm", Kinh.concat(Da))) {
+                console.log(`Thái Âm tọa thủ cung Mệnh ở ${mvd[i]} gặp các sao: `, Kinh.concat(Da).join(", "));
+                keyArr.push(`Thái Âm tọa thủ cung Mệnh ở ${mvd[i]} gặp các sao: `, Kinh.concat(Da).join(", "));
+            }
+            if (lasoData.gioitinh === "Nữ") {
+                console.log(`Quý Chị có Thái Âm tọa thủ cung Mệnh ở ${mvd[i]}`);
+                keyArr.push(`Quý Chị có Thái Âm tọa thủ cung Mệnh ở ${mvd[i]}`);
+            }
+            if(isHaiSaoDongCungTaiCungChi("Mệnh", mvd[i], "Thái Âm", "Hóa Lộc")&& kiemTraCachCuc("Thái Âm", ["Tả Phù", "Hữu Bật"])) {
+                console.log(`Thái Âm tọa thủ cung Mệnh ở ${mvd[i]} đồng cung Hóa Lộc gặp Tả Phù, Hữu Bật`);
+                keyArr.push(`Thái Âm tọa thủ cung Mệnh ở ${mvd[i]} đồng cung Hóa Lộc gặp Tả Phù, Hữu Bật`);
             }
 
         }
@@ -1375,6 +1389,10 @@ function LuanCachCucThaiAm(keyArr) {
                 console.log(`Thái Âm tọa thủ cung Mệnh ở ${ham[i]} gặp các sao: `, Kinh.concat(Da).join(", "));
                 keyArr.push(`Thái Âm tọa thủ cung Mệnh ở ${ham[i]} gặp các sao: `, Kinh.concat(Da).join(", "));
             }
+            if (lasoData.gioitinh === "Nữ") {
+                console.log(`Quý Chị có Thái Âm tọa thủ cung Mệnh ở ${ham[i]}`);
+                keyArr.push(`Quý Chị có Thái Âm tọa thủ cung Mệnh ở ${ham[i]}`);
+            }
         }
     }
 
@@ -1384,9 +1402,9 @@ function LuanCachCucThaiAm(keyArr) {
         keyArr.push("Thái Âm tọa thủ cung Mệnh đồng cung Thiên Hình");
     }
 
-    if (isSaoToaThuTaiCung("Phu Thê", "Thái Âm")) {
-        console.log(`Thái Âm tọa thủ cung Phu Thê`);
-        keyArr.push(`Thái Âm tọa thủ cung Phu Thê`);
+    if (isSaoToaThuTaiCung("Phu Thê", "Thái Âm") && lasoData.gioitinh === "Nam") {
+        console.log("Quý Anh có Thái Âm tọa thủ cung Phu Thê");
+        keyArr.push("Quý Anh có Thái Âm tọa thủ cung Phu Thê");
     }
 
     if (isSaoToaThuTaiCung("Mệnh", "Thái Âm") && isHaiSaoDongCungTaiCung("Mệnh", "Thái Âm", "Vũ Khúc") && isHaiSaoDongCungTaiCung("Mệnh", "Thái Âm", "Lộc Tồn")) {
@@ -1397,6 +1415,14 @@ function LuanCachCucThaiAm(keyArr) {
             keyArr.push("Thái Âm tọa thủ cung Mệnh đồng cung Vũ Khúc, Lộc Tồn gặp các sao: ", TaHuu.join(", "));
         }
     }
+
+    for (let i = 0; i < binhdinh.length; i++) {
+        if (isSaoToaThuTaiCungVaChi("Mệnh", "Tý", "Thái Âm")) {
+            console.log(`Người tuổi ${bd[i]} có Thái Âm tọa thủ cung Mệnh ở Tý`);
+            keyArr.push(`Người tuổi ${bd[i]} có Thái Âm tọa thủ cung Mệnh ở Tý`);
+        }
+    }
+
 }
 function LuanCachCucThamLang(keyArr) {
 
