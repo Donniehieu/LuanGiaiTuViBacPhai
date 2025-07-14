@@ -1986,7 +1986,7 @@ function LuanCachCucThienLuong(keyArr) {
     const ham = ["Hợi", "Dậu", "Tỵ"];
     const mvd = mieu.concat(vuong).concat(dac);
     const tyhoi = ["Tỵ", "Hợi"];
-    const th=["Tý","Hợi"];
+    const th = ["Tý", "Hợi"];
     const dau = ["Dậu"];
     const thintuat = ["Thìn", "Tuất"];
     const dinhkyquy = ["Đinh", "Kỷ", "Quý"];
@@ -2107,12 +2107,12 @@ function LuanCachCucThienLuong(keyArr) {
         if (isHaiSaoDongCungTaiCungChi("Mệnh", th[i], "Thiên Lương", "Thiên Mã")) {
             console.log(`Thiên Lương đồng cung Thiên Mã tại cung Mệnh ở ${th[i]}`);
             keyArr.push(`Thiên Lương đồng cung Thiên Mã tại cung Mệnh ở ${th[i]}`);
-           
+
         }
         if (isSaoToaThuTaiCungVaChi("Mệnh", th[i], "Thiên Lương") && isSaoToaThuTaiCung("Thiên Di", "Thiên Mã")) {
             console.log(`Thiên Lương tọa thủ cung Mệnh ở ${th[i]} gặp Thiên Mã ở Thiên Di`);
             keyArr.push(`Thiên Lương tọa thủ cung Mệnh ở ${th[i]} gặp Thiên Mã ở Thiên Di`);
-           
+
         }
     }
 
@@ -2152,6 +2152,7 @@ function LuanCachCucThatSat(keyArr) {
     const phatham = ["Phá Quân", "Tham Lang"];
     const bm = ["B.", "M."];
     const binhmau = ["Bính", "Mậu"];
+    const tyngo = ["Tý", "Ngọ"];
 
 
     const mvd = mieu.concat(vuong).concat(dac);
@@ -2196,6 +2197,7 @@ function LuanCachCucThatSat(keyArr) {
         }
     }
 
+
     for (let i = 0; i < ham.length; i++) {
         if (isSaoToaThuTaiCung("Mệnh", ham[i], "Thất Sát")) {
             console.log(`Thất Sát tọa thủ cung Mệnh ở ${ham[i]}`);
@@ -2233,6 +2235,10 @@ function LuanCachCucThatSat(keyArr) {
             console.log("Thất Sát đồng cung Tử Vi tại cung Mệnh ở Tỵ gặp các sao cát tinh: ", batkhoamaanhong.join(", "));
             keyArr.push("Thất Sát đồng cung Tử Vi tại cung Mệnh ở Tỵ gặp các sao cát tinh: ", batkhoamaanhong.join(", "));
         }
+        if (kiemTraCachCuc("Thất Sát", ["Hỏa Tinh"])) {
+            console.log("Thất Sát đồng cung Tử Vi tại cung Mệnh ở Tỵ gặp Hoả Tinh");
+            keyArr.push("Thất Sát đồng cung Tử Vi tại cung Mệnh ở Tỵ gặp Hoả Tinh");
+        }
     }
 
     for (let i = 0; i < suumui.length; i++) {
@@ -2246,6 +2252,27 @@ function LuanCachCucThatSat(keyArr) {
                 keyArr.push(`Bạn tuổi ${atky[j]} có Thất Sát tọa thủ cung Mệnh ở ${suumui[i]}`);
             }
         }
+    }
+    for (let i = 0; i < tyngo.length; i++) {
+        if (isSaoToaThuTaiCungVaChi("Mệnh", tyngo[i], "Thất Sát") && lasoData.gioitinh === "Nam") {
+            console.log("Quý Anh có Thất Sát tọa thủ cung Mệnh ở", tyngo[i]);
+            keyArr.push("Quý Anh có Thất Sát tọa thủ cung Mệnh ở", tyngo[i]);
+
+            if(kiemTraCachCuc("Thất Sát", ["Địa Kiếp","Thiên Riêu"])) {
+                console.log(`Quý Anh có Thất Sát tọa thủ cung Mệnh ở ${tyngo[i]} gặp Địa Kiếp, Thiên Riêu`);
+                keyArr.push(`Quý Anh có Thất Sát tọa thủ cung Mệnh ở ${tyngo[i]} gặp Địa Kiếp, Thiên Riêu`);
+
+            }
+        }
+        if (isSaoToaThuTaiCungVaChi("Mệnh", tyngo[i], "Thất Sát") && lasoData.gioitinh === "Nữ") {
+            
+            if(kiemTraCachCuc("Thất Sát", ["Địa Kiếp","Thiên Riêu"])) {
+                console.log(`Quý Chị có Thất Sát tọa thủ cung Mệnh ở ${tyngo[i]} gặp Địa Kiếp, Thiên Riêu`);
+                keyArr.push(`Quý Chị có Thất Sát tọa thủ cung Mệnh ở ${tyngo[i]} gặp Địa Kiếp, Thiên Riêu`);
+
+            }
+        }
+
     }
 
     if (isSaoToaThuTaiCung("Mệnh", "Thất Sát") && kiemTraCachCuc("Thất Sát", ["Phá Quân", "Tham Lang"])) {
@@ -2270,8 +2297,8 @@ function LuanCachCucThatSat(keyArr) {
             keyArr.push(`Bạn tuổi ${binhmau[i]} có Thất Sát đồng cung Kình Dương tại cung Mệnh`);
         }
         if (isSaoToaThuTaiCung(lasoData.cungCu, "Thất Sát") && kiemTraCachCuc("Thất Sát", ["Kình Dương", "Đà La", "Hoả Tinh", "Linh Tinh"])) {
-            console.log(`Thất Sát tọa thủ cung ${lasoData.cungCu} gặp Kình Dương, Đà La, Hoả Tinh, Linh Tinh`);
-            keyArr.push(`Thất Sát tọa thủ cung ${lasoData.cungCu} gặp Kình Dương, Đà La, Hoả Tinh, Linh Tinh`);
+            console.log(`Thân cư ${lasoData.cungCu} có Thất Sát tọa thủ và gặp Kình Dương, Đà La, Hoả Tinh, Linh Tinh`);
+            keyArr.push(`Thân cư ${lasoData.cungCu} có Thất Sát tọa thủ và gặp Kình Dương, Đà La, Hoả Tinh, Linh Tinh`);
         }
 
     }
