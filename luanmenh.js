@@ -2838,6 +2838,10 @@ function LuanCachCucKinhDuongDaLa(keyArr) {
     const ham_dia = ["Tý", "Dần", "Mão", "Tỵ", "Ngọ", "Thân", "Dậu", "Hợi"];
     const tymui = ["Tỵ", "Mùi"];
     const tumo = ["Thìn", "Tuất", "Sửu", "Mùi"];
+    const giapmau = ["Giáp", "Mậu"];
+    const gm = ["G.", "M."];
+    const danthan = ["Dần", "Thân"];
+
 
     if (isSaoToaThuTaiCung("Mệnh", "Kình Dương")) {
 
@@ -2861,6 +2865,15 @@ function LuanCachCucKinhDuongDaLa(keyArr) {
         if (isSaoToaThuTaiCungVaChi("Mệnh", ham_dia[i], "Kình Dương")) {
             console.log(`Kình Dương toạ thủ cung Mệnh ở ${ham_dia[i]}`);
             keyArr.push(`Kình Dương toạ thủ cung Mệnh ở ${ham_dia[i]}`);
+        }
+    }
+
+    for (let i = 0; i < gm.length; i++) {
+        for (let j = 0; j < danthan.length; j++) {
+            if (isSaoToaThuTaiCungVaChi("Mệnh", gm[i] + danthan[j], "Kình Dương")) {
+                console.log("Bạn tuổi " + giapmau[i] + " có Kình Dương toạ thủ cung Mệnh ở " + danthan[j]);
+                keyArr.push("Bạn tuổi " + giapmau[i] + " có Kình Dương toạ thủ cung Mệnh ở " + danthan[j]);
+            }
         }
     }
     if (isHaiSaoDongCungTaiCung("Mệnh", "Thái Dương", "Thái Âm") && kiemTraCachCuc("Kình Dương", ["Thái Dương", "Thái Âm"])) {
