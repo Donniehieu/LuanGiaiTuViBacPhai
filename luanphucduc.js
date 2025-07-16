@@ -368,6 +368,11 @@ function LuanCachCucSaoTuViPhucDuc(keyArr) {
         console.log("Tử Vi đồng cung với Phá Quân tại Phúc Đức");
         keyArr.push("Tử Vi đồng cung với Phá Quân tại Phúc Đức");
     }
+    // Tử vi đồng cung Thiên Tướng tại Phúc Đức
+    if (isHaiSaoDongCungTaiCung("Phúc Đức", "Tử Vi", "Thiên Tướng")) {
+        console.log("Tử Vi đồng cung với Thiên Tướng tại Phúc Đức");
+        keyArr.push("Tử Vi đồng cung với Thiên Tướng tại Phúc Đức");
+    }
 }
 
 function LuanCachCucSaoLiemTrinhPhucDuc(keyArr) {
@@ -670,6 +675,10 @@ function LuanCachCucSaoThienDongPhucDuc(keyArr) {
             keyArr.push("Thiên Đồng đồng cung với Thái Âm tại Phúc Đức ở " + tyngo[i]);
 
         }
+    }
+    if(isHaiSaoDongCungTaiCung("Phúc Đức", "Thiên Đồng", "Cự Môn")){
+        console.log("Thiên Đồng đồng cung với Cự Môn tại Phúc Đức");
+        keyArr.push("Thiên Đồng đồng cung với Cự Môn tại Phúc Đức");
     }
 
 
@@ -1061,7 +1070,12 @@ function LuanCachCucThienCoPhucDuc(keyArr) {
     const kinhdahoalinhtuong = ["Kình Dương", "Đà La", "Hỏa Tinh", "Linh Tinh", "Thiên Tướng"];
     const nguyetdongluong = ["Thái Âm", "Thiên Đồng", "Thiên Lương"];
     const thandan = ["Thân", "Dần"];
+    
 
+    if(isSaoToaThuTaiCung("Phúc Đức","Thiên Cơ")){
+        console.log("Thiên Cơ tọa thủ cung Phúc Đức");
+        keyArr.push("Thiên Cơ tọa thủ cung Phúc Đức");
+    }
     // Thiên Cơ Miếu Vượng Địa
     for (let i = 0; i < mvd.length; i++) {
         if (isSaoToaThuTaiCungVaChi("Phúc Đức", mvd[i], "Thiên Cơ")) {
