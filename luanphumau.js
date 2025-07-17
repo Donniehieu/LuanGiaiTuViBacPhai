@@ -909,6 +909,8 @@ function LuanCachCucThaiDuongPhuMau(keyArr) {
                 console.log("Quý Chị có Thái Dương tọa thủ cung Phụ Mẫu ở " + mvd[i]);
                 keyArr.push("Quý Chị có Thái Dương tọa thủ cung Phụ Mẫu ở " + mvd[i]);
             }
+            
+
 
         }
     }
