@@ -2549,6 +2549,10 @@ function LuanCachCucKinhDuongDaLaPhucDuc(keyArr) {
     const tymui = ["Tỵ", "Mùi"];
     const tumo = ["Thìn", "Tuất", "Sửu", "Mùi"];
 
+    if(isSaoToaThuTaiCung("Phúc Đức", "Kình Dương")) {
+        console.log("Kình Dương toạ thủ cung Phúc Đức");
+        keyArr.push("Kình Dương toạ thủ cung Phúc Đức");
+    }
     if (isSaoToaThuTaiCung("Phúc Đức", "Kình Dương")) {
 
         if (kiemTraCachCuc("Kình Dương", ["Hóa Kỵ", "Liêm Trinh", "Cự Môn"])) {
