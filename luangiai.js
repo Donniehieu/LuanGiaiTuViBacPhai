@@ -451,6 +451,26 @@ const DS_CACH_CUC = [
     { key: "Hổ Cái Long Phượng", need: ["Bạch Hổ", "Hoa Cái", "Long Trì", "Phượng Các"] },
     { key: "Vũ Xương Khúc Khôi Việt", need: ["Vũ Khúc", "Văn Xương", "Văn Khúc", "Thiên Khôi", "Thiên Việt"] },
     { key: "Kỵ Phù Hình", need: ["Hóa Kỵ", "Trực Phù", "Thiên Hình"] },
+    { key: "Cơ Nguyệt", need: ["Thiên Cơ", "Thái Âm"] },
+    { key: "Cơ Nguyệt Đà Kỵ", need: ["Thiên Cơ", "Thái Âm", "Đà La", "Hóa Kỵ"] },
+    { key: "Cơ Hỏa", need: ["Thiên Cơ", "Hỏa Tinh"] },
+    { key: "Cơ Hổ Kình Đà", need: ["Thiên Cơ", "Bạch Hổ", "Kình Dương", "Đà La"] },
+    { key: "Cơ Không Kiếp", need: ["Thiên Cơ", "Địa Không", "Địa Kiếp"] },
+    { key: "Hỏa Linh Riêu Hỷ", need: ["Hỏa Tinh", "Linh Tinh", "Thiên Riêu", "Thiên Hỷ"] },
+    { key: "Hỏa Linh Tướng Binh", need: ["Hỏa Tinh", "Linh Tinh", "Thiên Tướng", "Phục Binh"] },
+    { key: "Không Kiếp Tướng Binh Tả Hữu", need: ["Địa Không", "Địa Kiếp", "Thiên Tướng", "Phục Binh", "Tả Phù", "Hữu Bật"] },
+    { key: "Không Kiếp Tướng Binh Kình Đà", need: ["Địa Không", "Địa Kiếp", "Thiên Tướng", "Phục Binh", "Kình Dương", "Đà La"] },
+    { key: "Long Không Kiếp", need: ["Long Trì", "Địa Không", "Địa Kiếp"] },
+    { key: "Khốc Hư Hỏa Linh", need: ["Thiên Khốc", "Thiên Hư", "Hỏa Tinh", "Linh Tinh"] },
+    { key: "Khốc Hư Hỏa Linh Tấu Thư", need: ["Thiên Khốc", "Thiên Hư", "Hỏa Tinh", "Linh Tinh", "Tấu Thư"] },
+
+
+
+
+
+
+    
+    
 
 
 
