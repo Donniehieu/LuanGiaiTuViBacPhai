@@ -3312,8 +3312,8 @@ function LuanCacCachCucKhacDienTrach(keyArr) {
     } catch (e) { lasoData = {}; }
     const lasoOb = lasoData.lasoOb || [];
     if (!Array.isArray(lasoOb)) return;
-    const cungMenh = lasoOb.find(c => c.tenCung === 'Điền Trạch');
-    const chiCungMenh = lasoData.lasoOb[0].chi;
+    const cungDienTrach = lasoOb.find(c => c.tenCung === 'Điền Trạch');
+    const chiCungDien    = lasoData.lasoOb[3].chi;
 
     // Nếu là đàn ông sinh năm Ngọ, Mùi, Điền Trạch an tại Tý, Sửu thì cuộc đời vất vả lo toan
 
@@ -3438,28 +3438,32 @@ function LuanCacCachCucKhacDienTrach(keyArr) {
         keyArr.push("Hồng Loan, Hoa Cái, Thiên Riêu đồng cung tại Điền Trạch");
     }
 
-    if(isToaThuTaiCung("Điền Trạch","Thiên Mã")){
+    if(isSaoToaThuTaiCung("Điền Trạch","Thiên Mã")){
         keyArr.push("Thiên Mã toạ thủ tại cung Điền Trạch");
         console.log("Thiên Mã toạ thủ tại cung Điền Trạch");
 
     }
-    if(isToaThuTaiCung("Điền Trạch", "Quả Tú")){
+    if(isSaoToaThuTaiCung("Điền Trạch", "Quả Tú")){
         keyArr.push("Quả Tú toạ thủ tại cung Điền Trạch");
         console.log("Quả Tú toạ thủ tại cung Điền Trạch");
 
     }
-    if(isToaThuTaiCung("Điền Trạch", "Cô Thần")){
+    if(isSaoToaThuTaiCung("Điền Trạch", "Cô Thần")){
         keyArr.push("Cô Thần toạ thủ tại cung Điền Trạch");
         console.log("Cô Thần toạ thủ tại cung Điền Trạch");
 
     }
-    if(isToaThuTaiCung("Điền Trạch", "Ân Quang")){
+    if(isSaoToaThuTaiCung("Điền Trạch", "Ân Quang")){
         keyArr.push("Ân Quang tọa thủ tại cung Điền Trạch");
         console.log("Ân Quang tọa thủ tại cung Điền Trạch");
     }
-    if(isToaThuTaiCung("Điền Trạch", "Thên Quý")){
-        keyArr.push("Thên Quý tọa thủ tại cung Điền Trạch");
-        console.log("Thên Quý tọa thủ tại cung Điền Trạch");
+    if(isSaoToaThuTaiCung("Điền Trạch", "Thiên Quý")){
+        keyArr.push("Thiên Quý tọa thủ tại cung Điền Trạch");
+        console.log("Thiên Quý tọa thủ tại cung Điền Trạch");
+    }
+    if(chiCungDien==="Thìn"){
+        keyArr.push("Cung Điền Trạch an tại Thìn");
+        console.log("Cung Điền Trạch an tại Thìn");
     }
 
 
