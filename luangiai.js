@@ -463,8 +463,8 @@ const DS_CACH_CUC = [
     { key: "Long Không Kiếp", need: ["Long Trì", "Địa Không", "Địa Kiếp"] },
     { key: "Khốc Hư Hỏa Linh", need: ["Thiên Khốc", "Thiên Hư", "Hỏa Tinh", "Linh Tinh"] },
     { key: "Khốc Hư Hỏa Linh Tấu Thư", need: ["Thiên Khốc", "Thiên Hư", "Hỏa Tinh", "Linh Tinh", "Tấu Thư"] },
-     { key: "Riêu Hỏa Linh Tấu Thư", need: ["Thiên Riêu", "Hỏa Tinh", "Linh Tinh", "Tấu Thư"] },
-     { key: "Hỏa Linh Tấu Thư", need: ["Hỏa Tinh", "Linh Tinh", "Tấu Thư"] },
+    { key: "Riêu Hỏa Linh Tấu Thư", need: ["Thiên Riêu", "Hỏa Tinh", "Linh Tinh", "Tấu Thư"] },
+    { key: "Hỏa Linh Tấu Thư", need: ["Hỏa Tinh", "Linh Tinh", "Tấu Thư"] },
 
 
 
@@ -472,8 +472,8 @@ const DS_CACH_CUC = [
 
 
 
-    
-    
+
+
 
 
 
@@ -735,7 +735,25 @@ function LuanGiaiCacCungVaHienThi() {
     });
 }
 
+function findChiCungChuaSao(tenSao, lasoOb) {
+    for (let i = 0; i < lasoOb.length; ++i) {
+        let cung = lasoOb[i];
+        if (!Array.isArray(cung.sao)) continue;
+        // Tìm trong danh sách sao của cung
+        if (cung.sao.some(sao => (sao.ten && sao.ten.replace(/\s+/g, '').toLowerCase() === tenSao.replace(/\s+/g, '').toLowerCase()))) {
+            return cung.chi;
+        }
+    }
+    return null;
+}
 
+function kiemTraSaoSangToi(vtrdac, vtrham, diachisao) {
+    if (vtrdac.includes(diachisao)) {
+        return "sao sáng";
+    } else if (vtrham.includes(diachisao)) {
+        return "sao tối";
+    }
+}
 
 // Thân mệnh đồng cung mệnh vô chính diệu
 

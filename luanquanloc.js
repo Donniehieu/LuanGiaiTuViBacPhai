@@ -94,6 +94,8 @@ function LuanCungQuanLoc(keyArr) {
     LuanCachCucLucBaiTinhQuanLoc(keyArr);
     LuanCacCachCucKhacQuanLoc(keyArr);
 }
+
+
 function LuanCachCucSaoTuViQuanLoc(keyArr) {
     let lasoData = {};
     try {
@@ -118,11 +120,11 @@ function LuanCachCucSaoTuViQuanLoc(keyArr) {
     const tyngo = ["Tý", "Ngọ"];
     const mvd = mieu.concat(vuong).concat(dac); // Tử vi thủ Quan Lộc ở miếu, vượng, đắc địa
 
+
     if (isSaoToaThuTaiCung("Quan Lộc", "Tử Vi")) {
         console.log("Tử Vi tọa thủ cung Quan Lộc");
         keyArr.push("Tử Vi tọa thủ cung Quan Lộc");
     }
-
     for (let i = 0; i < mvd.length; i++) {
         if (isSaoToaThuTaiCungVaChi("Quan Lộc", mvd[i], "Tử Vi")) {
             console.log(`Tử Vi tọa thủ cung Quan Lộc ở ${mvd[i]}`);
@@ -531,6 +533,18 @@ function LuanCachCucSaoLiemTrinhQuanLoc(keyArr) {
         console.log("Liêm Trinh đồng cung với Thiên Tướng tại Quan Lộc");
         keyArr.push("Liêm Trinh đồng cung với Thiên Tướng tại Quan Lộc");
     }
+    if (isHaiSaoDongCungTaiCung("Quan Lộc", "Liêm Trinh", "Thất Sát")) {
+        console.log("Liêm Trinh đồng cung với Thất Sát tại Quan Lộc");
+        keyArr.push("Liêm Trinh đồng cung với Thất Sát tại Quan Lộc");
+    }
+    if (isHaiSaoDongCungTaiCung("Quan Lộc", "Liêm Trinh", "Phá Quân")) {
+        console.log("Liêm Trinh đồng cung với Phá Quân tại Quan Lộc");
+        keyArr.push("Liêm Trinh đồng cung với Phá Quân tại Quan Lộc");
+    }
+    if (isHaiSaoDongCungTaiCung("Quan Lộc", "Liêm Trinh", "Tham Lang")) {
+        console.log("Liêm Trinh đồng cung với Tham Lang tại Quan Lộc");
+        keyArr.push("Liêm Trinh đồng cung với Tham Lang tại Quan Lộc");
+    }
 
 
 }
@@ -543,6 +557,7 @@ function LuanCachCucSaoThienDongQuanLoc(keyArr) {
     const dinhcanh = ["Đinh", "Canh"];
     const tuatngo = ["Tuất", "Ngọ"];
     const DanThan = ["Dần", "Thân"];
+    const tyngo = ["Tý", "Ngọ"];
     let lasoData = {};
     try {
         lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
@@ -650,6 +665,25 @@ function LuanCachCucSaoThienDongQuanLoc(keyArr) {
             }
         }
     }
+    // tý ngọ đồng cung với Thái Âm
+    for (let i = 0; i < tyngo.length; i++) {
+        if (isHaiSaoDongCungTaiCungChi("Quan Lộc", tyngo[i], "Thiên Đồng", "Thái Âm")) {
+            console.log("Thiên Đồng đồng cung với Thái Âm tại Quan Lộc ở " + tyngo[i]);
+            keyArr.push("Thiên Đồng đồng cung với Thái Âm tại Quan Lộc ở " + tyngo[i]);
+        }
+    }
+
+    if (isHaiSaoDongCungTaiCung("Quan Lộc", "Thiên Đồng", "Thiên Lương")) {
+        console.log("Thiên Đồng đồng cung với Thiên Lương tại Quan Lộc");
+        keyArr.push("Thiên Đồng đồng cung với Thiên Lương tại Quan Lộc");
+    }
+
+    if (isHaiSaoDongCungTaiCung("Quan Lộc", "Thiên Đồng", "Cự Môn")) {
+        console.log("Thiên Đồng đồng cung với Cự Môn tại Quan Lộc");
+        keyArr.push("Thiên Đồng đồng cung với Cự Môn tại Quan Lộc");
+    }
+
+
 }
 
 function LuanCachCucSaoVuKhucQuanLoc(keyArr) {
@@ -821,6 +855,24 @@ function LuanCachCucSaoVuKhucQuanLoc(keyArr) {
             keyArr.push(`Vũ Khúc tọa thủ cung Quan Lộc ở ${danthan[i]} gặp các sao cát tinh:`, KhoaLocQuyen.join(", "));
         }
     }
+
+    if (isHaiSaoDongCungTaiCung("Quan Lộc", "Vũ Khúc", "Thiên Phủ")) {
+        console.log("Vũ Khúc đồng cung với Thiên Phủ tại Quan Lộc");
+        keyArr.push("Vũ Khúc đồng cung với Thiên Phủ tại Quan Lộc");
+    }
+
+    if (isHaiSaoDongCungTaiCung("Quan Lộc", "Vũ Khúc", "Thiên Tướng")) {
+        console.log("Vũ Khúc đồng cung với Thiên Tướng tại Quan Lộc");
+        keyArr.push("Vũ Khúc đồng cung với Thiên Tướng tại Quan Lộc");
+    }
+    if (isHaiSaoDongCungTaiCung("Quan Lộc", "Vũ Khúc", "Thất Sát")) {
+        console.log("Vũ Khúc đồng cung với Thất Sát tại Quan Lộc");
+        keyArr.push("Vũ Khúc đồng cung với Thất Sát tại Quan Lộc");
+    }
+    if (isHaiSaoDongCungTaiCung("Quan Lộc", "Vũ Khúc", "Phá Quân")) {
+        console.log("Vũ Khúc đồng cung với Phá Quân tại Quan Lộc");
+        keyArr.push("Vũ Khúc đồng cung với Phá Quân tại Quan Lộc");
+    }
 }
 
 function LuanCachCucThaiDuongQuanLoc(keyArr) {
@@ -843,6 +895,8 @@ function LuanCachCucThaiDuongQuanLoc(keyArr) {
     const ThaiToa = ["Tam Thai", "Bát Tọa"];
     const KhoiHong = ["Thiên Khôi", "Đào Hồng"];
     const suumui = ["Sửu", "Mùi"];
+    const danthan = ["Dần", "Thân"];
+    const maodau = ["Mão", "Dậu"];
     let lasoData = {};
     try {
         lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
@@ -1003,14 +1057,16 @@ function LuanCachCucThaiDuongQuanLoc(keyArr) {
     }
     // Cự Đồng Hình 
 
-    if(isHaiSaoDongCungTaiCung("Quan Lộc", "Cự Môn", "Thiên Đồng")&& isHaiSaoDongCungTaiCung("Quan Lộc", "Cự Môn", "Thiên Hình")) {
+    if (isHaiSaoDongCungTaiCung("Quan Lộc", "Cự Môn", "Thiên Đồng") && isHaiSaoDongCungTaiCung("Quan Lộc", "Cự Môn", "Thiên Hình")) {
         console.log("Thiên Đồng, Cự Môn, Thiên Hình đồng cung tại Quan Lộc");
         keyArr.push("Thiên Đồng, Cự Môn, Thiên Hình đồng cung tại Quan Lộc");
     }
 
-    
 
-        
+
+
+
+
 }
 function LuanCachCucThienCoQuanLoc(keyArr) {
     let lasoData = {};
@@ -1124,6 +1180,17 @@ function LuanCachCucThienCoQuanLoc(keyArr) {
     if (isSaoToaThuTaiCung("Quan Lộc", "Thiên Cơ") && kiemTraCachCuc("Thiên Cơ", nguyetdongluong)) {
         console.log("Thiên Cơ tọa thủ cung Quan Lộc gặp Thiên Đồng, Thiên Lương, Thái Âm");
         keyArr.push("Thiên Cơ tọa thủ cung Quan Lộc gặp Thiên Đồng, Thiên Lương, Thái Âm");
+    }
+
+    // Cơ Cự
+    if (isHaiSaoDongCungTaiCung("Quan Lộc", "Thiên Cơ", "Cự Môn")) {
+        console.log("Thiên Cơ đồng cung với Cự Môn tại Quan Lộc");
+        keyArr.push("Thiên Cơ đồng cung với Cự Môn tại Quan Lộc");
+    }
+    // Cơ Lương
+    if (isHaiSaoDongCungTaiCung("Quan Lộc", "Thiên Cơ", "Thiên Lương")) {
+        console.log("Thiên Cơ đồng cung với Thiên Lương tại Quan Lộc");
+        keyArr.push("Thiên Cơ đồng cung với Thiên Lương tại Quan Lộc");
     }
 }
 function LuanCacCachCucThienPhuQuanLoc(keyArr) {
@@ -2173,7 +2240,7 @@ function LuanCachCucXuongKhucQuanLoc(keyArr) {
 
     const tyhoi = ["Tỵ", "Hợi"];
     const danmao = ["Dần", "Mão"];
-    
+
     for (let i = 0; i < dac_dia.length; i++) {
         for (let j = 0; j < XuongKhuc.length; j++) {
             if (isSaoToaThuTaiCungVaChi("Quan Lộc", dac_dia[i], XuongKhuc[j])) {
@@ -2255,7 +2322,7 @@ function LuanCachCucKhoiVietQuanLoc(keyArr) {
 
     for (let i = 0; i < KhoiViet.length; i++) {
         if (isSaoToaThuTaiCung("Quan Lộc", KhoiViet[i])) {
-           
+
             if (kiemTraCachCuc(KhoiViet[i], tuphuvutuongxuongkhuctahuukhoaquyenloc)) {
                 console.log(`${KhoiViet[i]} toạ thủ cung Quan Lộc gặp`, tuphuvutuongxuongkhuctahuukhoaquyenloc.join(", "));
                 keyArr.push(`${KhoiViet[i]} toạ thủ cung Quan Lộc gặp`, tuphuvutuongxuongkhuctahuukhoaquyenloc.join(", "));
@@ -2313,7 +2380,7 @@ function LuanCachCucLocTonQuanLoc(keyArr) {
     const khongkiephaokypha = ["Địa Không", "Địa Kiếp", "Đại Hao", "Tiểu Hao", "Hóa Kỵ", "Tuế Phá"];
 
     if (isSaoToaThuTaiCung("Quan Lộc", "Lộc Tồn")) {
-       
+
         if (kiemTraCachCuc("Lộc Tồn", tuphuxuongkhuckhoivietma)) {
             console.log("Lộc Tồn toạ thủ cung Quan Lộc gặp", tuphuxuongkhuckhoivietma.join(", "));
             keyArr.push("Lộc Tồn toạ thủ cung Quan Lộc gặp", tuphuxuongkhuckhoivietma.join(", "));
@@ -2380,7 +2447,7 @@ function LuanCachCucTaHuuQuanLoc(keyArr) {
 
     for (let i = 0; i < TaHuu.length; i++) {
         if (isSaoToaThuTaiCung("Quan Lộc", TaHuu[i])) {
-            
+
             if (kiemTraCachCuc(TaHuu[i], tuphuxuongkhuckhoivietkhoaquyenloc)) {
                 console.log(`${TaHuu[i]} toạ thủ cung Quan Lộc gặp`, tuphuxuongkhuckhoivietkhoaquyenloc.join(", "));
                 keyArr.push(`${TaHuu[i]} toạ thủ cung Quan Lộc gặp`, tuphuxuongkhuckhoivietkhoaquyenloc.join(", "));
@@ -2457,7 +2524,7 @@ function LuanCachCucKinhDuongDaLaQuanLoc(keyArr) {
     const tumo = ["Thìn", "Tuất", "Sửu", "Mùi"];
 
     if (isSaoToaThuTaiCung("Quan Lộc", "Kình Dương")) {
-       
+
         if (kiemTraCachCuc("Kình Dương", ["Hóa Kỵ", "Liêm Trinh", "Cự Môn"])) {
             console.log("Kình Dương toạ thủ cung Quan Lộc gặp Hóa Kỵ, Liêm Trinh, Cự Môn");
             keyArr.push("Kình Dương toạ thủ cung Quan Lộc gặp Hóa Kỵ, Liêm Trinh, Cự Môn");
@@ -2533,7 +2600,7 @@ function LuanCachCucKinhDuongDaLaQuanLoc(keyArr) {
     }
 
     if (isSaoToaThuTaiCung("Quan Lộc", "Đà La")) {
-        
+
         if (kiemTraCachCuc("Đà La", ["Hỏa Tinh", "Linh Tinh", "Kình Dương", "Địa Không", "Địa Kiếp"])) {
             console.log("Đà La toạ thủ cung Quan Lộc gặp Hỏa Tinh, Linh Tinh, Kình Dương, Địa Không, Địa Kiếp");
             keyArr.push("Đà La toạ thủ cung Quan Lộc gặp Hỏa Tinh, Linh Tinh, Kình Dương, Địa Không, Địa Kiếp");
@@ -2570,7 +2637,7 @@ function LuanCachCucHoaLinhQuanLoc(keyArr) {
 
     for (let i = 0; i < HoaLinh.length; i++) {
         if (isSaoToaThuTaiCung("Quan Lộc", HoaLinh[i])) {
-          
+
             if (kiemTraCachCuc(HoaLinh[i], ["Hóa Kỵ", "Liêm Trinh", "Cự Môn"])) {
                 console.log(`${HoaLinh[i]} toạ thủ cung Quan Lộc gặp Hóa Kỵ, Liêm Trinh, Cự Môn`);
                 keyArr.push(`${HoaLinh[i]} toạ thủ cung Quan Lộc gặp Hóa Kỵ, Liêm Trinh, Cự Môn`);
@@ -2654,7 +2721,7 @@ function LuanCachCucKhongKiepQuanLoc(keyArr) {
     const tusinh = ["Dần", "Thân", "Tỵ", "Hợi"];
     const cunhatphukhockhach = ["Cự Môn", "Thái Dương", "Thiên Phủ", "Thiên Khốc", "Thiên Hư"];
 
-    
+
     for (let i = 0; i < dac_dia.length; i++) {
         for (let j = 0; j < khongkiep.length; j++) {
             if (isSaoToaThuTaiCungVaChi("Quan Lộc", dac_dia[i], khongkiep[j])) {
@@ -2769,7 +2836,7 @@ function LuanCachCucTuHoaQuanLoc(keyArr) {
     const danthan = ["Dần", "Thân"];
 
     if (isSaoToaThuTaiCung("Quan Lộc", "Hoá Lộc")) {
-       
+
         if (kiemTraCachCuc("Hoá Lộc", ["Hóa Quyền", "Hóa Khoa", "Văn Xương", "Văn Khúc"])) {
             console.log("Hoá Lộc toạ thủ cung Quan Lộc gặp Hóa Quyền, Hóa Khoa, Văn Xương, Văn Khúc");
             keyArr.push("Hoá Lộc toạ thủ cung Quan Lộc gặp Hóa Quyền, Hóa Khoa, Văn Xương, Văn Khúc");
@@ -2793,7 +2860,7 @@ function LuanCachCucTuHoaQuanLoc(keyArr) {
     }
 
     if (isSaoToaThuTaiCung("Quan Lộc", "Hoá Quyền")) {
-        
+
         if (kiemTraCachCuc("Hoá Quyền", ["Hóa Lộc", "Hóa Khoa", "Văn Xương", "Văn Khúc"])) {
             console.log("Hoá Quyền toạ thủ cung Quan Lộc gặp Hóa Lộc, Hóa Khoa, Văn Xương, Văn Khúc");
             keyArr.push("Hoá Quyền toạ thủ cung Quan Lộc gặp Hóa Lộc, Hóa Khoa, Văn Xương, Văn Khúc");
@@ -2829,7 +2896,7 @@ function LuanCachCucTuHoaQuanLoc(keyArr) {
         }
     }
     if (isSaoToaThuTaiCung("Quan Lộc", "Hoá Khoa")) {
-       
+
         if (kiemTraCachCuc("Hoá Khoa", ["Hóa Lộc", "Hóa Quyền", "Văn Xương", "Văn Khúc"])) {
             console.log("Hoá Khoa toạ thủ cung Quan Lộc gặp Hóa Lộc, Hóa Quyền, Văn Xương, Văn Khúc");
             keyArr.push("Hoá Khoa toạ thủ cung Quan Lộc gặp Hóa Lộc, Hóa Quyền, Văn Xương, Văn Khúc");
@@ -2857,7 +2924,7 @@ function LuanCachCucTuHoaQuanLoc(keyArr) {
     }
 
     if (isSaoToaThuTaiCung("Quan Lộc", "Hóa Kỵ")) {
-        
+
         if (kiemTraCachCuc("Hóa Kỵ", ["Hỏa Tinh", "Linh Tinh", "Kình Dương", "Đà La"])) {
             console.log("Hóa Kỵ toạ thủ cung Quan Lộc gặp Hỏa Tinh, Linh Tinh, Kình Dương, Đà La");
             keyArr.push("Hóa Kỵ toạ thủ cung Quan Lộc gặp Hỏa Tinh, Linh Tinh, Kình Dương, Đà La");
@@ -3026,7 +3093,7 @@ function LuanCachCucLucBaiTinhQuanLoc(keyArr) {
     const songhao = ["Đại Hao", "Tiểu Hao"];
     const tangho = ["Tang Môn", "Bạch Hổ"];
 
-    
+
     for (let i = 0; i < songhao_dac.length; i++) {
 
         for (let j = 0; j < songhao.length; j++) {
@@ -3046,7 +3113,7 @@ function LuanCachCucLucBaiTinhQuanLoc(keyArr) {
 
     for (let i = 0; i < tangho.length; i++) {
         if (isSaoToaThuTaiCung("Quan Lộc", tangho[i])) {
-            
+
             for (let j = 0; j < tangho_dac.log; j++) {
                 if (isSaoToaThuTaiCungVaChi("Quan Lộc", tangho_dac[j], tangho[i])) {
                     console.log(tangho[i] + " toạ thủ cung Quan Lộc tại " + tangho_dac[j]);
@@ -3116,7 +3183,7 @@ function LuanCachCucLucBaiTinhQuanLoc(keyArr) {
 
     for (let i = 0; i < khochu.length; i++) {
         if (isSaoToaThuTaiCung("Quan Lộc", khochu[i])) {
-            
+
             for (let j = 0; j < khochu_dac.length; j++) {
                 if (isSaoToaThuTaiCungVaChi("Quan Lộc", khochu_dac[j], khochu[i])) {
                     console.log((khochu[i] + " toạ thủ cung Quan Lộc tại " + khochu_dac[j]));
@@ -3183,6 +3250,44 @@ function ThanMenhDongCungVoChinhDieu(keyArr) {
     }
 }
 function LuanCacCachCucKhacQuanLoc(keyArr) {
+
+
+    const kinhda_dac = ["Thìn", "Tuất", "Sửu", "Mùi"];
+    const kinhda_ham = ["Tý", "Dần", "Mão", "Tỵ", "Ngọ", "Thân", "Dậu", "Hợi"];
+    const diakhong_dac = ["Dần", "Thân", "Tỵ", "Hợi"];
+    const diakhong_ham = ["Tý", "Ngọ", "Mão", "Dậu", "Sửu", "Mùi", "Tuất", "Thìn"];
+    const hoalinh_dac = ["Dần", "Mão", "Thìn", "Tỵ", "Ngọ"]
+    const hoalinh_ham = ["Thân", "Dậu", "Tuất", "Hợi", "Sửu", "Mùi", "Tý", "Ngọ"];
+    const tuvi_dac = ["Thìn", "Tuất", "Sửu", "Mùi", "Tỵ", "Ngọ", "Dần", "Thân"];
+    const tuvi_ham = ["Tý", "Dậu", "Hợi", "Mão"];
+    const liemtrinh_dac = ["Thìn", "Tuất", "Sửu", "Mùi", "Tý", "Ngọ", "Dần", "Thân"];
+    const liemtrinh_ham = ["Dậu", "Hợi", "Mão", "Tỵ"];
+    const thienphu_dac = ["Dần", "Thân", "Tý", "Ngọ", "Thìn", "Tuất", "Tỵ", "Hợi", "Mùi"]
+    const thienphu_ham = ["Mão", "Dậu", "Sửu"];
+    const vu_dac = ["Thìn", "Tuất", "Sửu", "Mùi", "Tý", "Ngọ", "Dần", "Thân", "Dậu", "Mão"];
+    const vu_ham = ["Hợi", "Tỵ"];
+    const tuong_dac = ["Dần", "Thân", "Tý", "Ngọ", "Thìn", "Tuất", "Sửu", "Mùi", "Tỵ", "Hợi"];
+    const tuong_ham = ["Mão", "Dậu"];
+    const sat_dac = ["Dần", "Thân", "Tý", "Ngọ", "Tỵ", "Hợi", "Sửu", "Mùi"];
+    const sat_ham = ["Thìn", "Tuất", "Dậu", "Mão"];
+    const phaquan_dac = ["Tý", "Ngọ", "Sửu", "Mùi", "Thìn", "Tuất"];
+    const phaquan_ham = ["Dần", "Thân", "Mão", "Dậu", "Tỵ", "Hợi "];
+    const tham_dac = ["Thìn", "Tuất", "Sửu", "Mùi", "Dần", "Thân"];
+    const tham_ham = ["Tý", "Ngọ", "Mão", "Dậu", "Tỵ", "Hợi"];
+    const cu_dac = ["Mão", "Dậu", "Tý", "Ngọ", "Dần", "Thân", "Hợi"];
+    const cu_ham = ["Sửu", "Mùi", "Thìn", "Tuất", "Tỵ"];
+    const nhat_dac = ["Tỵ", "Ngọ", "Dần", "Mão", "Thìn", "Sửu", "Mùi"];
+    const nhat_ham = ["Thân", "Dậu", "Tuất", "Hợi", "Tý"];
+    const co_dac = ["Thìn", "Tuất", "Mão", "Dậu", "Tỵ", "Thân", "Tý", "Ngọ", "Sửu", "Mùi"];
+    const co_ham = ["Dần", "Hợi"];
+    const nguyet_dac = ["Dậu", "Tuất", "Hợi", "Thân", "Tý", "Sửu", "Mùi"];
+    const nguyet_ham = ["Dần", "Mão", "Ngọ", "Thìn", "Tỵ"];
+    const dong_dac = ["Dần", "Thân", "Tý", "Mão", "Tỵ", "Hợi"];
+    const dong_ham = ["Ngọ", "Sửu", "Mùi", "Tuất", "Thìn", "Dậu"];
+    const luong_dac = ["Thìn", "Tuất", "Sửu", "Mùi", "Tý", "Ngọ", "Mão", "Dần", "Thân"];
+    const luong_ham = ["Dậu", "Hợi", "Tỵ"];
+
+
     let lasoData = {};
     try {
         lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
@@ -3266,47 +3371,83 @@ function LuanCacCachCucKhacQuanLoc(keyArr) {
         keyArr.push("Thân Cư Phúc Đức");
     }
 
+    const dsChinhTinh = getDanhSachChinhTinhTungCung();
+    const chinhtinhtaiQuan = dsChinhTinh[4].chinhTinh || [];
+    const vitri_kinhduong = findChiCungChuaSao("Kình Dương", lasoData.lasoOb);
+    const vitri_dala = findChiCungChuaSao("Đà La", lasoData.lasoOb);
+    const vitri_hoatinh = findChiCungChuaSao("Hỏa Tinh", lasoData.lasoOb);
+    const vitri_linhTinh = findChiCungChuaSao("Linh Tinh", lasoData.lasoOb);
+    const vitri_khong = findChiCungChuaSao("Địa Không", lasoData.lasoOb);
+    const vitri_kiep = findChiCungChuaSao("Địa Kiếp", lasoData.lasoOb);
+
+    let vtr_kinhduong = "";    
+    vtr_kinhduong = kiemTraSaoSangToi(kinhda_dac, kinhda_ham, vitri_kinhduong);
+    let vtr_dala = "";
+    vtr_dala = kiemTraSaoSangToi(kinhda_dac, kinhda_ham, vitri_dala);
+    let vtr_hoatinh = "";
+    vtr_hoatinh = kiemTraSaoSangToi(hoalinh_dac, hoalinh_ham, vitri_hoatinh);
+    let vtr_linhTinh = "";
+    vtr_linhTinh = kiemTraSaoSangToi(hoalinh_dac, hoalinh_ham, vitri_linhTinh);
+    let vtr_khong = "";
+    vtr_khong = kiemTraSaoSangToi(diakhong_dac, diakhong_ham, vitri_khong);
+    let vtr_kiep = "";
+    vtr_kiep = kiemTraSaoSangToi(diakhong_dac, diakhong_ham, vitri_kiep);
+    
+
+    if (chinhtinhtaiQuan.length === 0) {
+        chinhtinhtaiQuan = dsChinhTinh[10 % 12].chinhTinh || [];
+        for (let i = 0; i < chinhtinhtaiQuan.length; i++) {
+            if (kiemTraCachCuc(chinhtinhtaiQuan[i], ["Kình Dương", "Đà La"])) {
+
+                const vitriChinhtinh = findChiCungChuaSao(chinhtinhtaiQuan[i], lasoData.lasoOb);
 
 
-}
-function MenhVoChinhDieu() {
-    if (getDanhSachChinhTinhTungCung()[idCungMenh].chinhTinh.length === 0) {
-        console.log("Cung Quan Lộc Vô Chính Diệu");
-        keyArr.push("Cung Quan Lộc Vô Chính Diệu");
+            }
+
+
+
+        }
+        function MenhVoChinhDieu() {
+            if (getDanhSachChinhTinhTungCung()[idCungMenh].chinhTinh.length === 0) {
+                console.log("Cung Quan Lộc Vô Chính Diệu");
+                keyArr.push("Cung Quan Lộc Vô Chính Diệu");
+
+            }
+
+        }
+        function QuanLocKhongThanKiep(idxCungMenh, idxCungThan, dsChinh, dsPhu, keyArr) {
+
+            // Lấy các sao của cung Quan Lộc và cung Thân
+            const saoMenh = [].concat(
+                (dsChinh[idxCungMenh] && dsChinh[idxCungMenh].chinhTinh) || [],
+                (dsPhu[idxCungMenh] && dsPhu[idxCungMenh].phuTinh) || []
+            );
+            const saoThan = [].concat(
+                (dsChinh[idxCungThan] && dsChinh[idxCungThan].chinhTinh) || [],
+                (dsPhu[idxCungThan] && dsPhu[idxCungThan].phuTinh) || []
+            );
+
+            // Kiểm tra điều kiện
+            const menhKhong = saoMenh.includes("Địa Không");
+            const thanKiep = saoThan.includes("Địa Kiếp");
+
+            const menhKiep = saoMenh.includes("Địa Kiếp");
+            const thanKhong = saoThan.includes("Địa Không");
+
+            // Nếu đủ điều kiện, hiển thị cách cục hoặc trả về true
+            if (menhKhong && thanKiep) {
+                keyArr.push("Quan Lộc Không Thân Kiếp");
+                return true;
+            } else if (menhKiep && thanKhong) {
+                keyArr.push("Quan Lộc Kiếp Thân Không");
+                return true;
+
+            }
+            return false;
+        }
 
     }
 
+    
 }
-function QuanLocKhongThanKiep(idxCungMenh, idxCungThan, dsChinh, dsPhu, keyArr) {
-
-    // Lấy các sao của cung Quan Lộc và cung Thân
-    const saoMenh = [].concat(
-        (dsChinh[idxCungMenh] && dsChinh[idxCungMenh].chinhTinh) || [],
-        (dsPhu[idxCungMenh] && dsPhu[idxCungMenh].phuTinh) || []
-    );
-    const saoThan = [].concat(
-        (dsChinh[idxCungThan] && dsChinh[idxCungThan].chinhTinh) || [],
-        (dsPhu[idxCungThan] && dsPhu[idxCungThan].phuTinh) || []
-    );
-
-    // Kiểm tra điều kiện
-    const menhKhong = saoMenh.includes("Địa Không");
-    const thanKiep = saoThan.includes("Địa Kiếp");
-
-    const menhKiep = saoMenh.includes("Địa Kiếp");
-    const thanKhong = saoThan.includes("Địa Không");
-
-    // Nếu đủ điều kiện, hiển thị cách cục hoặc trả về true
-    if (menhKhong && thanKiep) {
-        keyArr.push("Quan Lộc Không Thân Kiếp");
-        return true;
-    } else if (menhKiep && thanKhong) {
-        keyArr.push("Quan Lộc Kiếp Thân Không");
-        return true;
-
-    }
-    return false;
-}
-
-
 
