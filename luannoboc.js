@@ -2256,6 +2256,8 @@ function LuanCachCucLocTonNoBoc(keyArr) {
     const khongkiephaokypha = ["Địa Không", "Địa Kiếp", "Đại Hao", "Tiểu Hao", "Hóa Kỵ", "Tuế Phá"];
 
     if (isSaoToaThuTaiCung("Nô Bộc", "Lộc Tồn")) {
+        console.log("Lộc Tồn toạ thủ cung Nô Bộc");
+        keyArr.push("Lộc Tồn toạ thủ cung Nô Bộc");
 
         if (kiemTraCachCuc("Lộc Tồn", tuphuxuongkhuckhoivietma)) {
             console.log("Lộc Tồn toạ thủ cung Nô Bộc gặp", tuphuxuongkhuckhoivietma.join(", "));
@@ -2800,6 +2802,8 @@ function LuanCachCucTuHoaNoBoc(keyArr) {
     }
 
     if (isSaoToaThuTaiCung("Nô Bộc", "Hóa Kỵ")) {
+        console.log("Hóa Kỵ tọa thủ cung Nô Bộc");
+        keyArr.push("Hóa Kỵ tọa thủ cung Nô Bộc");
 
         if (kiemTraCachCuc("Hóa Kỵ", ["Hỏa Tinh", "Linh Tinh", "Kình Dương", "Đà La"])) {
             console.log("Hóa Kỵ toạ thủ cung Nô Bộc gặp Hỏa Tinh, Linh Tinh, Kình Dương, Đà La");
@@ -2957,6 +2961,44 @@ function LuanCachCucTuHoaNoBoc(keyArr) {
         console.log("Hoá Quyền, Thiên Khốc đồng cung tại Nô Bộc");
         keyArr.push("Hoá Quyền, Thiên Khốc đồng cung tại Nô Bộc");
     }
+
+    if(isSaoToaThuTaiCung("Huynh Đệ","Hóa Kỵ")){
+        console.log("Hóa Kỵ toạ thủ cung Huynh Đệ");
+        keyArr.push("Hóa Kỵ toạ thủ cung Huynh Đệ");
+    }
+
+    if(isSaoToaThuTaiCung("Nô Bộc","Phục Binh")&& kiemTraCachCuc("Phục Binh",["Hỏa Tinh","Linh Tinh","Kình Dương","Đà La"])){
+        console.log("Phục Binh toạ thủ cung Nô Bộc gặp Hỏa Tinh, Linh Tinh, Kình Dương, Đà La");
+        keyArr.push("Phục Binh toạ thủ cung Nô Bộc gặp Hỏa Tinh, Linh Tinh, Kình Dương, Đà La");
+    }
+    if(isSaoToaThuTaiCung("Nô Bộc","Phục Binh")&& kiemTraCachCuc("Phục Binh",["Địa Không","Địa Kiếp"])){
+        console.log("Phục Binh toạ thủ cung Nô Bộc gặp Địa Không, Địa Kiếp");
+        keyArr.push("Phục Binh toạ thủ cung Nô Bộc gặp Địa Không, Địa Kiếp");
+    }
+    if(isHaiSaoDongCungTaiCung("Nô Bộc","Đào Hoa","Hóa Quyền") && lasoData.gioitinh === "Nam") {
+        console.log("Quý Anh có Đào Hoa, Hóa Quyền đồng cung tại Nô Bộc");
+        keyArr.push("Quý Anh có Đào Hoa, Hóa Quyền đồng cung tại Nô Bộc");
+    }
+    if(isHaiSaoDongCungTaiCung("Nô Bộc","Đào Hoa","Hóa Quyền") && lasoData.gioitinh === "Nữ") {
+        console.log("Quý Chị có Đào Hoa, Hóa Quyền đồng cung tại Nô Bộc");
+        keyArr.push("Quý Chị có Đào Hoa, Hóa Quyền đồng cung tại Nô Bộc");
+    }
+
+    if(isHaiSaoDongCungTaiCung("Nô Bộc","Hồng Loan","Đào Hoa") && isHaiSaoDongCungTaiCung("Nô Bộc","Tả Phủ","Hữu Bật") && isSaoToaThuTaiCung("Nô Bộc","Hoa Cái") && lasoData.gioitinh === "Nam") {
+        console.log("Quý Anh có Đào Hoa, Hồng Loan, Tả Phủ, Hữu Bật,Hoa Cái đồng cung tại Nô Bộc");
+        keyArr.push("Quý Anh có Đào Hoa, Hồng Loan, Tả Phủ, Hữu Bật,Hoa Cái đồng cung tại Nô Bộc");
+
+    }
+    if(isHaiSaoDongCungTaiCung("Nô Bộc","Hồng Loan","Đào Hoa") && isHaiSaoDongCungTaiCung("Nô Bộc","Tả Phủ","Hữu Bật") && isSaoToaThuTaiCung("Nô Bộc","Hoa Cái") && lasoData.gioitinh === "Nữ") {
+        console.log("Quý Chị có Đào Hoa, Hồng Loan, Tả Phủ, Hữu Bật,Hoa Cái đồng cung tại Nô Bộc");
+        keyArr.push("Quý Chị có Đào Hoa, Hồng Loan, Tả Phủ, Hữu Bật,Hoa Cái đồng cung tại Nô Bộc");
+
+    }
+        
+
+    
+    
+
 
 }
 
