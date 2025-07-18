@@ -3853,6 +3853,25 @@ function LuanCacCachCucKhacQuanLoc(keyArr) {
         keyArr.push("Quan Lộc an tại Tuất có Thiên Lương, Thiên Cơ, Thiên Đồng, Thái Âm, Văn Xương, Văn Khúc, Tả Phụ, Hữu Bật hội họp");
     }
 
+    if(isHaiSaoDongCungTaiCung("Quan Lộc","Kình Dương","Lực Sỹ")) {
+        console.log("Kình Dương Lực Sỹ đồng cung Quan Lộc");
+        keyArr.push("Kình Dương Lực Sỹ đồng cung Quan Lộc");
+    }
+
+    if(isHaiSaoDongCungTaiCung("Quan Lộc","Bạch Hổ","Tấu Thư")) {
+        console.log("Bạch Hổ Tấu Thư đồng cung Quan Lộc");
+        keyArr.push("Bạch Hổ Tấu Thư đồng cung Quan Lộc");
+    }
+
+    if(isHaiSaoDongCungTaiCung("Quan Lộc","Thiên Lương","Phá Quân")) {
+        console.log("Thiên Lương Phá Quân đồng cung Quan Lộc");
+        keyArr.push("Thiên Lương Phá Quân đồng cung Quan Lộc");
+    }
+    if(isHaiSaoDongCungTaiCung("Quan Lộc","Phá Quân","Phá Toái")) {
+        console.log("Phá Quân Phá Toái đồng cung Quan Lộc");
+        keyArr.push("Phá Quân Phá Toái đồng cung Quan Lộc");
+    }
+
 
 }
 function MenhVoChinhDieu() {
