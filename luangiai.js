@@ -392,6 +392,7 @@ const DS_CACH_CUC = [
     { key: "Binh Hình Tướng Ấn", need: ["Phục Binh", "Thiên Hình", "Thiên Tướng", "Quốc Ấn"] },
     { key: "Hổ Tấu", need: ["Bạch Hổ", "Tấu Thư"] },
     { key: "Hình Riêu Y", need: ["Thiên Hình", "Thiên Riêu", "Thiên Y"] },
+    { key: "Hỏa Linh", need: ["Hỏa Tinh", "Linh Tinh"] },
     { key: "Mã Hỏa Linh", need: ["Thiên Mã", "Hỏa Tinh", "Linh Tinh"] },
     { key: "Thai Tọa Hồng Đào", need: ["Tam Thai", "Bát Toạ", "Hồng Loan", "Đào Hoa"] },
     { key: "Tả Hữu Không Kiếp", need: ["Tả Phù", "Hữu Bật", "Địa Không", "Địa Kiếp"] },
@@ -467,10 +468,7 @@ const DS_CACH_CUC = [
     { key: "Hỏa Linh Tấu Thư", need: ["Hỏa Tinh", "Linh Tinh", "Tấu Thư"] },
     { key: "Cơ Nguyệt Đồng Lương Khoa Tả Hữu Quang Qúy Quan Phúc", need: ["Thiên Cơ", "Thiên Lương", "Thiên Đồng", "Thái Âm", "Hóa Khoa", "Tả Phù", "Hữu Bật", "Ân Quang", "Thiên Quý", "Quan Phúc"] },
     { key: "Hồng Đào Riêu Tấu Cơ Vũ", need: ["Hồng Loan", "Đào Hoa", "Thiên Riêu", "Tấu Thư", "Thiên Cơ", "Vũ Khúc"] },
-     
-
-
-
+    { key: "Lộc Tồn Hóa Lộc", need: ["Lộc Tồn", "Hóa Lộc"] },
 
 
 
