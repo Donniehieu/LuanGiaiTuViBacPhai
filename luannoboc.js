@@ -2994,12 +2994,6 @@ function LuanCachCucTuHoaNoBoc(keyArr) {
         keyArr.push("Quý Chị có Đào Hoa, Hồng Loan, Tả Phủ, Hữu Bật,Hoa Cái đồng cung tại Nô Bộc");
 
     }
-        
-
-    
-    
-
-
 }
 
 function LuanCachCucLucBaiTinhNoBoc(keyArr) {

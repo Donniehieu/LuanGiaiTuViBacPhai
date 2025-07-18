@@ -168,6 +168,10 @@ function LuanCachCucSaoTuViThienDi(keyArr) {
 
     // Tử vi thủ Thiên Di đồng cung với Tham Lang ở mão dậu
 
+    if( isHaiSaoDongCungTaiCung("Thiên Di", "Tử Vi", "Tham Lang") ){
+        console.log("Tử Vi, Tham Lang đồng cung tại Thiên Di");
+        keyArr.push("Tử Vi, Tham Lang đồng cung tại Thiên Di");}
+
 
     for (let i = 0; i < maodau.length; i++) {
         if (isSaoToaThuTaiCungVaChi("Thiên Di", maodau[i], "Tử Vi") && isHaiSaoDongCungTaiCung("Thiên Di", "Tử Vi", Tham)) {
@@ -210,7 +214,11 @@ function LuanCachCucSaoTuViThienDi(keyArr) {
         }
     }
     // Tử phủ đồng cung, Thiên Di an tại dần thân, sinh năm giáp
-
+    
+    if(isHaiSaoDongCungTaiCung("Thiên Di", "Tử Vi", "Thiên Phủ") ){
+        console.log("Tử Vi đồng cung với Thiên Phủ tại Thiên Di");
+        keyArr.push("Tử Vi đồng cung với Thiên Phủ tại Thiên Di");
+    }
 
     for (let i = 0; i < danthan.length; i++) {
         if (isHaiSaoDongCungTaiCungChi("Thiên Di", danthan[i], "Tử Vi", "Thiên Phủ")) {
@@ -269,6 +277,11 @@ function LuanCachCucSaoTuViThienDi(keyArr) {
         }
     }
     // Tử vi Thất Sát Hóa Quyền đồng cung tại Thiên Di
+
+    if(isHaiSaoDongCungTaiCung("Thiên Di", "Tử Vi", "Thất Sát") ){
+        console.log("Tử Vi, Thất Sát đồng cung tại Thiên Di");
+        keyArr.push("Tử Vi, Thất Sát đồng cung tại Thiên Di");
+    }
 
     if (isHaiSaoDongCungTaiCung("Thiên Di", "Tử Vi", "Thất Sát") && isHaiSaoDongCungTaiCung("Thiên Di", "Tử Vi", "Hóa Quyền")) {
         console.log("Tử Vi, Thất Sát, Hóa Quyền đồng cung tại Thiên Di");
@@ -346,6 +359,18 @@ function LuanCachCucSaoTuViThienDi(keyArr) {
     if (isSaoToaThuTaiCung("Thiên Di", "Tử Vi") && kiemTraCachCuc("Tử Vi", "Thiên Phủ")) {
         console.log("Tử Vi tọa thủ cung Thiên Di hội chiếu Thiên Phủ");
         keyArr.push("Tử Vi tọa thủ cung Thiên Di hội chiếu Thiên Phủ");
+    }
+
+    // Thiên Tướng 
+    if(isHaiSaoDongCungTaiCung("Thiên Di", "Tử Vi", "Thiên Tướng") ){
+        console.log("Tử Vi, Thiên Tướng đồng cung tại Thiên Di");
+        keyArr.push("Tử Vi, Thiên Tướng đồng cung tại Thiên Di");
+    }
+
+    // Phá Quân đồng cung
+    if(isHaiSaoDongCungTaiCung("Thiên Di", "Tử Vi", "Phá Quân") ){
+        console.log("Tử Vi, Phá Quân đồng cung tại Thiên Di");
+        keyArr.push("Tử Vi, Phá Quân đồng cung tại Thiên Di");
     }
 }
 
@@ -493,6 +518,32 @@ function LuanCachCucSaoLiemTrinhThienDi(keyArr) {
         }
     }
 
+    // Thiên Phủ
+    if(isHaiSaoDongCungTaiCung("Thiên Di", "Liêm Trinh", "Thiên Phủ")) {
+        console.log("Liêm Trinh, Thiên Phủ đồng cung tại Thiên Di");
+        keyArr.push("Liêm Trinh, Thiên Phủ đồng cung tại Thiên Di");
+    }
+    // Thiên Tướng
+    if(isHaiSaoDongCungTaiCung("Thiên Di", "Liêm Trinh", "Thiên Tướng")) {
+        console.log("Liêm Trinh, Thiên Tướng đồng cung tại Thiên Di");
+        keyArr.push("Liêm Trinh, Thiên Tướng đồng cung tại Thiên Di");
+    }   
+    // Phá Quân
+    if(isHaiSaoDongCungTaiCung("Thiên Di", "Liêm Trinh", "Phá Quân")) {
+        console.log("Liêm Trinh, Phá Quân đồng cung tại Thiên Di");
+        keyArr.push("Liêm Trinh, Phá Quân đồng cung tại Thiên Di");
+    }
+    // Thất Sát
+    if(isHaiSaoDongCungTaiCung("Thiên Di", "Liêm Trinh", "Thất Sát")) {
+        console.log("Liêm Trinh, Thất Sát đồng cung tại Thiên Di");
+        keyArr.push("Liêm Trinh, Thất Sát đồng cung tại Thiên Di");
+    }
+    // Tham Lang
+    if(isHaiSaoDongCungTaiCung("Thiên Di", "Liêm Trinh", "Tham Lang")) {
+        console.log("Liêm Trinh, Tham Lang đồng cung tại Thiên Di");
+        keyArr.push("Liêm Trinh, Tham Lang đồng cung tại Thiên Di");
+    }
+
 }
 
 function LuanCachCucSaoThienDongThienDi(keyArr) {
@@ -609,6 +660,16 @@ function LuanCachCucSaoThienDongThienDi(keyArr) {
                 keyArr.push("Quý Anh có Thiên Đồng tọa thủ cung Thiên Di ở " + tyhoi[i] + " gặp các sao Sát tinh: ", lucsattinh.join(", "));
             }
         }
+    }
+
+    if(isHaiSaoDongCungTaiCung("Thiên Di", "Thiên Đồng", "Thiên Lương")) {
+        console.log("Thiên Đồng, Thiên Lương đồng cung tại Thiên Di");
+        keyArr.push("Thiên Đồng, Thiên Lương đồng cung tại Thiên Di");
+    }
+
+    if(isHaiSaoDongCungTaiCung("Thiên Di", "Thiên Đồng", "Cự Môn")) {
+        console.log("Thiên Đồng, Cự Môn đồng cung tại Thiên Di");
+        keyArr.push("Thiên Đồng, Cự Môn đồng cung tại Thiên Di");
     }
 }
 
@@ -763,9 +824,8 @@ function LuanCachCucSaoVuKhucThienDi(keyArr) {
 
     // Vũ Khúc Tham Lang đồng cung
     if (isHaiSaoDongCungTaiCung("Thiên Di", "Vũ Khúc", "Tham Lang")) {
-        console.log("Vũ Khúc tọa thủ cung Thiên Di đồng cung Tham Lang");
-        keyArr.push("Vũ Khúc tọa thủ cung Thiên Di đồng cung Tham Lang");
-
+        console.log("Vũ Khúc, Tham Lang đồng cung tại Thiên Di");
+        keyArr.push("Vũ Khúc, Tham Lang đồng cung tại Thiên Di");
     }
     // Tại sủu mùi, vũ tham đồng cung và đồng cung kiếp sát
     for (let i = 0; i < suumui.length; i++) {
@@ -780,6 +840,27 @@ function LuanCachCucSaoVuKhucThienDi(keyArr) {
             console.log(`Vũ Khúc tọa thủ cung Thiên Di ở ${danthan[i]} gặp các sao cát tinh:`, KhoaLocQuyen.join(", "));
             keyArr.push(`Vũ Khúc tọa thủ cung Thiên Di ở ${danthan[i]} gặp các sao cát tinh:`, KhoaLocQuyen.join(", "));
         }
+    }
+
+    // Thiên Phủ
+    if (isHaiSaoDongCungTaiCung("Thiên Di", "Vũ Khúc", "Thiên Phủ")) {
+        console.log("Vũ Khúc, Thiên Phủ đồng cung tại Thiên Di");
+        keyArr.push("Vũ Khúc, Thiên Phủ đồng cung tại Thiên Di");
+    }
+    // Thiên Tướng
+    if (isHaiSaoDongCungTaiCung("Thiên Di", "Vũ Khúc", "Thiên Tướng")) {
+        console.log("Vũ Khúc, Thiên Tướng đồng cung tại Thiên Di");
+        keyArr.push("Vũ Khúc, Thiên Tướng đồng cung tại Thiên Di");
+    }
+    // Phá Quân
+    if (isHaiSaoDongCungTaiCung("Thiên Di", "Vũ Khúc", "Phá Quân")) {
+        console.log("Vũ Khúc, Phá Quân đồng cung tại Thiên Di");
+        keyArr.push("Vũ Khúc, Phá Quân đồng cung tại Thiên Di");
+    }
+    // Thất Sát
+    if( isHaiSaoDongCungTaiCung("Thiên Di", "Vũ Khúc", "Thất Sát")) {
+        console.log("Vũ Khúc, Thất Sát đồng cung tại Thiên Di");
+        keyArr.push("Vũ Khúc, Thất Sát đồng cung tại Thiên Di");
     }
 }
 
@@ -907,8 +988,8 @@ function LuanCachCucThaiDuongThienDi(keyArr) {
     }
 
     if (isHaiSaoDongCungTaiCung("Thiên Di", "Thái Dương", "Thái Âm")) {
-        console.log("Thái Dương tọa thủ cung Thiên Di đồng cung Thái Âm");
-        keyArr.push("Thái Dương tọa thủ cung Thiên Di đồng cung Thái Âm");
+        console.log("Thái Dương, Thái Âm đồng cung tại Thiên Di");
+        keyArr.push("Thái Dương, Thái Âm đồng cung tại Thiên Di");
 
     }
 
@@ -1275,6 +1356,11 @@ function LuanCachCucThaiAmThienDi(keyArr) {
             console.log("Thái Âm tọa thủ cung Thiên Di đồng cung Vũ Khúc, Lộc Tồn gặp các sao: ", TaHuu.join(", "));
             keyArr.push("Thái Âm tọa thủ cung Thiên Di đồng cung Vũ Khúc, Lộc Tồn gặp các sao: ", TaHuu.join(", "));
         }
+    }
+
+    if(isHaiSaoDongCungTaiCung("Thiên Di", "Thái Âm", "Thiên Lương") ){
+        console.log("Thái Âm, Thiên Lương đồng cung tại Thiên Di");
+        keyArr.push("Thái Âm, Thiên Lương đồng cung tại Thiên Di");
     }
 }
 function LuanCachCucThamLangThienDi(keyArr) {
