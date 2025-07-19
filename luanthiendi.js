@@ -3327,6 +3327,8 @@ function LuanCacCachCucKhacThienDi(keyArr) {
         keyArr.push("Lưu Hà, Kiếp Sát đồng cung tại Thiên Di");
     }
     // Kình Đà sáng sủa
+    const vitri_kinhduong = findChiCungChuaSao("Kình Dương", lasoData.lasoOb);
+    const vitri_dala = findChiCungChuaSao("Đà La", lasoData.lasoOb);
     const kinhda_dac = ["Thìn", "Tuất", "Sửu", "Mùi"];
     const kinhda_ham = ["Tý", "Dần", "Mão", "Tỵ", "Ngọ", "Thân", "Dậu", "Hợi"];
      let vtr_kinhduong = "";
