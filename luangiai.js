@@ -469,6 +469,8 @@ const DS_CACH_CUC = [
     { key: "Cơ Nguyệt Đồng Lương Khoa Tả Hữu Quang Qúy Quan Phúc", need: ["Thiên Cơ", "Thiên Lương", "Thiên Đồng", "Thái Âm", "Hóa Khoa", "Tả Phù", "Hữu Bật", "Ân Quang", "Thiên Quý", "Quan Phúc"] },
     { key: "Hồng Đào Riêu Tấu Cơ Vũ", need: ["Hồng Loan", "Đào Hoa", "Thiên Riêu", "Tấu Thư", "Thiên Cơ", "Vũ Khúc"] },
     { key: "Lộc Tồn Hóa Lộc", need: ["Lộc Tồn", "Hóa Lộc"] },
+    { key: "Riêu Việt Toái", need: ["Thiên Riêu", "Thiên Việt", "Phá Toái"] },
+
 
 
 
