@@ -470,8 +470,14 @@ const DS_CACH_CUC = [
     { key: "Hồng Đào Riêu Tấu Cơ Vũ", need: ["Hồng Loan", "Đào Hoa", "Thiên Riêu", "Tấu Thư", "Thiên Cơ", "Vũ Khúc"] },
     { key: "Lộc Tồn Hóa Lộc", need: ["Lộc Tồn", "Hóa Lộc"] },
     { key: "Riêu Việt Toái", need: ["Thiên Riêu", "Thiên Việt", "Phá Toái"] },
-     { key: "Kình Hình", need: ["Kình Dương", "Thiên Hình"] },
-      { key: "Kình Hình Không Kiếp", need: ["Kình Dương", "Thiên Hình", "Địa Không", "Địa Kiếp"] },
+    { key: "Kình Hình", need: ["Kình Dương", "Thiên Hình"] },
+    { key: "Kình Hình Không Kiếp", need: ["Kình Dương", "Thiên Hình", "Địa Không", "Địa Kiếp"] },
+    { key: "Thất Sát Hóa Kỵ Đà La Thái Tuế", need: ["Thất Sát", "Hóa Kỵ", "Đà La", "Thái Tuế"] },
+    { key: "Hổ Khốc Hư Tang", need: ["Bạch Hổ", "Thiên Khốc", "Thiên Hư", "Tang Môn"] },
+    { key: "Tang Điếu", need: ["Tang Môn", "Điếu Khách"] },
+    { key: "Hổ Kình Đà", need: ["Bạch Hổ", "Kình Dương", "Đà La"] },
+    { key: "Hổ Riêu", need: ["Bạch Hổ", "Thiên Riêu"] },
+    { key: "Binh Hình Việt", need: ["Phục Binh", "Thiên Hình", "Thiên Việt"]},
 
 
 
