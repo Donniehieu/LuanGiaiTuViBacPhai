@@ -3412,6 +3412,7 @@ function LuanCacCachCucKhacQuanLoc(keyArr) {
     vtr_hoatinh = kiemTraSaoSangToi(hoalinh_dac, hoalinh_ham, vitri_hoatinh);
     let vtr_linhTinh = "";
     vtr_linhTinh = kiemTraSaoSangToi(hoalinh_dac, hoalinh_ham, vitri_linhTinh);
+    
     let vtr_khong = "";
     vtr_khong = kiemTraSaoSangToi(diakhong_dac, diakhong_ham, vitri_khong);
     let vtr_kiep = "";

@@ -477,7 +477,33 @@ const DS_CACH_CUC = [
     { key: "Tang Điếu", need: ["Tang Môn", "Điếu Khách"] },
     { key: "Hổ Kình Đà", need: ["Bạch Hổ", "Kình Dương", "Đà La"] },
     { key: "Hổ Riêu", need: ["Bạch Hổ", "Thiên Riêu"] },
-    { key: "Binh Hình Việt", need: ["Phục Binh", "Thiên Hình", "Thiên Việt"]},
+    { key: "Binh Hình Việt", need: ["Phục Binh", "Thiên Hình", "Thiên Việt"] },
+    { key: "Liêm Kình Đà Hỏa Linh Không Kiếp", need: ["Liêm Trinh", "Kình Dương", "Đà La", "Hỏa Tinh", "Linh Tinh", "Địa Không", "Địa Kiếp"] },
+
+    { key: "Không Kiếp Phục", need: ["Địa Không", "Địa Kiếp", "Phục Binh"] },
+    { key: "Không Kiếp Tả Hữu", need: ["Địa Không", "Địa Kiếp", "Tả Phù", "Hữu Bật"] },
+    { key: "Không Kiếp Tả Hữu Sát Tướng Phục", need: ["Địa Không", "Địa Kiếp", "Tả Phù", "Hữu Bật", "Thất Sát", "Thiên Tướng", "Phục Binh"] },
+    { key: "Lộc Đại Hao", need: ["Hóa Lộc", "Đại Hao"] },
+    { key: "Lộc Tiểu Hao", need: ["Hóa Lộc", "Tiểu Hao"] },
+    { key: "Lộc Song Hao", need: ["Hóa Lộc", "Đại Hao", "Tiểu Hao"] },
+    { key: "Lộc Tang Đà", need: ["Hóa Lộc", "Tang Môn", "Đà La"] },
+    { key: "Lộc Không Kiếp", need: ["Hóa Lộc", "Địa Không", "Địa Kiếp"] },
+    { key: "Song Hao Hỏa Linh", need: ["Đại Hao", "Tiểu Hao", "Hỏa Tinh", "Linh Tinh"] },
+    { key: "Song Hao Hồng Đào", need: ["Đại Hao", "Tiểu Hao", "Hồng Loan", "Đào Hoa"] },
+    { key: "Song Hao Không Kiếp", need: ["Đại Hao", "Tiểu Hao", "Địa Không", "Địa Kiếp"] },
+    { key: "Tuế Đà Kỵ", need: ["Thái Tuế", "Đà La", "Hóa Kỵ"] },
+    { key: "Hình Cơ Tuế", need: ["Thiên Hình", "Thiên Cơ", "Thái Tuế"] },
+    { key: "Hình Tang Đào", need: ["Thiên Hình", "Tang Môn", "Đào Hoa"] },
+    { key: "Lưu Hà Kiếp Sát Hình", need: ["Lưu Hà", "Kiếp Sát", "Thiên Hình"] },
+
+
+
+
+
+
+
+
+
 
 
 
