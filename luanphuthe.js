@@ -3264,6 +3264,10 @@ function LuanCacCachCucKhacPhuThe(keyArr) {
     if(isHaiSaoDongCungTaiCung("Phu Thê", "Ân Quang","Thiên Quý" )){
         keyArr.push("Ân Quang, Thiên Quý đồng cung tại Phu Thê");
     }
+
+    if(isHaiSaoDongCungTaiCung("Phu Thê", "Đào Hoa","Tam Thai")){
+        keyArr.push("Đào Hoa, Tam Thai đồng cung tại Phu Thê");
+    }
    
 
 

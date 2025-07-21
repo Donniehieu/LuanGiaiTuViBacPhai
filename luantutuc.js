@@ -3427,6 +3427,9 @@ function LuanCacCachCucKhacTuTuc(keyArr) {
     if(isHaiSaoDongCungTaiCung("Tử Tức","Tả Phù", "Hữu Bật")){
         keyArr.push("Tả Phù, Hữu Bật đồng cung tại Tử Tức");
     }
+    if(isHaiSaoDongCungTaiCung("Tử Tức","Thiên Khôi", "Thiên Việt")){
+        keyArr.push("Thiên Khôi, Thiên Việt đồng cung tại Tử Tức");
+    }
     
 
 }
