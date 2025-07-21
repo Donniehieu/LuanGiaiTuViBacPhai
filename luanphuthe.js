@@ -3268,8 +3268,46 @@ function LuanCacCachCucKhacPhuThe(keyArr) {
     if(isHaiSaoDongCungTaiCung("Phu Thê", "Đào Hoa","Tam Thai")){
         keyArr.push("Đào Hoa, Tam Thai đồng cung tại Phu Thê");
     }
-   
+    if(isHaiSaoDongCungTaiCung("Phu Thê", "Hồng Loan","Hóa Lộc") && lasoData.gioitinh === "Nam"){
+       console.log("Quý Anh có Hồng Loan, Hóa Lộc đồng cung tại Phu Thê");
+        keyArr.push("Quý Anh có Hồng Loan, Hóa Lộc đồng cung tại Phu Thê");
+       
+    }
+    if(isHaiSaoDongCungTaiCung("Quan Lộc","Phục Binh","Hóa Kỵ")){
+        console.log("Phục Binh, Hóa Kỵ đồng cung tại Quan Lộc đối xung với Phu Thê");
+        keyArr.push("Phục Binh, Hóa Kỵ đồng cung tại Quan Lộc đối xung với Phu Thê");
+    }
 
+    if(isHaiSaoDongCungTaiCung("Phu Thê", "Tham Lang", "Đà La")){
+        console.log("Tham Lang, Đà La đồng cung tại Phu Thê");
+        keyArr.push("Tham Lang, Đà La đồng cung tại Phu Thê");
+    }
+    if(isSaoToaThuTaiCung("Phu Thê","Thiên Tướng") && lasoData.gioitinh === "Nữ"){
+        console.log("Quý Chị có Thiên Tướng toạ thủ tại Phu Thê");
+        keyArr.push("Quý Chị có Thiên Tướng toạ thủ tại Phu Thê");
+
+    }
+    if(isSaoToaThuTaiCung("Phu Thê","Thiên Tướng") && lasoData.gioitinh === "Nam"){
+        console.log("Quý Anh có Thiên Tướng toạ thủ tại Phu Thê");
+        keyArr.push("Quý Anh có Thiên Tướng toạ thủ tại Phu Thê");
+
+    }
+    if(isSaoToaThuTaiCung("Quan Lộc","Thái Tuế")){
+        console.log("Thái Tuế toạ thủ tại Quan Lộc đối xung với Phu Thê");
+        keyArr.push("Thái Tuế toạ thủ tại Quan Lộc đối xung với Phu Thê");
+    }
+    if(isSaoToaThuTaiCung("Quan Lộc","Hóa Kỵ")){
+        console.log("Hóa Kỵ toạ thủ tại Quan Lộc đối xung với Phu Thê");
+        keyArr.push("Hóa Kỵ toạ thủ tại Quan Lộc đối xung với Phu Thê");
+    }
+    if(isHaiSaoDongCungTaiCung("Phu Thê", "Thiên Khôi","Thiên Việt")){
+        console.log("Thiên Khôi, Thiên Việt đồng cung tại Phu Thê");
+        keyArr.push("Thiên Khôi, Thiên Việt đồng cung tại Phu Thê");
+    }
+    if(isHaiSaoDongCungTaiCung("Phu Thê", "Văn Xương","Văn Khúc")){
+        console.log("Văn Xương, Văn Khúc đồng cung tại Phu Thê");
+        keyArr.push("Văn Xương, Văn Khúc đồng cung tại Phu Thê");
+    }
 
 
 
