@@ -3242,6 +3242,13 @@ function LuanCacCachCucKhacHuynhDe(keyArr) {
         keyArr.push("Tử Vi, Tang Môn, Tả Phù, Hữu Bật đồng cung tại Huynh Đệ");
     }
     
+    if(isHaiSaoDongCungTaiCung("Huynh Đệ", "Thái Dương", "Thái Âm")&& isSaoToaThuTaiCung("Huynh Đệ", "Tam Thai")) {
+        keyArr.push("Thái Dương, Thái Âm, Tam Thai đồng cung tại Huynh Đệ");
+    }
+    if(isSaoToaThuTaiCung("Nô Bộc","Hóa Kỵ")){
+        console.log("Hóa Kỵ tọa thủ cung Nô Bộc xung chiếu với cung Huynh Đệ");
+        keyArr.push("Hóa Kỵ tọa thủ cung Nô Bộc xung chiếu với cung Huynh Đệ");
+    }
 
 
 
