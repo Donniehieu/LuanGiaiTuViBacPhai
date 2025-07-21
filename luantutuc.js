@@ -60,7 +60,121 @@ function LuanCungTuTuc() {
         hanh: hanhMenh,
         danhGia: danhGia
     };
+
+
 }
+
+
+
+function NhanDinhChung(KeyArr) {
+    let lasoData = {};
+    try {
+        lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
+    } catch (e) { lasoData = {}; }
+    const NamDauTinh = ["Thiên Phủ", "Thiên Tướng", "Thiên Lương", "Thất Sát", "Thiên Đồng", "Thái Dương", "Thiên Cơ"];
+    const BacDauTinh = ["Thái Âm", "Tham Lang", "Cự Môn", "Liêm Trinh", "Vũ Khúc", "Phá Quân"];
+    const duongcung = ["Tý", "Dần", "Thìn", "Ngọ", "Thân", "Tuất"];
+    const amcung = ["Sửu", "Mão", "Tỵ", "Mùi", "Dậu", "Hợi"];
+
+    dsChinhTinhTuTuc = getDanhSachChinhTinhTungCung()[9].chinhTinh;
+
+    if (duongcung.includes(lasoData.lasoOb[9].chi)) {
+        console.log("Cung Tử Tức là cung dương");
+        KeyArr.push("Cung Tử Tức là cung dương");
+    }
+    else if (amcung.includes(lasoData.lasoOb[9].chi)) {
+        console.log("Cung Tử Tức là cung âm");
+        KeyArr.push("Cung Tử Tức là cung âm");
+    }
+    if (dsChinhTinhTuTuc.length === 0) {
+        console.log("Lấy sao chính tinh tại Điền Trạch");
+        dsChinhTinhTuTuc = getDanhSachChinhTinhTungCung()[3].chinhTinh;
+        if (dsChinhTinhTuTuc.length > 0) {
+
+            if (dsChinhTinhTuTuc.length === 1) {
+                console.log(dsChinhTinhTuTuc[0] + ` tọa thủ tại cung đối Điền Trạch`);
+                KeyArr.push(dsChinhTinhTuTuc[0] + ` tọa thủ tại cung đối Điền Trạch`);
+            }
+            else if (dsChinhTinhTuTuc.length === 2) {
+                console.log(dsChinhTinhTuTuc[0] + " đồng cung " + dsChinhTinhTuTuc[1] + " tại cung đối Điền Trạch");
+                KeyArr.push(dsChinhTinhTuTuc[0] + " đồng cung " + dsChinhTinhTuTuc[1] + " tại cung đối Điền Trạch");
+            }
+            else if (dsChinhTinhTuTuc.length === 2 && duongcung.includes(lasoData.lasoOb[9].chi)) {
+                console.log(dsChinhTinhTuTuc[0] + " đồng cung " + dsChinhTinhTuTuc[1] + " tại cung đối Điền Trạch tại cung dương");
+                KeyArr.push(dsChinhTinhTuTuc[0] + " đồng cung " + dsChinhTinhTuTuc[1] + " tại cung đối Điền Trạch tại cung dương");
+            }
+            else if (dsChinhTinhTuTuc.length === 2 && amcung.includes(lasoData.lasoOb[9].chi)) {
+                console.log(dsChinhTinhTuTuc[0] + " đồng cung " + dsChinhTinhTuTuc[1] + " tại cung đối Điền Trạch tại cung âm");
+                KeyArr.push(dsChinhTinhTuTuc[0] + " đồng cung " + dsChinhTinhTuTuc[1] + " tại cung đối Điền Trạch tại cung âm");
+            }
+            else if (dsChinhTinhTuTuc.includes("Tử Vi") && dsChinhTinhTuTuc.length === 2) {
+                console.log("Tử Vi và " + dsChinhTinhTuTuc[1] + " đồng cung tại cung đối (Điền Trạch)");
+                KeyArr.push("Tử Vi và " + dsChinhTinhTuTuc[1] + " đồng cung tại cung đối (Điền Trạch)");
+            }
+        }
+    }
+    else {
+        if (dsChinhTinhTuTuc.length === 1) {
+            console.log(dsChinhTinhTuTuc[0] + ` tọa thủ tại cung Tử Tức`);
+            KeyArr.push(dsChinhTinhTuTuc[0] + ` tọa thủ tại cung Tử Tức`);
+        }
+        else if (dsChinhTinhTuTuc.length === 2) {
+            console.log(dsChinhTinhTuTuc[0] + " đồng cung " + dsChinhTinhTuTuc[1] + " tại cung Tử Tức");
+            KeyArr.push(dsChinhTinhTuTuc[0] + " đồng cung " + dsChinhTinhTuTuc[1] + " tại cung Tử Tức");
+        }
+        else if (dsChinhTinhTuTuc.length === 2 && duongcung.includes(lasoData.lasoOb[9].chi)) {
+            console.log(dsChinhTinhTuTuc[0] + " và " + dsChinhTinhTuTuc[1] + " đồng cung tại cung Tử Tức tại cung dương");
+            KeyArr.push(dsChinhTinhTuTuc[0] + " và " + dsChinhTinhTuTuc[1] + " đồng cung tại cung Tử Tức tại cung dương");
+        }
+        else if (dsChinhTinhTuTuc.length === 2 && amcung.includes(lasoData.lasoOb[9].chi)) {
+            console.log(dsChinhTinhTuTuc[0] + " và " + dsChinhTinhTuTuc[1] + " đồng cung tại cung Tử Tức tại cung âm");
+            KeyArr.push(dsChinhTinhTuTuc[0] + " và " + dsChinhTinhTuTuc[1] + " đồng cung tại cung Tử Tức tại cung âm");
+        }
+        else if (dsChinhTinhTuTuc.includes("Tử Vi") && dsChinhTinhTuTuc.length === 2) {
+            console.log("Tử Vi và " + dsChinhTinhTuTuc[1] + " đồng cung tại cung Tử Tức");
+            KeyArr.push("Tử Vi và " + dsChinhTinhTuTuc[1] + " đồng cung tại cung Tử Tức");
+        }
+
+    }
+
+    /// Con Dị Bào
+    if (isHaiSaoDongCungTaiCung("Tử Tức", "Thái Âm", "Thiên Phúc")) {
+        console.log("Thái Âm, Thiên Phúc đồng cung tại Tử Tức");
+        KeyArr.push("Thái Âm, Thiên Phúc đồng cung tại Tử Tức");
+    }
+    if (isHaiSaoDongCungTaiCung("Tử Tức", "Cự Môn", "Thiên Cơ")) {
+        console.log("Cự Môn, Thiên Cơ đồng cung tại Tử Tức");
+        KeyArr.push("Cự Môn, Thiên Cơ đồng cung tại Tử Tức");
+    }
+    if (isHaiSaoDongCungTaiCung("Tử Tức", "Phục Binh", "Tướng Quân")) {
+        console.log("Phục Binh, Tướng Quân đồng cung tại Tử Tức");
+        KeyArr.push("Phục Binh, Tướng Quân đồng cung tại Tử Tức");
+    }
+    if (isHaiSaoDongCungTaiCung("Tử Tức", "Tam Thai", "Tả Phù") && isSaoToaThuTaiCung("Tử Tức", "Hữu Bật")) {
+        console.log("Tam Thai, Tả Phù, Hữu Bật đồng cung tại Tử Tức");
+        KeyArr.push("Tam Thai, Tả Phù, Hữu Bật đồng cung tại Tử Tức");
+    }
+    // Con Nuôi
+    if (isHaiSaoDongCungTaiCung("Tử Tức", "Ân Quang", "Thiên Quý")) {
+        console.log("Ân Quang, Thiên Quý đồng cung tại Tử Tức");
+        KeyArr.push("Ân Quang, Thiên Quý đồng cung tại Tử Tức");
+    }
+
+    // Sinh đôi
+    if (isHaiSaoDongCungTaiCung("Tử Tức", "Thái Dương", "Thái Âm") && isSaoToaThuTaiCung("Tử Tức", "Tam Thai")) {
+        console.log("Thái Dương, Thái Âm, Tam Thai đồng cung tại Tử Tức");
+        KeyArr.push("Thái Dương, Thái Âm, Tam Thai đồng cung tại Tử Tức");
+    }
+    if (isHaiSaoDongCungTaiCung("Tử Tức", "Thái Dương", "Thái Âm") && isSaoToaThuTaiCung("Tài Bạch", "Tam Thai") || isHaiSaoDongCungTaiCung("Tử Tức", "Thái Dương", "Thái Âm") && isSaoToaThuTaiCung("Phu Thê", "Tam Thai")) {
+        console.log("Thái Dương, Thái Âm đồng cung tại Tử Tức giáp Tam Thai");
+        KeyArr.push("Thái Dương, Thái Âm đồng cung tại Tử Tức giáp Tam Thai");
+    }
+
+
+}
+
+
+
 function LuanCungTuTuc(keyArr) {
     let lasoData = {};
     try {
@@ -69,6 +183,7 @@ function LuanCungTuTuc(keyArr) {
     const vitriDiaSinhCungMenh = kiemTraDiaSinh(lasoData.hanhMenh, lasoData.lasoOb[0].chi);
     keyArr.push(`Vị trí địa sinh cung Tử Tức tại ${vitriDiaSinhCungMenh}`);
     console.log(`Vị trí địa sinh cung Tử Tức tại ${vitriDiaSinhCungMenh}`);
+    NhanDinhChung(keyArr);
     LuanCachCucSaoTuViTuTuc(keyArr);
     LuanCachCucSaoLiemTrinhTuTuc(keyArr);
     LuanCachCucSaoThienDongTuTuc(keyArr);
@@ -3265,6 +3380,27 @@ function LuanCacCachCucKhacTuTuc(keyArr) {
     }
     if (isHaiSaoDongCungTaiCungChi("Tử Tức", "Tý", "Thái Tuế", "Thái Âm") && isSaoToaThuTaiCung("Tử Tức", "Thiên Đồng")) {
         keyArr.push("Thái Tuế, Thái Âm, Thiên Đồng toạ thủ cung Tử Tức tại Tý");
+    }
+
+    if (isHaiSaoDongCungTaiCung("Tử Tức", "Bạch Hổ", "Tam Thai") && lasoData.gioitinh === "Nữ") {
+
+        keyArr.push("Quý Chị có Bạch Hổ, Tam Thai đồng cung tại Tử Tức");
+
+    }
+    if (isHaiSaoDongCungTaiCungChi("Tử Tức", "Tý", "Thái Âm", "Thiên Đồng") && isSaoToaThuTaiCung("Tử Tức", "Thái Tuế")) {
+        keyArr.push("Thái Âm, Thiên Đồng, Thái Tuế đồng cung tại Tử Tức ở Tý");
+    }
+
+    const nhat_dac = ["Tỵ", "Ngọ", "Dần", "Mão", "Thìn", "Sửu", "Mùi"];
+    const nhat_ham = ["Thân", "Dậu", "Tuất", "Hợi", "Tý"];
+    let vtr_nhat = "";
+    vtr_nhat = kiemTraSaoSangToi(nhat_dac, nhat_ham, findChiCungChuaSao("Thái Dương", lasoData.lasoOb));
+
+    if (isSaoToaThuTaiCung("Tử Tức", "Thái Dương") && vtr_nhat === "sao sáng" && kiemTraCachCuc("Thái Dương", ["Ân Quang", "Thiên Quý"])) {
+        keyArr.push("Thái Dương sáng tại Tử Tức gặp Ân Quang, Thiên Quý");
+    }
+    if (isHaiSaoDongCungTaiCung("Tử Tức", "Thiên Đồng", "Phúc Đức")) {
+        keyArr.push("Thiên Đồng, Phúc Đức đồng cung tại Tử Tức");
     }
 
 }

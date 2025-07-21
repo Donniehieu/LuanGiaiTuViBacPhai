@@ -3314,6 +3314,7 @@ function LuanCacCachCucKhacDienTrach(keyArr) {
     if (!Array.isArray(lasoOb)) return;
     const cungDienTrach = lasoOb.find(c => c.tenCung === 'Điền Trạch');
     const chiCungDien    = lasoData.lasoOb[3].chi;
+    const chiCungMenh = lasoData.lasoOb[0].chi;
 
     // Nếu là đàn ông sinh năm Ngọ, Mùi, Điền Trạch an tại Tý, Sửu thì cuộc đời vất vả lo toan
 
