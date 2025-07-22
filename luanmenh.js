@@ -861,6 +861,7 @@ function LuanCachCucThaiDuong(keyArr) {
     try {
         lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
     } catch (e) { lasoData = {}; }
+    
 
     for (let i = 0; i < mvd.length; i++) {
         if (isSaoToaThuTaiCungVaChi("Mệnh", mvd[i], "Thái Dương")) {
@@ -1776,15 +1777,11 @@ function LuanCachCucCuMon(keyArr) {
         console.log("Cự Môn tọa thủ cung Mệnh ở Thân đồng cung Thái Dương");
         keyArr.push("Cự Môn tọa thủ cung Mệnh ở Thân đồng cung Thái Dương");
     }
-    if (isSaoToaThuTaiCungVaChi("Mệnh", "Thân", "Cự Môn") && kiemTraCachCuc("Cự Môn", "Thái Dương") && isSaoToaThuTaiCung("Thiên Di", "Thái Dương")) {
-        console.log("Cự Môn tọa thủ cung Mệnh ở Thân gặp Thái Dương, Thiên Di có Thái Dương");
-        keyArr.push("Cự Môn tọa thủ cung Mệnh ở Thân gặp Thái Dương, Thiên Di có Thái Dương");
+    if (isSaoToaThuTaiCung("Mệnh",  "Cự Môn") && kiemTraCachCuc("Cự Môn", "Thái Dương") && isSaoToaThuTaiCung("Thiên Di", "Thái Dương")) {
+       
+        keyArr.push("Cự Môn tọa thủ cung Mệnh gặp Thái Dương, Thiên Di có Thái Dương");
     }
-    if (isSaoToaThuTaiCungVaChi("Mệnh", "Dần", "Cự Môn") && kiemTraCachCuc("Cự Môn", "Thái Dương") && isSaoToaThuTaiCung("Thiên Di", "Thái Dương")) {
-        console.log("Cự Môn tọa thủ cung Mệnh ở Dần gặp Thái Dương, Thiên Di có Thái Dương");
-        keyArr.push("Cự Môn tọa thủ cung Mệnh ở Dần gặp Thái Dương, Thiên Di có Thái Dương");
-
-    }
+    
     if (lasoData.lasoOb[0].chi === "Dần" && isHaiSaoDongCungTaiCung("Thiên Di", "Thái Dương", "Cự Môn")) {
         console.log("Cự Môn tọa thủ cung Thiên Di đồng cung Thái Dương xung chiếu cung Mệnh ở Dần");
         keyArr.push("Cự Môn tọa thủ cung Thiên Di đồng cung Thái Dương xung chiếu cung Mệnh ở Dần");
