@@ -66,7 +66,7 @@ function LuanCungTuTuc() {
 
 
 
-function NhanDinhChung(KeyArr) {
+function NhanDinhTuTucChung(KeyArr) {
     let lasoData = {};
     try {
         lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
@@ -183,7 +183,7 @@ function LuanCungTuTuc(keyArr) {
     const vitriDiaSinhCungMenh = kiemTraDiaSinh(lasoData.hanhMenh, lasoData.lasoOb[0].chi);
     keyArr.push(`Vị trí địa sinh cung Tử Tức tại ${vitriDiaSinhCungMenh}`);
     console.log(`Vị trí địa sinh cung Tử Tức tại ${vitriDiaSinhCungMenh}`);
-    NhanDinhChung(keyArr);
+    NhanDinhTuTucChung(keyArr);
     LuanCachCucSaoTuViTuTuc(keyArr);
     LuanCachCucSaoLiemTrinhTuTuc(keyArr);
     LuanCachCucSaoThienDongTuTuc(keyArr);

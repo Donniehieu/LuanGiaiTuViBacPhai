@@ -3420,6 +3420,113 @@ function LuanCacCachCucKhacHuynhDe(keyArr) {
     }
 
 }
+function NhanDinhHuynhDeChung(KeyArr) {
+    let lasoData = {};
+    try {
+        lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
+    } catch (e) { lasoData = {}; }
+    const NamDauTinh = ["Thiên Phủ", "Thiên Tướng", "Thiên Lương", "Thất Sát", "Thiên Đồng", "Thái Dương", "Thiên Cơ"];
+    const BacDauTinh = ["Thái Âm", "Tham Lang", "Cự Môn", "Liêm Trinh", "Vũ Khúc", "Phá Quân"];
+    const duongcung = ["Tý", "Dần", "Thìn", "Ngọ", "Thân", "Tuất"];
+    const amcung = ["Sửu", "Mão", "Tỵ", "Mùi", "Dậu", "Hợi"];
+
+    dsChinhTinhHuynhDe = getDanhSachChinhTinhTungCung()[11].chinhTinh;
+
+    if (duongcung.includes(lasoData.lasoOb[11].chi)) {
+        console.log("Cung Huynh Đệ là cung dương");
+        KeyArr.push("Cung Huynh Đệ là cung dương");
+    }
+    else if (amcung.includes(lasoData.lasoOb[11].chi)) {
+        console.log("Cung Huynh Đệ là cung âm");
+        KeyArr.push("Cung Huynh Đệ là cung âm");
+    }
+    if (dsChinhTinhHuynhDe.length === 0) {
+        console.log("Lấy sao chính tinh tại cung Nô Bộc");
+        dsChinhTinhHuynhDe = getDanhSachChinhTinhTungCung()[5].chinhTinh;
+        if (dsChinhTinhHuynhDe.length > 0) {
+
+            if (dsChinhTinhHuynhDe.length === 1) {
+                console.log(dsChinhTinhHuynhDe[0] + ` tọa thủ tại cung đối Nô Bộc`);
+                KeyArr.push(dsChinhTinhHuynhDe[0] + ` tọa thủ tại cung đối Nô Bộc`);
+            }
+            else if (dsChinhTinhHuynhDe.length === 2) {
+                console.log(dsChinhTinhHuynhDe[0] + " đồng cung " + dsChinhTinhHuynhDe[1] + " tại cung đối Nô Bộc");
+                KeyArr.push(dsChinhTinhHuynhDe[0] + " đồng cung " + dsChinhTinhHuynhDe[1] + " tại cung đối Nô Bộc");
+            }
+            else if (dsChinhTinhHuynhDe.length === 2 && duongcung.includes(lasoData.lasoOb[11].chi)) {
+                console.log(dsChinhTinhHuynhDe[0] + " đồng cung " + dsChinhTinhHuynhDe[1] + " tại cung đối Nô Bộc tại cung dương");
+                KeyArr.push(dsChinhTinhHuynhDe[0] + " đồng cung " + dsChinhTinhHuynhDe[1] + " tại cung đối Nô Bộc tại cung dương");
+            }
+            else if (dsChinhTinhHuynhDe.length === 2 && amcung.includes(lasoData.lasoOb[11].chi)) {
+                console.log(dsChinhTinhHuynhDe[0] + " đồng cung " + dsChinhTinhHuynhDe[1] + " tại cung đối Nô Bộc tại cung âm");
+                KeyArr.push(dsChinhTinhHuynhDe[0] + " đồng cung " + dsChinhTinhHuynhDe[1] + " tại cung đối Nô Bộc tại cung âm");
+            }
+            else if (dsChinhTinhHuynhDe.includes("Tử Vi") && dsChinhTinhHuynhDe.length === 2) {
+                console.log("Tử Vi và " + dsChinhTinhHuynhDe[1] + " đồng cung tại cung đối (Nô Bộc)");
+                KeyArr.push("Tử Vi và " + dsChinhTinhHuynhDe[1] + " đồng cung tại cung đối (Nô Bộc)");
+            }
+        }
+    }
+    else {
+        if (dsChinhTinhHuynhDe.length === 1) {
+            console.log(dsChinhTinhHuynhDe[0] + ` tọa thủ tại cung Huynh Đệ`);
+            KeyArr.push(dsChinhTinhHuynhDe[0] + ` tọa thủ tại cung Huynh Đệ`);
+        }
+        else if (dsChinhTinhHuynhDe.length === 2) {
+            console.log(dsChinhTinhHuynhDe[0] + " đồng cung " + dsChinhTinhHuynhDe[1] + " tại cung Huynh Đệ");
+            KeyArr.push(dsChinhTinhHuynhDe[0] + " đồng cung " + dsChinhTinhHuynhDe[1] + " tại cung Huynh Đệ");
+        }
+        else if (dsChinhTinhHuynhDe.length === 2 && duongcung.includes(lasoData.lasoOb[11].chi)) {
+            console.log(dsChinhTinhHuynhDe[0] + " và " + dsChinhTinhHuynhDe[1] + " đồng cung tại cung Huynh Đệ tại cung dương");
+            KeyArr.push(dsChinhTinhHuynhDe[0] + " và " + dsChinhTinhHuynhDe[1] + " đồng cung tại cung Huynh Đệ tại cung dương");
+        }
+        else if (dsChinhTinhHuynhDe.length === 2 && amcung.includes(lasoData.lasoOb[11].chi)) {
+            console.log(dsChinhTinhHuynhDe[0] + " và " + dsChinhTinhHuynhDe[1] + " đồng cung tại cung Huynh Đệ tại cung âm");
+            KeyArr.push(dsChinhTinhHuynhDe[0] + " và " + dsChinhTinhHuynhDe[1] + " đồng cung tại cung Huynh Đệ tại cung âm");
+        }
+        else if (dsChinhTinhHuynhDe.includes("Tử Vi") && dsChinhTinhHuynhDe.length === 2) {
+            console.log("Tử Vi và " + dsChinhTinhHuynhDe[1] + " đồng cung tại cung Huynh Đệ");
+            KeyArr.push("Tử Vi và " + dsChinhTinhHuynhDe[1] + " đồng cung tại cung Huynh Đệ");
+        }
+
+    }
+
+    /// Con Dị Bào
+    if (isHaiSaoDongCungTaiCung("Huynh Đệ", "Thái Âm", "Thiên Phúc")) {
+        console.log("Thái Âm, Thiên Phúc đồng cung tại Huynh Đệ");
+        KeyArr.push("Thái Âm, Thiên Phúc đồng cung tại Huynh Đệ");
+    }
+    if (isHaiSaoDongCungTaiCung("Huynh Đệ", "Cự Môn", "Thiên Cơ")) {
+        console.log("Cự Môn, Thiên Cơ đồng cung tại Huynh Đệ");
+        KeyArr.push("Cự Môn, Thiên Cơ đồng cung tại Huynh Đệ");
+    }
+    if (isHaiSaoDongCungTaiCung("Huynh Đệ", "Phục Binh", "Tướng Quân")) {
+        console.log("Phục Binh, Tướng Quân đồng cung tại Huynh Đệ");
+        KeyArr.push("Phục Binh, Tướng Quân đồng cung tại Huynh Đệ");
+    }
+    if (isHaiSaoDongCungTaiCung("Huynh Đệ", "Tam Thai", "Tả Phù") && isSaoToaThuTaiCung("Huynh Đệ", "Hữu Bật")) {
+        console.log("Tam Thai, Tả Phù, Hữu Bật đồng cung tại Huynh Đệ");
+        KeyArr.push("Tam Thai, Tả Phù, Hữu Bật đồng cung tại Huynh Đệ");
+    }
+    // Con Nuôi
+    if (isHaiSaoDongCungTaiCung("Huynh Đệ", "Ân Quang", "Thiên Quý")) {
+        console.log("Ân Quang, Thiên Quý đồng cung tại Huynh Đệ");
+        KeyArr.push("Ân Quang, Thiên Quý đồng cung tại Huynh Đệ");
+    }
+
+    // Sinh đôi
+    if (isHaiSaoDongCungTaiCung("Huynh Đệ", "Thái Dương", "Thái Âm") && isSaoToaThuTaiCung("Huynh Đệ", "Tam Thai")) {
+        console.log("Thái Dương, Thái Âm, Tam Thai đồng cung tại Huynh Đệ");
+        KeyArr.push("Thái Dương, Thái Âm, Tam Thai đồng cung tại Huynh Đệ");
+    }
+    if (isHaiSaoDongCungTaiCung("Huynh Đệ", "Thái Dương", "Thái Âm") && isSaoToaThuTaiCung("Phu Thê", "Tam Thai") || isHaiSaoDongCungTaiCung("Mệnh", "Thái Dương", "Thái Âm") && isSaoToaThuTaiCung("Mệnh", "Tam Thai")) {
+        console.log("Thái Dương, Thái Âm đồng cung tại Huynh Đệ giáp Tam Thai");
+        KeyArr.push("Thái Dương, Thái Âm đồng cung tại Huynh Đệ giáp Tam Thai");
+    }
+
+
+}
+
 function MenhVoChinhDieu() {
     if (getDanhSachChinhTinhTungCung()[idCungMenh].chinhTinh.length === 0) {
         console.log("Cung Huynh Đệ Vô Chính Diệu");
