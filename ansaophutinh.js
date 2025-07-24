@@ -663,7 +663,7 @@ function anSaoTuHoa(canNam, saoChinhPos) {
         "N.": [
             { sao: "Thiên Lương", hoa: "Hóa Lộc", hanh: "hanh-moc", loai: "sao-tot" },
             { sao: "Tử Vi", hoa: "Hóa Quyền", hanh: "hanh-moc", loai: "sao-tot" },
-            { sao: "Tả Phụ", hoa: "Hóa Khoa", hanh: "hanh-moc", loai: "sao-tot" },
+            { sao: "Tả Phù", hoa: "Hóa Khoa", hanh: "hanh-moc", loai: "sao-tot" },
             { sao: "Vũ Khúc", hoa: "Hóa Kỵ", hanh: "hanh-thuy", loai: "sao-xau" }
         ],
         "Q.": [
@@ -961,7 +961,7 @@ const SAO_THANGSINH = [
     { ten: 'Thiên Riêu', startChi: 'Sửu', direction: 1, loai: 'xau', hanh: 'thuy' },     // Xấu, Thủy
     { ten: 'Thiên Giải', startChi: 'Thân', direction: 1, loai: 'tot', hanh: 'hoa' },     // Tốt, Hỏa
     { ten: 'Địa Giải', startChi: 'Mùi', direction: 1, loai: 'tot', hanh: 'tho' },        // Tốt, Thổ
-    { ten: 'Tả Phụ', startChi: 'Thìn', direction: 1, loai: 'tot', hanh: 'tho' },         // Tốt, Thổ
+    { ten: 'Tả Phù', startChi: 'Thìn', direction: 1, loai: 'tot', hanh: 'tho' },         // Tốt, Thổ
     { ten: 'Hữu Bật', startChi: 'Tuất', direction: -1, loai: 'tot', hanh: 'thuy' },      // Tốt, Thủy
 ];
 
@@ -994,8 +994,8 @@ function anSaoTheoThangSinh(thang_am, menhIdx) {
             idx = (startIdx - (thang_am - 1) + 12 * 3) % 12;
         }
         let cellNum = CUNG_CELLS[idx].cell;
-        // Ghi nhận vị trí Tả Phụ/Hữu Bật
-        if (sao.ten === "Tả Phụ") idx_taPhu = idx;
+        // Ghi nhận vị trí Tả Phù/Hữu Bật
+        if (sao.ten === "Tả Phù") idx_taPhu = idx;
         if (sao.ten === "Hữu Bật") idx_huuBat = idx;
         let cell = document.querySelector('.cell' + cellNum);
         if (cell) {
@@ -1008,7 +1008,7 @@ function anSaoTheoThangSinh(thang_am, menhIdx) {
                                                                                     </div>`);
         }
     });
-    // trả về vị trí tả phụ, hữu bật
+    // trả về vị trí Tả Phù, hữu bật
     return { taPhuIdx: idx_taPhu, huuBatIdx: idx_huuBat };
 }
 const SAO_GIO_SINH = [

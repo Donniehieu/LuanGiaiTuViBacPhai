@@ -260,7 +260,7 @@ function anSaoLuuTuHoa(canNamXem, cuCungSao) {
         "N.": [
             { sao: "Thiên Lương", hoa: "Hóa Lộc", hanh: "hanh-moc", loai: "sao-tot" },
             { sao: "Tử Vi", hoa: "Hóa Quyền", hanh: "hanh-moc", loai: "sao-tot" },
-            { sao: "Tả Phụ", hoa: "Hóa Khoa", hanh: "hanh-moc", loai: "sao-tot" },
+            { sao: "Tả Phù", hoa: "Hóa Khoa", hanh: "hanh-moc", loai: "sao-tot" },
             { sao: "Vũ Khúc", hoa: "Hóa Kỵ", hanh: "hanh-thuy", loai: "sao-xau" }
         ],
         "Q.": [

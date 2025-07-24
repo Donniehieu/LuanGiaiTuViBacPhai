@@ -29,7 +29,7 @@ const PHU_TINH = [
   "Lực Sĩ", "Hóa Quyền", "L. Hóa Lộc", "Kình Dương", "Tuế Phá", "Thiên Hư", "Thiên Khốc", "Thiên Y", "Thanh Long", "Long Đức",
   "L. Hóa Khoa", "(Hóa Lộc - ĐV)", "Thiên Riêu", "Thiên Thương", "Lưu Hà", "L. Tang Môn", "Phong Cáo", "Ân Quang", "Văn Tinh",
   "Hỏa Tinh", "Tiểu Hao", "Bạch Hổ", "Tướng Quân", "Thiên Việt", "Phúc Đức", "Thiên Đức", "Đào Hoa", "Thiên Hỷ", "Thiên Sứ",
-  "Tả Phụ", "Văn Khúc", "Tấu Thư", "Đường Phù", "Phượng Các", "Giải Thần", "(Hóa Khoa - ĐV)", "Địa Võng", "Điếu Khách",
+  "Tả Phù", "Văn Khúc", "Tấu Thư", "Đường Phù", "Phượng Các", "Giải Thần", "(Hóa Khoa - ĐV)", "Địa Võng", "Điếu Khách",
   "Quả Tú", "L. Hóa Kỵ", "Thiên Mã (ĐV)", "Bát Tọa", "Thiên Khôi", "L. Thiên Mã", "Đà La (ĐV)", "Phi Liêm", "Trực Phù",
   "Hóa Kỵ", "L. Thiên Hư", "(Hóa Kỵ - ĐV)", "Lộc Tồn (ĐV)", "Thai Phụ", "Hỷ Thần", "Thiên Trù", "Thiên Phúc", "(Hóa Quyền - ĐV)",
   "Thái Tuế", "Đẩu Quân", "Địa Giải", "Quốc Ấn", "Thiếu Dương", "Kình Dương (ĐV)", "Bệnh Phù", "Thiên Không", "L. Bạch Hổ", "L. Thiên Khốc"

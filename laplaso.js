@@ -155,8 +155,8 @@ document.getElementById('form_tuvi').addEventListener('submit', function (e) {
     for (const [k, v] of Object.entries(saoTuThienPhu)) {
         if (phuTinhMap[k]) cuCungSao[phuTinhMap[k]] = v - 1;
     }
-    // Tả Phụ, Hữu Bật, Văn Xương, Văn Khúc, ...
-    if (typeof idx_taPhu === "number") cuCungSao["Tả Phụ"] = idx_taPhu;
+    // Tả Phù, Hữu Bật, Văn Xương, Văn Khúc, ...
+    if (typeof idx_taPhu === "number") cuCungSao["Tả Phù"] = idx_taPhu;
     if (typeof idx_huuBat === "number") cuCungSao["Hữu Bật"] = idx_huuBat;
     if (typeof idx_vanXuong === "number") cuCungSao["Văn Xương"] = idx_vanXuong;
     if (typeof idx_vanKhuc === "number") cuCungSao["Văn Khúc"] = idx_vanKhuc;

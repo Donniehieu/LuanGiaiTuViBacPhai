@@ -243,7 +243,7 @@ const TU_HOA_DAI_VAN = {
     "K.": ["Vũ Khúc", "Tham Lang", "Thiên Lương", "Văn Khúc"],        // Kỷ
     "C.": ["Thái Dương", "Vũ Khúc", "Thái Âm", "Thiên Đồng"],         // Canh
     "T.": ["Cự Môn", "Thái Dương", "Văn Khúc", "Văn Xương"],          // Tân
-    "N.": ["Thiên Lương", "Tử Vi", "Tả Phụ", "Vũ Khúc"],              // Nhâm
+    "N.": ["Thiên Lương", "Tử Vi", "Tả Phù", "Vũ Khúc"],              // Nhâm
     "Q.": ["Phá Quân", "Cự Môn", "Thái Âm", "Tham Lang"],             // Quý
 };
 

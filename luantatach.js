@@ -3913,38 +3913,38 @@ function LuanCacCachCucKhacTatAch(keyArr) {
         keyArr.push("Hóa Khoa hội chiếu cung Tật Ách gặp các sao Thiên Đức, Phúc Đức, Thanh Long");
     }
     // Tả Hữu và các sao giải
-    if (kiemTraCachCuc(phutinhtatach, ["Tả Phụ", "Hữu Bật"]) && kiemTraCachCuc(phutinhtatach, ["Thiên Giải", "Địa Giải", "Giải Thần"])) {
-        console.log("Tả Phụ, Hữu Bật hội chiếu cung Tật Ách gặp các sao giải cứu Thiên Giải, Địa Giải, Giải Thần");
-        keyArr.push("Tả Phụ, Hữu Bật hội chiếu cung Tật Ách gặp các sao giải cứu Thiên Giải, Địa Giải, Giải Thần");
+    if (kiemTraCachCuc(phutinhtatach, ["Tả Phù", "Hữu Bật"]) && kiemTraCachCuc(phutinhtatach, ["Thiên Giải", "Địa Giải", "Giải Thần"])) {
+        console.log("Tả Phù, Hữu Bật hội chiếu cung Tật Ách gặp các sao giải cứu Thiên Giải, Địa Giải, Giải Thần");
+        keyArr.push("Tả Phù, Hữu Bật hội chiếu cung Tật Ách gặp các sao giải cứu Thiên Giải, Địa Giải, Giải Thần");
     }
     // Tả Hữu và các sao cúu giải Lực Sỹ, Bác Sỹ, Hóa Khoa
-    if (kiemTraCachCuc(phutinhtatach, ["Tả Phụ", "Hữu Bật"]) && kiemTraCachCuc(phutinhtatach, ["Lực Sỹ", "Bác Sỹ", "Hóa Khoa"])) {
-        console.log("Tả Phụ, Hữu Bật hội chiếu cung Tật Ách gặp các sao cúu giải Lực Sỹ, Bác Sỹ, Hóa Khoa");
-        keyArr.push("Tả Phụ, Hữu Bật hội chiếu cung Tật Ách gặp các sao cúu giải Lực Sỹ, Bác Sỹ, Hóa Khoa");
+    if (kiemTraCachCuc(phutinhtatach, ["Tả Phù", "Hữu Bật"]) && kiemTraCachCuc(phutinhtatach, ["Lực Sỹ", "Bác Sỹ", "Hóa Khoa"])) {
+        console.log("Tả Phù, Hữu Bật hội chiếu cung Tật Ách gặp các sao cúu giải Lực Sỹ, Bác Sỹ, Hóa Khoa");
+        keyArr.push("Tả Phù, Hữu Bật hội chiếu cung Tật Ách gặp các sao cúu giải Lực Sỹ, Bác Sỹ, Hóa Khoa");
     }
     // Tả Phù và các từng các sao giải
-    if (kiemTraCachCuc(phutinhtatach, ["Tả Phụ"]) && kiemTraCachCuc(phutinhtatach, ["Thiên Giải"])) {
-        console.log("Tả Phụ hội chiếu cung Tật Ách gặp các sao giải cứu Thiên Giải");
-        keyArr.push("Tả Phụ hội chiếu cung Tật Ách gặp các sao giải cứu Thiên Giải");
+    if (kiemTraCachCuc(phutinhtatach, ["Tả Phù"]) && kiemTraCachCuc(phutinhtatach, ["Thiên Giải"])) {
+        console.log("Tả Phù hội chiếu cung Tật Ách gặp các sao giải cứu Thiên Giải");
+        keyArr.push("Tả Phù hội chiếu cung Tật Ách gặp các sao giải cứu Thiên Giải");
     }
-    if (kiemTraCachCuc(phutinhtatach, ["Tả Phụ"]) && kiemTraCachCuc(phutinhtatach, ["Địa Giải"])) {
-        console.log("Tả Phụ hội chiếu cung Tật Ách gặp các sao giải cứu Địa Giải");
-        keyArr.push("Tả Phụ hội chiếu cung Tật Ách gặp các sao giải cứu Địa Giải");
+    if (kiemTraCachCuc(phutinhtatach, ["Tả Phù"]) && kiemTraCachCuc(phutinhtatach, ["Địa Giải"])) {
+        console.log("Tả Phù hội chiếu cung Tật Ách gặp các sao giải cứu Địa Giải");
+        keyArr.push("Tả Phù hội chiếu cung Tật Ách gặp các sao giải cứu Địa Giải");
     }
-    if (kiemTraCachCuc(phutinhtatach, ["Tả Phụ"]) && kiemTraCachCuc(phutinhtatach, ["Giải Thần"])) {
-        console.log("Tả Phụ hội chiếu cung Tật Ách gặp các sao giải cứu Giải Thần");
-        keyArr.push("Tả Phụ hội chiếu cung Tật Ách gặp các sao giải cứu Giải Thần");
+    if (kiemTraCachCuc(phutinhtatach, ["Tả Phù"]) && kiemTraCachCuc(phutinhtatach, ["Giải Thần"])) {
+        console.log("Tả Phù hội chiếu cung Tật Ách gặp các sao giải cứu Giải Thần");
+        keyArr.push("Tả Phù hội chiếu cung Tật Ách gặp các sao giải cứu Giải Thần");
     }
 
-    // Tả Phụ Lực Sỹ, Bác Sỹ,  đơn lẻ
-    if (kiemTraCachCuc(phutinhtatach, ["Tả Phụ", "Lực Sỹ", "Bác Sỹ"])) {
-        console.log("Tả Phụ, Lực Sỹ, Bác Sỹ hội chiếu cung Tật Ách");
-        keyArr.push("Tả Phụ, Lực Sỹ, Bác Sỹ hội chiếu cung Tật Ách");
+    // Tả Phù Lực Sỹ, Bác Sỹ,  đơn lẻ
+    if (kiemTraCachCuc(phutinhtatach, ["Tả Phù", "Lực Sỹ", "Bác Sỹ"])) {
+        console.log("Tả Phù, Lực Sỹ, Bác Sỹ hội chiếu cung Tật Ách");
+        keyArr.push("Tả Phù, Lực Sỹ, Bác Sỹ hội chiếu cung Tật Ách");
     }
-    // Tả Phụ với các sao giải nhỏ
-    if (kiemTraCachCuc(phutinhtatach, ["Tả Phụ"]) && kiemTraCachCuc(phutinhtatach, ["Thanh Long", "Phúc Đức", "Thiên Đức"])) {
-        console.log("Tả Phụ hội chiếu cung Tật Ách gặp các sao giải Thanh Long, Phúc Đức, Thiên Đức");
-        keyArr.push("Tả Phụ hội chiếu cung Tật Ách gặp các sao giải Thanh Long, Phúc Đức, Thiên Đức");
+    // Tả Phù với các sao giải nhỏ
+    if (kiemTraCachCuc(phutinhtatach, ["Tả Phù"]) && kiemTraCachCuc(phutinhtatach, ["Thanh Long", "Phúc Đức", "Thiên Đức"])) {
+        console.log("Tả Phù hội chiếu cung Tật Ách gặp các sao giải Thanh Long, Phúc Đức, Thiên Đức");
+        keyArr.push("Tả Phù hội chiếu cung Tật Ách gặp các sao giải Thanh Long, Phúc Đức, Thiên Đức");
     }
     // Hữu Bật và các từng các sao giải
     if (kiemTraCachCuc(phutinhtatach, ["Hữu Bật"]) && kiemTraCachCuc(phutinhtatach, ["Thiên Giải"])) {
@@ -3971,37 +3971,37 @@ function LuanCacCachCucKhacTatAch(keyArr) {
     }
 
     // Tả Hữu với các sao sát tinh
-    if (kiemTraCachCuc(phutinhtatach, ["Tả Phụ", "Hữu Bật"]) && kiemTraCachCuc(phutinhtatach, ["Kình Dương", "Đà La", "Hỏa Tinh", "Linh Tinh"])) {
-        console.log("Tả Phụ, Hữu Bật hội chiếu cung Tật Ách gặp các sao sát tinh Kình Dương, Đà La, Hỏa Tinh, Linh Tinh");
-        keyArr.push("Tả Phụ, Hữu Bật hội chiếu cung Tật Ách gặp các sao sát tinh Kình Dương, Đà La, Hỏa Tinh, Linh Tinh");
+    if (kiemTraCachCuc(phutinhtatach, ["Tả Phù", "Hữu Bật"]) && kiemTraCachCuc(phutinhtatach, ["Kình Dương", "Đà La", "Hỏa Tinh", "Linh Tinh"])) {
+        console.log("Tả Phù, Hữu Bật hội chiếu cung Tật Ách gặp các sao sát tinh Kình Dương, Đà La, Hỏa Tinh, Linh Tinh");
+        keyArr.push("Tả Phù, Hữu Bật hội chiếu cung Tật Ách gặp các sao sát tinh Kình Dương, Đà La, Hỏa Tinh, Linh Tinh");
     }
-    // Tả Phụ, Hữu Bật gặp Kình Dương, Đà La
-    if (kiemTraCachCuc(phutinhtatach, ["Tả Phụ", "Hữu Bật", "Kình Dương", "Đà La"])) {
-        console.log("Tả Phụ, Hữu Bật hội chiếu cung Tật Ách gặp các sao Kình Dương, Đà La");
-        keyArr.push("Tả Phụ, Hữu Bật hội chiếu cung Tật Ách gặp các sao Kình Dương, Đà La");
+    // Tả Phù, Hữu Bật gặp Kình Dương, Đà La
+    if (kiemTraCachCuc(phutinhtatach, ["Tả Phù", "Hữu Bật", "Kình Dương", "Đà La"])) {
+        console.log("Tả Phù, Hữu Bật hội chiếu cung Tật Ách gặp các sao Kình Dương, Đà La");
+        keyArr.push("Tả Phù, Hữu Bật hội chiếu cung Tật Ách gặp các sao Kình Dương, Đà La");
     }
-    // Tả Phụ, Hữu Bật gặp Hỏa Tinh, Linh Tinh
-    if (kiemTraCachCuc(phutinhtatach, ["Tả Phụ", "Hữu Bật", "Hỏa Tinh", "Linh Tinh"])) {
-        console.log("Tả Phụ, Hữu Bật hội chiếu cung Tật Ách gặp các sao Hỏa Tinh, Linh Tinh");
-        keyArr.push("Tả Phụ, Hữu Bật hội chiếu cung Tật Ách gặp các sao Hỏa Tinh, Linh Tinh");
+    // Tả Phù, Hữu Bật gặp Hỏa Tinh, Linh Tinh
+    if (kiemTraCachCuc(phutinhtatach, ["Tả Phù", "Hữu Bật", "Hỏa Tinh", "Linh Tinh"])) {
+        console.log("Tả Phù, Hữu Bật hội chiếu cung Tật Ách gặp các sao Hỏa Tinh, Linh Tinh");
+        keyArr.push("Tả Phù, Hữu Bật hội chiếu cung Tật Ách gặp các sao Hỏa Tinh, Linh Tinh");
     }
-    // Tả Phụ, Hữu Bật gặp Địa Không, Địa Kiếp
-    if (kiemTraCachCuc(phutinhtatach, ["Tả Phụ", "Hữu Bật", "Địa Không", "Địa Kiếp"])) {
-        console.log("Tả Phụ, Hữu Bật hội chiếu cung Tật Ách gặp các sao Địa Không, Địa Kiếp");
-        keyArr.push("Tả Phụ, Hữu Bật hội chiếu cung Tật Ách gặp các sao Địa Không, Địa Kiếp");
+    // Tả Phù, Hữu Bật gặp Địa Không, Địa Kiếp
+    if (kiemTraCachCuc(phutinhtatach, ["Tả Phù", "Hữu Bật", "Địa Không", "Địa Kiếp"])) {
+        console.log("Tả Phù, Hữu Bật hội chiếu cung Tật Ách gặp các sao Địa Không, Địa Kiếp");
+        keyArr.push("Tả Phù, Hữu Bật hội chiếu cung Tật Ách gặp các sao Địa Không, Địa Kiếp");
     }
-    // Tả Phụ gặp các sao sát tinh
-    if (kiemTraCachCuc(phutinhtatach, ["Tả Phụ", "Kình Dương", "Đà La"])) {
-        console.log("Tả Phụ hội chiếu cung Tật Ách gặp các sao Kình Dương, Đà La");
-        keyArr.push("Tả Phụ hội chiếu cung Tật Ách gặp các sao Kình Dương, Đà La");
+    // Tả Phù gặp các sao sát tinh
+    if (kiemTraCachCuc(phutinhtatach, ["Tả Phù", "Kình Dương", "Đà La"])) {
+        console.log("Tả Phù hội chiếu cung Tật Ách gặp các sao Kình Dương, Đà La");
+        keyArr.push("Tả Phù hội chiếu cung Tật Ách gặp các sao Kình Dương, Đà La");
     }
-    if (kiemTraCachCuc(phutinhtatach, ["Tả Phụ", "Hỏa Tinh", "Linh Tinh"])) {
-        console.log("Tả Phụ hội chiếu cung Tật Ách gặp các sao Hỏa Tinh, Linh Tinh");
-        keyArr.push("Tả Phụ hội chiếu cung Tật Ách gặp các sao Hỏa Tinh, Linh Tinh");
+    if (kiemTraCachCuc(phutinhtatach, ["Tả Phù", "Hỏa Tinh", "Linh Tinh"])) {
+        console.log("Tả Phù hội chiếu cung Tật Ách gặp các sao Hỏa Tinh, Linh Tinh");
+        keyArr.push("Tả Phù hội chiếu cung Tật Ách gặp các sao Hỏa Tinh, Linh Tinh");
     }
-    if (kiemTraCachCuc(phutinhtatach, ["Tả Phụ", "Địa Không", "Địa Kiếp"])) {
-        console.log("Tả Phụ hội chiếu cung Tật Ách gặp các sao Địa Không, Địa Kiếp");
-        keyArr.push("Tả Phụ hội chiếu cung Tật Ách gặp các sao Địa Không, Địa Kiếp");
+    if (kiemTraCachCuc(phutinhtatach, ["Tả Phù", "Địa Không", "Địa Kiếp"])) {
+        console.log("Tả Phù hội chiếu cung Tật Ách gặp các sao Địa Không, Địa Kiếp");
+        keyArr.push("Tả Phù hội chiếu cung Tật Ách gặp các sao Địa Không, Địa Kiếp");
     }
     // Hữu Bật gặp các sao sát tinh
     if (kiemTraCachCuc(phutinhtatach, ["Hữu Bật", "Kình Dương", "Đà La"])) {

@@ -3836,22 +3836,22 @@ function LuanCacCachCucKhacQuanLoc(keyArr) {
     
     
 
-    // thêm sao Tả Phụ Hữu Bật
-    if(lasoData.lasoOb[4].chi==="Thìn" && kiemTraCachCuc("Thiên Lương",["Thiên Cơ","Thái Âm","Thiên Đồng","Văn Xương","Văn Khúc", "Tả Phụ", "Hữu Bật"])) {
-        console.log("Quan Lộc an tại Thìn có Thiên Lương, Thiên Cơ, Thái Âm, Thiên Đồng, Văn Xương, Văn Khúc, Tả Phụ, Hữu Bật hội họp");
-        keyArr.push("Quan Lộc an tại Thìn có Thiên Lương, Thiên Cơ, Thái Âm, Thiên Đồng, Văn Xương, Văn Khúc, Tả Phụ, Hữu Bật hội họp");
+    // thêm sao Tả Phù Hữu Bật
+    if(lasoData.lasoOb[4].chi==="Thìn" && kiemTraCachCuc("Thiên Lương",["Thiên Cơ","Thái Âm","Thiên Đồng","Văn Xương","Văn Khúc", "Tả Phù", "Hữu Bật"])) {
+        console.log("Quan Lộc an tại Thìn có Thiên Lương, Thiên Cơ, Thái Âm, Thiên Đồng, Văn Xương, Văn Khúc, Tả Phù, Hữu Bật hội họp");
+        keyArr.push("Quan Lộc an tại Thìn có Thiên Lương, Thiên Cơ, Thái Âm, Thiên Đồng, Văn Xương, Văn Khúc, Tả Phù, Hữu Bật hội họp");
     }
-    if(lasoData.lasoOb[4].chi==="Thân" && kiemTraCachCuc("Thiên Lương",["Thiên Cơ","Thái Âm","Thiên Đồng","Văn Xương","Văn Khúc", "Tả Phụ", "Hữu Bật"])) {
-       console.log("Quan Lộc an tại Thân có Thiên Lương, Thiên Cơ, Thái Âm, Thiên Đồng, Văn Xương, Văn Khúc, Tả Phụ, Hữu Bật hội họp");
-        keyArr.push("Quan Lộc an tại Thân có Thiên Lương, Thiên Cơ, Thái Âm, Thiên Đồng, Văn Xương, Văn Khúc, Tả Phụ, Hữu Bật hội họp");
+    if(lasoData.lasoOb[4].chi==="Thân" && kiemTraCachCuc("Thiên Lương",["Thiên Cơ","Thái Âm","Thiên Đồng","Văn Xương","Văn Khúc", "Tả Phù", "Hữu Bật"])) {
+       console.log("Quan Lộc an tại Thân có Thiên Lương, Thiên Cơ, Thái Âm, Thiên Đồng, Văn Xương, Văn Khúc, Tả Phù, Hữu Bật hội họp");
+        keyArr.push("Quan Lộc an tại Thân có Thiên Lương, Thiên Cơ, Thái Âm, Thiên Đồng, Văn Xương, Văn Khúc, Tả Phù, Hữu Bật hội họp");
     }
-    if(lasoData.lasoOb[4].chi==="Dần" && kiemTraCachCuc("Thiên Lương",["Thiên Cơ","Thái Âm","Thiên Đồng","Văn Xương","Văn Khúc", "Tả Phụ", "Hữu Bật"])) {
-       console.log("Quan Lộc an tại Dần có Thiên Lương, Thiên Cơ, Thiên Đồng, Thái Âm, Văn Xương, Văn Khúc, Tả Phụ, Hữu Bật hội họp");
-        keyArr.push("Quan Lộc an tại Dần có Thiên Lương, Thiên Cơ, Thiên Đồng, Thái Âm, Văn Xương, Văn Khúc, Tả Phụ, Hữu Bật hội họp");
+    if(lasoData.lasoOb[4].chi==="Dần" && kiemTraCachCuc("Thiên Lương",["Thiên Cơ","Thái Âm","Thiên Đồng","Văn Xương","Văn Khúc", "Tả Phù", "Hữu Bật"])) {
+       console.log("Quan Lộc an tại Dần có Thiên Lương, Thiên Cơ, Thiên Đồng, Thái Âm, Văn Xương, Văn Khúc, Tả Phù, Hữu Bật hội họp");
+        keyArr.push("Quan Lộc an tại Dần có Thiên Lương, Thiên Cơ, Thiên Đồng, Thái Âm, Văn Xương, Văn Khúc, Tả Phù, Hữu Bật hội họp");
     }
-    if(lasoData.lasoOb[4].chi==="Tuất" && kiemTraCachCuc("Thiên Lương",["Thiên Cơ","Thái Âm","Thiên Đồng","Văn Xương","Văn Khúc", "Tả Phụ", "Hữu Bật"])) {
-        console.log("Quan Lộc an tại Tuất có Thiên Lương, Thiên Cơ, Thiên Đồng, Thái Âm, Văn Xương, Văn Khúc, Tả Phụ, Hữu Bật hội họp");
-        keyArr.push("Quan Lộc an tại Tuất có Thiên Lương, Thiên Cơ, Thiên Đồng, Thái Âm, Văn Xương, Văn Khúc, Tả Phụ, Hữu Bật hội họp");
+    if(lasoData.lasoOb[4].chi==="Tuất" && kiemTraCachCuc("Thiên Lương",["Thiên Cơ","Thái Âm","Thiên Đồng","Văn Xương","Văn Khúc", "Tả Phù", "Hữu Bật"])) {
+        console.log("Quan Lộc an tại Tuất có Thiên Lương, Thiên Cơ, Thiên Đồng, Thái Âm, Văn Xương, Văn Khúc, Tả Phù, Hữu Bật hội họp");
+        keyArr.push("Quan Lộc an tại Tuất có Thiên Lương, Thiên Cơ, Thiên Đồng, Thái Âm, Văn Xương, Văn Khúc, Tả Phù, Hữu Bật hội họp");
     }
 
     if(isHaiSaoDongCungTaiCung("Quan Lộc","Kình Dương","Lực Sỹ")) {
