@@ -523,6 +523,13 @@ function LuanCachCucSaoLiemTrinh(keyArr) {
         keyArr.push("Liêm Trinh tọa thủ cung Mệnh gặp Thất Sát");
     }
 
+    if (getDanhSachChinhTinhTungCung()[idCungMenh].chinhTinh.length === 0) {
+        if (isHaiSaoDongCungTaiCungChi("Thiên Di", "Liêm Trinh", "Thiên Phủ")) {
+            console.log("Mệnh vô chính diệu, Liêm Trinh, Thiên Phủ đồng cung tại Thiên Di");
+            keyArr.push("Mệnh vô chính diệu, Liêm Trinh, Thiên Phủ đồng cung tại Thiên Di");
+        }
+    }
+
 }
 
 function LuanCachCucSaoThienDong(keyArr) {
