@@ -114,6 +114,7 @@ function LuanCachCucSaoTuVi(keyArr) {
     const tuvu = ["Tử Vi", "Vũ Khúc"];
     const tumo = ["Thìn", "Tuất", "Mùi", "Sửu"];
     const tyngo = ["Tý", "Ngọ"];
+    const tuvupha = ["Tử Vi", "Vũ Khúc", "Phá Quân"];
     const mvd = mieu.concat(vuong).concat(dac); // Tử vi thủ mệnh ở miếu, vượng, đắc địa
 
     if (isSaoToaThuTaiCung("Mệnh", "Tử Vi")) {
@@ -277,14 +278,15 @@ function LuanCachCucSaoTuVi(keyArr) {
         console.log("Tử Vi, Thất Sát, Hóa Quyền đồng cung tại Mệnh");
         keyArr.push("Tử Vi, Thất Sát, Hóa Quyền đồng cung tại Mệnh");
     }
-
-    // Tử Vũ hoặc Tử Phá đồng cung tại Mệnh gặp Kình Đà
-    for (let i = 0; i < vupha.length; i++) {
-        if (isHaiSaoDongCungTaiCung("Mệnh", "Tử Vi", vupha[i]) && kiemTraCachCuc("Tử Vi", ["Kình Dương", "Đà La"])) {
-            console.log(`Tử Vi đồng cung với ${vupha[i]} tại Mệnh gặp Kình Dương, Đà La`);
-            keyArr.push(`Tử Vi đồng cung với ${vupha[i]} tại Mệnh gặp Kình Dương, Đà La`);
+    // Tử Vũ Phá tọa thủ Mệnh gặp Kình Dương, Đà La
+    for (let i = 0; i < tuvupha.length; i++) {
+        if (isSaoToaThuTaiCung("Mệnh", tuvupha[i]) && kiemTraCachCuc(tuvupha[i], ["Kình Dương", "Đà La"])) {
+            console.log(`${tuvupha[i]} tọa thủ cung Mệnh gặp Kình Dương, Đà La`);
+            keyArr.push(`${tuvupha[i]} tọa thủ cung Mệnh gặp Kình Dương, Đà La`);
         }
     }
+
+
 
 
     // Tử vi hoặc Vũ Khúc thủ mệnh gặp Sát tinh
@@ -861,7 +863,7 @@ function LuanCachCucThaiDuong(keyArr) {
     try {
         lasoData = JSON.parse(localStorage.getItem('laso_data')) || {};
     } catch (e) { lasoData = {}; }
-    
+
 
     for (let i = 0; i < mvd.length; i++) {
         if (isSaoToaThuTaiCungVaChi("Mệnh", mvd[i], "Thái Dương")) {
@@ -1777,11 +1779,11 @@ function LuanCachCucCuMon(keyArr) {
         console.log("Cự Môn tọa thủ cung Mệnh ở Thân đồng cung Thái Dương");
         keyArr.push("Cự Môn tọa thủ cung Mệnh ở Thân đồng cung Thái Dương");
     }
-    if (isSaoToaThuTaiCung("Mệnh",  "Cự Môn") && kiemTraCachCuc("Cự Môn", "Thái Dương") && isSaoToaThuTaiCung("Thiên Di", "Thái Dương")) {
-       
+    if (isSaoToaThuTaiCung("Mệnh", "Cự Môn") && kiemTraCachCuc("Cự Môn", "Thái Dương") && isSaoToaThuTaiCung("Thiên Di", "Thái Dương")) {
+
         keyArr.push("Cự Môn tọa thủ cung Mệnh gặp Thái Dương, Thiên Di có Thái Dương");
     }
-    
+
     if (lasoData.lasoOb[0].chi === "Dần" && isHaiSaoDongCungTaiCung("Thiên Di", "Thái Dương", "Cự Môn")) {
         console.log("Cự Môn tọa thủ cung Thiên Di đồng cung Thái Dương xung chiếu cung Mệnh ở Dần");
         keyArr.push("Cự Môn tọa thủ cung Thiên Di đồng cung Thái Dương xung chiếu cung Mệnh ở Dần");
