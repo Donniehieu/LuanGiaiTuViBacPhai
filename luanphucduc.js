@@ -507,6 +507,8 @@ function LuanCachCucSaoLiemTrinhPhucDuc(keyArr) {
             console.log(`Liêm Trinh tọa thủ cung Phúc Đức ở ${maodau[i]} gặp`, HoaLinh.join(", "));
             keyArr.push(`Liêm Trinh tọa thủ cung Phúc Đức ở ${maodau[i]} gặp`, HoaLinh.join(", "));
         }
+
+        
     }
     // Phú
     // Liêm Trinh tọa thủ gặp tứ sát Kình Đà Hỏa Linh 
