@@ -3321,47 +3321,8 @@ function LuanCacCachCucKhacQuanLoc(keyArr) {
     const cungMenh = lasoOb.find(c => c.tenCung === 'Quan Lộc');
     const chiCungMenh = lasoData.lasoOb[0].chi;
 
-    // Nếu là đàn ông sinh năm Ngọ, Mùi, Quan Lộc an tại Tý, Sửu thì cuộc đời vất vả lo toan
-
-    if (lasoData.gioitinh === 'Nam' &&
-        (lasoData.chiNam === 'Ngọ') &&
-        (chiCungMenh === 'Tý')) {
-        keyArr.push("Anh sinh năm Ngọ, Quan Lộc an tại Tý");
-    }
-    if (lasoData.gioitinh === 'Nam' &&
-        (lasoData.chiNam === 'Ngọ') &&
-        (chiCungMenh === 'Sửu')) {
-        keyArr.push("Anh sinh năm Ngọ, Quan Lộc an tại Sửu");
-    }
-    if (lasoData.gioitinh === 'Nam' &&
-        (lasoData.chiNam === 'Mùi') &&
-        (chiCungMenh === 'Tý')) {
-        keyArr.push("Anh sinh năm Mùi, Quan Lộc an tại Tý");
-    }
-    if (lasoData.gioitinh === 'Nam' &&
-        (lasoData.chiNam === 'Mùi') &&
-        (chiCungMenh === 'Tý')) {
-        keyArr.push("Anh sinh năm Mùi, Quan Lộc an tại Sửu");
-    }
-
-    // Nếu là đàn bà cung Quan Lộc an tại Tứ Mộ khôn ngoan
-
-    if (lasoData.gioitinh === 'Nữ' &&
-        (chiCungMenh === 'Thìn' || chiCungMenh === 'Sửu' || chiCungMenh === 'Tuất' || chiCungMenh === 'Mùi')) {
-        keyArr.push("Cung Quan Lộc của chị được an tại ví trí Tứ Mộ");
-    }
-    if (lasoData.gioitinh === 'Nữ' &&
-        (chiCungMenh === 'Dậu')) {
-        keyArr.push("Cung Quan Lộc của chị được an tại ví trí cung Dậu");
-    }
-    if (lasoData.gioitinh === 'Nữ' &&
-        (chiCungMenh === 'Tý')) {
-        keyArr.push("Cung Quan Lộc của chị được an tại ví trí cung Tý");
-    }
-    if (lasoData.gioitinh === 'Nữ' &&
-        (chiCungMenh === 'Ngọ')) {
-        keyArr.push("Cung Quan Lộc của chị được an tại ví trí cung Ngọ");
-    }
+   
+    
 
     if (ThanMenhDongCungVoChinhDieu(keyArr) && chiCungMenh === "Thìn") {
         keyArr.push("Thân và Quan Lộc đồng cung Vô Chính Diệu tại Thìn");
