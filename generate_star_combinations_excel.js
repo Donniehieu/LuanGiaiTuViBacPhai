@@ -39,7 +39,7 @@ function xuatExcel(filename = "cac_truong_hop_sao.xlsx") {
   const workbook = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(workbook, worksheet, "Trường hợp sao");
   XLSX.writeFile(workbook, filename);
-  console.log(`Đã xuất ra file ${filename}`);
+
 }
 
 xuatExcel();

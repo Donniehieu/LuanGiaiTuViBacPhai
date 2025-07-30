@@ -3424,10 +3424,7 @@ function LuanCacCachCucKhacTaiBach(keyArr) {
     const vitri_dala = findChiCungChuaSao("Đà La", lasoData.lasoOb);
     const vitri_khong = findChiCungChuaSao("Địa Không", lasoData.lasoOb);
     const vitri_kiep = findChiCungChuaSao("Địa Kiếp", lasoData.lasoOb);
-    const thientuong_dac = ["Dần", "Thân", "Thìn", "Tuất","Tý","Ngọ","Sửu","Mùi", "Hợi","Tỵ"];
-    const thientuong_ham = ["Mão", "Dậu"];
-    let vtr_thientuong = "";
-    vtr_thientuong = kiemTraSaoSangToi(thientuong_dac, thientuong_ham, lasoData.lasoOb.find(c => c.tenSao === "Thiên Tướng").vitri);
+    
     let vtr_kinhduong = "";
     vtr_kinhduong = kiemTraSaoSangToi(kinhda_dac, kinhda_ham, vitri_kinhduong);
     let vtr_dala = "";

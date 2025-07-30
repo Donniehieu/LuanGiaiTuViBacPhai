@@ -68,7 +68,7 @@ function LuanCungDienTrach(keyArr) {
     } catch (e) { lasoData = {}; }
     const vitriDiaSinhCungMenh = kiemTraDiaSinh(lasoData.hanhMenh, lasoData.lasoOb[0].chi);
     keyArr.push(`Vị trí địa sinh cung Điền Trạch tại ${vitriDiaSinhCungMenh}`);
-    console.log(`Vị trí địa sinh cung Điền Trạch tại ${vitriDiaSinhCungMenh}`);
+ 
     LuanCachCucSaoTuViDienTrach(keyArr);
     LuanCachCucSaoLiemTrinhDienTrach(keyArr);
     LuanCachCucSaoThienDongDienTrach(keyArr);
@@ -119,13 +119,13 @@ function LuanCachCucSaoTuViDienTrach(keyArr) {
     const mvd = mieu.concat(vuong).concat(dac); // Tử vi thủ Điền Trạch ở miếu, vượng, đắc địa
 
     if (isSaoToaThuTaiCung("Điền Trạch", "Tử Vi")) {
-        console.log("Tử Vi tọa thủ cung Điền Trạch");
+      
         keyArr.push("Tử Vi tọa thủ cung Điền Trạch");
     }
 
     for (let i = 0; i < mvd.length; i++) {
         if (isSaoToaThuTaiCungVaChi("Điền Trạch", mvd[i], "Tử Vi")) {
-            console.log(`Tử Vi tọa thủ cung Điền Trạch ở ${mvd[i]}`);
+         
             keyArr.push(`Tử Vi tọa thủ cung Điền Trạch ở ${mvd[i]}`);
         }
     }
@@ -133,14 +133,14 @@ function LuanCachCucSaoTuViDienTrach(keyArr) {
 
     for (let i = 0; i < mb.length; i++) {
         if (isSaoToaThuTaiCungVaChi("Điền Trạch", mb[i], "Tử Vi")) {
-            console.log(`Tử Vi tọa thủ cung Điền Trạch ở ${mb[i]}`);
+            
             keyArr.push(`Tử Vi tọa thủ cung Điền Trạch ở ${mb[i]}`);
         }
     }
     const vd = vuong.concat(dac); // Tử vi thủ Điền Trạch ở vượng, đắc địa
     for (let i = 0; i < vd.length; i++) {
         if (isSaoToaThuTaiCungVaChi("Điền Trạch", vd[i], "Tử Vi")) {
-            console.log(`Tử Vi tọa thủ cung Điền Trạch ở ${vd[i]}`);
+          
             keyArr.push(`Tử Vi tọa thủ cung Điền Trạch ở ${vd[i]}`);
         }
     }
@@ -149,7 +149,7 @@ function LuanCachCucSaoTuViDienTrach(keyArr) {
 
 
     if (isSaoToaThuTaiCung("Điền Trạch", "Tử Vi") && kiemTraCachCuc("Tử Vi", cattinh)) {
-        console.log("Tử Vi tọa thủ cung Điền Trạch và hội chiếu các sao:", cattinh.join(", "));
+     
         keyArr.push("Tử Vi tọa thủ cung Điền Trạch và hội chiếu các", cattinh.join(", "));
     }
     //Tử vi thủ Điền Trạch gặp sát tinh
@@ -157,17 +157,17 @@ function LuanCachCucSaoTuViDienTrach(keyArr) {
 
 
     if (isSaoToaThuTaiCung("Điền Trạch", "Tử Vi") && kiemTraCachCuc("Tử Vi", KhongKiep)) {
-        console.log("Tử Vi tọa thủ cung Điền Trạch và hội chiếu ", KhongKiep.join(", "));
+      
         keyArr.push("Tử Vi tọa thủ cung Điền Trạch và hội chiếu ", KhongKiep.join(", "));
         if (kiemTraCachCuc("Tử Vi", hungtinh)) {
-            console.log("Tử Vi tọa thủ cung Điền Trạch và hội chiếu các sao:", hungtinh.join(", "));
+          
             keyArr.push("Tử Vi tọa thủ cung Điền Trạch và hội chiếu các", hungtinh.join(", "));
 
         }
     }
     // Tử Vi đồng cung Tham Lang tại Điền Trạch 
     if (isHaiSaoDongCungTaiCung("Điền Trạch", "Tử Vi", "Tham Lang")) {
-        console.log("Tử Vi đồng cung với Tham Lang tại Điền Trạch");
+       
         keyArr.push("Tử Vi đồng cung với Tham Lang tại Điền Trạch");
     }
 
@@ -176,7 +176,7 @@ function LuanCachCucSaoTuViDienTrach(keyArr) {
 
     for (let i = 0; i < maodau.length; i++) {
         if (isSaoToaThuTaiCungVaChi("Điền Trạch", maodau[i], "Tử Vi") && isHaiSaoDongCungTaiCung("Điền Trạch", "Tử Vi", Tham)) {
-            console.log(`Tử Vi đồng cung với Tham Lang tại Điền Trạch ở ${maodau[i]}`);
+          
             keyArr.push(`Tử Vi đồng cung với Tham Lang tại Điền Trạch ở ${maodau[i]}`);
 
         }
