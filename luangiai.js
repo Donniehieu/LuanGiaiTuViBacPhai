@@ -273,14 +273,7 @@ function hienThiKetQuaNhieuBoSao(results, targetDivId = 'result') {
 
     if (!el) el = document.querySelector('.' + targetDivId);
     if (!el) {
-        results.forEach(r => {
-            if (r.found) {
-                
-                r.values.forEach(v => 
-            } else {
-                
-            }
-        });
+       
         return;
     }
 
