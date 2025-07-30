@@ -144,7 +144,7 @@ function getNhiHopNhiHai(idCungGoc) {
 }
 function getTamPhuongTuChinhIdx(idxCungGoc) {
     // Trả về chỉ số các cung tam phương tứ chính
-    console.log("Chỉ số cung gốc:", idxCungGoc);
+    
     return [
         (idxCungGoc + 4) % 12, // Cung tam hợp
         (idxCungGoc + 6) % 12,  // Cung đối

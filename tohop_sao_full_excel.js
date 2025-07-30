@@ -82,7 +82,7 @@ function exportExcel() {
   XLSX.utils.book_append_sheet(wb, ws3, "SatTinh_SatTinh");
 
   XLSX.writeFile(wb, "tohop_sao_full.xlsx");
-  console.log("Đã xuất file tohop_sao_full.xlsx thành công!");
+  
 }
 
 exportExcel();

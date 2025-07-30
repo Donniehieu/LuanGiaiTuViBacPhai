@@ -26,7 +26,7 @@ function LuanGiaiChung() {
     luanGiaiChung.push(kiemTraThuanMuaSinh(lasoData.hanhMenh, lasoData.thangsinh));
     luanGiaiChung.push(kiemTraThuanGioSinh(lasoData.thangsinh, lasoData.giosinh));
     luanGiaiChung.push(nhanXetNamSinhGioSinh(lasoData.chiNam, lasoData.giosinh));
-    console.log("/////////////////"+lasoData.hanhMenh, lasoData.thangsinh);
+    
 
 }
 function checkLocTonHayLuuNienVanTinh(lasoData){

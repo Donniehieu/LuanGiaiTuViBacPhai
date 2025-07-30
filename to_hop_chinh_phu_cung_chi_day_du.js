@@ -93,4 +93,3 @@ const csv = BOM + rows.map(row =>
 ).join('\n');
 
 fs.writeFileSync('to_hop_chinh_phu_cung_chi_day_du.csv', csv, 'utf8');
-console.log('Đã xuất file to_hop_chinh_phu_cung_chi_day_du.csv với đầy đủ tổ hợp!');

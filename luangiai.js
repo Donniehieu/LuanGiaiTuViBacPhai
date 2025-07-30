@@ -275,10 +275,10 @@ function hienThiKetQuaNhieuBoSao(results, targetDivId = 'result') {
     if (!el) {
         results.forEach(r => {
             if (r.found) {
-                console.log(r.key + ":");
-                r.values.forEach(v => console.log("  - " + v));
+                
+                r.values.forEach(v => 
             } else {
-                console.log(r.key + ": Không tìm thấy");
+                
             }
         });
         return;
@@ -699,7 +699,7 @@ function LuanGiaiCacCungVaHienThi() {
         const keyArr = [];
         const vitriDiaSinhCungMenh = kiemTraDiaSinh(lasoData.hanhMenh, lasoData.lasoOb[0].chi);
         keyArr.push(`Vị trí địa sinh cung Mệnh tại ${vitriDiaSinhCungMenh}`);
-        console.log(`Vị trí địa sinh cung Mệnh tại ${vitriDiaSinhCungMenh}`);
+        
         //xét các chính tinh
 
 
@@ -721,30 +721,30 @@ function LuanGiaiCacCungVaHienThi() {
         } else if (chinhTinh.length === 1) {
 
             keyArr.push(chinhTinh[0] + " tọa thủ tại " + item.chi);
-            console.log(chinhTinh[0] + " tọa thủ tại " + item.chi);
+            
         } else if (chinhTinh.length === 2) {
             keyArr.push(chinhTinh[0] + " và " + chinhTinh[1] + " đồng cung tại " + item.chi);
-            console.log(chinhTinh[0] + " và " + chinhTinh[1] + " đồng cung tại " + item.chi);
+            
         }
         else chinhTinh.forEach(ct => {
             if (ct)
 
                 if (chinhTinh.length == 2) {
                     keyArr.push(chinhTinh[0] + " và " + chinhTinh[1] + " đồng cung tại " + item.chi);
-                    console.log(chinhTinh[0] + " và " + chinhTinh[1] + " đồng cung tại " + item.chi);
+                    
                 }
         });
 
 
         // Xét các phụ tinh
         const phuTinh = dsPhu[i].phuTinh;
-        console.log("Phụ tinh của cung " + item.tenCung + ": " + phuTinh.join(", "));
+        
         phuTinh.forEach(pt => {
-            console.log(pt + " tọa thủ tại " + item.tenCung);
+            
             if (pt) {
                 keyArr.push(pt + " tọa thủ tại " + item.tenCung);
 
-                console.log(pt + " tọa thủ tại " + item.tenCung);
+                
             }
         });
         // Kiểm tra nếu cung Mệnh và cung Thân có sao Địa Không và Địa Kiếp
@@ -766,7 +766,7 @@ function LuanGiaiCacCungVaHienThi() {
 
         //Xét các sao trong tứ chiếu
         const cachCuc = findCachCuc(getStarsInTuChieu(i, dsChinh, dsPhu));
-        console.log("CÁCH CỤC " + cachCuc);
+        
 
 
         // Kiểm tra các cách cục đặc biệt
