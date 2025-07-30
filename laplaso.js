@@ -220,6 +220,8 @@ document.getElementById('form_tuvi').addEventListener('submit', function (e) {
     phamgio_da_de = checkGioDaDe(am.thang, chiGio);
     phamgio_tuong_quan = checkGioTuongQuan(am.thang, chiGio);
     phamgio_kim_xa_thiet_toa = checkGioKimXaThietToa(chiNam, am.thang, am.ngay, chiGio, gioitinh);
+    const thangsinh = am.thang;
+    const giosinh = chiGio;
 
     // Tạo object lưu thông tin cần thiết
     const lasoData = {
@@ -233,7 +235,9 @@ document.getElementById('form_tuvi').addEventListener('submit', function (e) {
         lasoOb,
         am_duong_tinh_chat,
         cungCu,
-        gioitinh
+        gioitinh,
+        thangsinh,
+        giosinh,
         // có thể bổ sung các thông tin khác nếu muốn
     };
     // Lưu vào localStorage

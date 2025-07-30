@@ -521,10 +521,19 @@ const DS_CACH_CUC = [
     { key: "Tử Vi Tả Hữu", need: ["Tử Vi", "Tả Phù", "Hữu Bật"] },
     { key: "Khoa Quyền Lộc", need: ["Hóa Khoa", "Hóa Quyền", "Hóa Lộc"] },
 
+    { key: "Cơ Nguyệt Đồng Lương Tả Hữu Quang Quý Quan Phúc", need: ["Thiên Cơ", "Thiên Lương", "Thiên Đồng", "Thái Âm", "Tả Phù", "Hữu Bật", "Ân Quang", "Thiên Quý", "Quan Phúc"] },
+    { key: "Cơ Nguyệt Đồng Lương Tả Hữu Khoa Quyền Khôi Việt Xương Khúc Tấu", need: ["Thiên Cơ", "Thiên Lương", "Thiên Đồng", "Thái Âm", "Tả Phù", "Hữu Bật", "Hóa Khoa", "Hóa Quyền", "Thiên Khôi", "Thiên Việt", "Văn Xương", "Văn Khúc", "Tấu Thư"] },
+    { key: "Cơ Nguyệt Đồng Lương Tả Hữu Xương Khúc", need: ["Thiên Cơ", "Thiên Lương", "Thiên Đồng", "Thái Âm", "Tả Phù", "Hữu Bật", "Văn Xương", "Văn Khúc"] },
+    { key: "Tử Phủ Vũ Tướng Tả Hữu Long Phượng Hình Riêu", need: ["Tử Vi", "Thiên Phủ", "Vũ Khúc", "Thiên Tướng", "Tả Phù", "Hữu Bật", "Long Trì", "Phượng Các", "Thiên Hình", "Thiên Riêu"] },
+    { key: "Thiên Cơ Hồng Riêu Đào Tấu", need: ["Thiên Cơ", "Hồng Loan", "Thiên Riêu", "Đào Hoa", "Tấu Thư"] },
+    { key: "Thiên Cơ Hồng Tấu", need: ["Thiên Cơ", "Hồng Loan", "Tấu Thư"] },
+    { key: "Sát Phá Liêm Tham Hồng Đào Tấu Long Phượng", need: ["Thất Sát", "Phá Quân", "Liêm Trinh", "Tham Lang", "Hồng Loan", "Đào Hoa", "Tấu Thư", "Long Trì", "Phượng Các"] },
 
-
-
-
+    { key: "Cơ Nguyệt Đồng Lương Tả Hữu Xương Khúc Thai Cáo", need: ["Thiên Cơ", "Thiên Lương", "Thiên Đồng", "Thái Âm", "Tả Phù", "Hữu Bật", "Văn Xương", "Văn Khúc", "Thai Cáo"] },
+    { key: "Cơ Nguyệt Đồng Lương Tướng Ấn Long Phượng Phù", need: ["Thiên Cơ", "Thiên Lương", "Thiên Đồng", "Thái Âm", "Thiên Tướng", "Quốc Ấn", "Long Trì", "Phượng Các", "Trực Phù"] },
+    { key: "Sát Phá Liêm Tham Tả Hữu Quyền Lộc Nhật Nguyệt", need: ["Thất Sát", "Phá Quân", "Liêm Trinh", "Tham Lang", "Tả Phù", "Hữu Bật", "Hóa Quyền", "Hóa Lộc", "Thái Dương", "Thái Âm"] },
+    { key: "Đồng Long Phượng Hình Riêu Hồng Đào", need: ["Thiên Đồng", "Long Trì", "Phượng Các", "Thiên Hình", "Thiên Riêu", "Hồng Loan", "Đào Hoa"] },
+    { key: "Thiên Tướng Quan Phù Tả Hữu Tướng Ấn", need: ["Thiên Tướng", "Quan Phù", "Tả Phù", "Hữu Bật", "Tướng Quân", "Quốc Ấn"] },
 
 
 
